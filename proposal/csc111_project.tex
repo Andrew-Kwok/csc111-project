@@ -1,0 +1,177 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{fancyvrb}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{calc,shapes.multipart,chains,arrows}
+\setlength{\parindent}{0cm}
+
+
+
+\title{CSC111 Project Proposal: FLIGHT SEARCH ENGINE}
+\author{Andrew Andrew, Nagata Parama Aptana, Khoi Minh Bui, Melissa Cecilia}
+\date{Sunday, March 5, 2023}
+
+\begin{document}
+\maketitle
+
+\section*{Problem Description and Research Question} 
+
+\quad Planning a trip abroad can often be stressful, and is often worse when the destination is thousands of miles away. Securing a plane ticket is among the most crucial step in planning a trip. Nowadays, people would open Google, input several details such as time, origin city, destination, class, etc.. Afterwards, a list of possible flights would be displayed.
+
+\quad This process might sound simple, but how does this exactly work behind the scene? Through this project, we would like to find out what answer/algorithm lies behind this search engine. 
+
+\vspace{.3cm}
+
+% In order to have a good trip, the preparation step has to be seriously considered. Besides procedures such as obtaining a visa, packing necessary items, or making an itinerary for the trip, planning a route is one of the most crucial steps. Securing a flight early ensures a high-quality and stress-free experience. In general, the longer the flight is, the bigger difference in price and time between flight offered by different airlines. As an international student whose country is thousand miles away, a flight route needs to be considered carefully in order to secure a ticket with the suitable price and time. Therefore, we decided to implement a search engine that looks for the most cost-efficient flights that meet the criteria that a traveler is looking for. 
+
+% \begin{itemize}
+%     \item Given a list of plane trips (file), 
+%     \item plan a route based on the time and cost
+%     \item Filters: Origin, Destination, Departure/Arrival Date/Time, order\_by:Price/Time, Class(Economy/Business/First)
+%     \item Main attributes: total time, price
+% \end{itemize}
+
+Our research question, in its simplest form, is the following:
+\begin{quote}
+Given a set of plane flights with the following properties:
+\begin{itemize}
+    \item flightID: The ID of this flight
+    \item startingAirport: Three-character IATA airport code for the initial location
+    \item destinationAirport: Three-character IATA airport code for the arrival location
+    \item departureTime: The time (YYYY-MM-DD HH:MM in GMT+0) this flight departs departs from startingAirport
+    \item arrivalTime: The time (YYYY-MM-DD HH:MM in GMT+0) this flight arrives at destinationAirport
+    \item totalFare: the price of the ticket (in USD) including taxes and other fees
+\end{itemize}
+
+We are given a query with the following arguments/filters
+\begin{itemize}
+    \item startingAirport: Three-character IATA airport code for the initial location
+    \item destinationAirport: Three-character IATA airport code for the arrival location
+    \item departureDate: The time (YYYY-MM-DD) searcher wanted to depart
+    \item order\_by: True if searcher would like to sort by cheapest price and False if searcher would like to sort by shortest flight duration.
+\end{itemize}
+\end{quote}
+
+\underline{\textbf{Main Task:}}
+
+We are tasked to  \textbf{find the list of feasible flights that meets the searcher's requirement.} 
+
+\underline{\textbf{Additional Task:}}
+
+If several methods are found, we would like to know each method's strength: time-complexity, memory-complexity, updatability (ability to add/delete new flights efficiently), and other conditions. 
+\\
+
+Several items/properties that can be considered are
+\begin{itemize}
+    \item Maximum layover time
+    \item Maximum number of layovers
+    \item Maximum duration of the whole flight
+    \item Requirements of documents/fees, such as VISA, transit-fee, etc.
+\end{itemize}
+
+\section*{Computational Plan}
+
+\quad The central theme of our research are the flight routes, which will be represented as edges with the attributes given above. The vertices of our graphs will be the airports. However, the graph will be little different from the ones discussed in class. Edges are directed, making this graph a directed graph. Moreover, there can be more than one edges that connects two airports (i.e. when there are multiple flights between the two airports), making this graph a multi-graph. \\
+
+\quad First, we will need to build the graph of our flight network. We add all the available airport data as vertices into our graph, then add all flight data as edges. For efficiency purposes, we will store the edges in increasing flight-time.
+
+\begin{Verbatim}[frame=single]
+class Graph:
+    """A graph represent airports
+    
+    Instance Attributes:
+        - airports: A collection of the airport verticies contained in this graph
+    """
+
+class Airport:
+    """A node in the graph that represents a single airport. 
+
+    Instance Attributes:
+        - ID: Three-character IATA airport-code
+        - city: The location of the airport
+        - flights: A list of flight edges that contain each flight's ID
+    """
+    
+class Flight:
+    """An edge in the graph that represents a flight between two airports. 
+    
+    Instance Attributes:
+        - flightID: The ID of this flight
+        - startingAirport: Three-character IATA airport code for the initial location
+        - destinationAirport: Three-character IATA airport code for the arrival
+          location
+        - departureTime: The time (YYYY-MM-DD HH:MM in GMT+0) this flight departs from 
+          startingAirport
+        - arrivalTime: The time (YYYY-MM-DD HH:MM in GMT+0) this flight arrives at 
+          destinationAirport
+        - totalFare: the price of the ticket (in USD) including taxes and other fees
+    """
+\end{Verbatim}
+
+For every query, we will use two approaches
+\begin{enumerate}
+\item \textit{Naive Traversal} \\
+We will do standard graph traversal, traversing certain amount of edges depending on the date, maximum layover time, maximum number of layovers, and other variables that allows this traversal be computationally feasible. Traditionally, the maximum number of layover is $3$, which greatly reduces the complexity of this traversal algorithm.
+
+This approach does not rely on precomputing anything, but is using the available data immediately. This allows easy modification on the data, such as insertion of deletion of new flights.
+
+
+\item \href{https://ojs.aaai.org/index.php/AAAI/article/view/9154}{\textit{Pruned Landmark Labeling}} \\
+This is an optimised algorithm to find the k-shortest optimum path between two airports depending on the parameter set by the user: lowest price or least travel time (Akiba et al., 2015). The rough idea of the algorithm is to precompute a special data structure that prevents the same path to be calculated twice. Then, we send a query consisting of origin, destination, and index to the data structure to get the k-th topmost results.
+\end{enumerate}
+
+For our dataset, we found the Airfares in New Zealand data that contains flights with their origin, destination, departure and arrival time, as well as their ticket prices (Ngo, 2020).
+
+\vspace{1em}
+
+\tiny
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+    Travel Date	& Dep. airport & Dep. time & Arr. airport & Arr. time & Duration & Direct & Transit & Baggage & Airline & Airfare(NZ\$) \\
+\hline
+19/09/2019 & AKL & 1:35 PM  & CHC & 3:00 PM  & 1h 25m & (Direct) & N/A & N/A & Jetstar & 111 \\
+\hline
+19/09/2019 & AKL & 3:55 PM  & CHC & 5:20 PM  & 1h 25m & (Direct) & N/A & N/A & Jetstar & 111 \\
+\hline
+19/09/2019 & AKL & 11:40 AM & CHC & 1:05 PM  & 1h 25m & (Direct) & N/A & N/A & Jetstar & 132 \\
+\hline
+19/09/2019 & AKL & 8:00 PM  & CHC & 9:25 PM  & 1h 25m & (Direct) & N/A & N/A & Jetstar & 132 \\
+\hline
+19/09/2019 & AKL & 9:00 AM  & CHC & 10:25 AM & 1h 25m & (Direct) & N/A & N/A & Air New Zealand & 133 \\
+\hline
+\end{tabular}
+
+\normalsize
+
+\section*{References}
+AI, S. (2022, October 2). Flight fare prediction-machine learning project. Medium. Retrieved March 5, 2023, from \href{https://medium.com/@skillcate/flight-fare-prediction-machine-learning-project-bc7363e6d9eb}{https://medium.com/@skillcate/flight-fare-prediction-machine-learning-project-bc7363e6d9eb}
+
+\vspace{.2cm}
+
+Akiba, T., Hayashi, T., Nori, N., Iwata, Y., \&amp; Yoshida, Y. (n.d.). Efficient top-k shortest-path distance queries on large networks by pruned landmark labeling. Proceedings of the AAAI Conference on Artificial Intelligence. Retrieved March 5, 2023, from \href{https://ojs.aaai.org/index.php/AAAI/article/view/9154}{https://ojs.aaai.org/index.php/AAAI/article/view/9154}
+
+\vspace{.2cm}
+
+List of airport codes Excel PDF. CopyLists.com. (2022, May 8). Retrieved March 5, 2023, from \\ \href{https://copylists.com/geography/list-airport-codes/}{https://copylists.com/geography/list-airport-codes/} 
+
+\vspace{.2cm}
+
+Ngo, T. (2020, December 18). Airfares in New Zealand. Mendeley Data. Retrieved March 5, 2023, from \href{https://data.mendeley.com/datasets/w8wk4h9hxc}{https://data.mendeley.com/datasets/w8wk4h9hxc}
+
+\vspace{.2cm}
+
+Wong, D. (2022, October 18). Flight prices. Kaggle. Retrieved March 5, 2023, from \\ \href{https://www.kaggle.com/datasets/dilwong/flightprices}{https://www.kaggle.com/datasets/dilwong/flightprices}
+
+
+% NOTE: LaTeX does have a built-in way of generating references automatically,
+% but it's a bit tricky to use so we STRONGLY recommend writing your references
+% manually, using a standard academic format like APA or MLA.
+% (E.g., https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/general_format.html)
+
+
+\end{document}
