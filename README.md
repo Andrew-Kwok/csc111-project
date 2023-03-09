@@ -36,11 +36,11 @@ Our research question, in its simplest form, is the following:
 >
 > -   order_by: True if searcher would like to sort by cheapest price and False if searcher would like to sort by shortest flight duration.
 
-[**Main Task:**]{.underline}
+#### Main Task
 
 We are tasked to **find the list of feasible flights that meets the searcher's requirement.**
 
-[**Additional Task:**]{.underline}
+#### Additional Task:
 
 If several methods are found, we would like to know each method's strength: time-complexity, memory-complexity, updatability (ability to add/delete new flights efficiently), and other conditions. Several items/properties that can be considered are
 -   Maximum layover time
@@ -85,21 +85,23 @@ class Flight:
 For every query, we will use two approaches
 
 1.  *Naive Traversal*
-We will do standard graph traversal, traversing certain amount of edges depending on the date, maximum layover time, maximum number of layovers, and other variables that allows this traversal be computationally feasible. Traditionally, the maximum number of layover is $3$, which greatly reduces the complexity of this traversal algorithm.
-This approach does not rely on precomputing anything, but is using the available data immediately. This allows easy modification on the data, such as insertion of deletion of new flights.
+
+    We will do standard graph traversal, traversing certain amount of edges depending on the date, maximum layover time, maximum number of layovers, and other variables that allows this traversal be computationally feasible. Traditionally, the maximum number of layover is $3$, which greatly reduces the complexity of this traversal algorithm.
+    This approach does not rely on precomputing anything, but is using the available data immediately. This allows easy modification on the data, such as insertion of deletion of new flights.
 
 2.  [*Pruned Landmark Labeling*](https://ojs.aaai.org/index.php/AAAI/article/view/9154)
-This is an optimised algorithm to find the k-shortest optimum path between two airports depending on the parameter set by the user: lowest price or least travel time (Akiba et al., 2015). The rough idea of the algorithm is to precompute a special data structure that prevents the same path to be calculated twice. Then, we send a query consisting of origin, destination, and index to the data structure to get the k-th topmost results.
 
-For our dataset, we found the Airfares in New Zealand data that contains flights with their origin, destination, departure and arrival time, as well as their ticket prices (Ngo, 2020).
+    This is an optimised algorithm to find the k-shortest optimum path between two airports depending on the parameter set by the user: lowest price or least travel time (Akiba et al., 2015). The rough idea of the algorithm is to precompute a special data structure that prevents the same path to be calculated twice. Then, we send a query consisting of origin, destination, and index to the data structure to get the k-th topmost results.
 
-   Travel Date   Dep. airport   Dep. time   Arr. airport   Arr. time   Duration    Direct    Transit   Baggage       Airline       Airfare(NZ\$)        
-  ------------- -------------- ----------- -------------- ----------- ---------- ---------- --------- --------- ----------------- --------------- -- -- --
-   19/09/2019        AKL         1:35 PM        CHC         3:00 PM     1h 25m    (Direct)     N/A       N/A         Jetstar            111             
-   19/09/2019        AKL         3:55 PM        CHC         5:20 PM     1h 25m    (Direct)     N/A       N/A         Jetstar            111             
-   19/09/2019        AKL        11:40 AM        CHC         1:05 PM     1h 25m    (Direct)     N/A       N/A         Jetstar            132             
-   19/09/2019        AKL         8:00 PM        CHC         9:25 PM     1h 25m    (Direct)     N/A       N/A         Jetstar            132             
-   19/09/2019        AKL         9:00 AM        CHC        10:25 AM     1h 25m    (Direct)     N/A       N/A     Air New Zealand        133             
+    For our dataset, we found the Airfares in New Zealand data that contains flights with their origin, destination, departure and arrival time, as well as their ticket prices (Ngo, 2020).
+
+  | Travel Date | Dep. airport | Dep. time | Arr. airport | Arr. time | Duration |  Direct  | Transit | Baggage |     Airline     | Airfare |       
+  |-------------|--------------|-----------|--------------|-----------|----------|----------|---------|---------|-----------------|---------|
+  |19/09/2019   |    AKL       | 1:35 PM   |    CHC       | 3:00 PM   | 1h 25m   |(Direct)  |  N/A    |  N/A    |     Jetstar     |   111   |         
+  |19/09/2019   |    AKL       | 3:55 PM   |    CHC       | 5:20 PM   | 1h 25m   |(Direct)  |  N/A    |  N/A    |     Jetstar     |   111   |         
+  |19/09/2019   |    AKL       |11:40 AM   |    CHC       | 1:05 PM   | 1h 25m   |(Direct)  |  N/A    |  N/A    |     Jetstar     |   132   |         
+  |19/09/2019   |    AKL       | 8:00 PM   |    CHC       | 9:25 PM   | 1h 25m   |(Direct)  |  N/A    |  N/A    |     Jetstar     |   132   |         
+  |19/09/2019   |    AKL       | 9:00 AM   |    CHC       |10:25 AM   | 1h 25m   |(Direct)  |  N/A    |  N/A    | Air New Zealand |   133   |         
 
 ## References
 
