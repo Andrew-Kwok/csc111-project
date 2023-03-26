@@ -1,7 +1,8 @@
 """ network.py """
 
+from __future__ import annotations
 from datetime import datetime
-from typing import Any, __future__
+from typing import Any
 
 
 class Network:
@@ -60,13 +61,13 @@ class AbstractFlightSearch:
         """
         """
         pass
-    
+
     def _get_datetime_other(pivot_date: datetime, other_time: tuple[int, int, int]) -> datetime:
         """
         """
         pass
 
-    def search_shortest_flight(source: str, destination: str, departure_time: datetime): 
+    def search_shortest_flight(source: str, destination: str, departure_time: datetime):
         """
         """
         raise NotImplementedError
