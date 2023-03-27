@@ -19,7 +19,7 @@ In this program, we'll use the data provided from file `clean_no_dupe_itinerarie
 | segmentsArrivalTimeOfDay | '21:00\|\|00:30' | The arrival time of day rounded to the nearest 15 minutes for each flight on the ticket, separated by string '\|\|' |
 
 # How to get the .csv file
-In the `/data` directory, unpack `clean_no_dupe_itineraries.7z` archive by calling the `unpack_data()` function in `main.py`. The `clean_no_dupe_itineraries.csv` file will be written to the `/data` directory.
+In the `/data` directory, unpack `clean_no_dupe_itineraries.7z` archive by calling the `unpack_data()` function in `main.py`. The `clean_no_dupe_itineraries.csv` file will be written to the same directory as the `main.py` file.
 
 # Raw data processing
 If you wish to replicate our raw data processing, please follow these steps.
