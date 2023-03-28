@@ -137,44 +137,6 @@ class Ticket:
         self.price = price
 
 
-@check_contracts
-class AbstractFlightSearch:
-    """
-    An abstract implementation of flight search.
-
-    Instance Attributes:
-        - flight_network: The network used to look-up flights.
-    """
-    flight_network: Network
-
-    def __init__(self, flight_network: Network) -> None:
-        """
-        """
-        self.flight_network = flight_network
-
-    def _merge_ticket(self, tickets: list[Ticket]) -> Ticket:
-        """
-        """
-
-    def _get_day_of_week(self, date: datetime) -> tuple[int, int, int]:
-        """
-        """
-
-    def _get_datetime_other(self, pivot_date: datetime, other_time: tuple[int, int, int]) -> datetime:
-        """
-        """
-
-    def search_shortest_flight(self, source: str, destination: str, departure_time: datetime) -> list[Ticket]:
-        """
-        """
-        raise NotImplementedError
-
-    def search_cheapest_flight(self, source: str, destination: str, departure_time: datetime) -> list[Ticket]:
-        """
-        """
-        raise NotImplementedError
-
-
 if __name__ == '__main__':
     import python_ta
     python_ta.check_all(config={
