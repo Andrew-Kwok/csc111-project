@@ -2,9 +2,7 @@
 
 from __future__ import annotations
 from typing import Any
-
 from datetime import datetime
-
 
 from python_ta.contracts import check_contracts
 
@@ -17,28 +15,38 @@ class Network:
     Each edge is a flight connecting two airports.
 
     Instance Attributes:
-        - cities: A list of all the cities in the network.
-        - airports: A dictionary that maps a city to a list of all the airports in the city.
+        - city_airport: A dictionary that maps a city to a list of all the airports' iata code in the city.
+        - airports: A dictionary that maps an airport's IATA code to its airport object
 
     Representation Invariants:
         - all(city in self.airports for city in self.cities)
     """
-    cities: set[str]
-    airports: dict[str, set[Airport]]
+    city_airport: dict[str, set[str]]
+    airports: dict[str, Airport]
 
     def __init__(self) -> None:
         """Initialize an empty network. """
-        self.cities = set()
+        self.city_airport = {}
         self.airports = {}
 
     def add_airport(self, airport: Airport) -> None:
         """Add an airport to this network and adds its corresponding city to this network
          if the city is not in this network.
         """
-        if airport.city not in self.cities:
-            self.cities.add(airport.city)
-            self.airports[airport.city] = set()
-        self.airports[airport.city].add(airport)
+        if airport.city not in self.city_airport:
+            self.city_airport[airport.city] = set()
+        self.city_airport[airport.city].add(airport.iata)
+        self.airports[airport.iata] = airport
+
+    def get_airport_from_iata(self, iata: str) -> Airport:
+        """ TODO docstring
+        """
+        return self.airports[iata]
+
+    def get_airport_from_city(self, city: str) -> set[Airport]:
+        """ TODO docstring
+        """
+        return {self.get_airport_from_iata(iata) for iata in self.city_airport[city]}
 
 
 @check_contracts
@@ -56,7 +64,8 @@ class Airport:
 
     Representation Invariants:
         - all(ticket.origin == self for ticket in tickets)
-        - all(ticket[i].departure_time <= ticket[i + 1].departure_time for i in range(len(tickets) - 1))
+        # - all(ticket[i].departure_time <= ticket[i + 1].departure_time for i in range(len(tickets) - 1))
+        # TODO: check for timezone
     """
     iata: str
     name: str
@@ -92,7 +101,7 @@ class Flight:
 
     Representation Invariants:
         - self.origin != self.destination
-        - self.departure_time <= self.arrival_time
+        # - self.departure_time <= self.arrival_time
     """
     airline: str
     flight_id: str
@@ -121,18 +130,27 @@ class Ticket:
     Instance Attributes:
         - flights: A list of the flights on the ticket.
         - price: The total price of all the flights on the ticket.
+        - origin: The departure airport of the flight.
+        - destination: The destination airport of the flight.
 
     Representation Invariants:
         - self.flights != []
-        - all(self.flights[i].arrival_time <= self.flights[i+1].departure_time for i in range(len(self.flights) - 1))
+        # - all(self.flights[i].arrival_time <= self.flights[i+1].departure_time for i in range(len(self.flights) - 1))
         - len(flights) + 1 == \
         len({flight.origin flight for flight in flights} + {flight.destination flight for flight in flights})
+        - self.origin != self.destination
+        - self.origin == self.flights[0].origin
+        - self.destination == self.flights[-1].destination
         - self.price > 0
     """
+    origin: Airport
+    destination: Airport
     flights: list[Flight]
     price: float
 
-    def __init__(self, flights: list[Flight], price: float) -> None:
+    def __init__(self, origin: Airport, destination: Airport, flights: list[Flight], price: float) -> None:
+        self.origin = origin
+        self.destination = destination
         self.flights = flights
         self.price = price
 
