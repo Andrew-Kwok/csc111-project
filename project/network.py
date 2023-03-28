@@ -17,8 +17,13 @@ class Network:
     Each edge is a flight connecting two airports.
 
     Instance Attributes:
+<<<<<<< Updated upstream
         - cities: A list of all the cities in the network.
         - airports: A dictionary that maps a city to a list of all the airports in the city.
+=======
+        - city_airport: A dictionary that maps a city to a set of all the airports' iata code in the city.
+        - airports: A dictionary that maps an airport's IATA code to its airport object.
+>>>>>>> Stashed changes
 
     Representation Invariants:
         - all(city in self.airports for city in self.cities)
@@ -35,10 +40,34 @@ class Network:
         """Add an airport to this network and adds its corresponding city to this network
          if the city is not in this network.
         """
+<<<<<<< Updated upstream
         if airport.city not in self.cities:
             self.cities.add(airport.city)
             self.airports[airport.city] = set()
         self.airports[airport.city].add(airport)
+=======
+        if airport.city not in self.city_airport:
+            self.city_airport[airport.city] = set()
+        self.city_airport[airport.city].add(airport.iata)
+        self.airports[airport.iata] = airport
+
+    def get_airport_from_iata(self, iata: str) -> Airport:
+        """Return the airport corresponding to the given three-character iata code.
+
+        Preconditions:
+            - iata in self.airports
+        """
+        return self.airports[iata]
+
+    def get_airport_from_city(self, city: str) -> set[Airport]:
+        """Return a set of all airports in the given city.
+
+        Preconditions:
+            - city in self.city_airport
+            - all(iata in self.airports for iata in self.airports)
+        """
+        return {self.get_airport_from_iata(iata) for iata in self.city_airport[city]}
+>>>>>>> Stashed changes
 
 
 @check_contracts
