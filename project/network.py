@@ -39,12 +39,19 @@ class Network:
         self.airports[airport.iata] = airport
 
     def get_airport_from_iata(self, iata: str) -> Airport:
-        """ TODO docstring
+        """Return the airport corresponding to the given three-character iata code.
+
+        Preconditions:
+            - iata in self.airports
         """
         return self.airports[iata]
 
     def get_airport_from_city(self, city: str) -> set[Airport]:
-        """ TODO docstring
+        """Return a set of all airports in the given city.
+
+        Preconditions:
+            - city in self.city_airport
+            - all(iata in self.airports for iata in self.city_airport[city])
         """
         return {self.get_airport_from_iata(iata) for iata in self.city_airport[city]}
 
