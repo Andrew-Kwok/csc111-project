@@ -70,6 +70,7 @@ class Airport:
 
 
     Representation Invariants:
+        - len(self.iata) == 3
         - all(ticket.origin == self for ticket in tickets)
         # - all(ticket[i].departure_time <= ticket[i + 1].departure_time for i in range(len(tickets) - 1))
         # TODO: check for timezone
