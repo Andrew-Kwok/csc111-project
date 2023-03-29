@@ -27,7 +27,6 @@ class AbstractFlightSearcher:
         """
 <<<<<<< Updated upstream
         """
-=======
         origin = tickets[0].origin
         destination = tickets[-1].destination
         price_so_far = 0
@@ -41,17 +40,18 @@ class AbstractFlightSearcher:
     def _get_day_of_week(date: datetime) -> tuple[int, int, int]:
         """A function that return the day and in a week and specific time of a given date"""
         return (date.weekday(), date.hour, date.minute)
->>>>>>> Stashed changes
 
     def _get_datetime_other(self, pivot_date: datetime, other_time: tuple[int, int, int]) -> datetime:
         """ A function that return the correspond datetime type for other_time given pivot_date
         """
-        # day = pivot_date.weekday()
-        # if day <= other_time[0]:  # e.g 28 march (tuesday), 30 march (thursday)
-        #     new_day = day + (day - other_time[0])
-        #     return (new_day, other_time[1], other_time[2])
-        # else:  # e.g 28 march (tuesday = 3), 27 march (monday = 2)
-        #     new_day = day + (7 - (day - other_time[0]))  # 3 + (7 - (3 - 2)
+        day = pivot_date.weekday()
+        if day <= other_time[0]:  # e.g 28 march (tuesday), 30 march (thursday)
+            new_date = pivot_date.day() + (other_time[0] - day)
+            return new_date
+
+        else:  # e.g 21 march (tuesday = 3), 27 march (monday = 2)
+            new_date = pivot_date.day() + (7 - (day - other_time[0]))
+            return new_date
 
 
     def search_shortest_flight(self, source: str, destination: str, departure_time: datetime) -> list[Ticket]:
