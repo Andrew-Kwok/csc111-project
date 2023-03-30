@@ -18,7 +18,6 @@ class AbstractFlightSearcher:
         """
         self.flight_network = flight_network
 
-    def _merge_ticket(tickets: list[Ticket]) -> Ticket:
         """A function that merge a list of tickets on a transit route
         """
         origin = ticket[0].origin
