@@ -1,0 +1,16 @@
+legId,startingAirport,destinationAirport,isNonStop,totalFare,segmentsArrivalAirportCode,segmentsDepartureAirportCode,segmentsAirlineName,segmentsDepartureWeekday,segmentsDepartureTimeOfDay,segmentsArrivalWeekday,segmentsArrivalTimeOfDay
+b646fc0a9371c2aab0d94d2e7c047c02,ATL,SFO,false,300.6,IAH||SFO,ATL||IAH,United||United,1||1,19:45||23:00,1||2,22:00||03:30
+dbe128767c8eb214d983aebf1947dd08,DFW,PHL,true,449.6,PHL,DFW,American Airlines,6,18:30,6,21:45
+eae7fbe1fa5e488bd49beae1641a124f,ATL,DEN,false,246.1,CLT||DEN,ATL||CLT,American Airlines||American Airlines,1||1,09:15||11:45,1||1,10:30||15:15
+353ae4ec42a692163e860dd5f512d6d1,ATL,LAX,false,217.2,DEN||LAX,ATL||DEN,United||United,3||4,17:30||01:30,3||4,21:00||03:45
+5cd29a402ba590fd6095aec92cf82b8e,LAX,DTW,false,291.58,IAH||DTW,LAX||IAH,Spirit Airlines||Spirit Airlines,1||2,22:45||02:45,2||2,02:00||05:30
+e336bc3d24f492bd35a32597ec8ef9e7,EWR,LAX,true,156.6,LAX,EWR,American Airlines,6,01:00,6,07:15
+8c9ed8ade0cb3006e192e184ae4f871b,OAK,DEN,false,615.59,SEA||DEN,OAK||SEA,Alaska Airlines||Alaska Airlines,2||2,20:00||23:00,2||3,22:00||01:45
+fd6324c132107ba2d270b15530b53bfb,JFK,ORD,false,499.2,PIT||ORD,JFK||PIT,Delta||United,4||4,13:00||22:00,4||4,14:45||00:00
+d3376be5dac8eb0a68d1978228d69468,SFO,ATL,true,93.99,ATL,SFO,Frontier Airlines,7,06:30,7,11:15
+6b26e768a34e7d69aa089bc1ec3acbbc,SFO,ORD,false,625.6,PHL||ORD,SFO||PHL,American Airlines||American Airlines,7||7,05:45||12:45,7||7,11:00||15:15
+f2d920dbbf263c5bf1a32adb6e6f4589,LAX,DTW,true,388.6,DTW,LAX,Delta,4,20:15,5,00:30
+bed0e3f931e017e4d6dffc621cc7303a,BOS,CLT,false,112.6,DCA||CLT,BOS||DCA,American Airlines||American Airlines,6||6,18:30||21:15,6||6,20:15||23:00
+71f068c8e190900754c676b908644a43,BOS,DFW,true,248.6,DFW,BOS,Delta,4,23:00,5,03:15
+79f44d5d1e49fc0d98ffe6ca2cfbafb7,LAX,CLT,false,564.61,PHX||CLT,LAX||PHX,American Airlines||American Airlines,1||1,16:45||21:00,1||2,18:15||01:15
+c7b4d8c1071b7079bcbf6d8ad192e31d,JFK,SFO,false,309.7,LAX||PSP||SFO,JFK||LAX||PSP,United||United||United,2||3||3,22:45||05:45||14:45,3||3||3,05:00||06:45||16:30
