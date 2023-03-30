@@ -93,6 +93,11 @@ class Airport:
         """
         self.tickets.append(ticket)
 
+    def __str__(self) -> str:
+        """return some details about the airport
+        """
+        return (f'{self.iata} - {self.name} - {self.city}')
+
 
 @check_contracts
 class Flight:
@@ -129,6 +134,11 @@ class Flight:
         self.departure_time = departure_time
         self.arrival_time = arrival_time
 
+    def __str__(self) -> str:
+        """print some details about the flight
+        """
+        return f'{self.flight_id} | {self.airline} | {self.origin.iata}({str(self.departure_time)}) to {self.destination.iata}({str(self.arrival_time)})'
+
 
 @check_contracts
 class Ticket:
@@ -161,6 +171,12 @@ class Ticket:
         self.destination = destination
         self.flights = flights
         self.price = price
+
+    def __str__(self) -> str:
+        """print some details about the ticket
+        """
+        flight_info = " - ".join(f'{flight.airline}({flight.flight_id})' for flight in self.flights)
+        return f'{self.origin.iata} to {self.destination.iata} | {self.price} | {flight_info}'
 
 
 if __name__ == '__main__':
