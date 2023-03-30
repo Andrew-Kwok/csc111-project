@@ -6,15 +6,9 @@ import csv
 import codecs
 from py7zr import SevenZipFile
 
-from network import Network, Airport, Flight, Ticket
-
 from python_ta.contracts import check_contracts
 
-# AIRPORTFILE = 'clean_no_dupe_itineraries'
-# FLIGHTFILE = 'clean_no_dupe_itineraries'
-
-AIRPORTFILE = '../data/clean_no_dupe_small'
-FLIGHTFILE = '../data/clean_no_dupe_small'
+from network import Network, Airport, Flight, Ticket
 
 
 def unpack_csv() -> None:
@@ -24,45 +18,38 @@ def unpack_csv() -> None:
     with SevenZipFile('../data/' + FLIGHTFILE + '.7z', mode='r') as z:
         z.extractall()
 
-    print('Finished extracting.')
+    # print('Finished extracting.')
 
 
-def read_csv_file() -> Network:
+def read_csv_file(airport_file: str, flight_file: str) -> Network:
+    """
+    Read and load the CSV file into a network
+
+    Preconditions:
+        - airport_file[-4:] == '.csv'
+        - flight_file[-4:] == '.csv'
+
+    """
     res_network = Network()
 
-    with open(AIRPORTFILE + '.csv') as csv_file:
+    with open(airport_file) as csv_file:
         reader = csv.DictReader(csv_file)
         header = [
-            'startingAirport'
+            'iata_code',
+            'name',
+            'municipality'
         ]
+        assert reader.fieldnames == header
 
         for row in reader:
             airport = Airport(
-                    iata=row['startingAirport'],
-                    name=row['startingAirport'],
-                    city=row['startingAirport']
-                )
-            res_network.add_airport(airport)
-            airport = Airport(      
-                    iata=row['destinationAirport'],
-                    name=row['destinationAirport'],
-                    city=row['destinationAirport']
-                )
+                iata=row['iata_code'],
+                name=row['name'],
+                city=row['municipality']
+            )
             res_network.add_airport(airport)
 
-
-            departure = row['segmentsDepartureAirportCode'].split('||')
-            for iata in departure:
-                airport = Airport(
-                        iata=iata,
-                        name=iata,
-                        city=iata
-                    )
-                res_network.add_airport(airport)
-
-
-
-    with open(FLIGHTFILE + '.csv') as csv_file:
+    with open(flight_file) as csv_file:
         reader = csv.DictReader(csv_file)
         header = [
             'legId',
@@ -90,14 +77,14 @@ def read_csv_file() -> Network:
             destination = res_network.get_airport_from_iata(row['destinationAirport'])
 
             departure = row['segmentsDepartureAirportCode'].split('||')
-            departure = [res_network.get_airport_from_iata(airport) for airport in departure]
+            departure = [res_network.get_airport_from_iata(airport_d) for airport_d in departure]
 
             departure_weekday = list(map(int, row['segmentsDepartureWeekday'].split('||')))
             departure_timeday = row['segmentsDepartureTimeOfDay'].split('||')
             departure_timeday = [tuple(map(int, timeday.split(':'))) for timeday in departure_timeday]
 
             arrival = row['segmentsArrivalAirportCode'].split('||')
-            arrival = [res_network.get_airport_from_iata(airport) for airport in arrival]
+            arrival = [res_network.get_airport_from_iata(airport_a) for airport_a in arrival]
 
             arrival_weekday = list(map(int, row['segmentsArrivalWeekday'].split('||')))
             arrival_timeday = row['segmentsArrivalTimeOfDay'].split('||')
@@ -115,15 +102,15 @@ def read_csv_file() -> Network:
                     destination=arrival[i],
                     departure_time=(departure_weekday[0], departure_timeday[i][0], departure_timeday[i][1]),
                     arrival_time=(arrival_weekday[0], arrival_timeday[i][0], arrival_timeday[i][1])
-                    )
+                )
                 flights.append(flight)
 
             ticket = Ticket(
-                    origin=origin,
-                    destination=destination,
-                    flights=flights,
-                    price=price
-                )
+                origin=origin,
+                destination=destination,
+                flights=flights,
+                price=price
+            )
 
             if origin not in airport_ticket:
                 airport_ticket[origin] = []
@@ -139,15 +126,36 @@ def read_csv_file() -> Network:
     return res_network
 
 
+def run(airport_file: str, flight_file: str) -> None:
+    """ Docstring here
+    """
+    flight_network = read_csv_file(airport_file, flight_file)
+
+    # for x in flight_network.city_airport:
+    #     print(x, flight_network.city_airport[x])
+
+    # for x in flight_network.airports:
+    #     print(x, flight_network.airports[x])
+    #     for ticket in flight_network.airports[x].tickets:
+    #         print(ticket)
+    #         for flight in ticket.flights:
+    #             print(flight)
+    #     print()
+
+
 if __name__ == '__main__':
-    # extract the 7z file
-    # unpack_csv()
+    # AIRPORTFILE = 'clean_no_dupe_itineraries'
+    # FLIGHTFILE = 'clean_no_dupe_itineraries'
 
-    read_csv_file()
+    AIRPORTFILE = '../data/airport_class_small.csv'
+    FLIGHTFILE = '../data/clean_no_dupe_itineraries_small.csv'
 
-    # import python_ta
-    # python_ta.check_all(config={
-    #     'max-line-length': 120,
-    #     'extra-imports': ['datetime'],
-    #     'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
-    # })
+    run(AIRPORTFILE, FLIGHTFILE)
+
+    import python_ta
+    python_ta.check_all(config={
+        'max-line-length': 120,
+        'extra-imports': ['datetime', 'csv', 'codecs', 'py7zr', 'network'],
+        'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
+        'allowed-io': ['read_csv_file']
+    })
