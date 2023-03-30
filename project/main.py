@@ -9,6 +9,7 @@ from py7zr import SevenZipFile
 from python_ta.contracts import check_contracts
 
 from network import Network, Airport, Flight, Ticket
+from flightsearcher import NaiveFlightSearcher, PrunedLandmarkLabeling
 
 
 def unpack_csv() -> None:
@@ -130,6 +131,10 @@ def run(airport_file: str, flight_file: str) -> None:
     """ Docstring here
     """
     flight_network = read_csv_file(airport_file, flight_file)
+    naive_searcher = NaiveFlightSearcher(flight_network)
+
+    # do some operations with naive searcher
+    # naive_searcher.search_shortest_flight(city_1, city_2)
 
     # for x in flight_network.city_airport:
     #     print(x, flight_network.city_airport[x])
@@ -155,7 +160,7 @@ if __name__ == '__main__':
     import python_ta
     python_ta.check_all(config={
         'max-line-length': 120,
-        'extra-imports': ['datetime', 'csv', 'codecs', 'py7zr', 'network'],
+        'extra-imports': ['datetime', 'csv', 'codecs', 'py7zr', 'network', 'flightsearcher'],
         'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
         'allowed-io': ['read_csv_file']
     })
