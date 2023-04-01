@@ -1,16 +1,4 @@
-asgiref==3.6.0
-Brotli==1.0.9
 Django==4.1.7
-django-browser-reload==1.7.0
 django-tailwind==3.5.0
-inflate64==0.3.1
-multivolumefile==0.2.3
-psutil==5.9.4
 py7zr==0.20.4
-pybcj==1.0.1
-pycryptodomex==3.17
-pyppmd==1.0.0
-pyzstd==0.15.4
-sqlparse==0.4.3
-texttable==1.6.7
-tzdata==2023.3
+python-ta~=2.4.2
