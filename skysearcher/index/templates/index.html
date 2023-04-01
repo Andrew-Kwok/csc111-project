@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+
+{% load my_tags %}
+
+{% block content %}
+
+<div class="hero min-h-screen bg-base-200">
+    <div class="hero-content text-center">
+        <div class="w-full">
+            <div class="btn-group">
+                <button class="btn btn-naive px-20 text-2xl" type="submit" name="naive"> Naive </button>
+                <button class="btn btn-prune px-20 text-2xl" type="submit" name="prune"> Prune </button>
+            </div>
+            <h1 id="searcher_message" class="text-5xl font-bold my-4 mb-10"> No Flight Searcher Selected </h1>
+        
+            <form method="get" class="w-full">
+                {% comment %} <input id="button_input" type="text" name="button_input_lol" placeholder="0" style="display: block" /> {% endcomment %}
+                <input id="button_input" type="text" name="button_input" placeholder="Type here" style="display: none" class="input input-bordered max-w-xs" autocomplete="off" />
+
+
+                <div class="form-control w-full flex flex-col lg:flex-row lg:justify-between mx-8">
+                    <div>
+                        <label class="label">
+                        <span class="label-text"> From </span>
+                        </label>
+                        <input type="text" name="from_input" placeholder="Departure Airport" class="input input_airport input-bordered max-w-xs" autocomplete="off" />
+                        <div style="display: none; position: absolute;" class="input_tooltip max-h-60 overflow-y-auto">
+                            <ul class="airport_options">
+                                {% for airport in airport_options %}
+                                    <li class="grid w-full h-12 rounded bg-primary text-primary-content place-content-center my-1 hover:bg-primary-focus" style="cursor: pointer"> {{airport.city}} ({{airport.iata}}) </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="label">
+                            <span class="label-text"> To </span>
+                        </label>
+                        <input type="text" name="to_input" placeholder="Arrival Airport" class="input input_airport input-bordered max-w-xs" autocomplete="off" />
+                        <div style="display: none; position: absolute;" class="input_tooltip max-h-60 overflow-y-auto">
+                            <ul class="airport_options">
+                                {% for airport in airport_options %}
+                                    <li class="grid w-full h-12 rounded bg-primary text-primary-content place-content-center my-1 hover:bg-primary-focus" style="cursor: pointer"> {{airport.city}} ({{airport.iata}}) </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="label">
+                            <span class="label-text"> Date </span>
+                        </label>
+                        <input type="date" name="date_input" placeholder="Type here" class="input input-bordered max-w-xs" autocomplete="off" />
+                    </div>
+
+                    <div>
+                        <label class="label">
+                            <span class="label-text"> Search </span>
+                        </label>
+                        <button class="btn btn-square max-w-xs">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    var data = JSON.parse('{{ json_data|escapejs }}'); 
+    console.log(data);
+
+    if ('flight_searcher_type' in data) {
+        fs_type = data['flight_searcher_type'];
+        if (fs_type === 'naive' || fs_type === 'prune') {
+            const button = document.querySelector('.btn-' + fs_type);
+            button.classList.add('btn-active');
+
+            const button_input = document.getElementById('button_input');
+            button_input.value = fs_type;
+
+            const searcherMessage = document.getElementById('searcher_message');
+            if (fs_type === 'naive') {
+                searcherMessage.innerHTML = 'Naive Flight Searcher Selected';
+            } 
+            else if (fs_type === 'prune') {
+                searcherMessage.innerHTML = 'Pruned Landmark Labelling Selected';
+            }
+        } 
+    }
+
+    if ('origin' in data) {
+        const searchBar = document.getElementsByName('from_input')[0];
+        searchBar.value = data['origin'];
+    }
+
+    if ('destination' in data) {
+        const searchBar = document.getElementsByName('to_input')[0];
+        searchBar.value = data['destination'];
+    }
+
+    if ('date' in data) {
+        date = data['date']
+
+        if (isNaN(date)) {
+            const searchBar = document.getElementsByName('date_input')[0];
+            searchBar.value = date;
+        }
+    }
+
+    // Get all the buttons in the btn-group
+    const buttons = document.querySelectorAll('.btn');
+
+    // Add a click event listener to each button
+    buttons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            // Remove the btn-active class from the currently active button
+            const activeButton = document.querySelector('.btn-active');
+            if (activeButton) {
+                activeButton.classList.remove('btn-active');
+            }
+
+            // Add the btn-active class to the clicked button
+            button.classList.add('btn-active');
+
+            const button_input = document.getElementById('button_input');
+            const searcherMessage = document.getElementById('searcher_message');
+            if (event.target.name === 'naive') {
+                button_input.value = 'naive';
+                searcherMessage.innerHTML = 'Naive Flight Searcher Selected';
+            } 
+            else if (event.target.name === 'prune') {
+                button_input.value = 'prune';
+                searcherMessage.innerHTML = 'Pruned Landmark Labelling Selected';
+            }
+        });
+    });
+
+
+    const searchBars = document.querySelectorAll(".input_airport");
+    searchBars.forEach(searchBar => {
+        const airportTooltip = searchBar.nextElementSibling;
+
+        // Add event listener to search bar
+        searchBar.addEventListener("click", function() {
+            airportTooltip.style.display = "block";
+        });
+
+        // Add click event listener to each li element in tooltip
+        const tooltipItems = airportTooltip.querySelectorAll("li");
+        tooltipItems.forEach(function(item) {
+                item.addEventListener("click", function() {
+                searchBar.value = item.textContent;
+                airportTooltip.style.display = "none";
+            });
+        });
+
+        // add event listener to move clicked option to searchbar
+        searchBar.addEventListener("input", function(item) {
+            const searchValue = searchBar.value.toLowerCase();
+            tooltipItems.forEach(item => {
+                const itemText = item.textContent.toLowerCase();
+                if (itemText.indexOf(searchValue) === -1) {
+                    item.style.display = "none";
+                } 
+                else {
+                    item.style.display = "block";
+                }
+            });
+        });
+
+        // Add event listener to search bar
+        document.addEventListener("click", function() {
+            if (event.target !== searchBar && event.target !== airportTooltip) {
+                airportTooltip.style.display = "none";
+            }
+        });
+    });
+
+</script>
+
+{% endblock %}

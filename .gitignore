@@ -1,4 +1,5 @@
 /project/clean_no_dupe_itineraries.csv
 /.idea
 
+node_modules
 __pycache__

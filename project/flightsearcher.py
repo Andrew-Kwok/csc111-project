@@ -1,6 +1,9 @@
 """ flight searcher """
 
 from __future__ import annotations
+
+import math
+from queue import PriorityQueue
 from datetime import datetime
 
 from python_ta.contracts import check_contracts
@@ -82,7 +85,51 @@ class NaiveFlightSearcher(AbstractFlightSearcher):
 class PrunedLandmarkLabeling(AbstractFlightSearcher):
     """ DOCSTRING
     """
-    # TODO: description + helper functions
+    flight_network: Network
+    label_in: list[tuple[str, float]]
+    label_out: list[tuple[str, float]]
+
+    def _query(source: str, destination: str, label: dict[str, list[tuple[str, float]]]) -> float:
+        """
+        """
+        s_label = label_out[source]
+        t_label = label_in[destination]
+
+        i, j = 0, 0
+        res = math.inf
+        while i < s_label and j < t_label:
+            if s_label[i][0] == t_label[j][0]:
+                res = min(res, s_label[i] + t_label[j])
+            elif s_labe[i] < t_label[j]:
+                j += 1
+            else:
+                i += 1
+        return res
+
+    def _pruned_dijkstra(self):
+        """
+        """
+        airports_iata = sorted(self.flight_network.airports.keys())
+        label = [{iata: [] for iata in airports_iata} for _ in range(2)]
+        
+        for i in range(len(airports_iata)):
+            pq = PriorityQueue()
+            pq.put(airports_iata[i])
+
+            P = [math.inf] * len(airports_iata)
+            P[i] = 0
+            for j in range(len(airports_iata)):
+                label[i][j]
+
+
+
+
+    def _construct_label(self, label: dict[str, list[tuple[str, float]]]):
+        for airport in flight_network.airports:
+            label_in[airport] = []
+
+        self._pruned_dijkstra()
+
 
     def __init__(self, flight_network: Network) -> None:
         """ TODO DOCSTRING
