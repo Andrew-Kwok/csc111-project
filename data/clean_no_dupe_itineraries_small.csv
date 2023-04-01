@@ -2,7 +2,7 @@ legId,startingAirport,destinationAirport,isNonStop,totalFare,segmentsArrivalAirp
 b646fc0a9371c2aab0d94d2e7c047c02,ATL,SFO,false,300.6,IAH||SFO,ATL||IAH,United||United,1||1,19:45||23:00,1||2,22:00||03:30
 dbe128767c8eb214d983aebf1947dd08,DFW,PHL,true,449.6,PHL,DFW,American Airlines,6,18:30,6,21:45
 eae7fbe1fa5e488bd49beae1641a124f,ATL,DEN,false,246.1,CLT||DEN,ATL||CLT,American Airlines||American Airlines,1||1,09:15||11:45,1||1,10:30||15:15
-353ae4ec42a692163e860dd5f512d6d1,ATL,LAX,false,217.2,DEN||ONT,ATL||DEN,United||United,3||4,17:30||01:30,3||4,21:00||03:45
+353ae4ec42a692163e860dd5f512d6d1,ATL,LAX,false,217.2,DEN||LAX,ATL||DEN,United||United,3||4,17:30||01:30,3||4,21:00||03:45
 5cd29a402ba590fd6095aec92cf82b8e,LAX,DTW,false,291.58,IAH||DTW,LAX||IAH,Spirit Airlines||Spirit Airlines,1||2,22:45||02:45,2||2,02:00||05:30
 e336bc3d24f492bd35a32597ec8ef9e7,EWR,LAX,true,156.6,LAX,EWR,American Airlines,6,01:00,6,07:15
 8c9ed8ade0cb3006e192e184ae4f871b,OAK,DEN,false,615.59,SEA||DEN,OAK||SEA,Alaska Airlines||Alaska Airlines,2||2,20:00||23:00,2||3,22:00||01:45
