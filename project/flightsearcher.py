@@ -1,3 +1,46 @@
+from __future__ import annotations
+
+import math
+from queue import PriorityQueue
+from datetime import datetime
+
+from python_ta.contracts import check_contracts
+
+from network import Network, Airport, Flight, Ticket
+
+
+@check_contracts
+class AbstractFlightSearcher:
+    """
+    An abstract implementation of flight search.
+
+    Instance Attributes:
+        - flight_network: The network used to look-up flights.
+    """
+    flight_network: Network
+
+    def __init__(self, flight_network: Network) -> None:
+        """ Initializer of AbstractFlightSearch
+        """
+        self.flight_network = flight_network
+
+    def _merge_ticket(tickets: list[Ticket]) -> Ticket:
+        """A function that merge a list of tickets on a transit route
+        """
+        origin = tickets[0].origin
+        destination = tickets[-1].destination
+        price_so_far = 0
+        flights_so_far = []
+        for ticket in tickets:
+            flights_so_far.extend(ticket.flights)
+            price_so_far += ticket.price
+
+        return Ticket(origin, destination, flights_so_far, price_so_far)
+
+    def _get_day_of_week(self, date: datetime) -> tuple[int, int, int]:
+        """A function that return the day and in a week and specific time of a given date
+        """
+        return (date.weekday(), date.hour, date.minute)
 
     def _get_datetime_other(self, pivot_date: datetime, other_time: tuple[int, int, int]) -> datetime:
         """ Return the correspond datetime object based on the pivot_date and information of other_time in
