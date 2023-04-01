@@ -137,8 +137,8 @@ class Flight:
         self.flight_id = flight_id
         self.origin = origin
         self.destination = destination
-        self.departure_time = departure_time
-        self.arrival_time = arrival_time
+        self.departure_time = DayHourMinute(*departure_time)
+        self.arrival_time = DayHourMinute(*arrival_time)
 
     def __str__(self) -> str:
         """print some details about the flight
