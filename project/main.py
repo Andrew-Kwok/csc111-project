@@ -12,6 +12,11 @@ from network import Network, Airport, Flight, Ticket
 from flightsearcher import AbstractFlightSearcher, NaiveFlightSearcher, PrunedLandmarkLabeling
 
 
+MIN_LAYOVER = 90   #minutes
+MAX_LAYOVER = 720  #minutes
+TOP_K_RESULTS = 10 
+
+
 def unpack_csv() -> None:
     """Unpack /data/clean_no_dupe_itineraries.7z to /data/clean_no_dupe_itineraries.csv
     """
