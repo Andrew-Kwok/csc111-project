@@ -85,31 +85,37 @@ class NaiveFlightSearcher(AbstractFlightSearcher)
         """
         pass
 
+
+@check_contracts
 class PrunedLandmarkLabeling(AbstractFlightSearcher):
+    """ DOCSTRING
+    """
+    def _query(source: str, destination: str, label: dict[str, list[tuple[str, float]]]) -> float:
+        """
+        """
+
+    def __init__(self, flight_network: Network) -> None:
+        """ TODO DOCSTRING
         """
         AbstractFlightSearcher.__init__(self, flight_network)
 
-    def search_shortest_flight(source: str, destination: str, departure_time: datetime) -> list[Ticket]: 
     def search_shortest_flight(source: str, destination: str, departure_time: datetime) -> list[Ticket]:
         """ TODO DOCSTRING
         """
         pass
-@ -101,11 +109,10 @@ class PrunedLandmarkLabeling(AbstractFlightSearcher):
+
+    def search_cheapest_flight(source: str, destination: str, departure_time: datetime) -> list[Ticket]:
+        """
+        """
+        pass
 
 
 if __name__ == '__main__':
-
     import python_ta
+
     python_ta.check_all(config={
         'max-line-length': 120,
         'extra-imports': ['network', 'datetime'],
         'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
         'allowed-io': []
     })
-    # import python_ta
-    # python_ta.check_all(config={
-    #     'max-line-length': 120,
-    #     'extra-imports': ['network', 'datetime'],
-    #     'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
-    #     'allowed-io': []
-    # })
