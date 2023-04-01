@@ -1,10 +1,16 @@
 """ network.py """
 
 from __future__ import annotations
-from typing import Any
+
+from collections import namedtuple
+from typing import Any, TypeAlias
 from datetime import datetime
 
 from python_ta.contracts import check_contracts
+
+
+IATACode: TypeAlias = str
+DayHourMinute: TypeAlias = namedtuple('DayHourMinute', ['day', 'hour', 'minute'])
 
 
 @check_contracts
@@ -19,14 +25,14 @@ class Network:
         - airports: A dictionary that maps an airport's IATA code to its airport object.
 
     Representation Invariants:
-        - all(city in self.airports for city in self.cities)
+        - pass
     """
-    city_airport: dict[str, set[str]]
-    airports: dict[str, Airport]
+    city_airport: dict[str, set[IATACode]]
+    airports: dict[IATACode, Airport]
 
     def __init__(self) -> None:
         """Initialize an empty network. """
-        self.city_airport = {}
+        self.city_airport: dict[str, set[IATACode]] = {}
         self.airports = {}
 
     def add_airport(self, airport: Airport) -> None:
@@ -38,7 +44,7 @@ class Network:
         self.city_airport[airport.city].add(airport.iata)
         self.airports[airport.iata] = airport
 
-    def get_airport_from_iata(self, iata: str) -> Airport:
+    def get_airport_from_iata(self, iata: IATACode) -> Airport:
         """Return the airport corresponding to the given three-character iata code.
 
         Preconditions:
@@ -75,12 +81,12 @@ class Airport:
         # - all(ticket[i].departure_time <= ticket[i + 1].departure_time for i in range(len(tickets) - 1))
         # TODO: check for timezone
     """
-    iata: str
+    iata: IATACode
     name: str
     city: str
     tickets: list[Ticket]
 
-    def __init__(self, iata: str, name: str, city: str) -> None:
+    def __init__(self, iata: IATACode, name: str, city: str) -> None:
         """Initialize an airport with the given IATA code, name and city with no flights.
         """
         self.iata = iata
@@ -96,7 +102,7 @@ class Airport:
     def __str__(self) -> str:
         """return some details about the airport
         """
-        return (f'{self.iata} - {self.name} - {self.city}')
+        return f'{self.iata} - {self.name} - {self.city}'
 
 
 @check_contracts
@@ -120,11 +126,11 @@ class Flight:
     flight_id: str
     origin: Airport
     destination: Airport
-    departure_time: tuple[int, int, int]  # Day of the week, hour, minute
-    arrival_time: tuple[int, int, int]
+    departure_time: DayHourMinute  # Day of the week, hour, minute
+    arrival_time: DayHourMinute
 
     def __init__(self, airline: str, flight_id: str, origin: Airport, destination: Airport,
-                 departure_time: tuple[int, int, int], arrival_time: tuple[int, int, int]) -> None:
+                 departure_time: DayHourMinute, arrival_time: DayHourMinute) -> None:
         """Initialise a flight with the given airline, flight id, origin, destination, departure time and
         arrival time. """
         self.airline = airline
