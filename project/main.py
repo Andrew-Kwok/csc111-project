@@ -9,7 +9,7 @@ from py7zr import SevenZipFile
 from python_ta.contracts import check_contracts
 
 from network import Network, Airport, Flight, Ticket
-from flightsearcher import NaiveFlightSearcher, PrunedLandmarkLabeling
+from flightsearcher import AbstractFlightSearcher, NaiveFlightSearcher, PrunedLandmarkLabeling
 
 
 def unpack_csv() -> None:
@@ -127,6 +127,23 @@ def read_csv_file(airport_file: str, flight_file: str) -> Network:
     return res_network
 
 
+def get_naive_searcher() -> AbstractFlightSearcher:
+    """ Return a naive searcher
+    """
+    airport_file = '../data/airport_class_small.csv'
+    flight_file = '../data/clean_no_dupe_itineraries_small.csv'
+
+    flight_network = read_csv_file(airport_file, flight_file)
+    return NaiveFlightSearcher(flight_network)
+
+
+
+def get_pruned_landmark_labelling() -> AbstractFlightSearcher:
+    """
+    """
+    pass
+
+
 def run(airport_file: str, flight_file: str) -> None:
     """ Docstring here
     """
@@ -157,10 +174,10 @@ if __name__ == '__main__':
 
     run(AIRPORTFILE, FLIGHTFILE)
 
-    import python_ta
-    python_ta.check_all(config={
-        'max-line-length': 120,
-        'extra-imports': ['datetime', 'csv', 'codecs', 'py7zr', 'network', 'flightsearcher'],
-        'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
-        'allowed-io': ['read_csv_file']
-    })
+    # import python_ta
+    # python_ta.check_all(config={
+    #     'max-line-length': 120,
+    #     'extra-imports': ['datetime', 'csv', 'codecs', 'py7zr', 'network', 'flightsearcher'],
+    #     'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
+    #     'allowed-io': ['read_csv_file']
+    # })
