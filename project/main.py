@@ -107,7 +107,9 @@ def read_csv_file(airport_file: str, flight_file: str) -> Network:
                     departure_time=DayHourMinute(
                         day=departure_weekday[0], hour=departure_timeday[i][0], minute=departure_timeday[i][1]
                     ),
-                    arrival_time=DayHourMinute(arrival_weekday[0], arrival_timeday[i][0], arrival_timeday[i][1])
+                    arrival_time=DayHourMinute(
+                        day=arrival_weekday[0], hour=arrival_timeday[i][0], minute=arrival_timeday[i][1]
+                    )
                 )
                 flights.append(flight)
 
