@@ -67,7 +67,7 @@ def get_day_diff(before: DayHourMinute, after: DayHourMinute) -> str:
 
 
 @register.simple_tag
-def get_overlay_time(flights: list, i: int) -> str:
+def get_layover_time(flights: list, i: int) -> str:
     return get_hour_minute_diff(flights[i].arrival_time, flights[i+1].departure_time)
 
 
