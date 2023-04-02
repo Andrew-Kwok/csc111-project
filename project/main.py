@@ -241,7 +241,7 @@ def run(airport_file: str, flight_file: str, searcher_type: str) -> None:
     print('Here are the tickets from your departure airport to your arrival airport: ')
     for ticket in tickets:
         print(ticket)
-
+        
 
 if __name__ == '__main__':
     # AIRPORTFILE = 'clean_no_dupe_itineraries'
