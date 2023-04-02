@@ -1,5 +1,4 @@
 legId,isNonStop,totalFare,segmentsDepartureAirportCode,segmentsArrivalAirportCode,segmentsAirlineName,segmentsDepartureWeekday,segmentsDepartureTimeOfDay,segmentsArrivalWeekday,segmentsArrivalTimeOfDay,startingAirport,destinationAirport
-f2b84a0edc3e5d11f2f85e3ab0ab606e,false,179.78,ATL||FLL,FLL||LAX,Spirit Airlines||Spirit Airlines,4||5,19:45||01:45,4||5,21:45||07:30,ATL,LAX
 b646fc0a9371c2aab0d94d2e7c047c02,false,300.6,ATL||IAH,IAH||SFO,United||United,1||1,19:45||23:00,1||2,22:00||03:30,ATL,SFO
 dbe128767c8eb214d983aebf1947dd08,true,449.6,DFW,PHL,American Airlines,6,18:30,6,21:45,DFW,PHL
 eae7fbe1fa5e488bd49beae1641a124f,false,246.1,ATL||CLT,CLT||DEN,American Airlines||American Airlines,1||1,09:15||11:45,1||1,10:30||15:15,ATL,DEN
