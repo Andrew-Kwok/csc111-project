@@ -140,7 +140,6 @@ class Flight:
         self.departure_time = DayHourMinute(*departure_time)
         self.arrival_time = DayHourMinute(*arrival_time)
 
-
     def __str__(self) -> str:
         """print some details about the flight
         """
