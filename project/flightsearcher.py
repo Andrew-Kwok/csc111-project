@@ -183,16 +183,15 @@ class NaiveFlightSearcher(AbstractFlightSearcher):
 
 
 class DijkstraFlightSearcher(AbstractFlightSearcher):
-    """Use Dijkstra algorithm to find the shortest path."""
+    """Use Dijkstra algorithm to find the shortest flight path."""
 
     def __init__(self, flight_network: Network) -> None:
-        """ TODO DOCSTRING
+        """Intialize a flight network for dijkstra flight searcher.
         """
         AbstractFlightSearcher.__init__(self, flight_network)
 
     def search_shortest_flight(self, source: IATACode, destination: IATACode, departure_time: datetime) -> list[Ticket]:
-        """ TODO DOCSTRING
-        Compare based on the times
+        """Uses dijkstra algorithm to find and return the `TOP_K_RESULTS` flights with the shortest flight duration.
         """
         dep_time_simpl = DayHourMinute(departure_time.isoweekday(), departure_time.hour, departure_time.minute)
         pq = PriorityQueue()
@@ -247,7 +246,7 @@ class DijkstraFlightSearcher(AbstractFlightSearcher):
         return results
 
     def search_cheapest_flight(self, source: str, destination: str, departure_time: datetime) -> list[Ticket]:
-        """Compare based on price; should be easier.
+        """Uses dijkstra algorithm to find and return the `TOP_K_RESULTS` flights with the cheapest ticket price.
         """
         dep_time_simpl = DayHourMinute(departure_time.isoweekday(), departure_time.hour, departure_time.minute)
         pq = PriorityQueue()
