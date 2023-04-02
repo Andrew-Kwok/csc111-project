@@ -2,7 +2,6 @@
 from __future__ import annotations
 from typing import Optional
 
-import math
 from queue import PriorityQueue
 from datetime import datetime
 
@@ -16,7 +15,7 @@ from network import Network, Airport, Flight, Ticket
 @check_contracts
 class AbstractFlightSearcher:
     """
-    An abstract implementation of flight search.
+    Abstract class for flight search.
 
     Instance Attributes:
         - flight_network: The network used to look-up flights.
@@ -24,12 +23,12 @@ class AbstractFlightSearcher:
     flight_network: Network
 
     def __init__(self, flight_network: Network) -> None:
-        """ Initializer of AbstractFlightSearch
+        """Initializes a flight network for Abstract Flight Searcher.
         """
         self.flight_network = flight_network
 
     def _merge_ticket(self, tickets: list[Ticket]) -> Ticket:
-        """A function that merge a list of tickets on a transit route
+        """Merge a list of tickets into one ticket and return the merged ticket.
         """
         origin = tickets[0].origin
         destination = tickets[-1].destination
@@ -41,20 +40,20 @@ class AbstractFlightSearcher:
             flights_so_far.extend(ticket.flights)
             price_so_far += ticket.price
 
-        return Ticket(origin=origin, 
-                      destination=destination, 
+        return Ticket(origin=origin,
+                      destination=destination,
                       departure_time=departure_time,
                       arrival_time=arrival_time,
-                      flights=flights_so_far, 
+                      flights=flights_so_far,
                       price=price_so_far)
 
     def _get_day_of_week(self, date: datetime) -> DayHourMinute:
-        """A function that return the day and in a week and specific time of a given date
+        """Returns the day of the week, hour and minute of a given date.
         """
         return DayHourMinute(date.weekday() + 1, date.hour, date.minute)
 
     def _get_datetime_other(self, pivot_date: datetime, other_time: DayHourMinute) -> datetime:
-        """ Get the next possible datetime interpretation for other_time.
+        """Get the next possible datetime interpretation for other_time.
 
         Preconditions:
             - 1 <= other_time.day <= 7
@@ -64,7 +63,7 @@ class AbstractFlightSearcher:
         pass
 
     def _minute_diff(self, before: DayHourMinute, after: DayHourMinute) -> int:
-        """Return the difference of time between before and after (in minutes).
+        """Return the difference in time between before and after (in minutes).
         """
         if before.day > after.day:
             after = DayHourMinute(after.day + 7, after.hour, after.minute)
@@ -76,64 +75,73 @@ class AbstractFlightSearcher:
         return (after.day * 1440 + after.hour * 60 + after.minute) - \
             (before.day * 1440 + before.hour * 60 + before.minute)
 
-
     def _day_hour_minute_diff(self, before: DayHourMinute, after: DayHourMinute) -> DayHourMinute:
         """Return the difference of time between before and after.
         """
         minute_diff = self._minute_diff(before, after)
         return DayHourMinute(day=minute_diff // 1440, hour=(minute_diff % 1440) // 60, minute=minute_diff % 60)
 
-
-    def search_shortest_flight(self, source: str, destination: str, departure_time: datetime) -> list[Ticket]:
-        """ TODO DOCSTRING
+    def search_shortest_flight(self, source: IATACode, destination: IATACode, departure_time: datetime) -> list[Ticket]:
+        """ An abstract function that returns a list of tickets where each ticket departs from `source` and ends at
+        `destination`. The flight departs on the same day as `departure_time`. The ticket is sorted in non-decreasing
+        flight duration.
         """
         raise NotImplementedError
 
     def search_cheapest_flight(self, source: IATACode, destination: IATACode, departure_time: datetime) -> list[Ticket]:
-        """ TODO DOCSTRING
+        """ An abstract function that returns a list of tickets where each ticket departs from `source` and ends at
+        `destination`. The flight departs on the same day as `departure_time`. The ticket is sorted in non-decreasing
+        price.
         """
         raise NotImplementedError
 
 
 # @check_contracts
 class NaiveFlightSearcher(AbstractFlightSearcher):
-    """ TODO: Docstring
+    """A naive implementation of flight searcher.
     """
     # Make more helper functions
 
     def __init__(self, flight_network: Network) -> None:
-        """ TODO DOCSTRING
+        """Initializes a flight network for NaiveFlightSearcher.
         """
         AbstractFlightSearcher.__init__(self, flight_network)
 
-    def _search_all_flight(self, source: Airport, destination: Airport, departure_time: DayHourMinute, visited: set[Airport]) -> list[Optional[Ticket]]:
-        """ TODO DOCSTRING
+    def _search_all_flight(self, source: Airport, destination: Airport, departure_time: DayHourMinute,
+                           visited: set[Airport]) -> list[Optional[Ticket]]:
+        """Returns all possible flight paths that departs from the `source`, on the same day as departure_time to the
+        given `destination`. Each ticket can only visit each airport at most once. This function also takes into
+        consideration the minimum and maximum layover time, and the maximum number of layovers.
         """
         if source == destination:
             return [None]
-        
+
         paths = []
         for ticket in source.tickets:
             minute_diff = self._minute_diff(departure_time, ticket.departure_time)
-            if all(flight.destination not in visited for flight in ticket.flights) and \
-                (MIN_LAYOVER_TIME <= minute_diff <= MAX_LAYOVER_TIME or \
-                 (len(visited) == 1 and minute_diff < 2 * MAX_LAYOVER_TIME)):  # 24 hour gap for first flight.
-                next_visited = visited.union(flight.destination for flight in ticket.flights)
-                if len(next_visited) > MAX_LAYOVER + 1:
-                    continue
-                next_paths = self._search_all_flight(source=ticket.destination, 
-                                                     destination=destination, 
-                                                     departure_time=ticket.arrival_time, 
-                                                     visited=next_visited)
-                for path in next_paths:
-                    if path is None:
-                        paths.append(ticket)
-                    else:
-                        paths.append(self._merge_ticket([ticket, path]))
+            if any(flight.destination in visited for flight in ticket.flights):
+                continue
+            if not ((MIN_LAYOVER_TIME <= minute_diff <= MAX_LAYOVER_TIME)
+                    or (len(visited) == 1 and minute_diff < 2 * MAX_LAYOVER_TIME)):  # 24 hour gap for first flight.
+                continue
+
+            next_visited = visited.union(flight.destination for flight in ticket.flights)
+            if len(next_visited) > MAX_LAYOVER + 1:
+                continue
+            next_paths = self._search_all_flight(source=ticket.destination,
+                                                 destination=destination,
+                                                 departure_time=ticket.arrival_time,
+                                                 visited=next_visited)
+            for path in next_paths:
+                if path is None:
+                    paths.append(ticket)
+                else:
+                    paths.append(self._merge_ticket([ticket, path]))
         return paths
 
     def search_shortest_flight(self, source: IATACode, destination: IATACode, departure_time: datetime) -> list[Ticket]:
-        """ TODO DOCSTRING
+        """Calls the `_search_all_flight` function to generate all possible paths. Then, returns the `TOP_K_RESULTS`
+        flights with the shortest flight duration.
         """
         source_airport = self.flight_network.airports[source]
         destination_airport = self.flight_network.airports[destination]
@@ -148,7 +156,8 @@ class NaiveFlightSearcher(AbstractFlightSearcher):
         return tickets[:TOP_K_RESULTS]
 
     def search_cheapest_flight(self, source: IATACode, destination: IATACode, departure_time: datetime) -> list[Ticket]:
-        """ TODO DOCSTRING
+        """Calls the `_search_all_flight` function to generate all possible paths. Then, returns the `TOP_K_RESULTS`
+        flights with the lowest ticket price.
         """
         source_airport = self.flight_network.airports[source]
         destination_airport = self.flight_network.airports[destination]
@@ -165,7 +174,7 @@ class NaiveFlightSearcher(AbstractFlightSearcher):
 
 # @check_contracts
 class PrunedLandmarkLabeling(AbstractFlightSearcher):
-    """ DOCSTRING
+    """ TODO DOCSTRING
     """
     flight_network: Network
     label_in: list[tuple[str, float]]
@@ -193,7 +202,7 @@ class PrunedLandmarkLabeling(AbstractFlightSearcher):
     #     """
     #     airports_iata = sorted(self.flight_network.airports.keys())
     #     label = [{iata: [] for iata in airports_iata} for _ in range(2)]
-        
+
     #     for i in range(len(airports_iata)):
     #         pq = PriorityQueue()
     #         pq.put(airports_iata[i])
@@ -214,13 +223,13 @@ class PrunedLandmarkLabeling(AbstractFlightSearcher):
         """
         AbstractFlightSearcher.__init__(self, flight_network)
 
-    def search_shortest_flight(source: str, destination: str, departure_time: datetime) -> list[Ticket]:
+    def search_shortest_flight(self, source: str, destination: str, departure_time: datetime) -> list[Ticket]:
         """ TODO DOCSTRING
         """
         pass
 
-    def search_cheapest_flight(source: str, destination: str, departure_time: datetime) -> list[Ticket]:
-        """
+    def search_cheapest_flight(self, source: str, destination: str, departure_time: datetime) -> list[Ticket]:
+        """ TODO DOCSTRING
         """
         pass
 
@@ -244,12 +253,10 @@ class Dijkstra(AbstractFlightSearcher):
 
 
 if __name__ == '__main__':
-
-    # import python_ta
-    # python_ta.check_all(config={
-    #     'max-line-length': 120,
-    #     'extra-imports': ['network', 'datetime'],
-    #     'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
-    #     'allowed-io': []
-    # })
-    pass
+    import python_ta
+    python_ta.check_all(config={
+        'max-line-length': 120,
+        'extra-imports': ['network', 'datetime', 'queue'],
+        'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
+        'allowed-io': []
+    })

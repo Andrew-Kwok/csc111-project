@@ -15,9 +15,6 @@ from network import Network, Airport, Flight, Ticket
 from flightsearcher import AbstractFlightSearcher, NaiveFlightSearcher
 
 
-
-
-
 def unpack_csv() -> None:
     """Unpack /data/clean_no_dupe_itineraries.7z to /data/clean_no_dupe_itineraries.csv
     """
@@ -145,9 +142,8 @@ def get_naive_searcher() -> AbstractFlightSearcher:
     return NaiveFlightSearcher(flight_network)
 
 
-
 def get_pruned_landmark_labelling() -> AbstractFlightSearcher:
-    """
+    """ TODO DOCSTRING
     """
     pass
 
@@ -186,10 +182,10 @@ if __name__ == '__main__':
 
     run(AIRPORTFILE, FLIGHTFILE)
 
-    # import python_ta
-    # python_ta.check_all(config={
-    #     'max-line-length': 120,
-    #     'extra-imports': ['datetime', 'csv', 'codecs', 'py7zr', 'network', 'flightsearcher'],
-    #     'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
-    #     'allowed-io': ['read_csv_file']
-    # })
+    import python_ta
+    python_ta.check_all(config={
+        'max-line-length': 120,
+        'extra-imports': ['datetime', 'csv', 'codecs', 'py7zr', 'network', 'flightsearcher', 'datetime'],
+        'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
+        'allowed-io': ['read_csv_file']
+    })

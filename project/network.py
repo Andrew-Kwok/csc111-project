@@ -15,7 +15,7 @@ DayHourMinute: TypeAlias = namedtuple('DayHourMinute', ['day', 'hour', 'minute']
 MIN_LAYOVER_TIME = 90   # minutes
 MAX_LAYOVER_TIME = 720  # minutes
 MAX_LAYOVER = 3         # stops
-TOP_K_RESULTS = 10 
+TOP_K_RESULTS = 10
 
 
 # @check_contracts
@@ -37,7 +37,7 @@ class Network:
 
     def __init__(self) -> None:
         """Initialize an empty network. """
-        self.city_airport: dict[str, set[IATACode]] = {}
+        self.city_airport = {}
         self.airports = {}
 
     def add_airport(self, airport: Airport) -> None:
@@ -146,7 +146,8 @@ class Flight:
     def __str__(self) -> str:
         """print some details about the flight
         """
-        return f'{self.flight_id} | {self.airline} | {self.origin.iata}({str(self.departure_time)}) to {self.destination.iata}({str(self.arrival_time)})'
+        return f'{self.flight_id} | {self.airline} | {self.origin.iata}({str(self.departure_time)})' \
+               f' to {self.destination.iata}({str(self.arrival_time)})'
 
 
 # @check_contracts
@@ -176,7 +177,8 @@ class Ticket:
     flights: list[Flight]
     price: float
 
-    def __init__(self, origin: Airport, destination: Airport, departure_time: DayHourMinute, arrival_time: DayHourMinute, flights: list[Flight], price: float) -> None:
+    def __init__(self, origin: Airport, destination: Airport, departure_time: DayHourMinute,
+                 arrival_time: DayHourMinute, flights: list[Flight], price: float) -> None:
         self.origin = origin
         self.destination = destination
         self.departure_time = DayHourMinute(*departure_time)
@@ -195,6 +197,6 @@ if __name__ == '__main__':
     import python_ta
     python_ta.check_all(config={
         'max-line-length': 120,
-        'extra-imports': ['datetime'],
-        'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
+        'extra-imports': ['datetime', 'collections'],
+        'disable': ['unused-import', 'too-many-branches', 'extra-imports', 'E9992', 'E9997', 'too-many-arguments'],
     })
