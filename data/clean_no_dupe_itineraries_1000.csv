@@ -1,0 +1,1001 @@
+legId,isNonStop,totalFare,segmentsDepartureAirportCode,segmentsArrivalAirportCode,segmentsAirlineName,segmentsDepartureWeekday,segmentsDepartureTimeOfDay,segmentsArrivalWeekday,segmentsArrivalTimeOfDay,startingAirport,destinationAirport
+e88409612ff96e7ef3fe0577f121292e,true,273.6,EWR,IAD,United,2,19:00,2,20:30,EWR,IAD
+4508411c142227a9e044ab0fdab03be1,true,358.6,ATL,LGA,Delta,7,17:45,7,20:00,ATL,LGA
+ec68faaa44f98670665fcf5a1c91c141,false,446.6,IAD||PWM,PWM||JFK,United||Delta,1||1,16:45||20:00,1||1,18:15||21:30,IAD,JFK
+b84a8e0c1ad9541bc0a09a7dd35ed993,true,498.6,ONT,ATL,Delta,1,20:00,2,00:15,ONT,ATL
+67123e98f4fa0bc67c9d7bebfae73ced,false,217.61,ATL||ORD,ORD||EWR,American Airlines||American Airlines,6||7,22:30||01:45,7||7,00:45||03:45,ATL,EWR
+c9a2a812ee7b2260e7346c418865b609,false,92.6,BOS||LGA,LGA||CLT,Delta||Delta,6||6,16:00||20:30,6||6,17:30||23:00,BOS,CLT
+edb9690cced9f4b7a5156b098c544f78,true,290.6,DTW,LGA,Delta,2,23:15,3,01:00,DTW,LGA
+4650e9f60db9db075ee2a26bae719c93,true,69.6,LGA,BOS,JetBlue Airways,2,19:15,2,20:45,LGA,BOS
+801de7c43e4e3138d6ae81d1ccc30ba1,true,218.6,LAX,DEN,Alaska Airlines,7,17:00,7,19:15,LAX,DEN
+adb6dcbfe5471231a97330b0a7d5c8fa,false,823.1,OAK||SLC||CVG,SLC||CVG||LGA,Delta||Delta||Delta,7||7||7,13:00||17:00||22:00,7||7||1,14:45||20:30||00:00,OAK,LGA
+2b95cc4adbea4b6db44275ba5384a8dd,false,312.6,DFW||HSV,HSV||CLT,American Airlines||American Airlines,5||5,15:45||20:45,5||5,17:30||22:15,DFW,CLT
+1c7144be81b048e3ca84060e824ca826,false,123.6,MIA||DCA,DCA||LGA,American Airlines||American Airlines,6||6,14:15||18:00,6||6,16:45||19:15,MIA,LGA
+8c57cd1153c02933c5098f753eb3dd8e,true,708.6,SFO,JFK,Delta,5,06:15,5,12:00,SFO,JFK
+1017d8ba926b62255d69493b301f9d59,false,437.2,DTW||TPA,TPA||ATL,Delta||Delta,7||7,11:00||18:45,7||7,13:30||20:30,DTW,ATL
+6598f41a9e160f7fde1d1a8b43bfd245,false,467.6,SFO||PHX,PHX||ORD,American Airlines||American Airlines,5||5,12:30||17:15,5||5,14:30||21:00,SFO,ORD
+66f0da173cd5de097670bb8979591cdf,true,248.6,ATL,ORD,Delta,3,14:00,3,16:15,ATL,ORD
+7aaa3e9e51d26df2bbd38de4d83e27cf,false,427.2,IAD||IAH,IAH||SFO,United||United,1||1,02:00||10:30,1||1,05:00||14:45,IAD,SFO
+a22614180d2074ffa38a0eb0ddeebde5,false,163.58,LAX||FLL,FLL||DTW,Spirit Airlines||Spirit Airlines,5||6,23:00||11:45,6||6,04:00||14:45,LAX,DTW
+7e4405002f8b7c886a8feed8f4f9470c,false,777.61,MIA||EYW,EYW||CLT,American Airlines||American Airlines,6||6,12:45||15:45,6||6,13:45||18:00,MIA,CLT
+195fa2585853b565df18f75bd5fec436,false,351.6,BOS||PHX,PHX||SFO,American Airlines||American Airlines,7||1,20:45||03:15,1||1,02:45||05:15,BOS,SFO
+b13f48dcef881e773ad58e33772aae24,true,138.6,JFK,MIA,JetBlue Airways,3,19:30,3,22:30,JFK,MIA
+adacc2d2b433b5dbd827a3196b9cc2b5,true,403.6,DFW,PHL,American Airlines,4,23:45,5,03:00,DFW,PHL
+b7b6d966a5ea578d751118d0dbdd57a9,true,96.99,ONT,DEN,Frontier Airlines,7,12:30,7,14:45,ONT,DEN
+6607421a16ef4ceb5dea97592cd278d2,false,200.61,BOS||JFK,JFK||ONT,JetBlue Airways||JetBlue Airways,3||3,20:45||22:45,3||4,22:00||04:45,BOS,ONT
+764b95de392622d54713003f0f27a223,true,188.6,ORD,BOS,JetBlue Airways,7,23:45,1,02:15,ORD,BOS
+430c4f5bcbd25431eabe7c1092f140d4,false,501.6,DTW||EWR,EWR||ATL,Delta||Delta,2||2,12:00||15:15,2||2,13:45||17:45,DTW,ATL
+8c601359c0c39ad351711caf22fe87a2,false,302.6,ORD||BUF,BUF||IAD,United||United,5||5,15:30||18:45,5||5,17:15||20:00,ORD,IAD
+3ed33f21a919bf472b92a8e18c2ad99f,false,609.55,IAD||BNA||OWB||STL,BNA||OWB||STL||ORD,United||Cape Air||Cape Air||United,3||3||3||3,13:00||16:00||17:15||22:30,3||3||3||3,15:00||17:00||18:30||23:45,IAD,ORD
+a5703c21c62873d06a3d5c67502894e2,false,307.6,ONT||SEA,SEA||JFK,Delta||Delta,1||1,13:15||19:00,1||2,16:00||00:15,ONT,JFK
+305ac0ee69e7c5f4ab8154e13c148a96,false,491.6,IAD||SAV,SAV||LGA,United||Delta,4||4,16:30||21:30,4||4,18:15||23:45,IAD,LGA
+482bbcf220e80465a954dc94cd074533,false,229.19,DTW||BWI,BWI||JFK,Delta||Delta,2||2,02:30||10:15,2||2,04:00||11:45,DTW,JFK
+a6c73cb72128d772687d003142ed0f4c,false,253.6,ORD||COU,COU||DFW,American Airlines||American Airlines,4||4,15:00||18:00,4||4,16:30||19:45,ORD,DFW
+4863474a5e6cb9eaa58ed3e1c9375850,true,205.6,SFO,DEN,United,4,01:30,4,04:00,SFO,DEN
+828e3c5bee9f0d82a45694327ebba9d2,true,113.6,EWR,ATL,United,6,22:00,7,00:30,EWR,ATL
+e84b29eda9b512fb6f8e5bc9fbdc2045,false,172.6,MIA||MSY,MSY||DFW,American Airlines||American Airlines,2||2,17:45||21:15,2||2,19:45||23:00,MIA,DFW
+9570747fe6fe8b5789252d9b7697018a,true,117.1,CLT,BOS,American Airlines,3,23:00,4,01:00,CLT,BOS
+6f6428c48fbbbc3f9a5571111e3a80f0,true,215.6,ORD,JFK,JetBlue Airways,7,01:15,7,03:30,ORD,JFK
+fcee77837e60aa40cd68c8e012a2c6d0,false,81.58,EWR||MYR,MYR||DTW,Spirit Airlines||Spirit Airlines,5||5,19:45||22:30,5||6,21:30||00:30,EWR,DTW
+104d25e70ed88f46bcda490c1ea1376d,true,99.6,PHL,BOS,Delta,3,15:45,3,17:00,PHL,BOS
+b61f710d3c97d4cbeb1d1497dc868be5,false,557.2,SFO||LAX,LAX||ATL,Delta||Delta,4||5,15:15||00:30,4||5,17:00||04:45,SFO,ATL
+b7904be80f77c958503aca9d09bc679e,false,160.1,CLT||JAX,JAX||MIA,American Airlines||American Airlines,1||1,17:30||22:45,1||2,18:45||00:00,CLT,MIA
+eaada874b113ddfb173fff119e6acf05,false,541.61,ORD||RSW,RSW||JFK,United||Delta,3||3,12:15||16:00,3||3,15:15||19:00,ORD,JFK
+8425bf26b6c0b44b1995af519343f7f2,false,144.58,ATL||ORD,ORD||LAX,Spirit Airlines||Spirit Airlines,2||2,13:45||22:00,2||3,15:45||02:45,ATL,LAX
+56eacaecf4c2afdcb579020baa4d25d6,false,227.61,DTW||JFK,JFK||ATL,JetBlue Airways||JetBlue Airways,6||7,22:45||01:45,7||7,00:30||04:15,DTW,ATL
+0e7439555d968d63e641f5495bfc3e37,false,471.6,ATL||SAV,SAV||JFK,Delta||Delta,1||1,12:15||15:45,1||1,13:15||18:00,ATL,JFK
+a0e2cd7742b47addb498c330abceff6d,true,288.6,SFO,IAD,United,7,05:00,7,10:15,SFO,IAD
+7307530256b686d35e5a33fec0df2356,false,332.2,IAD||IAH,IAH||LAX,United||United,6||6,02:00||12:15,6||6,05:15||16:00,IAD,LAX
+ceca3b62f6247c7b70aa5c93102c8179,true,333.6,MIA,EWR,JetBlue Airways,1,12:30,1,15:45,MIA,EWR
+a57ddddac210c57c241c25fa391cdda5,false,187.6,LGA||RIC,RIC||ORD,American Airlines||American Airlines,4||4,12:30||16:00,4||4,14:00||18:15,LGA,ORD
+d439d4eefddf5fe1d1c12f78b87e2f02,true,218.6,ATL,ORD,United,4,00:15,4,02:15,ATL,ORD
+c76186f5559062ac491e15147c21aa1f,false,148.58,DTW||MYR,MYR||BOS,Spirit Airlines||Spirit Airlines,7||7,15:00||18:30,7||7,16:45||20:30,DTW,BOS
+17cd03406b72b264cd20cdfc81f5cc47,false,127.6,DEN||IAH,IAH||EWR,United||United,2||2,17:30||23:30,2||3,20:00||03:00,DEN,EWR
+eb7f3987c96b8e963a02e8db758628b7,true,61.99,PHL,ATL,Frontier Airlines,7,10:30,7,12:45,PHL,ATL
+b86fe34c74bdb02833557d2b96cbb8c2,false,1520.2,SFO||SEA,SEA||DFW,American Airlines||American Airlines,6||6,04:30||12:45,6||6,06:45||16:45,SFO,DFW
+a136087391c5ae5b8f11be5764369acd,false,177.61,ATL||DFW,DFW||LAX,American Airlines||American Airlines,2||3,21:30||01:15,2||3,00:00||04:15,ATL,LAX
+f46c3ad847e2bf5ca5326217d0131fed,true,93.6,LGA,BOS,JetBlue Airways,3,10:00,3,11:15,LGA,BOS
+b0cc12ccf1e3f563c20a47ec8099977c,true,198.6,MIA,JFK,American Airlines,5,16:00,5,19:15,MIA,JFK
+fe3bf01a7c2899ed5bd66d1a88d03cda,false,306.58,DFW||LAX,LAX||ORD,Spirit Airlines||Spirit Airlines,2||2,03:15||18:30,2||2,06:45||22:45,DFW,ORD
+ce3729f6f0277b1d53f6b8d75cacff3e,false,660.6,ONT||JFK,JFK||BOS,JetBlue Airways||JetBlue Airways,1||1,03:45||11:30,1||1,09:15||12:45,ONT,BOS
+9fc800166ee6ceb156ce6a2621e04085,false,74.37,DFW||PHL,PHL||ATL,Frontier Airlines||Frontier Airlines,3||4,19:00||01:00,3||4,22:15||03:15,DFW,ATL
+f91853433ae55726cd175d827b3b1d02,false,217.99,DEN||ATL,ATL||DTW,Frontier Airlines||Frontier Airlines,7||7,05:45||10:15,7||7,08:45||12:30,DEN,DTW
+f4e3a92a97323447751ec3fb1413d26b,true,43.59,ATL,DTW,Spirit Airlines,1,18:30,1,20:30,ATL,DTW
+2dc1acd2035d89742962b55bdd8e7ec1,false,541.7,JFK||SYR||IAD,SYR||IAD||DFW,Delta||United||United,2||2||2,02:00||10:00||12:15,2||2||2,03:30||11:15||15:30,JFK,DFW
+c6638f48d9a0b1d410982d9aac8ef7e9,false,107.1,CLT||DTW,DTW||DEN,Delta||Delta,2||2,11:00||13:30,2||2,13:00||16:45,CLT,DEN
+4b045bee01d3a1a67ef54a96ae868093,false,446.59,IAD||PIT,PIT||LGA,United||Delta,5||5,12:45||15:30,5||5,13:45||17:15,IAD,LGA
+0f998bc0866aa49d875d124ad85135e0,true,283.61,DTW,ATL,Delta,6,09:30,6,11:30,DTW,ATL
+a4765c683ff0b71363adb13eb5ccc751,false,546.1,DEN||MSY||ATL,MSY||ATL||JFK,United||Delta||Delta,7||7||1,19:30||22:45||01:30,7||1||1,22:00||00:30||03:45,DEN,JFK
+04bb35d481ec8d5ca83801040859a53c,false,471.6,SFO||PDX,PDX||EWR,United||United,3||3,15:30||19:00,3||4,17:30||00:30,SFO,EWR
+6f124c8b84d4117961a05427d5135733,true,158.6,DFW,ORD,American Airlines,2,20:30,2,22:45,DFW,ORD
+a54cd064d9e5b829ce1851a25b651656,false,472.21,JFK||DCA,DCA||ORD,Delta||United,6||6,15:30||22:00,6||7,17:00||00:15,JFK,ORD
+5b1064c768fae3807e36e99dfccc376d,false,547.6,LGA||RDU,RDU||LAX,American Airlines||American Airlines,3||4,23:15||02:00,4||4,01:00||07:15,LGA,LAX
+a7b8b34c94e55c253e11bb3c38a13071,true,318.6,DEN,BOS,United,4,17:00,4,20:45,DEN,BOS
+c63882f39de03ce01c55e01d802d42ef,false,127.6,DEN||MSP,MSP||ORD,Delta||Delta,2||3,22:15||01:45,3||3,00:15||03:15,DEN,ORD
+9af5eae7fffcc41f9913a812c4509d09,true,213.6,LAX,DFW,American Airlines,4,13:00,4,16:15,LAX,DFW
+5faf5b5d736fd8587c7b7c6fc31f6d29,false,81.58,LGA||FLL,FLL||ATL,Spirit Airlines||Spirit Airlines,6||6,11:00||19:00,6||6,14:00||20:45,LGA,ATL
+cb412ab0190e1a3d7e3e8620defdee02,false,400.1,CLT||DTW,DTW||LAX,Delta||Delta,3||3,09:45||12:30,3||3,11:30||17:15,CLT,LAX
+0a7d0756e7aa8a39eb976d29395fc886,false,683.61,BOS||PHL,PHL||DEN,Frontier Airlines||Frontier Airlines,1||1,15:00||18:00,1||1,16:45||22:30,BOS,DEN
+70c3d6e67f2071c3cb89c09b15cee483,false,97.6,DEN||SLC,SLC||ONT,Delta||Delta,3||3,11:30||14:45,3||3,13:00||16:30,DEN,ONT
+f7dc12a7ec5fc7dd98037724d916095f,false,402.71,BOS||IAD||BTV,IAD||BTV||JFK,United||United||Delta,3||3||3,09:45||12:30||19:30,3||3||3,11:30||14:15||21:00,BOS,JFK
+ef503b35868de78b3ad77073ef3d263a,false,241.6,DFW||DCA,DCA||CLT,American Airlines||American Airlines,1||1,10:30||14:30,1||1,13:30||16:00,DFW,CLT
+1abb46528a1378553160f39f52b15a81,false,521.61,EWR||SEA,SEA||OAK,United||Alaska Airlines,1||1,11:45||20:45,1||1,18:00||22:45,EWR,OAK
+4f5c12c360cc6733533ea49925a49d8e,true,342.6,ORD,LAX,American Airlines,2,23:15,3,03:45,ORD,LAX
+a74216c37012031f15037f403c75aae8,false,351.6,ATL||DFW,DFW||LAX,American Airlines||American Airlines,6||6,16:30||20:00,6||6,19:00||23:15,ATL,LAX
+d773ec99a8f22e025b45ca9a5c1221e8,true,428.6,ATL,ONT,Delta,4,01:30,4,06:00,ATL,ONT
+b7420f652360c0de58e8e42732125cde,true,243.6,MIA,JFK,JetBlue Airways,1,00:15,1,03:30,MIA,JFK
+e0b081d8b4994b1482a0783623a3b506,false,781.59,OAK||SEA,SEA||DEN,Alaska Airlines||Alaska Airlines,7||1,22:45||03:00,1||1,00:45||05:45,OAK,DEN
+9d83170db9d1834ce77cb53bf93caab8,false,458.2,MIA||MCO,MCO||LAX,American Airlines||American Airlines,7||7,02:45||10:00,7||7,03:45||15:30,MIA,LAX
+e599d793d2b3ebb01a00f6b12a8d1f89,false,273.69,DFW||IAH||CVG,IAH||CVG||ORD,United||United||United,5||6||6,22:30||01:00||11:15,5||6||6,23:45||03:30||12:45,DFW,ORD
+14b54f3f6331b8a853205f8c6123fadc,true,202.6,DFW,DEN,American Airlines,7,20:00,7,22:00,DFW,DEN
+c1f6d2d886071a6ad4ed9a9542a485b2,false,220.1,CLT||MCO,MCO||MIA,American Airlines||American Airlines,7||7,12:30||16:30,7||7,14:15||17:30,CLT,MIA
+af278d91d1ad97473a23036f5c5d8a8d,true,358.6,BOS,LAX,American Airlines,2,12:45,2,19:15,BOS,LAX
+4d9d4c00726cf302d60e6302f13d0043,false,106.58,ATL||DFW,DFW||LAX,Spirit Airlines||Spirit Airlines,7||7,11:45||15:45,7||7,14:00||19:00,ATL,LAX
+79d4369ddf6f9a3c487df11f5cadbc52,false,423.61,LAX||PHL,PHL||BOS,American Airlines||American Airlines,7||7,06:00||12:45,7||7,11:30||14:15,LAX,BOS
+458123da096f62ad4d5b8c13b87705a1,false,473.2,SFO||PSP||SLC,PSP||SLC||OAK,Alaska Airlines||Delta||Delta,6||6||6,03:45||13:00||17:30,6||6||6,05:15||14:45||19:30,SFO,OAK
+febedc2e3183d7944dc15dc6fbb13422,false,87.6,ONT||SFO,SFO||DEN,United||United,2||2,18:00||22:45,2||3,19:15||01:15,ONT,DEN
+38fcb9d3e4ee40077ed43351520409ab,true,334.35,EWR,LAX,American Airlines,7,01:15,7,07:15,EWR,LAX
+a10888153eee450678dd50ce20db6eee,false,530.6,SFO||PHX,PHX||DTW,American Airlines||American Airlines,4||4,13:00||16:45,4||4,15:00||20:30,SFO,DTW
+79d1d6329f9f929a0bd275c103172148,false,263.61,BOS||ORD,ORD||LAX,American Airlines||American Airlines,5||5,14:00||19:15,5||5,17:00||00:00,BOS,LAX
+64e05d42a259dbf1bc7b9bcf5275045a,false,547.2,DEN||BOS,BOS||JFK,United||Delta,6||7,23:30||10:00,7||7,03:30||11:30,DEN,JFK
+7369224b7245ab58fd2fe5e5491f7ef3,false,111.6,ORD||LGA,LGA||CLT,American Airlines||American Airlines,2||2,18:30||22:15,2||3,20:30||00:30,ORD,CLT
+41d7e7976151e5b747b70ea70eede9c9,true,348.59,ATL,BOS,Delta,4,00:00,5,02:30,ATL,BOS
+8f4e0c3d08416d92bf27b3e768a5f7f6,true,272.6,DEN,ATL,Delta,4,18:00,4,20:45,DEN,ATL
+72990f6380382cec23f71a64895be6ac,false,196.6,ORD||LEX,LEX||CLT,American Airlines||American Airlines,4||4,20:00||23:45,4||5,21:30||01:15,ORD,CLT
+e38a0b5697f61428eb1ff531d2ee63c0,true,393.6,SFO,JFK,American Airlines,7,19:15,1,00:45,SFO,JFK
+efb9dfc09d8c1186083ec33f1ffc8e7e,false,177.61,LAX||PHX,PHX||MIA,American Airlines||American Airlines,6||6,13:00||18:00,6||6,14:30||22:30,LAX,MIA
+27ed02d53f88a205c0c34ce4c029f3e5,false,936.1,LGA||CVG||SEA,CVG||SEA||OAK,Delta||Alaska Airlines||Alaska Airlines,7||7||1,18:00||22:30||04:30,7||1||1,20:15||03:30||06:45,LGA,OAK
+5e7ac60949056a208a7abda3ce0c28cf,true,188.6,BOS,ATL,Delta,1,16:30,1,19:00,BOS,ATL
+aa438330a8afdcecace4bcefe01b1d53,false,247.6,ORD||LIT,LIT||DFW,American Airlines||American Airlines,1||1,19:00||23:30,1||2,20:45||00:45,ORD,DFW
+d0b8b889c48f1eadf66ac77d61342c10,true,278.6,BOS,MIA,American Airlines,6,14:15,6,17:45,BOS,MIA
+d9aa9f7202667eb143fcde371da0e265,false,271.58,MIA||ORD,ORD||LAX,Spirit Airlines||Spirit Airlines,7||1,15:45||00:30,7||1,19:00||05:00,MIA,LAX
+734e4d9ebfeedb9d5849b77778bdceba,false,153.58,ORD||LAS,LAS||LAX,Spirit Airlines||Spirit Airlines,4||4,02:30||14:45,4||4,06:30||16:15,ORD,LAX
+6c989fa2988ed3848aebfc9c098245ce,true,19.59,ATL,DFW,Spirit Airlines,4,02:30,4,05:00,ATL,DFW
+17327af8875fbf9da068d5113666516a,false,311.1,CLT||TPA,TPA||DFW,American Airlines||American Airlines,1||1,17:15||19:45,1||1,19:00||22:30,CLT,DFW
+d512b3c9dd009273e31c1b4bc0864919,false,601.61,DEN||PIT,PIT||JFK,United||Delta,5||5,16:15||21:00,5||5,19:15||22:30,DEN,JFK
+c591c1f9fa0b16f6c6c59ec8ae8bb2f7,false,568.6,IAD||DTW,DTW||DEN,Delta||Delta,1||1,17:45||20:30,1||1,19:15||23:45,IAD,DEN
+c30ef88d98aa69aee5882c40899ee36b,false,134.58,ORD||MYR,MYR||BOS,Spirit Airlines||Spirit Airlines,6||6,16:00||21:45,6||6,18:15||23:45,ORD,BOS
+c881977c47216aa419958306efca51a2,true,292.6,DFW,PHL,American Airlines,5,22:15,6,01:30,DFW,PHL
+99f26b289d15021ffb55c65823184b29,true,407.1,CLT,LAX,American Airlines,4,13:00,4,18:15,CLT,LAX
+ea4f84dbe095660c8bc06441b42ef517,false,176.61,ORD||MCI,MCI||DFW,American Airlines||American Airlines,3||3,13:45||18:15,3||3,15:15||19:45,ORD,DFW
+ac8796ec59ed4c86661c58a75fe133a4,false,241.61,SFO||FLL,FLL||LGA,JetBlue Airways||JetBlue Airways,3||3,06:00||15:15,3||3,11:45||18:15,SFO,LGA
+f6e9efa16db06934774376aaec959b18,false,147.6,DFW||IAH,IAH||LAX,United||United,5||5,00:15||03:30,5||5,01:30||07:00,DFW,LAX
+e1f4800083b25a1c137ebe6d322e547f,false,717.2,DEN||RIC,RIC||JFK,United||Delta,5||6,23:45||11:00,6||6,03:00||12:30,DEN,JFK
+5ede97a9663902c130d2fadfe6f50b57,false,431.6,JFK||SAV,SAV||ATL,Delta||Delta,3||3,13:30||16:15,3||3,15:45||17:30,JFK,ATL
+b7ca95a3d675bafc0f918a813d3fe442,false,184.6,BOS||MSP,MSP||DEN,Sun Country Airlines||Sun Country Airlines,5||5,15:30||20:00,5||5,18:45||22:15,BOS,DEN
+005b7746c76d5c971fcd7cc95b2cf5c3,true,258.6,DFW,LAX,American Airlines,5,23:00,6,02:15,DFW,LAX
+51356071c72a51774b08e682c04e66d6,true,358.6,EWR,MIA,JetBlue Airways,5,10:00,5,13:15,EWR,MIA
+d27481d76dfdec004cf49f18612d5b19,false,497.2,SFO||SEA,SEA||MIA,United||Alaska Airlines,5||5,05:45||14:15,5||5,08:00||20:30,SFO,MIA
+128f6bd1ee4636c2d846da011d65e2d8,false,408.6,SFO||SLC,SLC||CLT,Delta||Delta,7||7,14:00||17:00,7||7,16:00||20:45,SFO,CLT
+0e21ca5b83d8576fcbaa1a1d7ab4eab9,true,263.6,PHL,ATL,Delta,7,12:15,7,14:15,PHL,ATL
+75bd08e28f45490b879bf21766ae43eb,false,135.58,MIA||ORD,ORD||LAX,Spirit Airlines||Spirit Airlines,5||6,15:15||00:15,5||6,18:30||05:00,MIA,LAX
+0c1da5de2c036bec79cdce98454e5d76,true,598.61,ATL,DEN,Delta,2,12:45,2,16:00,ATL,DEN
+20dadf94929f16589b18ce2aae20d968,false,312.6,JFK||RDU,RDU||DTW,Delta||Delta,6||6,16:00||21:15,6||6,17:45||23:00,JFK,DTW
+96caa1c1f1c7fae985938ec26cb89f83,false,132.61,DFW||LGA,LGA||BOS,Delta||Delta,2||2,15:00||20:00,2||2,18:30||21:30,DFW,BOS
+371e3bb661d99c7e96e690c3de705be5,false,188.6,DEN||ORD,ORD||MIA,American Airlines||American Airlines,3||3,15:30||20:15,3||3,18:00||23:30,DEN,MIA
+c9bb1327236d939cf46a5529fdf43ae4,true,319.6,BOS,LAX,JetBlue Airways,6,19:45,7,02:00,BOS,LAX
+5869381d8fc8b5a65131576c8ee88a0a,false,112.6,DTW||JFK,JFK||BOS,American Airlines||American Airlines,6||6,11:45||17:00,6||6,13:30||18:15,DTW,BOS
+6e3925d4b55a28eb15ba9ae3086ce0fd,false,572.6,DTW||AUS,AUS||LAX,Delta||Alaska Airlines,4||4,13:00||19:00,4||4,16:00||22:30,DTW,LAX
+f81db67c9d68fdd1f51d6c452fb7a187,false,567.6,LAX||SMF,SMF||CLT,American Airlines||American Airlines,5||5,01:45||05:45,5||5,03:15||10:30,LAX,CLT
+760c49eea67a9415364a194a73d46904,true,175.59,EWR,ATL,Spirit Airlines,4,21:00,4,23:30,EWR,ATL
+f8e8c424cc0438aea198e46d7e10232c,false,267.6,JFK||ORF,ORF||CLT,American Airlines||American Airlines,2||2,16:00||19:00,2||2,17:15||20:30,JFK,CLT
+02a0ca0e6a0984a559efd1102cefa4b9,false,81.1,CLT||EWR,EWR||BOS,United||United,3||3,18:00||21:15,3||3,20:00||22:30,CLT,BOS
+6943b5a79af1c0e24acbaa27569ff446,true,404.35,DEN,LGA,American Airlines,7,16:00,7,20:00,DEN,LGA
+ffc08740ee2ce44f5cd05409e3fc0a2a,true,438.6,ATL,LAX,Delta,2,22:15,3,03:00,ATL,LAX
+97b082e6b86f7423eff3042ec277203e,false,493.1,MIA||IAH||AUS,IAH||AUS||LAX,United||United||Alaska Airlines,1||1||1,12:00||16:15||20:30,1||1||1,14:45||17:15||23:45,MIA,LAX
+44d78f5b498bb540b9a76241ebc59b6a,true,319.6,BOS,LAX,JetBlue Airways,3,10:30,3,16:45,BOS,LAX
+3a43bf8d0a81739055d47102830e1400,false,201.7,CLT||BWI,BWI||ORD,American Airlines||American Airlines,2||2,02:30||11:00,2||2,04:00||13:15,CLT,ORD
+51301f533613b41d8ada9c7c15270602,true,468.61,MIA,SFO,American Airlines,5,12:30,5,18:45,MIA,SFO
+6caf47497d8c15caae21ceebc5090901,false,340.2,PHL||TVC,TVC||DFW,American Airlines||American Airlines,7||7,12:30||20:45,7||7,14:45||23:45,PHL,DFW
+8c7e494c9b6c20f5f3744670646e9f3a,false,311.1,CLT||BNA,BNA||DFW,American Airlines||American Airlines,6||6,20:00||22:30,6||7,21:15||00:45,CLT,DFW
+50189ee6cecdd29c33c7b538487468f9,false,527.19,JFK||RIC,RIC||ORD,Delta||United,3||3,01:15||10:45,3||3,03:15||13:00,JFK,ORD
+05018a9b2f0cb89044b74bdbe94417f6,false,257.21,OAK||SEA,SEA||SFO,Alaska Airlines||Alaska Airlines,7||1,20:00||02:00,7||1,22:00||04:15,OAK,SFO
+ee53676e360f2bf54aba234ad1c17c4d,false,361.6,ATL||MIA,MIA||LAX,American Airlines||American Airlines,6||6,10:00||12:45,6||6,11:45||18:15,ATL,LAX
+b55864989c163fb8755ffddb3283cc74,false,233.6,DFW||IAH,IAH||MIA,American Airlines||American Airlines,4||4,13:30||16:15,4||4,14:45||18:45,DFW,MIA
+376dbb524df2c36780f72dfce2eff7e9,false,295.61,PHL||BOS,BOS||ATL,JetBlue Airways||JetBlue Airways,1||1,13:15||17:45,1||1,15:00||20:30,PHL,ATL
+988d8fa5a5601c0978bfb72b0c8f92b5,true,258.6,LAX,SFO,Delta,1,15:15,1,17:00,LAX,SFO
+b44127a8292200b77b5ad64f08d978c2,false,437.1,CLT||PHX,PHX||SFO,American Airlines||American Airlines,2||2,18:45||23:45,2||3,23:15||01:45,CLT,SFO
+e584278e71dd245ef3ef7f09b84005ee,false,544.6,ATL||IAD,IAD||DFW,United||United,7||7,13:30||17:15,7||7,15:15||20:30,ATL,DFW
+47461b420e625f5a5a0aab9eea442a92,true,188.6,MIA,BOS,JetBlue Airways,3,18:15,3,21:45,MIA,BOS
+3169ef2b37a981b7b1acaaa75f02c5a0,false,244.6,ORD||MSP,MSP||EWR,Sun Country Airlines||Sun Country Airlines,5||5,03:00||12:00,5||5,04:45||14:45,ORD,EWR
+448491568cb531e35ed5893962556926,false,481.59,ORD||DCA,DCA||JFK,United||Delta,2||2,11:00||15:15,2||2,13:00||16:30,ORD,JFK
+329a2ac7198eb4365b5e5a48748d3f70,true,138.6,DEN,EWR,United,3,19:45,3,23:15,DEN,EWR
+d3913d791a1ce08e6e280205e92afbdb,false,247.6,DFW||IAH,IAH||LGA,United||United,6||6,21:15||23:30,6||7,22:30||03:30,DFW,LGA
+61a9e47017651db0486253e6c33f31c4,false,681.6,SFO||IND,IND||DTW,United||Delta,4||4,05:30||10:30,4||4,09:45||11:45,SFO,DTW
+3e41310b84ba88296ab7ff9043f1356b,false,386.7,SFO||LAX||BNA,LAX||BNA||ATL,Delta||Delta||Delta,6||7||7,20:00||00:00||10:30,6||7||7,21:30||04:00||11:30,SFO,ATL
+25ce71c930d105bd25671419fb335c73,false,367.6,PHL||DCA,DCA||ATL,American Airlines||American Airlines,7||7,20:30||23:00,7||1,21:45||01:15,PHL,ATL
+df95aacb428eff10e16b87d47251500b,false,497.2,OAK||SEA,SEA||DEN,Alaska Airlines||Alaska Airlines,5||6,20:00||03:00,5||6,22:00||05:30,OAK,DEN
+9ec823881548246a5b3f9cfb27b61444,true,285.6,DTW,DEN,United,6,20:30,6,23:45,DTW,DEN
+21809d9dd18aff2541996c209e1b3371,false,508.6,SFO||SEA,SEA||DFW,Alaska Airlines||Alaska Airlines,2||2,02:45||06:00,2||2,05:00||09:45,SFO,DFW
+07ee41275501ed388acedc3d7a1efbc6,false,581.6,SFO||EWR,EWR||ATL,United||United,5||5,07:00||16:00,5||5,12:15||18:30,SFO,ATL
+bf1fd4c3ebbbd064fccf27ecda7142f8,false,212.6,JFK||MIA,MIA||ATL,American Airlines||American Airlines,3||3,17:30||21:30,3||3,20:30||23:30,JFK,ATL
+dd448824ab62be780d0cebaa22a2438c,true,263.6,EWR,DEN,United,5,12:15,5,16:30,EWR,DEN
+6c9e0b67eca59e548da5c4fefebc68d9,true,118.6,JFK,MIA,JetBlue Airways,1,15:30,1,18:30,JFK,MIA
+a25948c5abc929fe976e15c66a936b69,false,447.2,OAK||SEA,SEA||DEN,Alaska Airlines||United,4||4,14:00||21:15,4||5,16:00||00:00,OAK,DEN
+ad29c596ca6bc8cac372f5cfb2c5c8cb,true,244.35,BOS,DTW,American Airlines,5,14:15,5,16:15,BOS,DTW
+ea977c210f1bdc323d4fad8bf730c6fa,false,405.58,ATL||ORD,ORD||OAK,Spirit Airlines||Spirit Airlines,5||6,18:45||02:45,5||6,21:00||07:15,ATL,OAK
+fb431e882dbe1538eb6dbfb4201e9a23,false,338.6,DTW||ORD,ORD||DEN,United||United,3||4,22:00||02:15,3||4,23:15||05:00,DTW,DEN
+039395259f55a69f285df400e8e83905,true,342.6,LAX,ORD,United,2,14:00,2,18:15,LAX,ORD
+3bcfc2575e47826b3ef6e99069286864,true,273.6,BOS,MIA,JetBlue Airways,6,15:15,6,18:45,BOS,MIA
+8fed836738121c01415af83b5a80e62e,false,517.1,PHL||DTW||PHX,DTW||PHX||SFO,Delta||Delta||Alaska Airlines,3||3||3,14:00||16:45||23:00,3||3||4,15:45||20:45||01:00,PHL,SFO
+d0d401fc563bf45458cbbdb85075c6da,true,488.6,LAX,EWR,United,3,23:30,4,05:00,LAX,EWR
+cb82775a3e8624c93c4c9f2762c61bb4,true,133.6,BOS,LGA,JetBlue Airways,4,11:00,4,12:15,BOS,LGA
+6580853368984087a4f79ac6aa525550,false,443.6,JFK||SFO,SFO||LAX,Alaska Airlines||Alaska Airlines,7||7,11:30||21:30,7||7,17:45||23:00,JFK,LAX
+bc9e00b304e4601938d3e39bb0922edb,false,308.6,LAX||IAH,IAH||MIA,United||United,6||6,19:00||23:45,6||7,22:30||02:15,LAX,MIA
+98f544be136a536c6e14677f8a671b91,false,298.6,PHL||ORF,ORF||CLT,American Airlines||American Airlines,2||2,14:00||17:15,2||2,15:00||18:45,PHL,CLT
+87bbca22934aadf03bc984239dd70295,false,505.6,LGA||ORF,ORF||IAD,Delta||United,6||7,20:30||00:00,6||7,22:00||01:00,LGA,IAD
+8953fdf215660166573f43c62d6f763b,true,498.6,MIA,SFO,American Airlines,7,20:45,1,03:00,MIA,SFO
+4b6f21f3d36ac235654695452916f159,true,218.6,ATL,EWR,Delta,6,02:45,6,04:45,ATL,EWR
+a5dfaa2974afe793099acacee6d3df24,true,518.59,IAD,LAX,United,1,13:00,1,18:30,IAD,LAX
+1591796490edc263a57ddf1203ea3a58,false,326.58,ATL||MSY,MSY||DTW,Spirit Airlines||Spirit Airlines,6||6,12:15||18:00,6||6,13:45||20:45,ATL,DTW
+d2446a6917d6d47f96aaa24c8e062b5d,true,52.49,CLT,TTN,Frontier Airlines,7,13:45,7,15:30,CLT,TTN
+abd4740de4cd91fb2990cef4cd57193c,true,408.6,LGA,CLT,JetBlue Airways,6,10:00,6,12:00,LGA,CLT
+76e80fced472ee12eae0a58dfb3f0e5d,false,187.6,LGA||DCA,DCA||ATL,American Airlines||American Airlines,1||1,15:00||18:00,1||1,16:15||20:00,LGA,ATL
+d742f6c3aadedf1e756b69bf0e263f04,false,490.69,OAK||PDX||SMF,PDX||SMF||LAX,Alaska Airlines||Alaska Airlines||United,1||1||2,14:00||16:15||00:45,1||1||2,15:30||17:45||02:30,OAK,LAX
+eca01ab96212162b9d86386e0351c17c,false,491.61,ATL||RDU,RDU||EWR,Delta||Delta,4||4,11:15||16:15,4||4,12:45||18:15,ATL,EWR
+3bce484e10662f2208fee07b1b0daa81,false,481.6,LAX||SEA,SEA||DTW,Alaska Airlines||Alaska Airlines,6||6,01:45||05:45,6||6,04:30||10:00,LAX,DTW
+ffc05226e08db8318975e855d7f092b7,false,354.6,EWR||ORD,ORD||DEN,American Airlines||American Airlines,4||4,18:00||22:15,4||5,20:30||00:45,EWR,DEN
+057504b870d4d007a5da5f030f3f154c,false,565.6,DEN||MCO,MCO||JFK,United||Delta,3||4,19:45||00:30,3||4,23:30||03:30,DEN,JFK
+6c1ba2414287edb47673416f62a56665,true,224.6,DEN,BOS,JetBlue Airways,4,23:30,5,03:15,DEN,BOS
+eed49c81b8bec6f017f29bd4f5b257f9,true,183.6,IAD,ORD,United,3,12:45,3,14:45,IAD,ORD
+16f77419c14ca2294f1efdb34b0e3717,false,160.1,CLT||JAX,JAX||MIA,American Airlines||American Airlines,2||2,18:45||22:15,2||2,20:00||23:30,CLT,MIA
+26265c6a8106bb5f2de38d35ae6127ce,false,564.61,LAX||JFK,JFK||CLT,JetBlue Airways||JetBlue Airways,5||5,05:30||12:15,5||5,11:00||14:15,LAX,CLT
+660e27ff30c4ba2f11bb4ba0c9724077,true,168.61,DFW,ATL,Delta,6,23:45,7,02:00,DFW,ATL
+01270e5fcec5b6a7136088c9d84ff17c,false,247.6,BOS||AUS,AUS||DFW,American Airlines||American Airlines,5||5,15:45||22:45,5||5,20:15||23:45,BOS,DFW
+b2f13a6573609e8d72a0c276b613ecd1,false,150.71,JFK||RDU||BOS,RDU||BOS||DTW,JetBlue Airways||JetBlue Airways||JetBlue Airways,2||2||2,02:00||10:15||14:45,2||2||2,03:45||12:00||17:00,JFK,DTW
+2bb0647e81588a8470e6357877e55a2d,true,325.6,LAX,PHL,American Airlines,3,18:15,3,23:30,LAX,PHL
+d004950e9baf87b448c773c76d7ab9c8,true,278.6,ATL,BOS,Delta,5,15:45,5,18:15,ATL,BOS
+4bbb46b3555f37e0d64f894ce0831538,true,158.6,LAX,JFK,JetBlue Airways,3,18:15,3,23:30,LAX,JFK
+149d52f24ecc3f1c281bfcfa4dc0ae13,false,568.6,LAX||SEA,SEA||ORD,Alaska Airlines||Alaska Airlines,7||7,02:45||07:00,7||7,05:45||10:45,LAX,ORD
+1096185259fa7bbc38f84cea34d7af4a,true,142.6,DFW,BOS,JetBlue Airways,3,17:00,3,20:45,DFW,BOS
+4dbf355b8a629b25cdf971b221968773,false,175.61,DFW||PHL,PHL||BOS,American Airlines||American Airlines,3||3,13:00||18:45,3||3,16:00||20:15,DFW,BOS
+fcf7517280b53fd60eea28e071dedb2f,true,373.6,MIA,SFO,American Airlines,1,00:30,1,06:30,MIA,SFO
+b421d586053c92605392b33bf26bcf88,false,402.71,SFO||AUS||IAH,AUS||IAH||CLT,United||United||United,4||4||4,01:45||10:30||12:15,4||4||4,05:15||11:30||15:00,SFO,CLT
+69ab6e0e6ba8f9bac33abde143f0f129,false,567.21,JFK||PIT,PIT||DEN,Delta||United,6||6,13:00||20:30,6||7,14:45||00:00,JFK,DEN
+ad9c56eafe52fe19a37c1cb8d7c1be8e,false,351.62,BOS||JFK,JFK||ONT,JetBlue Airways||JetBlue Airways,7||7,15:15||20:00,7||1,16:30||02:00,BOS,ONT
+00aedc3c32374ba237eb3e1d734e7091,true,478.59,DEN,BOS,JetBlue Airways,7,23:30,1,03:30,DEN,BOS
+8786b882954e96af6a4e8fbd2e8158a5,false,387.0,SFO||JAC,JAC||DEN,Alaska Airlines||United,5||6,18:30||00:00,5||6,20:30||01:45,SFO,DEN
+872bdf85ad5aceecf9402dc2034e02ad,false,500.26,JFK||SFO,SFO||LAX,Alaska Airlines||Alaska Airlines,7||1,17:00||02:00,7||1,23:15||03:30,JFK,LAX
+d45f01b4c7f88b90f19bace34b69b2b7,false,132.61,PHL||ORD,ORD||DEN,American Airlines||American Airlines,6||7,22:30||01:45,7||7,00:45||04:15,PHL,DEN
+81d265f4205e5cbc8bf3917b7727a014,false,622.2,DEN||EWR,EWR||PHL,United||United,2||2,06:00||16:15,2||2,09:30||17:00,DEN,PHL
+ce65e81a62946876fd9d25211b46d7d4,false,379.58,ATL||MCO,MCO||DFW,Spirit Airlines||Spirit Airlines,1||1,14:45||17:45,1||1,16:15||20:30,ATL,DFW
+87f68871ab61e0cad9c2c02873be926c,true,298.6,LGA,DTW,JetBlue Airways,7,23:45,1,01:45,LGA,DTW
+4c142ad86c47cd942a01704dd6e01288,false,83.99,OAK||LAS,LAS||DFW,Frontier Airlines||Frontier Airlines,4||4,17:00||21:45,4||5,18:30||00:45,OAK,DFW
+4b2d64b79ca0c5a8837c812ccaf215cd,false,1084.11,MIA||DFW||SEA,DFW||SEA||OAK,Alaska Airlines||Alaska Airlines||Alaska Airlines,4||4||5,12:30||19:30||01:30,4||4||5,15:30||23:45||03:30,MIA,OAK
+691762d2c0ccfa0b8e223b34690e14ad,false,112.1,ATL||CLT,CLT||BOS,American Airlines||American Airlines,2||3,00:00||02:30,3||3,01:15||04:45,ATL,BOS
+9df9c19d7fc6e006bf6b95e83500e2ff,false,643.7,BOS||LAX||SEA,LAX||SEA||OAK,United||Alaska Airlines||Alaska Airlines,1||1||2,13:15||21:30||05:00,1||2||2,20:00||00:30||07:00,BOS,OAK
+ee3751201bdb4dd8dcdfdbe0f6ce2add,true,518.6,LAX,JFK,American Airlines,7,19:30,1,01:00,LAX,JFK
+c405bdc63ba1bb1cf5af21665ab5b17a,false,232.61,SFO||BOS,BOS||MIA,JetBlue Airways||JetBlue Airways,7||7,06:15||13:15,7||7,11:45||16:45,SFO,MIA
+85985091d05224a08ffcab37b016746c,false,337.1,CLT||DTW,DTW||LAX,Delta||Delta,2||2,13:30||17:00,2||2,15:30||21:45,CLT,LAX
+5a698b37b752d3b8e49360eb77ac02f6,false,317.6,EWR||CLE,CLE||DEN,United||United,1||1,14:30||17:30,1||1,16:15||20:45,EWR,DEN
+4ded96c3c4891e8d4187ebc1167b1202,false,761.6,ATL||SEA,SEA||OAK,Alaska Airlines||Alaska Airlines,4||4,12:00||18:45,4||4,17:30||20:45,ATL,OAK
+6ef3f57868f31ccd2b498db47ec361b0,true,138.6,MIA,BOS,American Airlines,4,22:45,5,02:00,MIA,BOS
+29c2e39df8bf087ad28703390e5938d9,true,308.6,LAX,ATL,Delta,5,23:00,6,03:15,LAX,ATL
+b6bb73285019ea404a54449d3ce597be,false,92.6,ATL||DCA,DCA||LGA,American Airlines||American Airlines,2||2,11:15||16:00,2||2,13:00||17:00,ATL,LGA
+fffb7763db8c1173459fef5c4ff6110b,false,547.1,JFK||RDU||IAH,RDU||IAH||DFW,Delta||United||United,6||6||7,17:45||20:45||01:00,6||6||7,19:45||23:45||02:15,JFK,DFW
+4fc2c55737b467da7c5125dfcb875317,false,242.2,EWR||PHX,PHX||LAX,United||United,5||5,00:30||13:15,5||5,05:45||14:30,EWR,LAX
+31064ff06662b95203f5308b4806e1bb,false,391.61,OAK||SEA,SEA||LAX,Alaska Airlines||United,5||5,18:00||21:45,5||6,20:00||00:30,OAK,LAX
+964a0b33b34c276316192265df353523,true,248.6,IAD,EWR,United,5,21:00,5,22:30,IAD,EWR
+dea595b89bb9fb2ff38e9f24a5575691,false,245.58,DTW||MYR,MYR||BOS,Spirit Airlines||Spirit Airlines,6||6,14:30||18:30,6||6,16:30||20:30,DTW,BOS
+6605f7ed6b2439654fc47c1d06611fed,false,299.58,DFW||FLL,FLL||ATL,Spirit Airlines||Spirit Airlines,2||2,12:30||17:15,2||2,15:30||19:15,DFW,ATL
+cca50e2c5d87aebeefb3bc9e5b6eeb33,true,403.6,PHL,DFW,American Airlines,1,22:30,2,02:00,PHL,DFW
+168c340313d2c9e2c5d9f8d2b1e89649,false,681.6,ATL||IAD,IAD||DEN,United||United,7||1,23:30||02:15,1||1,01:15||06:00,ATL,DEN
+ef1baea74f2856534549e13137b14146,true,348.6,DEN,ATL,Delta,3,21:15,3,00:00,DEN,ATL
+f6c36b395a7aa18a8f030d15e7e2d601,true,424.61,BOS,LAX,JetBlue Airways,4,21:00,5,03:30,BOS,LAX
+409ec8a4bca4dc4697cccb12d9b7d64e,false,327.6,DFW||MSP,MSP||LAX,Delta||Delta,6||6,00:30||04:00,6||6,03:00||07:45,DFW,LAX
+719209fc4ee85e07827dd46df1ea7104,true,173.98,SFO,ATL,Frontier Airlines,1,06:15,1,11:00,SFO,ATL
+36dd8d4f95f317be6f9831b73ecc96d3,true,217.1,CLT,JFK,Delta,3,19:00,3,21:00,CLT,JFK
+514aae1013dc40a17d07aa2121c65483,true,237.1,CLT,LGA,JetBlue Airways,7,00:30,7,02:30,CLT,LGA
+f6acde117673beed4ca35c083b838505,false,726.61,JFK||CLE,CLE||DEN,Delta||United,7||7,13:15||17:30,7||7,15:15||20:45,JFK,DEN
+b07639f7c6004fac1a0ab3797c67c932,false,161.78,MIA||PHL,PHL||DTW,Spirit Airlines||Spirit Airlines,6||6,14:30||18:30,6||6,17:30||20:15,MIA,DTW
+1d32b0e6b04749aa21ed2dbacdb3170a,false,502.2,BOS||AUS,AUS||DEN,American Airlines||American Airlines,5||5,01:15||13:45,5||5,05:45||16:00,BOS,DEN
+086fdcfdd1a6784bfa7ec2a1538db8af,false,238.6,PHL||SLC,SLC||DEN,Delta||Delta,4||4,11:30||20:00,4||4,16:30||21:15,PHL,DEN
+26e6f1ded26fa05a4f688a2b209bf5c4,true,117.59,PHL,ATL,Spirit Airlines,1,10:00,1,12:15,PHL,ATL
+b571e95e43105b1e8d826169231c6e7b,false,540.6,SFO||ORD,ORD||DTW,American Airlines||American Airlines,5||5,06:45||13:30,5||5,11:00||15:00,SFO,DTW
+2f7553eaaa49e642fac862abe1c89586,false,336.6,BOS||EWR,EWR||ATL,Delta||Delta,5||5,19:30||23:30,5||6,21:00||02:00,BOS,ATL
+96e66da7d6deea388f4f2fdc43629a0e,true,468.61,SFO,ATL,Delta,3,05:45,3,10:15,SFO,ATL
+bae2d77f3084fe9273029e2cc3bdf8b6,false,143.1,CLT||MEM,MEM||DFW,American Airlines||American Airlines,6||6,13:00||18:30,6||6,14:45||20:15,CLT,DFW
+cad8ee6872e03c0b056da8e7b096fe72,true,133.6,BOS,MIA,American Airlines,3,17:45,3,21:30,BOS,MIA
+819b539289d4db691ee7777720fcd542,false,112.6,BOS||DCA,DCA||CLT,American Airlines||American Airlines,1||1,13:30||17:45,1||1,15:15||19:15,BOS,CLT
+4b76ee6664d14cdf626d7c0b8a633d20,false,122.1,BOS||CLT,CLT||ATL,American Airlines||American Airlines,6||7,21:45||01:15,7||7,00:15||02:30,BOS,ATL
+6989c5a6816160f3881df4865eaf6688,true,148.6,JFK,CLT,Delta,2,00:00,2,02:30,JFK,CLT
+b26943b51d345eb495a3d68e9c638b9b,false,547.1,JFK||RDU||IAH,RDU||IAH||DFW,Delta||United||United,1||1||2,17:45||20:45||03:00,1||1||2,19:30||23:45||04:15,JFK,DFW
+ba2dfd696ebba77ba0bd3e8ca6c34bb8,true,215.6,ORD,JFK,JetBlue Airways,6,17:15,6,19:30,ORD,JFK
+9a44dfc55bdda5b34a2ac53eacff5100,true,111.98,SFO,DEN,Frontier Airlines,1,17:45,1,20:30,SFO,DEN
+441692a62afac8164440946a366da29e,true,108.6,PHL,ATL,Delta,2,12:00,2,14:00,PHL,ATL
+79edd64d8b3535601500e74a3dd98e03,false,294.01,OAK||LAS,LAS||DEN,Frontier Airlines||Frontier Airlines,2||3,20:00||01:00,2||3,21:45||03:00,OAK,DEN
+0fb94c9324c79259cc2e0f316d423fb6,true,164.6,EWR,ORD,JetBlue Airways,5,21:45,6,00:45,EWR,ORD
+a4025599a96632da6f00ac622251e694,true,73.98,ATL,DEN,Frontier Airlines,2,11:00,2,14:30,ATL,DEN
+6311cbd2a338564e28b46fe85b5ee8ce,false,475.61,DTW||IAH,IAH||ATL,Delta||Delta,3||3,12:45||17:15,3||3,15:45||19:15,DTW,ATL
+d40ac18b668fc35466cfd228029058e5,false,281.96,OAK||ORD,ORD||ATL,Spirit Airlines||Spirit Airlines,3||3,14:00||22:15,3||4,18:15||00:30,OAK,ATL
+684265ad86a96fdae0fe6f5e003e174f,false,387.6,OAK||SLC,SLC||ATL,Delta||Delta,4||4,20:30||00:00,4||5,22:15||03:30,OAK,ATL
+acc696723cc72c05377311c86d45dbb2,true,238.6,PHL,ATL,American Airlines,5,00:30,5,02:45,PHL,ATL
+33ce98ca3eb0e36cb97a8eaa76d9dfbc,true,152.59,ATL,DFW,Spirit Airlines,1,02:15,1,04:45,ATL,DFW
+e5ee1f23a6f214e47507a5d5d9a9c7ab,false,621.59,ATL||MCO,MCO||SFO,Delta||Alaska Airlines,1||1,19:00||23:30,1||2,20:30||05:15,ATL,SFO
+3e88f00942f88d31391ecea3fcb8478f,false,191.1,CLT||RDU,RDU||LGA,American Airlines||American Airlines,2||2,18:45||20:45,2||2,19:30||22:30,CLT,LGA
+6dcfabf538bd2a9ae66ea06c126bd472,false,1261.6,OAK||SEA,SEA||SFO,American Airlines||American Airlines,4||5,20:00||00:45,4||5,22:15||02:45,OAK,SFO
+c8c1a77a2cad0b14bbc221689b723c2e,true,213.6,BOS,MIA,American Airlines,3,11:30,3,15:15,BOS,MIA
+e012682b08893e4b29969852fcc6bc79,false,89.57,BOS||MCO,MCO||ATL,Frontier Airlines||Frontier Airlines,2||2,13:45||22:30,2||3,17:00||00:15,BOS,ATL
+b22da5546e9dc5138efc7f5b9ba18566,false,256.71,OAK||SLC||SAT,SLC||SAT||ATL,Delta||Delta||Delta,1||1||1,13:00||15:30||22:45,1||1||2,15:00||18:15||01:15,OAK,ATL
+b018e69579a56e1fe9b7f404acfc79f4,false,571.6,LAX||SLC,SLC||OAK,United||Delta,7||7,16:15||21:15,7||7,18:15||23:15,LAX,OAK
+0734ed4af19f29d16e339e4adddd95fd,false,320.58,BOS||MCO,MCO||DTW,Spirit Airlines||Spirit Airlines,6||7,20:45||00:45,6||7,23:45||03:30,BOS,DTW
+545f1e9ea6eb3413e41702828bf28f07,true,288.1,CLT,PHL,American Airlines,3,15:15,3,16:45,CLT,PHL
+f4ecaa567e1e74390edb8b91db037ac6,true,215.6,LGA,ATL,JetBlue Airways,4,01:45,4,04:30,LGA,ATL
+6af0f0de11004e1e877167ab7534903a,false,187.2,ATL||JFK,JFK||MIA,JetBlue Airways||JetBlue Airways,3||3,14:45||23:30,3||4,17:00||03:00,ATL,MIA
+be50e1632de1f33d3847e91042f49cbc,false,167.2,ATL||MIA,MIA||JFK,Delta||Delta,2||2,04:00||12:30,2||2,05:45||15:30,ATL,JFK
+2d0a1b383b3a4ae438b6a680ebb749dd,false,444.6,DTW||ORD,ORD||LAX,American Airlines||American Airlines,7||7,20:30||23:00,7||1,21:45||03:30,DTW,LAX
+feead5eee169c42c516f655e966f2f93,false,318.6,ATL||EWR,EWR||BOS,United||United,4||5,21:45||02:30,5||5,00:00||03:45,ATL,BOS
+f449d1495cce1ad000ef91231203e18d,true,128.6,LGA,ATL,JetBlue Airways,6,21:00,6,23:30,LGA,ATL
+f057d8f5fa26bcd5a454b1e9f84fbaa4,true,598.61,ATL,LAX,Delta,6,02:45,6,07:45,ATL,LAX
+7e5ac251e36b686c18db0d545ba854a1,false,362.6,JFK||PHX,PHX||ONT,American Airlines||American Airlines,2||3,20:30||03:15,3||3,02:00||04:30,JFK,ONT
+305873594b6da1ec3b2faa8bb04a0703,true,273.99,SFO,ONT,Frontier Airlines,7,23:15,1,00:45,SFO,ONT
+a85a14c622a2d867f6ea5f6ba9c20406,false,441.6,LAX||SLC,SLC||OAK,United||Delta,6||6,15:30||21:15,6||6,17:30||23:15,LAX,OAK
+2a845dec38d4a14fcd1855d8b5af56eb,false,98.6,DEN||SLC,SLC||ONT,Delta||Delta,3||3,01:45||04:00,3||3,03:15||05:45,DEN,ONT
+97f940e03233e328d8bc9fff80084773,false,486.59,IAD||RIC,RIC||LGA,United||Delta,1||1,21:45||23:45,1||2,22:45||01:00,IAD,LGA
+23f6e74693309561fed7e6a3d4034368,false,437.61,BOS||CLT||MSY,CLT||MSY||DFW,American Airlines||American Airlines||American Airlines,5||5||6,17:15||20:30||01:00,5||5||6,19:45||22:30||02:30,BOS,DFW
+2f67626d018c6b9045c31c4f1e20635f,true,648.59,BOS,DEN,United,6,19:15,7,00:00,BOS,DEN
+7058af2f50b4008fd232137fca77c31a,true,93.6,LGA,DFW,American Airlines,2,10:00,2,13:45,LGA,DFW
+d300705d905fbcf6ba7dd5b0d40e60ca,false,254.1,CLT||AUS,AUS||LAX,American Airlines||American Airlines,2||2,15:00||18:45,2||2,17:45||22:00,CLT,LAX
+82b8855bfc308cef0d3231aaa2a00c2e,false,360.59,DEN||SLC,SLC||LAX,United||Alaska Airlines,3||3,14:30||18:30,3||3,16:00||20:30,DEN,LAX
+a6e045b8768a821ba5c73c76c449b3fa,true,278.6,DFW,PHL,American Airlines,6,23:45,7,03:00,DFW,PHL
+1ef24ec7f0644311b19572f4f6d60813,false,125.6,ATL||DCA,DCA||BOS,American Airlines||American Airlines,2||2,15:15||18:00,2||2,17:15||19:30,ATL,BOS
+03a47e17c07b4911c29f87e73abec778,true,88.6,BOS,ORD,Delta,2,22:00,3,01:15,BOS,ORD
+5fbf888246370a0dc7527ff3f931b0a3,false,153.19,EWR||BOS,BOS||ORD,United||United,3||3,02:00||10:15,3||3,03:15||13:00,EWR,ORD
+edaf33170ec537d7a0f3da5b3a7fa8ed,true,215.6,LGA,DFW,JetBlue Airways,6,10:30,6,14:30,LGA,DFW
+a6fd8db84bf57a2295ed0049ccbf9f2b,false,145.58,PHL||LAS,LAS||LAX,Spirit Airlines||Spirit Airlines,5||6,22:00||13:00,6||6,03:30||14:15,PHL,LAX
+ea6a5917f93d34769bfd11382dfd8cf5,false,149.6,ORD||AUS,AUS||CLT,American Airlines||American Airlines,3||3,18:30||22:00,3||4,21:15||00:45,ORD,CLT
+f54f0ab72ab0eb964d169554542b4538,false,302.61,PHL||DCA,DCA||JFK,American Airlines||American Airlines,7||7,14:30||17:30,7||7,15:30||18:45,PHL,JFK
+d2712d5c1f7c765a1c1e2ca8b9d36048,true,428.6,SFO,DEN,United,4,21:30,5,00:00,SFO,DEN
+2da8fb6a992bf677d6f8c7be785c0ac6,false,306.61,ONT||PHX,PHX||PHL,American Airlines||American Airlines,6||6,13:00||15:45,6||6,14:15||20:15,ONT,PHL
+491a98d6ae3038f6d3b4780e7b01cf0a,false,171.6,ORD||STL,STL||DFW,American Airlines||American Airlines,6||6,18:15||22:45,6||7,19:30||00:30,ORD,DFW
+52a57cf95f9bee30ea7af5dbc0fd91ca,false,286.58,LAX||BWI,BWI||ATL,Spirit Airlines||Spirit Airlines,5||6,23:45||09:45,6||6,04:45||11:45,LAX,ATL
+40fc66ce78f6be1f041c5e1cd25cb13a,true,138.6,DEN,LGA,Delta,2,22:00,3,01:45,DEN,LGA
+c2fc4440aecbcf5a9ef0a4b7cdf7e2e4,false,622.7,PHL||SEA||PDX,SEA||PDX||OAK,Alaska Airlines||Alaska Airlines||Alaska Airlines,5||5||6,11:15||19:00||03:15,5||5||6,17:15||20:00||05:00,PHL,OAK
+b8216e0aac2fcf203ca06b6c33729567,true,188.6,ATL,DEN,Delta,7,13:15,7,16:30,ATL,DEN
+005319268ec5e7b3985845f8fcb54412,false,312.58,ATL||ORD,ORD||OAK,Spirit Airlines||Spirit Airlines,2||3,18:45||02:30,2||3,21:00||07:00,ATL,OAK
+e458e2e3f46add692aac68829db940b7,true,248.6,DFW,EWR,JetBlue Airways,4,00:00,5,03:15,DFW,EWR
+94952267567624c28b1dd4f6e62106fa,false,294.6,DTW||DCA,DCA||MIA,American Airlines||American Airlines,1||1,16:45||19:45,1||1,18:15||22:30,DTW,MIA
+01d9b225b2628d6c541bc2ecc0e348e8,false,727.2,OAK||SEA,SEA||EWR,Alaska Airlines||United,1||1,01:45||07:45,1||1,03:45||13:00,OAK,EWR
+c83e39fcccc0b19615c88efe5d247583,true,358.6,SFO,ONT,United,5,23:30,6,01:00,SFO,ONT
+67dc8c5df3d21feb7c6ba7a5d6d44ecc,true,98.6,JFK,ATL,Delta,6,20:00,6,22:30,JFK,ATL
+2e1fc04d2f93e810b7a7c3cb094a7e5f,false,527.48,LGA||PIT||SEA,PIT||SEA||OAK,Delta||Alaska Airlines||Alaska Airlines,4||4||5,16:30||21:30||04:00,4||5||5,18:00||03:00||06:00,LGA,OAK
+7e7ab97ffc6856d256aa41bd41a95cee,false,402.6,BOS||JFK,JFK||DEN,American Airlines||American Airlines,4||5,22:30||00:30,4||5,23:45||05:00,BOS,DEN
+da9b0cd2760630f1bdf2bc6c65c7125f,false,489.59,IAD||AUS,AUS||SFO,United||United,3||3,16:45||21:00,3||4,20:00||00:45,IAD,SFO
+5af90d862fcaecdc76ea0832982f7391,false,165.6,DFW||CAE,CAE||PHL,American Airlines||American Airlines,4||4,17:15||22:00,4||4,19:30||00:00,DFW,PHL
+f80662973bd0a0b3b338a760bd9c6594,true,215.6,LGA,DFW,JetBlue Airways,1,10:30,1,14:30,LGA,DFW
+b217bc872a0abecdd2de102ec4d11a00,false,177.2,ATL||EWR,EWR||DEN,United||United,6||6,01:00||10:15,6||6,03:15||14:45,ATL,DEN
+20fa4381593c0c44c53c652ee7e39d06,false,247.61,MIA||DCA,DCA||DTW,American Airlines||American Airlines,6||6,14:00||19:45,6||6,16:30||21:15,MIA,DTW
+31aa89a45f5f6a979707c630c00971e0,true,118.6,PHL,BOS,American Airlines,6,19:45,6,21:00,PHL,BOS
+802dfac425da64bb1434903ba7ee40ec,false,97.6,MIA||IAD,IAD||ATL,United||United,2||2,16:15||21:00,2||2,19:00||23:00,MIA,ATL
+b8995ed294a530c6eec6c83c5cad9670,false,308.6,DFW||IAH,IAH||CLT,United||United,3||3,17:15||19:30,3||3,18:30||22:00,DFW,CLT
+ded1b6e58b62d3527a45ed02221fb4e6,true,285.6,DEN,IAD,United,5,21:45,6,01:15,DEN,IAD
+cccfd5bceff8c882d5f40e1d567e65a6,true,131.6,LAX,BOS,JetBlue Airways,3,07:00,3,12:15,LAX,BOS
+ec50771adde3fd4ea7309c5cacae1f80,false,241.6,ORD||IAH,IAH||DFW,United||United,3||4,23:00||02:30,4||4,01:45||03:45,ORD,DFW
+6cb969a8ffdd746e7bda3e5faa15e580,false,268.6,ATL||DFW,DFW||DEN,American Airlines||American Airlines,7||7,14:00||17:30,7||7,16:15||19:45,ATL,DEN
+13f5a94ceb11e92eb05e79da1c143cbc,true,44.6,BOS,EWR,JetBlue Airways,3,11:00,3,12:30,BOS,EWR
+80e0882737a8c9f70faca43e9df96ab7,true,565.6,LAX,PHL,American Airlines,3,16:00,3,21:30,LAX,PHL
+2f48dcf3263b79f9a5aab52fa05dff26,false,196.07,LGA||DTW||LAS,DTW||LAS||LAX,Spirit Airlines||Spirit Airlines||Spirit Airlines,4||4||4,01:45||09:15||14:30,4||4||4,03:45||13:45||15:45,LGA,LAX
+e6465e4dfc5be4507c435acd54605492,true,429.6,PHL,LAX,American Airlines,1,17:45,1,23:30,PHL,LAX
+f3188968821219e317348ef8e45e6a38,false,111.1,CLT||DCA,DCA||BOS,American Airlines||American Airlines,4||4,00:00||02:00,4||4,01:30||03:30,CLT,BOS
+e75adccc770138457f8089d2aa1cedcd,false,130.6,LGA||ROA,ROA||CLT,American Airlines||American Airlines,6||6,16:15||21:15,6||6,18:15||22:30,LGA,CLT
+3c7e29fbd2ec2758eac787b41d7201ce,false,637.2,SFO||FLL,FLL||JFK,United||Delta,3||3,06:45||16:45,3||3,12:15||19:45,SFO,JFK
+04a26ffe9a2261ebba2eab7c6b6e2f87,true,633.6,SFO,DTW,Delta,7,21:15,1,01:45,SFO,DTW
+5934c03ca13c4aac84cc9556a32bcdcc,false,134.61,DFW||DCA,DCA||CLT,American Airlines||American Airlines,2||2,11:45||16:00,2||2,14:30||17:30,DFW,CLT
+0dc2d57a9c1fa1d9d24f506388384a9a,true,296.61,DEN,ATL,United,5,23:45,6,03:00,DEN,ATL
+d0447f902e6449556613f2e80bc52ab2,false,662.2,JFK||BWI,BWI||DEN,Delta||United,4||4,03:00||12:00,4||4,04:15||16:00,JFK,DEN
+9b258d4462b3c61fff5d3d18eb119f6b,false,481.71,OAK||SEA||IAD,SEA||IAD||ATL,Alaska Airlines||United||United,1||2||2,23:45||06:15||12:30,2||2||2,02:00||11:00||14:30,OAK,ATL
+c88263689d2c29eb4165c42040b9c988,false,397.21,DFW||IAH,IAH||PHL,American Airlines||American Airlines,6||6,03:30||11:00,6||6,04:45||14:30,DFW,PHL
+bc6576f3c18dcc93d21e0eaaff4b2cae,true,171.6,JFK,MIA,JetBlue Airways,7,00:15,7,03:30,JFK,MIA
+ca677a77b171ff6a57f5a4b428070b29,true,93.6,MIA,BOS,JetBlue Airways,5,01:00,5,04:15,MIA,BOS
+92a4d9ee21574cf1fff4aefa39754279,false,156.1,DTW||CLT,CLT||ATL,American Airlines||American Airlines,1||2,19:45||00:45,1||2,21:30||02:00,DTW,ATL
+8f9f929e275c166e3a28585120c2b687,true,53.6,BOS,JFK,JetBlue Airways,1,23:30,2,00:45,BOS,JFK
+567aac2e70e80dde96a5b7ade20ad5a5,false,580.1,OAK||SEA||SNA,SEA||SNA||DEN,Alaska Airlines||Alaska Airlines||United,4||4||4,15:00||19:15||23:15,4||4||5,17:15||22:15||01:30,OAK,DEN
+3a6926bbe675e8c0dc96f1e27f2a6434,true,724.1,SFO,BOS,JetBlue Airways,6,15:00,6,20:45,SFO,BOS
+277b43af58309390c792f053eea053f9,false,488.6,ONT||SLC,SLC||ORD,Delta||Delta,3||3,20:30||23:45,3||4,22:15||03:00,ONT,ORD
+993f7df23f7eeb36420e9622ea2d75cd,false,506.1,JFK||PIT||IAD,PIT||IAD||ATL,Delta||United||United,2||2||3,20:00||00:00||02:00,2||3||3,21:45||01:00||04:00,JFK,ATL
+10af8be5e060ae6e5fc941db453be14c,true,598.61,DEN,PHL,United,5,23:15,6,03:00,DEN,PHL
+4d7e080a3ad095b3d4b4818dc093bbba,false,281.6,ORD||IND,IND||CLT,American Airlines||American Airlines,7||1,20:00||00:15,7||1,21:00||01:45,ORD,CLT
+fb2689980d61733dd56bb4196ca48e90,false,559.61,LGA||IAH,IAH||LAX,Delta||Delta,3||3,14:45||20:30,3||3,18:45||00:00,LGA,LAX
+438d0e417cbea54d659017d643a0a2e6,false,408.6,DEN||SLC,SLC||DFW,Delta||Delta,1||1,18:30||21:00,1||1,20:00||23:30,DEN,DFW
+3ae004567e354bd859922c65aa38f0e8,false,499.58,ATL||BWI,BWI||LAX,Spirit Airlines||Spirit Airlines,2||2,17:00||23:45,2||3,18:45||05:30,ATL,LAX
+5d790e56d18f7d175a4523db94106279,false,581.6,ORD||RSW,RSW||JFK,United||Delta,2||2,12:45||18:15,2||2,15:45||21:15,ORD,JFK
+ff4c443e16ec08ece1de3e181d7df3c3,false,341.1,CLT||MOB,MOB||DFW,American Airlines||American Airlines,1||1,17:00||20:15,1||1,19:00||22:15,CLT,DFW
+1263f3b9953aa929e143cf5121a8072d,false,147.6,LAX||IAD,IAD||ATL,United||United,2||2,05:30||13:30,2||2,10:15||15:30,LAX,ATL
+bc404be42875991009c283acc11470bb,true,258.6,ORD,LGA,JetBlue Airways,7,23:15,1,01:30,ORD,LGA
+4018d3275599c1b852851a1807d13fec,false,533.7,OAK||SEA||DEN,SEA||DEN||ATL,Alaska Airlines||United||United,2||2||2,03:45||13:00||17:00,2||2||2,06:00||15:45||19:45,OAK,ATL
+80e77ed4903f9ea105ce629388cb3f30,false,357.6,DEN||MSP,MSP||LGA,Delta||Delta,1||1,14:00||18:00,1||1,15:45||20:45,DEN,LGA
+6cae314b7801435be562a1bfcd7e15e9,false,442.7,OAK||SEA||EWR,SEA||EWR||ATL,Alaska Airlines||United||United,6||7||7,23:45||06:00||13:15,7||7||7,01:45||11:00||16:00,OAK,ATL
+5a424a6c272c1b492c6d5a52f188ac2c,false,172.6,DFW||ORD,ORD||BOS,United||United,3||3,16:00||19:00,3||3,18:15||21:15,DFW,BOS
+4fd63f8fb0032376b7eff45df13d359b,false,307.6,SFO||DFW,DFW||ATL,American Airlines||American Airlines,6||6,16:00||20:30,6||6,19:30||22:45,SFO,ATL
+721b2024efa29cc4bf88b6722d9d91c7,false,406.19,EWR||MKE,MKE||DEN,United||United,6||6,13:15||20:00,6||6,15:45||22:30,EWR,DEN
+f0aba667db919d7db0d8c3f1331afbd0,false,228.1,ATL||CLT,CLT||BOS,American Airlines||American Airlines,1||1,20:30||23:00,1||2,22:00||01:00,ATL,BOS
+b76da01c921e1c646ae451f84a74bc63,false,417.7,DEN||PIT||EWR,PIT||EWR||BOS,United||United||United,3||3||4,16:15||23:15||02:00,3||4||4,19:00||01:00||03:15,DEN,BOS
+d67d2238a88244d02830d28a11ed2963,false,309.58,LAX||ORD,ORD||DFW,Spirit Airlines||Spirit Airlines,6||7,19:30||00:30,6||7,23:30||03:15,LAX,DFW
+0734818b3a4902bad3a0c421903b1ca8,false,370.6,ONT||SEA,SEA||DTW,Delta||Delta,3||3,13:15||17:00,3||3,16:00||21:15,ONT,DTW
+fb0297a70d0cc3cb351fef7942cef554,true,318.6,LAX,DTW,Delta,1,06:30,1,10:45,LAX,DTW
+82731deb55f7fab309cdeaf80fbe3d7b,true,128.6,SFO,LAX,Delta,1,15:15,1,17:00,SFO,LAX
+317c75cfdedd810d2bb58433fcad8463,false,162.6,DFW||LAS,LAS||LAX,American Airlines||American Airlines,3||3,14:30||18:15,3||3,17:15||19:30,DFW,LAX
+2cad8048def4cf5ca90fa07a36acb017,true,202.6,DFW,DEN,American Airlines,7,02:15,7,04:15,DFW,DEN
+da1ecb0dc3d2713c75d3713e110b7106,false,321.59,LAX||FLL,FLL||LGA,JetBlue Airways||JetBlue Airways,1||1,05:30||11:00,1||1,10:30||13:45,LAX,LGA
+a6ef61c409b38cdc8fbc703ee24f2234,false,377.6,ONT||DFW,DFW||ATL,American Airlines||American Airlines,4||5,21:00||00:45,4||5,00:00||02:45,ONT,ATL
+0f96192d13142b83d7153c99fd289339,true,193.6,SFO,DFW,United,4,07:00,4,10:45,SFO,DFW
+cbda616574e1304abc8646b3ae7eef9a,true,118.6,BOS,JFK,JetBlue Airways,3,18:30,3,19:45,BOS,JFK
+4267330411f04aced994171129bdf9eb,false,401.6,ATL||SAV,SAV||JFK,Delta||Delta,2||2,13:45||15:45,2||2,14:45||18:00,ATL,JFK
+f3afb8c23365efd76cdd07ed66d3df7e,false,319.6,SFO||MIA,MIA||JFK,American Airlines||American Airlines,3||3,06:45||14:45,3||3,12:45||18:00,SFO,JFK
+67303d1ad5026e9f4810ebf262d2e912,false,187.6,ORD||PHL,PHL||MIA,American Airlines||American Airlines,2||2,18:30||21:45,2||3,20:30||00:30,ORD,MIA
+db0ca68a77f253e86e41cbab5a189384,false,576.6,DEN||DFW,DFW||BOS,American Airlines||American Airlines,5||6,20:30||00:15,5||6,22:30||03:45,DEN,BOS
+a8c351ae4bd12f35a2baa4c724014957,false,286.58,ATL||MCO,MCO||DTW,Spirit Airlines||Spirit Airlines,7||7,15:45||22:00,7||1,17:15||00:45,ATL,DTW
+e5853db4fa03232177bd252f42b74a98,false,294.58,LAX||ORD,ORD||ATL,Spirit Airlines||Spirit Airlines,2||2,07:30||15:15,2||2,11:30||17:15,LAX,ATL
+ea63f385f41311754d70535309b1a41c,false,627.6,OAK||SLC,SLC||ATL,Delta||Delta,4||4,13:00||16:00,4||4,15:00||19:45,OAK,ATL
+c8e7b214e6c6d6490d8b354757a5734b,false,241.6,LAX||SEA,SEA||DEN,Delta||Delta,2||3,21:45||03:00,3||3,00:45||05:30,LAX,DEN
+49989e4dd85e3bd9f9485d6a13c38a79,false,202.6,MIA||PNS,PNS||DFW,American Airlines||American Airlines,6||7,21:15||00:15,6||7,23:00||02:30,MIA,DFW
+6e58eeab69d4801c267419f01cb1d1d6,true,828.6,ATL,BOS,Delta,1,11:15,1,13:45,ATL,BOS
+ef8936d5eb29f1d6fea9f47f9b1f469b,true,618.6,DEN,BOS,United,7,16:00,7,20:00,DEN,BOS
+d60959e758aba3361d4881e6038672fa,true,253.61,MIA,LAX,American Airlines,3,10:00,3,16:00,MIA,LAX
+0cb316a2861ff5ed12edffc0cf3702bd,false,407.19,OAK||SEA,SEA||DEN,Alaska Airlines||United,6||6,14:00||21:30,6||7,16:15||00:15,OAK,DEN
+11b903944f1919a0ba26a57fd8c46e3f,true,228.1,CLT,MIA,American Airlines,5,18:45,5,21:00,CLT,MIA
+ac6a20a7801efd14e0682d7a704c9573,true,250.59,ATL,PHL,Spirit Airlines,1,20:15,1,22:15,ATL,PHL
+ca3b3eda0e858862115621d915814437,false,451.7,OAK||SEA||DEN,SEA||DEN||ATL,Alaska Airlines||United||United,6||6||6,13:15||19:30||23:45,6||6||7,15:15||22:15||02:30,OAK,ATL
+ec88094d7cadce903daebb6ec21c6c54,true,408.6,DFW,JFK,Delta,5,17:30,5,21:00,DFW,JFK
+b752a0cd1756a60efbd11c81061d9dc8,false,274.6,LAX||MSP,MSP||BOS,Sun Country Airlines||Sun Country Airlines,3||4,20:45||11:45,4||4,00:30||14:30,LAX,BOS
+ca0ec22f2f315aebe2eba33c06bcd99c,false,402.59,LGA||CLE,CLE||PHL,American Airlines||American Airlines,4||4,18:30||22:00,4||4,20:15||23:15,LGA,PHL
+1bcb8f918155f593e9caa396cf927102,true,248.6,DEN,EWR,United,7,18:00,7,21:30,DEN,EWR
+553c65b2b3b3a73858d5ab91259c2440,true,30.98,ATL,PHL,Frontier Airlines,3,02:15,3,04:30,ATL,PHL
+792eb5f0a2ea0d671f6bd9e5da6c148a,false,528.6,DEN||MSP,MSP||IAD,Delta||Delta,4||5,22:15||01:00,5||5,00:15||03:30,DEN,IAD
+e6ba1ad8342d5eea4370cc879110bb52,true,171.6,JFK,MIA,JetBlue Airways,5,12:45,5,16:00,JFK,MIA
+eb5ee4b906744c5df60cdb0cd81047b7,true,131.6,BOS,LAX,JetBlue Airways,2,12:00,2,18:45,BOS,LAX
+f575d3cc43a54493b908496ad42ebea8,false,514.0,DTW||MCO,MCO||PHL,Frontier Airlines||Frontier Airlines,3||3,14:45||20:15,3||3,17:30||22:45,DTW,PHL
+5dca53c37421e24ecbc307df4417ddc5,false,452.21,JFK||PWM,PWM||IAD,Delta||United,4||4,11:45||18:45,4||4,13:15||20:30,JFK,IAD
+879eb873eb4143b06a763deffb184aa9,false,318.6,ATL||EWR,EWR||BOS,United||United,4||5,22:00||02:00,5||5,00:30||03:30,ATL,BOS
+976839c333557aeb0572a450175f32ed,true,144.35,DTW,BOS,American Airlines,2,10:00,2,11:45,DTW,BOS
+0ed5f7b8320433d3232b0e888bb55c8f,false,327.2,ATL||EWR,EWR||CLT,United||United,2||2,01:30||11:00,2||2,03:45||13:15,ATL,CLT
+9604fccfc4a5e044ef02bd09bdb8c0c6,false,547.2,LAX||DCA,DCA||LGA,American Airlines||American Airlines,1||2,20:45||10:00,2||2,02:00||11:15,LAX,LGA
+9b492daa783aab0ff2d3dcd3145213ae,false,196.6,ORD||MCO,MCO||MIA,American Airlines||American Airlines,6||6,12:00||17:15,6||6,14:30||18:15,ORD,MIA
+8ad61713a5d3d00070058e77da7b7251,true,658.6,DEN,BOS,United,2,16:15,2,20:15,DEN,BOS
+92d1a5c30842ed1d0efa55d1b685d29e,true,147.59,DTW,DFW,Spirit Airlines,4,20:00,4,22:45,DTW,DFW
+25b8e913f03adb74085df6cbc12083a9,false,99.58,ATL||FLL,FLL||BOS,Spirit Airlines||Spirit Airlines,3||4,22:00||00:45,3||4,00:00||04:00,ATL,BOS
+f4cbd13e7089ad9271b407d8bd138975,true,919.6,LAX,JFK,American Airlines,3,17:00,3,22:30,LAX,JFK
+83d9ed42ff0f51827c112d32801487b8,true,215.6,BOS,ORD,JetBlue Airways,4,19:00,4,22:00,BOS,ORD
+868a513daa611ec84668029df49ac5af,false,585.1,MIA||DFW||SEA,DFW||SEA||OAK,Alaska Airlines||Alaska Airlines||Alaska Airlines,3||3||4,15:45||22:15||04:00,3||4||4,19:00||02:45||06:00,MIA,OAK
+5f3706e4579c4189f56d3f0c14a3fb4d,false,232.19,BOS||EWR,EWR||DEN,United||United,1||2,16:00||00:15,1||2,17:15||04:45,BOS,DEN
+2182151463c01f6d7bb57917814613f5,false,222.6,LAX||MSP,MSP||DEN,Delta||Delta,7||7,06:30||12:00,7||7,10:00||14:15,LAX,DEN
+c14998d89ed6190492840152f0ad1f40,true,449.6,LAX,PHL,American Airlines,7,23:15,1,04:15,LAX,PHL
+630216e8d9878f79a4070496df22076b,true,208.61,JFK,SFO,JetBlue Airways,2,12:15,2,18:30,JFK,SFO
+3cdd59c842d396744a830a2adf260ea2,false,431.6,PHL||PHX,PHX||ONT,American Airlines||American Airlines,2||2,11:15||17:00,2||2,16:15||18:15,PHL,ONT
+91c10897f43cc84474e676aa77f3480c,true,390.1,CLT,PHL,American Airlines,7,23:00,1,00:45,CLT,PHL
+45a9796839c9e40043b80639d3ea0571,true,208.61,EWR,DFW,JetBlue Airways,3,14:30,3,18:15,EWR,DFW
+232dc3aaaf888798cf77d15a59eba47b,false,538.6,BOS||ORD,ORD||DEN,United||United,6||7,22:30||02:15,7||7,01:15||05:00,BOS,DEN
+0f9241854d97e2d3c723b2dcdf5cf9f2,false,272.6,DEN||DFW,DFW||ATL,American Airlines||American Airlines,4||4,13:00||16:15,4||4,15:00||18:15,DEN,ATL
+ce100ccf3e151f24df6f407d3a73b18d,false,509.6,LAX||AUS,AUS||ATL,Alaska Airlines||Delta,6||6,15:15||19:45,6||6,18:30||22:15,LAX,ATL
+84187c36f0e10fa2698eb99389ac00d9,false,317.6,ATL||PHX,PHX||LAX,American Airlines||American Airlines,6||7,22:30||03:00,7||7,02:45||04:30,ATL,LAX
+e4e8c2d483cb940d26d2a1a4e15307f6,false,413.1,DEN||TEX||PHX,TEX||PHX||LAX,Key Lime Air||Key Lime Air||United,7||7||7,15:45||17:30||23:00,7||7||1,17:00||19:00||00:45,DEN,LAX
+a698ea226f36360f124618cb5b2e640b,false,614.01,ATL||DEN,DEN||SFO,Frontier Airlines||Frontier Airlines,3||3,11:00||17:15,3||3,14:15||20:00,ATL,SFO
+30e9e8f5d925591585451d8f2f1a74ae,false,237.7,CLT||EWR,EWR||ATL,United||United,3||3,01:00||10:15,3||3,03:15||12:45,CLT,ATL
+106847fdb96dfff8a8fa2e5504704d6e,false,401.08,CLT||LAS,LAS||LAX,Spirit Airlines||Spirit Airlines,7||7,12:00||19:45,7||7,16:45||21:00,CLT,LAX
+697abaf76490d663be15f1a78d316dd7,false,134.39,DEN||PHX,PHX||DFW,Frontier Airlines||Frontier Airlines,5||5,18:30||23:45,5||6,20:30||02:15,DEN,DFW
+67739d120b58e9f3cafcbfdb59aca8d1,false,311.1,CLT||MEM,MEM||DFW,American Airlines||American Airlines,4||4,11:45||16:00,4||4,13:30||17:45,CLT,DFW
+925416ac09f2477919ca053a9abffe22,false,211.58,ORD||LAX,LAX||ATL,Spirit Airlines||Spirit Airlines,5||5,01:45||17:45,5||5,06:15||22:15,ORD,ATL
+c782550f3386479badb0db96b109f23d,false,423.6,BOS||IAH,IAH||DFW,United||United,7||1,19:45||01:00,7||1,23:45||02:30,BOS,DFW
+ddfa06de37623d7ceb53a2dbed0ef796,false,464.7,DTW||ORD||PDX,ORD||PDX||OAK,United||United||Alaska Airlines,6||6||6,09:45||12:30||22:45,6||6||7,11:30||17:00||00:30,DTW,OAK
+56eedf8220f871692bc01ca02503056e,false,196.1,DTW||CLT,CLT||BOS,American Airlines||American Airlines,4||4,11:15||14:15,4||4,13:15||16:15,DTW,BOS
+cf151aa9b2886d96a6bee2a343d195e1,false,475.6,IAD||ORF,ORF||BOS,United||Delta,6||6,16:45||18:30,6||6,17:45||20:15,IAD,BOS
+20a16031f1611866348c4d3d51713eb8,false,395.96,LAX||BWI,BWI||ATL,Spirit Airlines||Spirit Airlines,7||7,04:30||10:00,7||7,09:30||12:00,LAX,ATL
+324c2cc5b3161838bebb08bf18663a6f,false,167.58,DFW||MCO,MCO||DTW,Spirit Airlines||Spirit Airlines,5||6,18:30||01:00,5||6,21:15||03:30,DFW,DTW
+66b58f6f40d42ab38a569c610be40f74,false,309.58,DFW||ORD,ORD||LAX,Spirit Airlines||Spirit Airlines,3||3,02:45||13:15,3||3,05:15||17:45,DFW,LAX
+d4e42a5077fb4860810940aac77970c4,true,328.6,IAD,ORD,United,4,16:45,4,19:00,IAD,ORD
+bf01680b6ede351cffec558e98ce9fd6,true,408.6,LAX,CLT,American Airlines,4,14:15,4,19:00,LAX,CLT
+34fd1af24d2362a06ce50031ee1e1d3f,false,142.6,MIA||RDU,RDU||LAX,American Airlines||American Airlines,3||4,20:45||01:30,3||4,23:00||07:00,MIA,LAX
+cf891ad00afcc034b5fa79fe779bef14,false,387.21,DEN||DFW,DFW||MIA,American Airlines||American Airlines,1||1,12:00||19:30,1||1,14:00||22:30,DEN,MIA
+b46d9e27cac99c8e648aec96abaa7f8b,false,301.21,DTW||HPN,HPN||ATL,Delta||Delta,1||1,11:15||19:15,1||1,13:00||21:15,DTW,ATL
+85b21d053a093745e1ca207946620331,false,555.2,BOS||SEA,SEA||SFO,Alaska Airlines||Alaska Airlines,7||1,15:00||02:45,7||1,21:15||04:45,BOS,SFO
+51420910104b8d96e1d775d2077be470,true,161.59,LGA,MIA,Spirit Airlines,1,01:45,1,04:45,LGA,MIA
+445651af19569dff86160ae60c283437,false,558.61,OAK||SLC,SLC||DFW,Delta||Delta,1||1,13:00||16:15,1||1,15:00||18:45,OAK,DFW
+c71552c6c73e1549243b0bbcf13ed8db,true,228.6,BOS,DEN,JetBlue Airways,4,17:30,4,22:00,BOS,DEN
+097ae9b28ebeabcfa3afe15a87573474,false,416.1,CLT||IAH,IAH||LAX,American Airlines||American Airlines,7||7,17:15||21:30,7||1,19:45||01:15,CLT,LAX
+d97b209e9c1e553b9663ac4c05c91644,false,571.6,JFK||CHS,CHS||ORD,Delta||United,7||7,12:00||17:00,7||7,14:15||19:15,JFK,ORD
+ccfcc3809e6ba68bbac3a1a875413671,true,138.6,LGA,ORD,JetBlue Airways,3,10:00,3,13:00,LGA,ORD
+3b6fa736d3d8b3358a2cb61204a35136,true,397.1,CLT,ATL,Delta,5,21:30,5,22:45,CLT,ATL
+a16e8454111fadef4d22afab8a2f47a3,true,194.6,DFW,MIA,American Airlines,2,10:00,2,13:00,DFW,MIA
+accbd0c866751e18df3033c45cfe35fc,false,87.6,ATL||IAD,IAD||EWR,United||United,1||2,23:30||02:30,2||2,01:15||03:45,ATL,EWR
+36d3fca62afb4aa85ae5d1a3b595c673,true,293.6,SFO,ORD,United,5,01:45,5,05:45,SFO,ORD
+c75870f93350d38b61eb9ce5ff4584e0,false,413.6,DEN||PHX,PHX||SFO,American Airlines||American Airlines,7||7,21:15||00:00,7||1,23:15||02:00,DEN,SFO
+f1cb6315b1935a23547801aee4fca963,false,165.21,EWR||RDU,RDU||IAD,United||United,4||4,01:30||10:15,4||4,03:15||11:15,EWR,IAD
+534db610beb80ccb030c6b1d892b466f,false,138.58,ORD||MCO,MCO||LGA,Spirit Airlines||Spirit Airlines,4||5,15:45||00:15,4||5,18:15||03:00,ORD,LGA
+1517f748f17b8a1c8bd91b81aa386d5d,false,74.78,ATL||PHL,PHL||MIA,Spirit Airlines||Spirit Airlines,3||4,20:15||00:45,3||4,22:30||03:45,ATL,MIA
+c0ebbe42c8846b8265281a23e6c011ee,true,238.6,DEN,BOS,United,1,20:30,2,00:15,DEN,BOS
+9fa7817d2a58a88db4b9331f9601f1b8,false,394.6,DTW||ORD,ORD||SFO,Alaska Airlines||Alaska Airlines,4||4,20:30||23:00,4||5,21:45||03:45,DTW,SFO
+0d32fc5c77267a4bcf1851c41c0133aa,false,138.58,ATL||MCO,MCO||DFW,Spirit Airlines||Spirit Airlines,4||4,14:45||20:45,4||4,16:15||23:45,ATL,DFW
+db08bd3934378e90697933334b92e4aa,false,501.61,ATL||JAX,JAX||BOS,Delta||Delta,6||6,19:00||22:15,6||7,20:00||01:00,ATL,BOS
+c781cb1b8b6a75d89d749f3f73858e54,false,262.61,LAX||LAS,LAS||JFK,American Airlines||American Airlines,2||2,02:15||05:30,2||2,03:30||10:30,LAX,JFK
+47b69757458bf1495059d5b95b61045e,false,404.78,LAX||LAS,LAS||ATL,Spirit Airlines||Spirit Airlines,3||4,20:30||05:00,3||4,21:45||09:00,LAX,ATL
+40517f3c65902ecf3aa3e8f7025cfef4,false,117.6,DEN||MIA,MIA||ATL,American Airlines||American Airlines,2||3,18:30||01:45,2||3,22:30||03:45,DEN,ATL
+a83953d0c94a352997bac67c6e0139b0,false,207.2,OAK||SEA,SEA||SFO,Alaska Airlines||Alaska Airlines,5||6,20:00||02:00,5||6,22:00||04:15,OAK,SFO
+ccb9f1188ba6ed276c5748a4353a29e1,false,485.59,LGA||ORF,ORF||IAD,Delta||United,7||7,16:30||19:15,7||7,18:00||20:15,LGA,IAD
+97931d525dba620852df69b18a156b93,false,704.69,ATL||EWR||SEA,EWR||SEA||OAK,United||United||Alaska Airlines,1||1||1,01:15||11:15||20:45,1||1||1,03:30||17:30||22:45,ATL,OAK
+b76abac9efa9dda224712f63df559006,false,507.1,CLT||DFW,DFW||SFO,American Airlines||American Airlines,5||5,10:00||14:15,5||5,12:45||18:15,CLT,SFO
+4c3656e91aaefbe574ac117a9b495b7c,false,102.6,JFK||ORF,ORF||DFW,American Airlines||American Airlines,5||5,16:15||19:15,5||5,17:30||22:30,JFK,DFW
+01da1d2a3ae933496749555ee515c5d7,false,566.11,JFK||BWI||IAH,BWI||IAH||DFW,Delta||United||United,3||3||3,15:00||19:15||23:00,3||3||4,16:15||22:15||00:15,JFK,DFW
+87c8134366231398c05e9f2e5f075938,true,408.6,EWR,SFO,American Airlines,2,21:00,3,03:15,EWR,SFO
+5c3b62c2db65d2d5cfba5021e0da3f08,false,337.6,JFK||ORF,ORF||CLT,American Airlines||American Airlines,5||5,18:45||20:45,5||5,20:00||22:00,JFK,CLT
+b60fdfabce9bea74501473a7bf08dfea,true,299.6,SFO,BOS,American Airlines,4,06:30,4,12:00,SFO,BOS
+3a5043802927f0f73600c6352314f3c5,false,347.2,DEN||ORD,ORD||PHL,United||United,4||4,02:45||12:30,4||4,05:00||14:30,DEN,PHL
+80f2bc74f7688a4212681ed863b1d466,false,171.6,JFK||PIT,PIT||ORD,American Airlines||American Airlines,4||4,18:00||22:00,4||4,19:45||23:30,JFK,ORD
+57be017a5af732b33b181d7883bbecc5,false,506.61,SFO||DFW,DFW||DEN,American Airlines||American Airlines,1||1,07:00||13:45,1||1,10:30||15:45,SFO,DEN
+ee6446dc05da172c905bccb78df6e0b3,true,428.1,CLT,SFO,American Airlines,4,22:45,5,04:15,CLT,SFO
+5c5b236ac2f461c1c690e8069acca648,false,731.61,ONT||SEA,SEA||ORD,Alaska Airlines||Alaska Airlines,1||1,13:00||17:00,1||1,15:45||21:00,ONT,ORD
+eab6edc137abd29ab8e0db25c8fbfe0c,true,338.61,DEN,LAX,American Airlines,5,19:30,5,22:00,DEN,LAX
+4daa8a74e45b410596fe122f0679ba59,true,528.6,SFO,IAD,United,6,23:15,7,04:30,SFO,IAD
+88a36f0fcda37ca0c7aab3331173ce51,false,516.6,IAD||CLT||CSG,CLT||CSG||DFW,American Airlines||American Airlines||American Airlines,1||1||1,10:15||15:15||20:15,1||1||1,11:45||16:45||22:45,IAD,DFW
+ae769325f2be6050f7832527b486b55b,false,133.58,ATL||MCO,MCO||DFW,Spirit Airlines||Spirit Airlines,5||5,14:45||20:45,5||5,16:15||23:45,ATL,DFW
+3672ff2e1ecd8b0e0662654b24cfc1fa,false,181.6,DEN||DFW,DFW||ATL,American Airlines||American Airlines,2||2,18:45||22:00,2||3,20:45||00:00,DEN,ATL
+652bb3b27739ea67b029d3a9e407139a,true,319.6,LAX,BOS,JetBlue Airways,4,03:45,4,09:15,LAX,BOS
+b4a1535ee11e3b2e97310d9891b0bb6f,false,367.6,SFO||PHX,PHX||MIA,American Airlines||American Airlines,6||6,16:15||19:45,6||7,18:15||00:00,SFO,MIA
+d2086be37c2f6ac4706e3e8a6d9c62b4,false,175.61,DFW||IAH,IAH||DTW,United||United,6||6,21:00||23:15,6||7,22:30||02:15,DFW,DTW
+13f5a94ceb11e92eb05e79da1c143cbc,true,43.6,BOS,EWR,JetBlue Airways,3,11:00,3,12:30,BOS,EWR
+9500fa176c1114a498491d2650fcc99d,false,161.6,LGA||CHO,CHO||CLT,American Airlines||American Airlines,2||2,16:00||20:15,2||2,17:30||21:30,LGA,CLT
+9919b07caa08925bafa28c6bfb6da7c6,true,163.6,BOS,CLT,JetBlue Airways,3,13:00,3,15:30,BOS,CLT
+4dd0eebac5e893f4134bc227e37425e9,false,429.6,SFO||SAN,SAN||CLT,Alaska Airlines||Alaska Airlines,4||4,16:45||21:00,4||5,18:15||01:45,SFO,CLT
+52b90e6a933dda36d542f056b5a427d9,false,438.59,ORD||SLC,SLC||LAX,Delta||Delta,1||1,19:00||23:30,1||2,22:30||01:30,ORD,LAX
+3b3270e9c9b4d71b1bb5346d8b2551ab,true,108.6,BOS,JFK,JetBlue Airways,2,20:30,2,22:00,BOS,JFK
+6040316bd45a4fb4410ae67dcfecad06,true,469.61,BOS,DEN,JetBlue Airways,4,17:30,4,22:15,BOS,DEN
+2e9c87eee91892db01601cd0e9fd521c,false,527.19,JFK||RIC,RIC||ORD,Delta||United,3||3,01:15||10:15,3||3,03:15||12:30,JFK,ORD
+b9dfb1caf55aec8e34be72b79d367a3e,false,375.71,LAX||LAS||PHL,LAS||PHL||BOS,American Airlines||American Airlines||American Airlines,5||5||5,02:00||06:00||18:00,5||5||5,03:15||10:45||19:15,LAX,BOS
+216a2d51f13659ce6f68fa9ea74f0428,false,417.6,LAX||DFW,DFW||CLT,American Airlines||American Airlines,4||4,07:00||11:00,4||4,10:00||13:30,LAX,CLT
+ac3c92e4abd57d3cabd8bc1138f26a2f,false,206.6,LAX||PHX,PHX||EWR,American Airlines||American Airlines,5||5,20:45||23:30,5||6,22:15||04:00,LAX,EWR
+b49e8089ad6977186c021367102c406f,true,78.6,ORD,BOS,Delta,6,12:45,6,15:15,ORD,BOS
+c6875362f21a18d3a02fcb1e2f28c173,false,466.61,DFW||CNM||ABQ,CNM||ABQ||DEN,Boutique Air||Boutique Air||United,3||3||4,19:00||21:30||00:00,3||3||4,21:00||22:30||01:45,DFW,DEN
+edf779652637578f34bfb5f52a1abe37,true,278.6,DTW,ATL,Delta,5,12:30,5,14:45,DTW,ATL
+7508c9ca7ea8a0717e83daa7f66aad97,true,333.61,ATL,PHL,American Airlines,1,19:00,1,21:00,ATL,PHL
+990877edf7f85c195190c4e3965237dd,true,248.6,JFK,CLT,Delta,4,19:00,4,21:30,JFK,CLT
+b03faa84e12423519e98aebe4de610d1,false,200.78,DTW||MIA,MIA||DFW,Spirit Airlines||Spirit Airlines,7||7,00:45||11:00,7||7,04:00||14:15,DTW,DFW
+80336218847e92d572ace0f483c5a31a,false,154.6,BOS||EWR,EWR||ORD,United||United,1||1,14:45||17:15,1||1,16:15||19:45,BOS,ORD
+f66d7f7d04515186eacf606eceff6e87,true,127.6,EWR,ORD,United,1,19:30,1,22:15,EWR,ORD
+b4f41338e73459da88e65975af280f92,true,448.6,BOS,ATL,Delta,3,19:15,3,22:00,BOS,ATL
+dfe0b39a6826f3f60dcdd3bb026e9e00,true,398.6,LAX,DTW,Delta,6,14:00,6,18:30,LAX,DTW
+884d0abe76a2051a82358eb015a210b1,false,201.1,EWR||CLT,CLT||ATL,American Airlines||American Airlines,1||2,22:30||01:15,2||2,00:30||02:30,EWR,ATL
+2e418f5b5d66da859a1c6aa842e3c49f,true,129.59,EWR,OAK,Spirit Airlines,7,23:00,1,05:00,EWR,OAK
+8a9befe22a7d4f590a73c25f8b084b30,false,236.7,CLT||STL,STL||ORD,American Airlines||American Airlines,2||2,02:45||12:15,2||2,04:45||13:45,CLT,ORD
+a45aa12e10fabaf837c57515374d66f7,false,481.6,BOS||PHL,PHL||ATL,American Airlines||American Airlines,7||1,22:00||00:30,7||1,23:45||02:30,BOS,ATL
+92558d47ff9cd6df72e3d3c3b2fbc69b,true,84.6,EWR,BOS,American Airlines,1,11:15,1,12:15,EWR,BOS
+e760b706307dbccd0c2141df10aa97d5,true,238.6,LAX,DEN,Alaska Airlines,7,23:30,1,02:00,LAX,DEN
+0c8227e337249a86e7c4914b9801cbaf,true,278.6,DFW,PHL,American Airlines,5,22:30,6,01:30,DFW,PHL
+55d683a5cc6c26e63cd4e8b4a1f0c980,false,307.6,SFO||MSP,MSP||DTW,Delta||Delta,2||3,20:15||00:30,2||3,23:45||02:15,SFO,DTW
+6e776830f5201e45cc6837ec887db646,false,75.58,DFW||BWI,BWI||MIA,Spirit Airlines||Spirit Airlines,2||2,15:00||23:45,2||3,18:00||02:30,DFW,MIA
+9c16c848d47ab0361d3bb4ae821d0ca3,true,78.6,BOS,JFK,American Airlines,6,01:45,6,03:00,BOS,JFK
+e95336446b03c93295a31f95750a08d8,false,432.2,EWR||LAS,LAS||SFO,United||United,7||7,01:45||13:00,7||7,07:15||14:45,EWR,SFO
+c750ad7f08e179a78716739adce1e174,false,213.1,ATL||CLT,CLT||LAX,American Airlines||American Airlines,6||6,13:00||15:00,6||6,14:15||20:15,ATL,LAX
+d86cd1d3fe693f104265e56cffd80342,true,278.6,PHL,DFW,American Airlines,5,18:15,5,22:00,PHL,DFW
+364e00be59bd9aff5ac10dc409e217da,false,311.1,CLT||MEM,MEM||DFW,American Airlines||American Airlines,3||3,12:45||15:15,3||3,14:15||17:00,CLT,DFW
+185c6790a8821b2ab3584e05f8c7f816,true,258.59,ATL,EWR,Delta,4,20:45,4,23:00,ATL,EWR
+c9d1b180283c54871a1a18aa51676849,false,246.58,DFW||LAX,LAX||ORD,Spirit Airlines||Spirit Airlines,4||4,15:30||19:30,4||4,18:45||23:30,DFW,ORD
+e4b37a46905c767efd2de7c991e0e187,false,324.1,LAX||SFO,SFO||BOS,United||United,5||5,17:45||23:15,5||6,19:15||05:00,LAX,BOS
+07185e21ddab8237e8df5810794fd943,false,194.6,LAX||ORD,ORD||ATL,United||United,3||3,12:30||19:00,3||3,16:30||21:00,LAX,ATL
+20fa4381593c0c44c53c652ee7e39d06,false,237.6,MIA||DCA,DCA||DTW,American Airlines||American Airlines,6||6,14:00||19:45,6||6,16:30||21:15,MIA,DTW
+4d5e9644238a76245e386f75710a96e1,false,192.6,MIA||TPA,TPA||CLT,American Airlines||American Airlines,6||6,13:30||16:00,6||6,14:45||17:45,MIA,CLT
+afcdb0b51cd6b8234b48e7644be2ca70,true,285.6,DEN,ATL,Delta,5,13:00,5,16:00,DEN,ATL
+e98ca76b8aa5cdf67fb64f67c784956a,false,317.6,DEN||IAD,IAD||EWR,United||United,2||2,06:00||10:00,2||2,09:15||11:30,DEN,EWR
+c0c4dc75579918910c94ce8306fb0e1a,true,113.98,DFW,SFO,Frontier Airlines,3,22:45,4,03:00,DFW,SFO
+570d7696e524ed31f5bec62b564c3e9e,true,118.6,DEN,LGA,Delta,6,22:00,7,01:45,DEN,LGA
+f2321f72ea12c1bed8adf357ef1ab6e1,false,417.6,LAX||MIA,MIA||ATL,American Airlines||American Airlines,2||2,05:15||12:30,2||2,10:15||14:45,LAX,ATL
+9aec05d843c5b8fbd2b59162bd7ba746,true,317.1,CLT,JFK,Delta,1,19:00,1,21:15,CLT,JFK
+60b2736354e2951fa04c8dcfc013f025,false,946.1,OAK||SEA||EWR,SEA||EWR||BOS,Alaska Airlines||United||United,4||4||5,15:00||19:00||01:45,4||5||5,17:15||00:30||03:15,OAK,BOS
+6d602b0d2a7d2f251b730d2ed58efbc5,false,246.58,ORD||LAX,LAX||DFW,Spirit Airlines||Spirit Airlines,4||4,01:30||15:30,4||4,05:45||18:30,ORD,DFW
+2fd74709eb3bb3101209fcc5990be527,true,297.09,CLT,ATL,Delta,1,20:45,1,22:00,CLT,ATL
+70564f1713be26c417351ca3af75723a,false,302.61,BOS||PHX,PHX||LAX,American Airlines||American Airlines,7||7,10:45||18:00,7||7,16:30||19:30,BOS,LAX
+8563acbc8858191ed2b817da01f9524e,false,273.6,BOS||ORD,ORD||DEN,United||United,1||2,22:30||02:30,2||2,01:30||05:30,BOS,DEN
+255af8f1796bbcf961e1b3b8a0111442,false,127.6,DEN||IAD,IAD||EWR,United||United,7||7,06:00||13:00,7||7,09:15||14:15,DEN,EWR
+76ba5197528937427cd7268a517e904c,false,555.1,SFO||DFW||STL,DFW||STL||CLT,American Airlines||American Airlines||American Airlines,6||6||6,13:00||20:15||00:00,6||6||7,16:30||21:45||01:45,SFO,CLT
+8968915bac9f3d8cd6438237bdc374d1,false,124.2,ATL||EWR,EWR||BOS,United||United,2||2,01:00||10:30,2||2,03:30||11:45,ATL,BOS
+48d50114089ea439d87fb7c48c2428c8,true,357.6,DAL,SFO,Alaska Airlines,6,21:00,7,01:00,DAL,SFO
+13e21c3f13b64be0b8fa07515567aa0e,false,157.6,DTW||DCA,DCA||ATL,American Airlines||American Airlines,2||2,16:45||21:30,2||2,18:15||23:30,DTW,ATL
+7aa48c62652044b5e549ca5a9722f4af,true,498.6,DEN,IAD,United,4,20:00,4,23:15,DEN,IAD
+4c4afd30826ffc5cff650e6cda5815fe,true,369.6,BOS,DEN,JetBlue Airways,7,23:45,1,04:15,BOS,DEN
+4802657dff311a1cbb3a26ced057596e,false,428.6,ONT||PHX,PHX||EWR,American Airlines||American Airlines,7||7,13:30||15:30,7||7,14:45||20:15,ONT,EWR
+8acd1300ab7b9393665886c9c0e4f798,false,647.2,JFK||BTV,BTV||DEN,Delta||United,4||4,13:15||19:30,4||4,14:45||00:00,JFK,DEN
+2e664001bf56aa7223e81c1ba1b16492,false,77.6,ATL||DFW,DFW||LGA,American Airlines||American Airlines,3||3,14:30||19:15,3||3,17:00||22:30,ATL,LGA
+8701fca7b9f3afbd94f2891cb8611192,true,368.6,ATL,JFK,Delta,2,23:45,3,02:15,ATL,JFK
+68dd71b5a922a5031ece4c77bba9df3e,true,317.6,SFO,JFK,American Airlines,3,19:30,4,01:00,SFO,JFK
+3c21d928d3f70bf0da8a7b3f7eb1ca05,false,240.6,MIA||MCO,MCO||PHL,American Airlines||American Airlines,6||6,21:30||23:30,6||7,22:45||02:00,MIA,PHL
+b6d92b01e5caf77de67f6e6caad76ad1,true,464.35,LAX,EWR,American Airlines,6,21:15,7,03:00,LAX,EWR
+1bdeb76bbd17160e4f7bc1ecea3a7f01,false,369.08,CLT||MCO,MCO||ORD,Spirit Airlines||Spirit Airlines,5||6,17:30||01:45,5||6,19:00||04:45,CLT,ORD
+3e2b52390620f9f60513034c76ceb427,true,308.6,LGA,CLT,JetBlue Airways,4,00:45,4,03:00,LGA,CLT
+6eb4cea1efd553516b4dfa5a76c4a2ef,false,751.6,DEN||CLE,CLE||JFK,United||Delta,7||7,16:15||21:00,7||7,19:00||22:45,DEN,JFK
+cc6238e6f45825ca7933f5c670e4ddef,true,163.6,BOS,LGA,American Airlines,5,21:00,5,22:15,BOS,LGA
+89ae206dc233f5b8c798e559b0b88880,false,513.71,OAK||SEA||DEN,SEA||DEN||ATL,Alaska Airlines||United||United,3||3||3,02:45||12:00||16:15,3||3||3,05:00||14:45||19:00,OAK,ATL
+53d9db2e639202ca55f846583edfdc18,false,177.61,EWR||DFW,DFW||DEN,American Airlines||American Airlines,6||6,13:45||19:45,6||6,17:30||21:45,EWR,DEN
+5d27a42d14166101de70e637166177a9,false,367.2,LAX||IAH,IAH||ATL,United||United,7||7,02:00||13:00,7||7,05:15||15:15,LAX,ATL
+9c80a8288a586c9a8ad6052a42d7c34e,true,188.59,DTW,LAX,Spirit Airlines,6,13:00,6,17:45,DTW,LAX
+39db388b30e394b9932fadf0a29fd3f9,true,208.61,BOS,PHL,American Airlines,5,00:15,5,01:45,BOS,PHL
+56942c0b4c0e89fcbdbd074e89ef997c,true,678.61,SFO,DEN,United,1,15:45,1,18:30,SFO,DEN
+f6fc77b0eaf571fd244886c3d74d8937,true,314.6,JFK,DTW,American Airlines,1,13:00,1,14:45,JFK,DTW
+5790fc350e3ad085db59020847fcab9f,false,236.1,JFK||CLT,CLT||ATL,American Airlines||American Airlines,4||5,23:00||02:30,5||5,01:15||04:00,JFK,ATL
+614add1c693ddb6f59e9bdd4d08845b5,false,532.1,CLT||JFK,JFK||LAX,Delta||Delta,7||7,10:00||13:00,7||7,12:00||19:00,CLT,LAX
+19cd18946bc9a8cef5035df88dab9170,false,167.6,JFK||PIT,PIT||CLT,American Airlines||American Airlines,4||4,18:00||23:00,4||5,19:45||00:30,JFK,CLT
+f497e6f8bc26dfc5519cf86be63ae2fe,false,166.58,ATL||MCO,MCO||DTW,Spirit Airlines||Spirit Airlines,2||2,14:45||23:30,2||3,16:15||02:15,ATL,DTW
+f60c1c363dc4bd8b2bb27bbb606ca699,false,317.6,ONT||PHX,PHX||DTW,American Airlines||American Airlines,1||1,19:15||23:00,1||2,20:30||02:45,ONT,DTW
+4f7ea14a244a64e4ff1e80a3e0db793e,false,152.6,DFW||PDX,PDX||SFO,Alaska Airlines||Alaska Airlines,6||7,18:45||02:00,6||7,22:45||03:45,DFW,SFO
+cc960355cbab896afca29347acbf8aaf,true,333.6,JFK,LAX,JetBlue Airways,4,14:30,4,20:30,JFK,LAX
+58febeca553f362a4510d569842d4f0c,true,178.6,BOS,ATL,Delta,4,14:30,4,17:30,BOS,ATL
+abc30f423b5173dbf9fd713b466546d6,true,198.6,ATL,LGA,JetBlue Airways,3,00:30,3,03:00,ATL,LGA
+71a5797cfc96fb35e150e948209cc055,false,362.2,ATL||BWI,BWI||DTW,Delta||Delta,6||6,00:15||10:00,6||6,02:00||11:30,ATL,DTW
+b4e0bab7bf754dbef3cf2faa4c50f72f,false,77.78,DEN||FLL,FLL||ATL,Spirit Airlines||Spirit Airlines,3||3,06:00||15:45,3||3,09:45||17:30,DEN,ATL
+d965a48a0305ade608db845f80d5a88a,false,119.1,ATL||CLT,CLT||BOS,American Airlines||American Airlines,5||5,00:15||02:30,5||5,01:30||04:45,ATL,BOS
+15280dec5f3aec75ef0788c68c94bd1f,true,218.6,DFW,BOS,JetBlue Airways,7,17:15,7,21:00,DFW,BOS
+7fb84d451e38c319435a00434805578e,false,224.6,SFO||LAX,LAX||DEN,Delta||Delta,2||3,22:00||02:45,2||3,23:45||05:00,SFO,DEN
+2aec53ef547a257e8fe638ca7212ac35,false,353.19,LAX||BNA,BNA||DTW,Delta||Delta,1||1,01:30||12:15,1||1,05:30||14:00,LAX,DTW
+f2b84a0edc3e5d11f2f85e3ab0ab606e,false,179.78,ATL||FLL,FLL||LAX,Spirit Airlines||Spirit Airlines,4||5,19:45||01:45,4||5,21:45||07:30,ATL,LAX
+ec77afe3fc67d8445326f893290a735e,false,181.6,DFW||DCA,DCA||ATL,American Airlines||American Airlines,3||3,13:45||18:00,3||3,16:45||20:00,DFW,ATL
+db74c8dc3dd9c6e70afeb3dbe95dae0e,false,210.1,ATL||CLT,CLT||ORD,American Airlines||American Airlines,5||5,00:15||02:45,5||5,01:30||04:45,ATL,ORD
+96ce948d2b47c0f325f1e83aab5534a6,false,424.61,LGA||ATL,ATL||DEN,Frontier Airlines||Frontier Airlines,1||1,02:45||11:00,1||1,05:15||14:15,LGA,DEN
+80591e899ff9161ac12b3d0a39e574cc,false,471.61,SFO||SEA,SEA||EWR,United||United,4||4,15:30||19:00,4||5,17:45||00:15,SFO,EWR
+284c682df9646ac77aebeaf5e2a27478,false,161.6,LGA||RDU,RDU||CLT,American Airlines||American Airlines,3||3,12:00||15:00,3||3,13:45||16:00,LGA,CLT
+fe7a7a7ff7dd054bbe0b90dbf177b4c5,false,280.2,ORD||RDU,RDU||JFK,American Airlines||American Airlines,6||6,01:45||10:00,6||6,03:45||11:45,ORD,JFK
+cfd80933dcdd7f2b9264f736ef8fc57e,false,177.61,DFW||STL,STL||BOS,American Airlines||American Airlines,6||6,13:45||17:00,6||6,15:30||20:00,DFW,BOS
+48a0061ceaf9628fdf6940d110694970,false,213.6,IAD||SAV,SAV||EWR,United||United,2||2,16:45||19:30,2||2,18:30||21:45,IAD,EWR
+4870ed2edbe5e7d71403c92dbecdca7b,true,238.6,MIA,LGA,JetBlue Airways,5,15:15,5,18:15,MIA,LGA
+7395b44186d0d5ab2a921716b2698d6c,true,372.61,ORD,MIA,American Airlines,6,10:15,6,13:15,ORD,MIA
+eeddc0904fa1d466f3992902671c2c09,true,318.59,DTW,LAX,Spirit Airlines,2,10:15,2,15:15,DTW,LAX
+8534c28503120b282002f548d0708cb9,false,166.1,CLT||BNA,BNA||LGA,American Airlines||American Airlines,5||5,15:15||18:30,5||5,16:45||20:45,CLT,LGA
+a5c35dae694133fb1c0722cb596dc6ad,false,84.6,EWR||DCA,DCA||ORD,United||United,2||2,12:00||14:45,2||2,13:30||16:45,EWR,ORD
+feed348554183b2b7803abc5644b7484,false,187.6,DEN||JFK,JFK||BOS,American Airlines||American Airlines,4||5,21:30||02:00,5||5,01:15||03:15,DEN,BOS
+7c1e6a1e83a45cd33770c222b6d60344,false,181.6,JFK||ORF,ORF||CLT,American Airlines||American Airlines,6||6,11:15||15:15,6||6,12:45||16:30,JFK,CLT
+2a0b557479c1e97bc16f99b0e37dbf6c,false,511.6,ATL||JAX,JAX||BOS,Delta||Delta,5||5,20:45||22:15,5||6,21:45||01:00,ATL,BOS
+7a05f695c4880de4f42d40ade6994b06,false,627.2,DEN||RDU,RDU||JFK,United||Delta,1||2,23:30||10:45,2||2,02:45||12:30,DEN,JFK
+8d422987f8b1860869d841a88c4b9380,true,183.6,IAD,DEN,United,2,20:00,2,00:00,IAD,DEN
+58cef82433661af2bfb2bacc0b94e27c,true,160.35,BOS,ORD,American Airlines,2,21:15,3,00:15,BOS,ORD
+7d6a9035491e0d299f1bb016047020ed,true,378.6,DTW,LAX,Delta,4,00:15,4,05:00,DTW,LAX
+ee53b166757c3261f57bf3af76bfec6e,false,448.6,LAX||ORD,ORD||ATL,United||United,6||6,07:00||13:45,6||6,11:00||15:45,LAX,ATL
+4dca8ff8481c803f132ff8a0824db352,true,81.98,DEN,ONT,Frontier Airlines,6,04:30,6,06:45,DEN,ONT
+f4face143265fbdfefef69ab9ff6bc2b,true,181.6,BOS,LAX,American Airlines,6,00:45,6,07:00,BOS,LAX
+0ed5f000fdff31ed7b091655c1fe515b,false,267.6,LAX||PHL,PHL||BOS,American Airlines||American Airlines,4||4,06:00||12:45,4||4,11:30||14:15,LAX,BOS
+f95bbe16256f80a21d5b37f436499fa0,false,317.6,MIA||RDU,RDU||CLT,American Airlines||American Airlines,6||6,17:45||20:15,6||6,19:45||21:30,MIA,CLT
+4cd547f9dcb5776edcd1d9ad501b7e42,true,122.98,DEN,ONT,Frontier Airlines,1,04:45,1,07:00,DEN,ONT
+3dc994728e317acae784c5af75ba41c2,false,641.6,DEN||IND,IND||JFK,United||Delta,3||3,16:15||22:15,3||4,18:30||00:30,DEN,JFK
+6099a2d42dcbff72045aaa151a2440ec,true,408.6,DTW,ATL,Delta,1,01:30,1,03:30,DTW,ATL
+939d5219e5472e9490a47a43b36d7bf6,false,574.6,SFO||PHX,PHX||CLT,American Airlines||American Airlines,3||3,13:00||17:00,3||3,15:00||21:30,SFO,CLT
+f1e84ad28fc2f3963ce1f7eadc47c9e1,true,193.6,PHL,BOS,American Airlines,3,22:45,4,00:15,PHL,BOS
+cb93e5268e63d1ff9e312fe440137204,false,233.6,ORD||TUL,TUL||DFW,American Airlines||American Airlines,6||6,13:45||19:30,6||6,15:30||20:45,ORD,DFW
+b8e9e93700d8842639e49ef2a1969846,false,437.21,LAX||ATL,ATL||MIA,Delta||Delta,7||7,04:45||15:00,7||7,09:00||16:45,LAX,MIA
+09ddbbdcbe26ff9d8e3e5a011ef7209f,false,687.1,ATL||IAD||PWM,IAD||PWM||JFK,United||United||Delta,7||7||1,19:30||22:15||01:15,7||1||1,21:15||00:15||02:30,ATL,JFK
+ff0c7a341275ea9fd3acda22d32431b5,false,592.7,OAK||SLC||IAH,SLC||IAH||ATL,Delta||United||United,3||3||4,14:00||20:15||00:30,3||3||4,15:45||23:00||02:45,OAK,ATL
+c8def07db7e93183a0ae35e72864f599,false,551.6,ORD||MCO,MCO||JFK,United||Delta,5||6,18:15||00:15,5||6,21:15||03:00,ORD,JFK
+c4639469f195aafe391149bafcf5f16c,true,618.6,BOS,DEN,United,3,16:15,3,20:45,BOS,DEN
+98f4250de1ac9e7c68328339ecf52f49,false,328.6,EWR||PHX,PHX||ONT,American Airlines||American Airlines,7||1,20:30||03:00,1||1,02:15||04:15,EWR,ONT
+5f8bf13004c484f4b8cba6be8fd5088c,false,297.6,LGA||ORD,ORD||LAX,American Airlines||American Airlines,6||6,16:30||20:15,6||7,19:15||00:30,LGA,LAX
+19bd47f065c8c52351796df040c3be02,true,428.6,EWR,SFO,American Airlines,4,00:00,5,06:15,EWR,SFO
+fa08e6447e478bf6779884e75cd102da,false,190.6,SFO||PHX,PHX||ONT,American Airlines||American Airlines,2||2,12:45||16:45,2||2,14:45||18:15,SFO,ONT
+183e2ada1863603a9feb10be7918c312,false,172.2,SFO||LAX,LAX||DEN,United||United,4||4,05:30||12:15,4||4,07:00||14:45,SFO,DEN
+8b69754fb8187d73cd888ce36ff2d75b,false,547.2,JFK||BWI,BWI||ORD,Delta||United,5||5,02:45||10:30,5||5,04:00||12:45,JFK,ORD
+0be986fc7bd235e6cea7c9cea4b5b0b4,false,351.61,IAD||JFK||ACK,JFK||ACK||BOS,Delta||Delta||Cape Air,5||5||5,10:00||15:15||23:15,5||5||6,11:30||16:45||00:00,IAD,BOS
+52f8abbf673e736cd727e1a327cc7089,true,288.6,MIA,LAX,American Airlines,1,21:00,2,02:30,MIA,LAX
+acd5d817d3ad97896b524f848773ee58,false,477.4,CLT||BWI||MSS,BWI||MSS||BOS,American Airlines||Boutique Air||Boutique Air,6||6||6,13:45||18:15||20:30,6||6||6,15:00||20:00||21:45,CLT,BOS
+87a5b782052871328a5c03019e09ea8a,true,273.6,ATL,CLT,Delta,6,02:00,6,03:15,ATL,CLT
+e7c5e80187cd87a9411f0103fc46480b,true,198.6,DFW,ATL,Delta,4,22:45,5,01:00,DFW,ATL
+d110caef1833d3bb18bcb9e98f898718,true,243.1,CLT,EWR,JetBlue Airways,3,22:15,4,00:15,CLT,EWR
+63ce7920620211fd9f25ea80fb93567c,false,273.58,ORD||RSW,RSW||EWR,Spirit Airlines||Spirit Airlines,7||7,11:15||16:30,7||7,14:00||19:15,ORD,EWR
+4c4b26ef0b3734f2f0ee2948d18ffb48,true,268.6,MIA,ORD,American Airlines,1,23:45,2,03:30,MIA,ORD
+91173823065de9394fc738aee7ec2fca,false,302.6,BOS||JFK,JFK||DTW,American Airlines||American Airlines,7||7,16:45||18:45,7||7,18:00||20:30,BOS,DTW
+1cd1b013069801517a34b7974037da7c,true,193.6,BOS,LAX,United,7,12:30,7,19:00,BOS,LAX
+990f2266910f634fcbb29690cf71a2c5,false,133.61,BOS||LGA,LGA||ORD,Delta||Delta,3||3,18:00||20:30,3||3,19:15||23:30,BOS,ORD
+5e459057a3a50561ca74f4d22fa70752,false,404.58,LAX||BWI,BWI||ATL,Spirit Airlines||Spirit Airlines,6||7,23:45||10:30,7||7,05:00||12:30,LAX,ATL
+0b67ea89c06b51bacc7e15ebb9cc2a3f,false,312.6,DFW||AUS,AUS||CLT,American Airlines||American Airlines,6||6,12:00||14:45,6||6,13:15||17:30,DFW,CLT
+ff4e916be133136f6489c03392a93883,false,337.21,DFW||FLL,FLL||PHL,American Airlines||American Airlines,5||5,01:30||11:00,5||5,04:15||13:45,DFW,PHL
+d334fc0275da506a46fa11a64eeacc0d,true,238.6,LAX,DEN,Alaska Airlines,5,17:00,5,19:15,LAX,DEN
+a52a1bd95ab17c3ce4e097e27206ad88,false,651.6,JFK||RDU,RDU||DEN,Delta||United,3||3,15:00||20:15,3||4,17:00||00:15,JFK,DEN
+d9c245795f4ef1f8e9544892bf6a70d0,true,118.6,DEN,IAD,United,7,00:00,7,03:15,DEN,IAD
+56608b55e3c0731efa69592f91152808,true,598.61,ATL,SFO,Delta,4,22:15,5,03:30,ATL,SFO
+ad39c43767c1855fc4724438e533d5d6,false,397.21,ORD||SEA,SEA||LAX,Alaska Airlines||Alaska Airlines,5||5,01:45||14:00,5||5,06:30||16:45,ORD,LAX
+b258a1dca363f8ccd75035e946fa9cb3,false,238.6,MIA||JFK,JFK||CLT,Delta||Delta,7||7,11:45||16:30,7||7,14:45||18:30,MIA,CLT
+8dacaf0fe2b25aaee90b03ffecff963c,true,217.1,CLT,LGA,JetBlue Airways,7,15:15,7,17:00,CLT,LGA
+510a13f9ae268271d5d6a24cd7924297,false,276.6,LAX||IAH,IAH||ORD,United||United,4||4,15:15||19:30,4||4,18:30||22:15,LAX,ORD
+c57852e2b422bbd29b6813ccd0f87664,true,331.8,BOS,JFK,American Airlines,7,11:15,7,12:30,BOS,JFK
+ff3ab1433bf86b0da894ed81d75a2c76,true,278.6,ATL,DEN,Delta,7,00:45,7,04:00,ATL,DEN
+ef7ddcd51aa244f0f06a049ee3bf1eb3,false,437.1,CLT||PHX,PHX||SFO,American Airlines||American Airlines,4||4,17:00||23:45,4||5,21:30||01:45,CLT,SFO
+13df379c32a24ff0f7ea24072a16489b,true,215.6,ORD,JFK,JetBlue Airways,3,23:45,4,02:00,ORD,JFK
+dc05f032d2c14364cbdf64b2383efee3,false,154.6,ATL||DFW,DFW||LAX,American Airlines||American Airlines,6||7,19:30||01:00,6||7,22:00||04:15,ATL,LAX
+860f2142453480124f28ff745362c8eb,false,347.21,BOS||CLE,CLE||ATL,Delta||Delta,3||3,00:30||10:00,3||3,02:45||11:45,BOS,ATL
+f4e3a92a97323447751ec3fb1413d26b,true,155.59,ATL,DTW,Spirit Airlines,1,18:30,1,20:30,ATL,DTW
+ac2e46569083f09f868eb5dc61251c55,true,278.6,JFK,LAX,Delta,6,20:00,7,02:00,JFK,LAX
+2a0bc3dceebd74114daeeee74476ec5e,true,148.6,DFW,LGA,JetBlue Airways,1,21:00,2,00:15,DFW,LGA
+bf5822b05407cdec6dea76523fdcaa60,true,378.6,JFK,LAX,Delta,5,14:30,5,20:30,JFK,LAX
+67f40df8f5d09364233e3e1276e959a9,false,731.7,DFW||IAH||DCA,IAH||DCA||JFK,United||United||Delta,7||7||1,10:15||15:00||01:15,7||7||1,11:30||18:00||02:45,DFW,JFK
+9eb9ff3a3e02f60a2916b8981cab664a,false,412.7,MIA||ATL||SAN,ATL||SAN||SFO,Delta||Delta||Alaska Airlines,1||2||2,23:15||02:15||14:15,2||2||2,01:15||07:00||16:00,MIA,SFO
+ba631d0a3837ff6673363e3e2c8f183d,false,472.6,DFW||IAH,IAH||LGA,United||United,5||5,21:15||23:30,5||6,22:30||03:15,DFW,LGA
+f072a0883c8fc841237327e1cc8237eb,false,707.6,LAX||CVG,CVG||LGA,Delta||Delta,4||4,06:30||14:15,4||4,10:45||16:00,LAX,LGA
+ea6a5917f93d34769bfd11382dfd8cf5,false,154.6,ORD||AUS,AUS||CLT,American Airlines||American Airlines,3||3,18:30||22:00,3||4,21:15||00:45,ORD,CLT
+e8abfaa2d2e9e150a6d279441f760783,false,254.58,LAX||LAS,LAS||ORD,Spirit Airlines||Spirit Airlines,1||1,19:00||21:30,1||2,20:30||01:15,LAX,ORD
+0c58124b364aa658d7338604b1c3ca6e,true,238.6,ATL,JFK,Delta,2,14:00,2,16:30,ATL,JFK
+2e4fa05eb1826ef3d8b6fb1f60b0c5d5,true,278.6,BOS,MIA,JetBlue Airways,4,14:15,4,17:45,BOS,MIA
+2c9d6b1bf932e87d9b618f0c1a91df9d,true,408.6,LAX,CLT,American Airlines,3,16:45,3,21:30,LAX,CLT
+5c30686fafb5e57c461b44652397b350,false,91.1,CLT||LGA,LGA||BOS,Delta||Delta,5||5,11:30||15:00,5||5,13:30||16:30,CLT,BOS
+0700bfff3e1a0d66e947296caf82881b,false,441.6,JFK||ROC,ROC||ORD,Delta||United,2||2,14:00||17:30,2||2,15:30||19:30,JFK,ORD
+488751dcd67199734e0e0384b1bcaab2,false,173.58,ORD||LAX,LAX||DFW,Spirit Airlines||Spirit Airlines,4||4,01:30||17:45,4||4,05:45||20:45,ORD,DFW
+77d8a617a34702a6dc3211fdb234d2db,false,567.6,JFK||FLL,FLL||ORD,Delta||United,2||2,15:00||20:15,2||2,18:15||23:45,JFK,ORD
+86145f9e69493364b6eb2770dd626e96,false,491.6,DEN||SLC,SLC||LAX,United||Alaska Airlines,7||1,19:45||00:45,7||1,21:15||02:45,DEN,LAX
+8173d2f1e1c92aa1b9b5b396431a1d25,false,207.6,ATL||MIA,MIA||JFK,American Airlines||American Airlines,3||3,09:45||13:00,3||3,11:45||16:00,ATL,JFK
+d1fa14dd09aed6c9946383299f2b1c3a,true,258.6,DFW,JFK,JetBlue Airways,2,21:45,3,01:30,DFW,JFK
+00aedc3c32374ba237eb3e1d734e7091,true,612.0,DEN,BOS,JetBlue Airways,7,23:30,1,03:30,DEN,BOS
+bf6ad0102953d77bc5e3413ae61d20ea,true,238.6,LAX,DEN,Alaska Airlines,5,20:45,5,23:15,LAX,DEN
+819999a37fb369c0196ea74c63d2d728,false,119.1,ATL||CLT,CLT||BOS,American Airlines||American Airlines,4||4,20:00||23:00,4||5,21:30||01:15,ATL,BOS
+5acefa762e31a60c11aa9b9c9df03081,true,143.6,LGA,ATL,JetBlue Airways,1,20:45,1,23:15,LGA,ATL
+11bc64b79944a90108a0dd3ab4afb7f6,false,160.6,ATL||DCA,DCA||ORD,American Airlines||American Airlines,3||3,18:30||22:15,3||4,20:15||00:30,ATL,ORD
+28521482a0b6818ce3d7fb036d2ba540,true,1148.6,LAX,JFK,American Airlines,1,15:00,1,20:30,LAX,JFK
+73a1738ee4c2943af79de94e02a6b956,true,259.6,LAX,DEN,Alaska Airlines,4,23:00,5,01:15,LAX,DEN
+f60e4a3ae77a59504c78a957543da1ae,false,596.61,DEN||CHS,CHS||JFK,United||Delta,7||7,15:45||22:00,7||1,19:15||00:30,DEN,JFK
+178385b253602a3ff1534f8b5bb7aa68,false,1261.6,OAK||SEA,SEA||SFO,American Airlines||American Airlines,2||3,20:00||00:45,2||3,22:15||02:45,OAK,SFO
+8ce8578b0653f721af36767245c02ce0,false,707.1,DFW||DEN||SLC,DEN||SLC||OAK,United||United||Delta,3||3||3,11:00||14:00||17:30,3||3||3,13:00||15:45||19:30,DFW,OAK
+47efaef2d647a0e438d2cba698aad5a4,false,212.61,JFK||CMH,CMH||MIA,American Airlines||American Airlines,4||4,19:00||23:00,4||5,21:15||01:45,JFK,MIA
+8d6c42669031335138897d21b1917646,false,122.58,DTW||MIA,MIA||DFW,Spirit Airlines||Spirit Airlines,2||2,00:15||11:00,2||2,03:15||14:15,DTW,DFW
+320e9cb65afc06864ff20eca0e21fe55,false,277.2,ONT||SEA,SEA||ORD,Alaska Airlines||Alaska Airlines,2||3,22:15||06:30,3||3,01:15||10:30,ONT,ORD
+ecb23d2965c80bc581fe98c359a670a3,false,277.1,CLT||CHA,CHA||DFW,American Airlines||American Airlines,4||4,18:30||22:15,4||5,20:00||00:30,CLT,DFW
+3ffd7f706c7658422ab1ac9fbaa63f7d,false,181.6,ORD||PIA,PIA||CLT,American Airlines||American Airlines,6||6,18:30||21:45,6||6,19:15||23:30,ORD,CLT
+bd85bf4abb423ed12baac65636c06d33,true,185.6,EWR,DFW,JetBlue Airways,6,11:00,6,14:45,EWR,DFW
+d01a5c186cb00346f00e5c4b83721573,true,398.6,DEN,CLT,American Airlines,3,20:00,3,23:15,DEN,CLT
+f8fd757662b88aa32669c9511bc8b9a4,true,128.6,BOS,SFO,JetBlue Airways,4,01:15,4,08:00,BOS,SFO
+d7cdf465d90944f776e6e8c760418214,true,458.1,CLT,LAX,American Airlines,4,18:45,4,23:45,CLT,LAX
+3bf5dbda9c2c722d52205beb8ce86648,true,189.6,ATL,EWR,Delta,5,22:00,6,00:15,ATL,EWR
+ffa4041f2698c70d14e537cee283aaee,false,276.6,EWR||FLL,FLL||SFO,JetBlue Airways||JetBlue Airways,6||7,21:30||02:00,7||7,00:45||07:45,EWR,SFO
+f257c944e351a2db48a20976026e663c,true,381.61,BOS,SFO,United,1,12:30,1,19:15,BOS,SFO
+324c2cc5b3161838bebb08bf18663a6f,false,127.58,DFW||MCO,MCO||DTW,Spirit Airlines||Spirit Airlines,5||6,18:30||01:00,5||6,21:15||03:30,DFW,DTW
+31bd02b0d3826c6daa42b721be06c262,true,248.6,IAD,SFO,American Airlines,3,20:00,4,01:45,IAD,SFO
+869971263a927494647827d6994f6f66,false,253.6,ORD||IAH,IAH||DEN,United||United,7||7,12:45||17:45,7||7,15:45||20:15,ORD,DEN
+6f8f226f8f3d6acbe312e84c69e4df64,true,128.6,PHL,BOS,Delta,1,15:45,1,17:00,PHL,BOS
+c773f09657446214dbda5210c71c7f9b,true,263.98,DEN,ATL,Frontier Airlines,7,19:45,7,22:45,DEN,ATL
+e6ac62286667c8c0fa54ba68ee5e1ead,true,84.09,CLT,LGA,Spirit Airlines,5,20:00,5,21:45,CLT,LGA
+14f903951d50ef39953115f39786a4be,true,523.6,DTW,DFW,Delta,7,16:30,7,19:15,DTW,DFW
+82b00e098642b26c07326c8b291b1047,true,798.6,ATL,LAX,Delta,7,12:45,7,17:15,ATL,LAX
+465b7ac2362f2721f0654b396c9a4886,false,171.6,DFW||MEM,MEM||CLT,American Airlines||American Airlines,4||4,13:45||16:00,4||4,15:15||17:45,DFW,CLT
+74b775a4b963241e6f0858044933203b,true,192.6,ORD,DFW,American Airlines,3,13:45,3,16:00,ORD,DFW
+18018ddf7c298a306c092669a4d41e8b,true,288.6,IAD,ATL,Delta,7,22:00,7,23:45,IAD,ATL
+549f925f6ca65741f1613823dcc4ca05,false,98.6,BOS||DCA,DCA||ORD,American Airlines||American Airlines,2||2,19:30||22:30,2||3,21:15||00:45,BOS,ORD
+6741a0abfe55ef1d740725cf225fd2c3,true,148.6,ORD,EWR,United,4,23:00,5,01:15,ORD,EWR
+7d7c2035dd21885aa566120751f41f12,false,531.6,JFK||MCO,MCO||ORD,Delta||United,7||7,11:15||16:15,7||7,14:00||19:15,JFK,ORD
+3a12933a6262f674b4deb95b76ab7a77,true,178.6,MIA,LAX,American Airlines,6,13:00,6,18:30,MIA,LAX
+2f159aab4b7a51889b8d461d656ccbc9,true,278.6,LGA,DTW,Delta,1,16:45,1,18:45,LGA,DTW
+db0420cf6ed567603aac59c8612adf2f,true,408.6,ONT,CLT,American Airlines,4,05:15,4,10:00,ONT,CLT
+1c7b8be1d10b20012c631d61b4e996c9,false,361.46,CLT||MCO,MCO||PHL,Spirit Airlines||Spirit Airlines,4||4,10:00||17:15,4||4,11:45||19:45,CLT,PHL
+6210a949d745d3a12491a27dabf7350f,false,227.58,EWR||MYR,MYR||BOS,Spirit Airlines||Spirit Airlines,5||5,16:00||21:15,5||5,17:45||23:30,EWR,BOS
+3da59c885462dd03d6d35824e102d7cf,false,214.6,PHL||CMH,CMH||DFW,American Airlines||American Airlines,4||4,12:45||16:45,4||4,14:30||19:30,PHL,DFW
+e592fa60bf8eb24b97f6675e8c6fcfa8,false,112.6,BOS||JFK,JFK||CLT,JetBlue Airways||JetBlue Airways,6||6,13:00||16:00,6||6,14:30||18:00,BOS,CLT
+479130e44474db0d7d6ef9ced6877ebf,true,143.6,BOS,JFK,American Airlines,4,22:15,4,23:30,BOS,JFK
+d51f86920b29d7cc7f4597a936c7b7ce,false,446.59,IAD||PIT,PIT||LGA,United||Delta,3||3,16:45||18:30,3||3,17:45||20:00,IAD,LGA
+08b374798c7c23ebebc5c43eb663a90e,false,288.58,DEN||LAS,LAS||DFW,Spirit Airlines||Spirit Airlines,3||3,01:45||06:30,3||3,03:45||09:15,DEN,DFW
+570d8a5ec14c6f3d6404f5185c060b0b,false,537.09,ATL||IAD||ROC,IAD||ROC||JFK,United||United||Delta,4||4||4,09:45||12:30||15:15,4||4||4,11:30||14:00||16:45,ATL,JFK
+6fe4a3a68b7a790a1e1a6f41723eafcf,true,458.61,DEN,ATL,Delta,1,14:00,1,17:00,DEN,ATL
+03628e920838cec3d41b9f7a253b4daf,false,352.6,LGA||RDU,RDU||PHL,American Airlines||American Airlines,5||5,12:00||15:15,5||5,13:45||16:45,LGA,PHL
+bb696707c39feaad58c52dc2a1b8f6f3,true,149.6,ORD,BOS,American Airlines,1,21:45,2,00:00,ORD,BOS
+721231814ad4338c9e5340ed18e2fa97,true,358.6,DEN,EWR,United,7,17:15,7,20:45,DEN,EWR
+f713f13799d5df660537ceb44f882613,false,726.1,SFO||DEN||MCI,DEN||MCI||LGA,United||United||Delta,2||2||2,12:15||16:00||19:15,2||2||2,14:45||17:30||22:15,SFO,LGA
+d8a89744bb371f44446a2a09179a6305,false,203.6,PHL||AUS,AUS||DFW,American Airlines||American Airlines,2||2,13:00||17:30,2||2,17:00||18:45,PHL,DFW
+07e9ec4a58556abb323a8b2020b02b88,false,447.6,MIA||ORD,ORD||SFO,United||United,5||5,11:15||16:15,5||5,14:30||21:00,MIA,SFO
+92633e4d3276a790945a6f1342b9410a,false,611.71,DEN||MSP||ATL,MSP||ATL||IAD,Delta||Delta||Delta,1||1||2,12:15||21:45||03:00,1||2||2,14:15||00:15||04:45,DEN,IAD
+507fcd63f337de0558532957d5b46a59,false,405.69,DFW||SFO||SEA,SFO||SEA||OAK,United||United||Alaska Airlines,3||3||4,13:30||18:45||05:00,3||3||4,17:30||21:00||07:00,DFW,OAK
+28a2a60f2acb31ca7c9d4af9499cfbb7,false,211.6,MIA||JAX,JAX||CLT,American Airlines||American Airlines,6||6,19:30||23:15,6||7,21:00||00:45,MIA,CLT
+13c895bd6fc7a2f7b2c98da90836fad9,false,79.78,ATL||DTW,DTW||PHL,Spirit Airlines||Spirit Airlines,3||3,11:30||17:30,3||3,13:30||19:15,ATL,PHL
+026fbe6718757035185b776e2db545ed,true,325.59,OAK,PHL,Spirit Airlines,5,04:00,5,09:30,OAK,PHL
+feec8edf7acad6eb6a9cb1b4b9a75845,false,470.7,DTW||ORD||RDU,ORD||RDU||JFK,United||United||Delta,6||7||7,22:00||00:30||10:45,6||7||7,23:30||02:45||12:30,DTW,JFK
+9615ac5ac2d1759262b7b6c086402bc3,false,1479.6,JFK||MCO,MCO||PHL,American Airlines||American Airlines,4||4,20:00||23:45,4||5,23:00||02:00,JFK,PHL
+bef4e470506667958338d8ff77da6974,false,447.2,BOS||EWR,EWR||PHL,United||United,6||6,12:00||20:15,6||6,13:30||21:15,BOS,PHL
+8f85a51ba05fc844a99f6e9ab8d3d9be,false,381.7,CLT||DCA,DCA||ATL,American Airlines||American Airlines,1||1,02:15||10:15,1||1,03:45||12:15,CLT,ATL
+f7ebc95821332967ba5bdd7ef0282da6,false,121.58,ATL||FLL,FLL||LGA,Spirit Airlines||Spirit Airlines,5||5,13:00||17:00,5||5,15:00||20:00,ATL,LGA
+4de7ad41f1f98accb96c16d6284dad5b,true,278.6,DFW,PHL,American Airlines,1,20:45,1,23:45,DFW,PHL
+056bfd8f6274e9b7780b22c03dbee629,true,173.98,DTW,DEN,Frontier Airlines,4,12:15,4,15:45,DTW,DEN
+be90bbd8744f4957cd7117d68036be28,false,491.6,LAX||AUS,AUS||ATL,Delta||Delta,3||3,14:45||20:00,3||3,17:45||22:15,LAX,ATL
+ec901cfc6bae8790723838f6cbf45f79,true,492.6,DEN,PHL,United,4,00:00,5,03:30,DEN,PHL
+ff5999185cbd2634977d46b9709ca9a0,true,318.6,SFO,DFW,American Airlines,1,23:45,2,03:30,SFO,DFW
+7024714d961c63868443f6ab0a6a11ed,true,193.6,DTW,LGA,Delta,7,01:45,7,03:30,DTW,LGA
+4d2a8b9f1d1c6d4f6f86c10a36475d05,false,376.96,LAX||LAS,LAS||BOS,Spirit Airlines||Spirit Airlines,7||7,03:00||05:30,7||7,04:15||10:30,LAX,BOS
+93e84aca053ff1bcfb972041b755dc34,true,343.6,LAX,EWR,JetBlue Airways,4,18:15,4,23:45,LAX,EWR
+18149f9965cf6b444166a02cb012975e,true,278.6,PHL,ATL,American Airlines,4,23:00,5,01:15,PHL,ATL
+1afb37d54e37f19ef6da8ba65337f42b,false,428.6,ORD||LAS,LAS||LAX,United||United,3||4,21:15||02:30,4||4,01:15||03:45,ORD,LAX
+0803c1cd508c5dbc1a6d74edcc213d85,false,203.58,LAX||LAS,LAS||ATL,Spirit Airlines||Spirit Airlines,1||1,05:15||15:15,1||1,06:45||19:15,LAX,ATL
+4e2fbe0a92adae02abe1167093286df9,false,397.6,SFO||DTW,DTW||BOS,Delta||Delta,4||5,21:30||03:00,5||5,02:00||04:45,SFO,BOS
+a1cddf726cb3945fb9237b1a18a91c1a,true,388.59,ATL,DFW,Delta,1,19:30,1,21:45,ATL,DFW
+dc092efab703077427f0bfe225a6f214,false,430.6,SFO||SEA,SEA||JFK,Alaska Airlines||Alaska Airlines,6||6,13:00||16:15,6||6,15:15||21:45,SFO,JFK
+bbfd3839e75f3777eb0644a6de42241b,false,237.6,LGA||GSO,GSO||DFW,American Airlines||American Airlines,4||4,12:45||18:30,4||4,14:30||21:15,LGA,DFW
+8f5c6198fcbbd9a8875da51df3c97d82,true,133.6,DFW,DEN,United,5,23:30,6,01:30,DFW,DEN
+63b0f68138092ae75ddbe64980e7b38e,false,277.58,DTW||MCO,MCO||BOS,Spirit Airlines||Spirit Airlines,4||4,01:30||11:00,4||4,04:00||14:00,DTW,BOS
+5071eaba7f414fcbb79b1bf633b14594,true,72.59,MIA,DFW,Spirit Airlines,4,00:45,4,04:00,MIA,DFW
+6db71692a547811faea7a9f0f49458d8,false,621.6,DEN||RDU,RDU||JFK,United||Delta,6||6,16:00||20:30,6||6,19:15||22:15,DEN,JFK
+aac802166cc527d99f9e60fefe31e88e,false,357.1,CLT||MEM,MEM||DFW,American Airlines||American Airlines,4||4,21:00||23:15,4||5,22:45||01:00,CLT,DFW
+06131108945f20414bf8c9d66acb80a3,false,473.6,BOS||PHL,PHL||LAX,American Airlines||American Airlines,1||2,22:00||00:45,1||2,23:30||06:30,BOS,LAX
+77058354f65b8be2a026b95ed8cc62ec,false,472.21,ORD||BWI,BWI||JFK,United||Delta,5||6,00:00||10:00,6||6,02:00||11:15,ORD,JFK
+2659e82eb4400be43324b081f2865da3,false,561.61,ATL||ORD,ORD||PHL,United||United,4||5,21:45||02:30,4||5,23:45||04:30,ATL,PHL
+f0a249909c3c698e8168ea20f2ada7d3,false,292.61,DEN||BOS,BOS||EWR,JetBlue Airways||JetBlue Airways,2||2,06:00||11:15,2||2,09:45||13:00,DEN,EWR
+e3b453f77d716265ef5e15dbf057be67,true,378.6,SFO,DFW,United,7,18:15,7,22:00,SFO,DFW
+91b186b629c52c1a26cfe2d54575841e,false,602.7,JFK||BTV||IAD,BTV||IAD||MIA,Delta||United||United,1||1||1,02:30||10:00||12:45,1||1||1,04:15||11:30||15:30,JFK,MIA
+7e593e73ec54214be377c35c6d710da6,true,149.6,IAD,LAX,United,2,21:00,3,02:45,IAD,LAX
+f044986274acbdadaf023e6b7509cc8f,false,467.2,LAX||SEA,SEA||MIA,Alaska Airlines||Alaska Airlines,6||6,03:45||14:15,6||6,06:45||20:15,LAX,MIA
+b32d197f2f67c2912f9d331001958069,false,323.2,DFW||IAH,IAH||ORD,American Airlines||American Airlines,4||4,03:30||11:30,4||4,04:45||14:15,DFW,ORD
+43164681040bfe474ecdb39402e28273,true,444.6,BOS,DEN,American Airlines,4,00:45,4,05:15,BOS,DEN
+b6035d2edcbd40ad05aa55f4a8dd6422,false,345.58,LGA||FLL,FLL||ATL,Spirit Airlines||Spirit Airlines,7||1,21:00||02:30,1||1,00:15||04:30,LGA,ATL
+f9d571b62d350adc400addaf362cd0d7,false,192.6,LGA||RIC,RIC||CLT,American Airlines||American Airlines,2||2,12:30||15:15,2||2,13:45||16:30,LGA,CLT
+998b493137503c76205b24a32f8b8be9,true,177.6,LAX,EWR,American Airlines,1,17:15,1,22:45,LAX,EWR
+fd454f339156ce4a106d30a760a1abd1,false,356.6,SFO||PHX,PHX||DEN,United||United,1||1,17:30||22:15,1||2,19:30||00:00,SFO,DEN
+c8ddae4266c4f9eeb237ba1494905784,false,614.1,BOS||ORD||SEA,ORD||SEA||OAK,Alaska Airlines||Alaska Airlines||Alaska Airlines,7||7||1,16:30||22:45||04:30,7||1||1,19:30||03:30||06:45,BOS,OAK
+9fe9fba155b3c9fdb0556942369efe62,false,456.09,OAK||SEA||IAH,SEA||IAH||LGA,Alaska Airlines||United||United,4||4||4,02:45||06:45||12:00,4||4||4,04:45||11:00||15:45,OAK,LGA
+d6415c3e2b24bc1484f5ceaf843e5871,true,125.59,OAK,EWR,Spirit Airlines,5,15:45,5,21:00,OAK,EWR
+8472003e70627a2f7f15b44564dece74,false,152.96,PHX||LAS,LAS||SEA,Spirit Airlines||Spirit Airlines,7||7,01:30||04:45,7||7,02:30||07:30,PHX,SEA
+8ae6d309348b0389c1f8fd807a5d8445,false,398.6,ONT||SEA,SEA||IAD,Alaska Airlines||Alaska Airlines,5||5,16:30||23:00,5||6,19:15||04:00,ONT,IAD
+b30149c72dec2698df7201b082700b79,false,257.21,DTW||EWR,EWR||ATL,United||United,1||1,11:45||20:15,1||1,13:45||22:45,DTW,ATL
+fce6db79f01bc1ef071a0704286263c4,false,301.61,SFO||FLL,FLL||EWR,JetBlue Airways||JetBlue Airways,5||6,17:45||02:00,5||6,23:00||04:45,SFO,EWR
+8680ebb20b0ad6a9f888e6ffc8dc4422,false,115.58,MIA||MCO,MCO||ATL,Spirit Airlines||Spirit Airlines,5||5,11:15||12:45,5||5,12:15||14:30,MIA,ATL
+5b18eb97d7dd0ae65ed96cf0cdb4e7bd,false,157.6,LAX||LAS,LAS||DFW,American Airlines||American Airlines,3||4,19:30||00:00,3||4,20:45||02:45,LAX,DFW
+e15221e20b838f0873dd1af481d34b1c,false,868.6,LAX||MSP,MSP||CLT,Delta||Delta,6||7,20:00||01:00,6||7,23:45||03:30,LAX,CLT
+d2dda1478ce112de1a183337fb9547a9,true,102.6,ORD,EWR,United,2,22:00,3,00:15,ORD,EWR
+a20f52504bb7a00480c40e1c5600a3fb,false,617.2,JFK||DCA,DCA||DEN,Delta||United,5||5,13:30||21:00,5||6,15:00||01:15,JFK,DEN
+b46833359696c6692907500cb7c58121,false,617.2,LAX||IAH,IAH||PHL,Delta||United,3||3,15:45||23:15,3||4,19:15||02:30,LAX,PHL
+16f90f2d3d340812961e923c5410c2cf,false,502.2,JFK||PWM,PWM||ORD,Delta||United,2||2,01:30||10:00,2||2,03:00||13:00,JFK,ORD
+859ab698ca459f1d7b28a6ff8e87cc2f,false,221.71,CLT||FLL,FLL||PHL,American Airlines||American Airlines,5||5,11:30||18:45,5||5,13:15||21:30,CLT,PHL
+819991760029788c84acd0e04426f509,false,217.99,DFW||MCO,MCO||MIA,Frontier Airlines||Frontier Airlines,4||4,00:00||04:15,4||4,03:15||05:30,DFW,MIA
+d2a9be1cff636051d4dc8b6165013051,true,238.6,ATL,DEN,United,5,21:30,6,01:00,ATL,DEN
+601e4648945d24bb4035e8de2f41d80f,true,208.61,LAX,JFK,American Airlines,6,18:30,6,00:00,LAX,JFK
+b00c7a51c461d45c6dcbe448081e1bee,false,199.1,ATL||CLT,CLT||PHL,American Airlines||American Airlines,3||3,12:15||17:00,3||3,13:45||18:45,ATL,PHL
+fd12f6d2016b4c9cac0ef75a291ab941,false,266.1,IAD||CLT,CLT||ATL,American Airlines||American Airlines,4||4,15:00||18:30,4||4,16:30||19:30,IAD,ATL
+e83c5233a64d36b8a72399cb49f76166,false,148.1,ATL||CLT,CLT||IAD,American Airlines||American Airlines,3||4,20:00||01:00,3||4,21:30||02:30,ATL,IAD
+24d336b66ed7594d5a38ff5a4c122088,false,181.58,ATL||FLL,FLL||BOS,Spirit Airlines||Spirit Airlines,7||1,19:00||00:30,7||1,21:00||03:45,ATL,BOS
+19a4457c4997db38080f40a3a1bad539,true,208.61,BOS,MIA,JetBlue Airways,6,15:00,6,18:45,BOS,MIA
+8c0c7501986599e1aad73ad4e02d6217,false,172.6,MIA||JAX,JAX||ORD,American Airlines||American Airlines,6||6,18:00||21:00,6||6,19:15||23:30,MIA,ORD
+223bcb799ba85cdd9cb6c4cde580a153,false,310.58,LAX||IAH,IAH||EWR,Spirit Airlines||Spirit Airlines,6||6,16:15||21:15,6||7,19:45||00:30,LAX,EWR
+bf2ec336279d033561c87d9115789fc9,true,158.6,EWR,ORD,JetBlue Airways,4,15:00,4,17:45,EWR,ORD
+b2e46fa69467dcfc3be07a37542e54fb,false,316.1,CLT||DTW,DTW||ORD,Delta||Delta,5||6,21:30||00:00,5||6,23:15||01:30,CLT,ORD
+be9f2a5b45687539401aef5bdae84522,true,283.6,DFW,ATL,Delta,7,20:15,7,22:30,DFW,ATL
+095dc0812242fa54c65f20d890069fbb,true,248.6,MIA,EWR,JetBlue Airways,5,18:45,5,21:45,MIA,EWR
+447971638d8219c89789dca98d67bba8,true,498.6,DTW,SFO,Delta,1,16:45,1,21:45,DTW,SFO
+43bef89b1e2c01d54de177b8558df050,false,137.6,LGA||ROA,ROA||CLT,American Airlines||American Airlines,1||1,16:00||20:15,1||1,18:00||21:30,LGA,CLT
+8b0a83749e2ef08de14af22f5c992c8d,false,566.21,JFK||BNA,BNA||DEN,Delta||United,6||6,12:30||19:45,6||6,15:00||22:30,JFK,DEN
+7e9ae170b16609abfae9aaa3ecf0cdb9,false,501.6,JFK||CHS,CHS||ATL,Delta||Delta,6||6,19:00||22:15,6||6,21:00||23:45,JFK,ATL
+4d8fd6d047bd3bd7986544c7e4d81f34,false,827.1,ONT||CLT,CLT||ATL,American Airlines||American Airlines,3||3,05:30||11:30,3||3,10:15||13:00,ONT,ATL
+a8945f75db37d468491f2c5822675eb3,true,138.6,LAX,DEN,Alaska Airlines,2,17:00,2,19:30,LAX,DEN
+4b6bb63a23699fb1a9ec79a1c6bd6305,false,565.59,SFO||SEA,SEA||DEN,Alaska Airlines||Alaska Airlines,1||2,23:30||03:00,2||2,01:45||05:30,SFO,DEN
+8fd4e0c0c09c56e7ebaba148ef6194e3,true,256.1,JFK,DTW,American Airlines,1,16:00,1,18:00,JFK,DTW
+941be9e8b101b49daf9e2aff7ae7f47a,false,167.58,DFW||FLL,FLL||PHL,Spirit Airlines||Spirit Airlines,7||7,00:00||11:00,7||7,03:00||13:45,DFW,PHL
+4a66f244e377f4abf7620e40ba1b8328,false,838.6,SFO||SEA,SEA||ATL,Alaska Airlines||Alaska Airlines,7||7,14:00||17:45,7||7,16:15||22:45,SFO,ATL
+299ffc6c55511ba67a5cc4c1d322b3e1,true,154.6,JFK,ORD,Delta,3,16:30,3,19:15,JFK,ORD
+ccfb3e254fd1ab2f2e3a48799c351291,false,140.6,PHL||GSO,GSO||CLT,American Airlines||American Airlines,3||3,13:00||18:30,3||3,15:00||19:30,PHL,CLT
+47f3bf61c4741330ded492aa5a4ad9f1,false,271.58,LAX||ATL,ATL||MIA,Spirit Airlines||Spirit Airlines,6||6,06:15||15:45,6||6,10:45||17:30,LAX,MIA
+d54e52a55372f1085b78a226d4e5a7e7,false,681.59,SFO||PHX,PHX||MIA,American Airlines||American Airlines,5||5,13:00||17:45,5||5,15:00||22:15,SFO,MIA
+c0f7fb64c22a2e2f63cae29abb1dca3a,false,247.6,PHL||MDT,MDT||CLT,American Airlines||American Airlines,4||4,19:45||22:00,4||4,20:45||23:30,PHL,CLT
+d898328f2dcec23db2a784fe04f5a27e,false,549.49,LGA||TPA||SEA,TPA||SEA||OAK,Delta||Alaska Airlines||Alaska Airlines,5||5||6,15:00||21:30||04:30,5||6||6,18:00||03:45||06:30,LGA,OAK
+99294f8503f0dd470afe19dbdf4362dc,true,208.6,BOS,MIA,Delta,2,00:00,2,03:45,BOS,MIA
+ab9e6c9149d82c92951586634e234a69,false,193.58,ATL||ORD,ORD||OAK,Spirit Airlines||Spirit Airlines,5||6,19:30||02:45,5||6,21:30||07:30,ATL,OAK
+413ddc52866a7422596e1d9aa3d426a3,true,238.6,DFW,LGA,JetBlue Airways,7,22:00,1,01:15,DFW,LGA
+525ecec4012aaab3ef038578fd58b411,false,574.1,ATL||DEN||SLC,DEN||SLC||OAK,United||United||Delta,5||5||6,17:45||23:30||05:00,5||6||6,21:00||01:15||07:00,ATL,OAK
+ca32ed41acb2b757f4dac0a3abc77e2b,true,143.6,BOS,ATL,Delta,4,13:15,4,16:00,BOS,ATL
+81012b87e4dfd36580dab01a589b0286,false,198.58,PHL||LAS,LAS||LAX,Spirit Airlines||Spirit Airlines,7||1,22:00||12:45,1||1,03:30||13:45,PHL,LAX
+88ea4c35699d9330930fd4bbffa4785d,false,317.6,ATL||SEA,SEA||OAK,Alaska Airlines||Alaska Airlines,5||6,21:00||04:30,6||6,02:30||06:30,ATL,OAK
+8149c127b79bafac8566ea678dcb887f,true,63.6,SFO,LAX,Alaska Airlines,3,16:00,3,17:45,SFO,LAX
+89798eb365caf1db76cd6c6c81f39bbf,false,657.19,SFO||PDX,PDX||JFK,United||Delta,4||4,05:30||14:00,4||4,07:30||19:30,SFO,JFK
+a4910c656dd6f61c9d7fe79784ce0bf9,false,284.58,LAX||LAS,LAS||MIA,Spirit Airlines||Spirit Airlines,1||1,14:00||21:15,1||2,15:15||01:45,LAX,MIA
+ea87ebba08c3ce12dfc2d18ee39b09e0,true,468.61,SFO,ATL,Delta,7,20:30,1,01:15,SFO,ATL
+1d61d913957af1c825ade479d16d03f7,false,170.1,CLT||TPA,TPA||DFW,American Airlines||American Airlines,1||1,21:15||23:45,1||2,22:45||02:30,CLT,DFW
+f8213851e670e252490373e73d9c763f,false,50.58,EWR||AUS,AUS||LAX,Spirit Airlines||Spirit Airlines,3||3,14:15||20:15,3||3,18:15||23:30,EWR,LAX
+ef9b9f7764202a7656b5f88f9211be25,false,262.95,LGA||DCA,DCA||BOS,JetBlue Airways||JetBlue Airways,4||4,02:00||10:30,4||4,03:15||12:00,LGA,BOS
+f1db3ccccaaab1b73f9e0bd0eb089ab6,true,163.6,ORD,JFK,American Airlines,4,15:45,4,18:15,ORD,JFK
+f79cf7767b9edf8ae21852f1867772f8,true,238.6,MIA,ATL,Delta,4,00:30,4,02:45,MIA,ATL
+93f9cde05f00ba81316dcb8ad9d9910b,true,158.6,EWR,CLT,JetBlue Airways,6,12:00,6,14:00,EWR,CLT
+c15d066c3aefeda2c571e1eaaf05c788,false,601.6,ORD||MCO,MCO||JFK,United||Delta,1||2,19:30||00:15,1||2,22:15||03:00,ORD,JFK
+edca1421243423efed1af60fb0ddc5ec,false,497.1,DTW||ORD||PIT,ORD||PIT||JFK,United||United||Delta,3||3||3,09:45||12:15||16:30,3||3||3,11:30||13:45||18:15,DTW,JFK
+a26e91234d0dcb616202e721c55d2cfb,true,218.6,LGA,DTW,JetBlue Airways,3,16:00,3,18:00,LGA,DTW
+ed13f515c381d5964de18e74081f4e96,false,133.11,CLT||MEM,MEM||DFW,American Airlines||American Airlines,2||2,11:45||16:00,2||2,13:30||17:45,CLT,DFW
+b32da02e248338f7b3281a18eb8c7e7b,true,213.6,LGA,ATL,JetBlue Airways,4,12:30,4,15:00,LGA,ATL
+d35a54613a5018ad28261da6faeb2073,false,416.1,CLT||LAS,LAS||LAX,American Airlines||American Airlines,5||5,15:30||22:15,5||5,20:15||23:30,CLT,LAX
+501a0b8d60ae649c9f632e9638d5098e,false,837.09,IAD||DTW||SYR,DTW||SYR||LGA,Delta||Delta||Delta,7||7||7,10:15||14:45||16:45,7||7||7,11:45||16:00||18:00,IAD,LGA
+4d730a3dd66a5a6fa66b407a52774e4e,true,259.6,ORD,CLT,American Airlines,3,21:15,3,23:00,ORD,CLT
+98690b182effb257be893d1d467adb1e,true,178.6,ATL,CLT,Delta,6,02:30,6,03:45,ATL,CLT
+219db76e878238bf040183bf5d944006,false,267.6,DFW||AUS,AUS||LAX,American Airlines||American Airlines,1||2,23:45||01:45,2||2,00:45||05:15,DFW,LAX
+82ccaf8e1a9aa2c14af5f4a747f516ba,true,244.6,LGA,ATL,American Airlines,7,13:15,7,16:00,LGA,ATL
+98eb25bb8ff326e02e3e8bc3f6966124,true,420.1,CLT,BOS,JetBlue Airways,7,16:00,7,18:15,CLT,BOS
+c0196967b34683cb48eeaa9d643cadb9,false,397.21,MIA||IAH,IAH||CLT,United||United,5||5,12:45||23:15,5||6,15:45||01:45,MIA,CLT
+6b82573f6d738fa9b4116a22d3399a28,false,126.58,DTW||ATL,ATL||DFW,Spirit Airlines||Spirit Airlines,7||7,02:30||12:15,7||7,04:30||14:45,DTW,DFW
+b39ae297ad230520b23948dccab3488d,true,143.6,ATL,JFK,American Airlines,1,20:15,1,22:30,ATL,JFK
+e6dadf160e7b0fecbe5a34edc9c6aaef,true,196.6,EWR,ORD,JetBlue Airways,4,16:30,4,19:00,EWR,ORD
+c8d1f4f973aaa6a88549e9b5243e19b0,false,501.6,ORD||MDT,MDT||CLT,American Airlines||American Airlines,4||4,18:00||21:45,4||4,20:00||23:30,ORD,CLT
+2ce0835331176b3a5fec8103f2102912,true,94.6,LGA,BOS,American Airlines,3,16:15,3,17:30,LGA,BOS
+bba6a8beea0927ad6c99dfd87e7be6d7,true,518.6,ORD,SFO,United,7,17:45,7,22:30,ORD,SFO
+5ed90be049108cfff7a15634dda464f3,false,119.58,ORD||MCO,MCO||CLT,Spirit Airlines||Spirit Airlines,1||1,19:00||23:45,1||2,21:45||01:30,ORD,CLT
+f3ecff02159730a894882d263b82df95,false,328.2,DEN||SLC,SLC||BOS,Delta||Delta,2||3,00:00||06:00,3||3,01:30||10:30,DEN,BOS
+b0e46929313fb44b2b9864b0035a1dcc,false,382.6,LAX||ORD,ORD||LGA,American Airlines||American Airlines,4||4,16:45||21:30,4||4,20:45||23:30,LAX,LGA
+7a03683d22caeeb1c088e64261abf46d,false,451.1,OAK||SEA||PDX,SEA||PDX||DEN,Alaska Airlines||Alaska Airlines||United,7||7||7,14:15||17:00||19:15,7||7||7,16:15||18:00||21:30,OAK,DEN
+985f5a334d3ee8053f95923d965d1741,true,349.6,BOS,SFO,American Airlines,3,12:00,3,18:45,BOS,SFO
+573a110c304923450c6d8d6ddff06423,false,172.6,DFW||MSY,MSY||MIA,American Airlines||American Airlines,5||5,19:00||22:15,5||6,20:30||00:15,DFW,MIA
+d544ce47de186b21e30556905820c793,false,321.6,ORD||PHX,PHX||ONT,American Airlines||American Airlines,6||7,22:45||03:15,7||7,02:15||04:30,ORD,ONT
+f1da944e57d0786ec1b38d8f0a02e7f5,true,258.6,DEN,EWR,United,2,23:30,3,03:30,DEN,EWR
+6fe15f6932a8ed9cf83fbc354dd8f9ed,true,353.6,JFK,DTW,Delta,6,17:15,6,19:15,JFK,DTW
+b280de93e00e0646611a5a5d51ed26c2,false,655.7,OAK||SLC||BWI,SLC||BWI||BOS,Delta||Delta||Delta,4||5||5,21:15||07:00||11:45,4||5||5,23:00||11:00||13:30,OAK,BOS
+2178c140d0b5b1c6f51482feac0d0ae5,false,342.6,LAX||ORD,ORD||LGA,United||United,3||3,06:00||11:00,3||3,10:15||13:15,LAX,LGA
+ee9902146e03fcbdca3af8cfde00cca2,false,226.1,DTW||CLT,CLT||ATL,American Airlines||American Airlines,7||7,14:30||17:15,7||7,16:30||18:45,DTW,ATL
+a4a4a61335694b69e407b6c5aa4605e5,false,1711.61,BOS||SEA,SEA||OAK,American Airlines||American Airlines,4||5,17:00||01:15,4||5,23:15||03:15,BOS,OAK
+3b2712f4a3f1660a760d64dbf942ac25,false,566.6,DEN||BOS,BOS||JFK,United||Delta,6||6,06:00||13:30,6||6,09:45||15:00,DEN,JFK
+418bf373e51e0d46b3324431abcdf180,true,228.6,ORD,EWR,JetBlue Airways,1,22:30,2,00:30,ORD,EWR
+420c3eb81c4c413b04a2efce6b6eab68,true,208.61,ATL,EWR,Delta,7,19:15,7,21:30,ATL,EWR
+0978af954876aef896dcdc3e77625460,true,328.6,BOS,LAX,Delta,4,22:15,5,04:30,BOS,LAX
+4cf6ca30130bc10c46799f4e532e4966,false,351.6,ATL||PHX,PHX||ONT,American Airlines||American Airlines,5||5,15:00||21:15,5||5,19:15||22:30,ATL,ONT
+a95d966d6e4a775cd1fb9260f8456304,false,607.2,OAK||SLC,SLC||EWR,Delta||United,3||3,00:00||06:30,3||3,01:45||11:00,OAK,EWR
+09247d53513233d79bfcdf1044186629,false,258.6,SFO||LAS,LAS||LAX,United||United,2||3,23:15||02:30,3||3,00:45||03:45,SFO,LAX
+8402cff8c57eeb686e11fad59ad57187,false,112.58,ATL||FLL,FLL||EWR,Spirit Airlines||Spirit Airlines,2||2,13:00||17:15,2||2,15:00||20:30,ATL,EWR
+ce871c7aa0420e5558d3c4e011a5ac7f,false,176.59,LAX||SFO,SFO||DAL,Alaska Airlines||Alaska Airlines,5||5,14:00||17:15,5||5,15:30||20:45,LAX,DAL
+331ada7cacb902ced2b6906e4004c783,false,177.61,ATL||DFW,DFW||DEN,American Airlines||American Airlines,1||2,23:15||03:45,2||2,01:45||05:45,ATL,DEN
+5219cdfb13278eeb53f0231cff4d3a76,true,256.1,CLT,DFW,American Airlines,5,13:30,5,16:30,CLT,DFW
+eafecff78fab8e417d675abd9b4bef91,false,162.6,DFW||ABQ,ABQ||LAX,American Airlines||American Airlines,1||2,20:30||01:15,1||2,22:15||03:15,DFW,LAX
+80cafaa66b5009c1b919579a25b2b51e,true,235.6,DFW,LAX,American Airlines,1,16:00,1,19:15,DFW,LAX
+ceb40dc2fe61726ff687d7e5b8ee6159,false,312.6,DFW||MEM,MEM||CLT,American Airlines||American Airlines,2||2,14:00||17:45,2||2,15:15||19:30,DFW,CLT
+76df867f4b17c4e82e67f5ff09edbcb4,false,457.19,BOS||EWR,EWR||SFO,United||United,4||4,13:30||19:45,4||5,15:00||01:45,BOS,SFO
+c0769c1a83539a9ca632eebf24e8148b,false,601.61,DEN||BOI,BOI||ORD,United||Alaska Airlines,4||4,17:30||21:45,4||5,19:30||01:15,DEN,ORD
+f6d6032e79336371720418f51733d930,true,399.6,SFO,BOS,American Airlines,5,06:30,5,12:00,SFO,BOS
+901ee7be97041274a409c51c458f67a1,false,149.58,LAX||DTW,DTW||ATL,Spirit Airlines||Spirit Airlines,3||4,18:30||01:30,3||4,23:00||03:30,LAX,ATL
+f27a601b727d5da6bc5cbe598190c10d,true,128.6,JFK,BOS,Delta,7,22:30,1,00:00,JFK,BOS
+9607d771fbf1fa3101d95a57a918280c,true,323.6,EWR,LAX,United,1,16:15,1,22:30,EWR,LAX
+0fedebe300ac29a88dd8d223ebeeafc1,false,555.61,DEN||MCO,MCO||JFK,United||Delta,4||4,13:45||18:30,4||4,17:15||21:15,DEN,JFK
+41ae91729cfeb6502e8e342d23d1d0ff,false,175.58,ORD||IAH,IAH||LAX,Spirit Airlines||Spirit Airlines,3||3,10:15||17:00,3||3,13:00||20:30,ORD,LAX
+6a7bb9a9e6998ec4bb5e9b9bae594e63,true,378.6,DEN,ATL,Delta,2,13:15,2,16:00,DEN,ATL
+c4b18c6558a1032b80a32b65aa4ade54,false,266.62,SFO||BOS,BOS||EWR,JetBlue Airways||JetBlue Airways,4||4,06:30||13:00,4||4,12:00||14:45,SFO,EWR
+92a8093471ea0d5bc280e4781d84f088,true,287.35,BOS,ORD,American Airlines,6,10:15,6,13:15,BOS,ORD
+c12c196aa202f219c46066966d2a6304,false,206.98,DFW||PHX,PHX||DEN,Frontier Airlines||Frontier Airlines,3||4,19:45||01:15,3||4,22:30||03:15,DFW,DEN
+b765cfa685dfb4182a8f8bb18aab2614,true,484.6,MIA,DFW,American Airlines,1,12:30,1,15:30,MIA,DFW
+97a0d9e9605e307802c637e82ae3acb1,false,666.6,SFO||MCO,MCO||IAD,United||United,4||4,06:15||13:00,4||4,11:45||15:15,SFO,IAD
+05fe40db44ea6e2208e734105eafbf73,false,481.59,BOS||DCA,DCA||JFK,Delta||Delta,5||6,22:45||01:15,6||6,00:30||02:45,BOS,JFK
+077e068a710f61cf4a8ea7bcd39f032d,true,83.99,ATL,SFO,Frontier Airlines,3,23:45,4,05:00,ATL,SFO
+73b9e5a1fade52bd8e34e2796259fd55,false,581.6,ATL||LAS,LAS||SFO,Delta||Alaska Airlines,6||6,15:00||21:30,6||6,19:15||23:15,ATL,SFO
+02c07982de391d2312a9e5eca4026404,false,181.6,MIA||MCO,MCO||CLT,American Airlines||American Airlines,3||3,12:45||15:30,3||3,14:00||17:00,MIA,CLT
+67811c0dcc3d4f43ca86f8ee3331f624,false,406.69,CLT||AUS,AUS||DFW,American Airlines||American Airlines,2||2,00:15||10:45,2||2,03:00||11:45,CLT,DFW
+e6a51e91325608af0bc0d0364df3d0cb,false,256.1,CLT||RDU,RDU||LGA,American Airlines||American Airlines,4||4,15:15||18:45,4||4,16:15||20:15,CLT,LGA
+8aaddd846a93a2e12468408c7d4597d7,true,414.6,BOS,DEN,JetBlue Airways,5,17:30,5,22:15,BOS,DEN
+56ce77459049c4e260d14ff08dfb4bc4,false,486.58,ATL||LAS,LAS||LAX,Spirit Airlines||Spirit Airlines,2||3,14:15||01:30,2||3,18:45||02:30,ATL,LAX
+d7a333369e28bee3600ae265b2fe3292,false,551.6,BOS||JFK,JFK||ATL,Delta||Delta,1||2,22:30||01:45,1||2,00:00||04:15,BOS,ATL
+c7ae3f85c999941e94884a13b43abf96,false,423.6,DFW||IAH,IAH||PHL,American Airlines||American Airlines,3||3,15:15||18:15,3||3,16:30||21:30,DFW,PHL
+844fc9bcd9df9e48c75368383e89178f,false,527.09,LGA||IAH||SLC,IAH||SLC||OAK,Delta||Delta||Delta,6||6||6,11:00||17:00||21:15,6||6||6,14:45||20:15||23:15,LGA,OAK
+1e3690b052a006cfbb6380bb1c9f6b0f,true,374.6,BOS,SFO,JetBlue Airways,2,23:00,3,05:45,BOS,SFO
+09c59c3536e2a482a06f29e41aa49f43,true,458.6,ATL,PHL,American Airlines,7,16:30,7,18:45,ATL,PHL
+c4ea04ef7c479bcf6826859d84b4ed88,true,248.6,ORD,ATL,Delta,3,23:00,4,01:00,ORD,ATL
+8b042d8aaae501f3670fc55b0cfa53c1,false,387.71,DFW||CLT,CLT||JFK,American Airlines||American Airlines,1||1,01:30||11:45,1||1,04:15||13:45,DFW,JFK
+811b2acdf5e752c4d02fcf045ec51fbc,true,338.61,ORD,DFW,American Airlines,7,18:30,7,20:45,ORD,DFW
+45557a0466a56be9ee6964fd475d0f35,false,82.58,DFW||MCO,MCO||ATL,Spirit Airlines||Spirit Airlines,2||2,19:00||22:30,2||3,21:30||00:00,DFW,ATL
+f5b5215af478469a32e14916865c2e64,true,193.61,LGA,CLT,Delta,6,19:15,6,21:30,LGA,CLT
+b269f8bb770b52d1a14248d19a761200,true,168.59,ATL,DFW,Spirit Airlines,3,12:00,3,14:15,ATL,DFW
+eacb74c1e0a3292127f3756e19be0adc,false,144.58,LAX||LAS,LAS||ATL,Spirit Airlines||Spirit Airlines,4||4,05:15||15:15,4||4,06:45||19:15,LAX,ATL
+57d54c0f4fd0c88f810d3a1564c60784,false,455.1,LAX||SFO||PDX,SFO||PDX||OAK,Alaska Airlines||United||Alaska Airlines,2||2||2,13:00||17:45||21:00,2||2||2,14:30||19:45||22:30,LAX,OAK
+fc75142b2e8269f3d78ee3619faf4b82,false,137.6,IAD||CLE,CLE||ORD,United||United,5||5,13:30||16:00,5||5,14:45||17:15,IAD,ORD
+1c12a017a6b8661033b1751f8d4d01c0,true,123.59,DFW,MIA,Spirit Airlines,4,00:00,4,03:00,DFW,MIA
+bc17c4d7af1d9a39a355d9fedec77251,false,727.11,IAD||ATL||PIT,ATL||PIT||LGA,Delta||Delta||Delta,4||4||4,10:00||14:15||18:45,4||4||4,11:45||16:00||20:15,IAD,LGA
+b9c797ef3db80a3a42949c4e7cc6788c,true,190.6,LGA,DTW,American Airlines,1,16:00,1,18:00,LGA,DTW
+1eda1577108dbbfa320fdbb53444fdee,true,619.0,DAL,MIA,JetBlue Airways,1,15:30,1,18:15,DAL,MIA
+45b63a5e555d129f83fb8038b34be62d,false,122.58,DEN||LAS,LAS||PHL,Spirit Airlines||Spirit Airlines,2||3,23:30||05:30,3||3,01:30||10:00,DEN,PHL
+fb3b4489045b517a90e484daa8e68256,false,211.6,ATL||DFW,DFW||DTW,American Airlines||American Airlines,5||5,10:00||14:15,5||5,12:30||16:45,ATL,DTW
+ca95e3a0a779d41261091aa0a41cde9c,true,45.98,ATL,MIA,Frontier Airlines,7,23:45,1,01:45,ATL,MIA
+cf94d7ddc762296f31ebe71fcd560778,false,414.01,MIA||MCO,MCO||DTW,Frontier Airlines||Frontier Airlines,1||1,10:15||12:45,1||1,11:30||15:30,MIA,DTW
+e1b76edefffacbe6a0d2a0682e172682,true,378.6,DEN,ATL,Delta,5,20:45,5,23:45,DEN,ATL
+51430d0232db73d00210b80cffa318a5,false,192.6,DFW||IAH,IAH||LAX,American Airlines||American Airlines,3||4,23:15||01:15,4||4,00:15||05:00,DFW,LAX
+ba70da4e53deaa87043e8dba6cecdb38,true,158.6,ORD,BOS,American Airlines,6,15:00,6,17:15,ORD,BOS
+5bf1277b170b19ceb83f5c9634ceafa6,false,147.6,DEN||PHX,PHX||LAX,American Airlines||American Airlines,6||6,21:15||23:45,6||7,23:15||01:15,DEN,LAX
+0c470ef4292ba2ddd006ad9dc55f08cc,false,182.6,LGA||STL,STL||DFW,American Airlines||American Airlines,1||2,21:00||00:30,1||2,23:45||02:15,LGA,DFW
+9167746ab40509f2210ad16a08c27c34,true,263.6,EWR,LAX,United,4,21:30,5,03:15,EWR,LAX
+9a1db084439f1bb9552346c60e944cad,true,398.6,ATL,IAD,Delta,1,20:45,1,22:15,ATL,IAD
+de82dab91ee13cdf2d1ecdfd58450606,true,337.09,CLT,ORD,United,4,17:15,4,19:45,CLT,ORD
+cee2a64e874b0d1b6ee723ca30f27e0c,false,636.7,DEN||TUL||ATL,TUL||ATL||PHL,United||Delta||Delta,7||7||1,16:15||23:45||03:00,7||1||1,18:00||01:45||05:00,DEN,PHL
+801de7c43e4e3138d6ae81d1ccc30ba1,true,198.6,LAX,DEN,Alaska Airlines,7,17:00,7,19:15,LAX,DEN
+5fe87e2de95a6d9923bb18f645f21089,false,212.6,LGA||MSP,MSP||LAX,Delta||Delta,6||6,10:15||14:45,6||6,13:00||18:45,LGA,LAX
+e086e7ae00dd4031d9ef735fd64bdaaf,false,209.59,PHL||LAS,LAS||DEN,Frontier Airlines||Frontier Airlines,5||5,03:30||13:30,5||5,09:00||15:30,PHL,DEN
+05b6b88a037b12b05bc650f9c5a5bd6c,true,218.6,BOS,EWR,United,5,00:15,5,01:45,BOS,EWR
+f462188966c9729b3d836ea5c54d7d54,false,571.6,ORD||BTV,BTV||JFK,United||Delta,5||5,14:00||20:00,5||5,16:15||21:30,ORD,JFK
+038eb5d692425009c76e51ce09775fee,true,408.6,EWR,LAX,Alaska Airlines,7,01:00,7,07:00,EWR,LAX
+4a16c936be6c5623d7181dd2626f963f,false,535.6,IAD||BNA,BNA||SFO,United||United,4||4,21:00||23:45,4||5,23:00||04:45,IAD,SFO
+e59e50829eaa07232fe9fc23b74afebd,true,238.6,PHL,CLT,American Airlines,6,00:30,6,02:15,PHL,CLT
+62b31c37e5543a322d5679d2269d9bb1,true,173.6,ORD,JFK,American Airlines,5,15:30,5,17:45,ORD,JFK
+20cb03dfdfd4f8ee5df3efe1d331b741,true,148.6,ATL,CLT,Delta,2,02:45,2,04:00,ATL,CLT
+c0151c80ffd694dc37b5e3c04b0bd115,false,268.6,OAK||SEA,SEA||DFW,Alaska Airlines||Alaska Airlines,2||3,20:00||01:15,2||3,22:00||05:00,OAK,DFW
+31d8157a05f4d85e2f329a60b228d989,false,168.6,DFW||ORD,ORD||EWR,American Airlines||American Airlines,2||2,17:45||21:15,2||2,20:15||23:15,DFW,EWR
+53cdfdc4f28dc47cddbb692a1c357889,true,168.59,ATL,LGA,Delta,1,14:30,1,16:45,ATL,LGA
+a06abc5dad37d008ea9c6dc29de7f7b4,false,154.6,DTW||DCA,DCA||BOS,American Airlines||American Airlines,5||5,10:00||12:00,5||5,11:30||13:45,DTW,BOS
+292ae3a86157d6340521060d93099b8b,true,118.6,BOS,JFK,American Airlines,7,12:15,7,13:30,BOS,JFK
+e9b25fb96497c6e418d0c59bb1e9a485,false,271.71,LGA||MCO||LAX,MCO||LAX||OAK,Delta||Delta||Delta,3||4||4,00:00||10:45||20:00,4||4||4,03:00||16:00||21:30,LGA,OAK
+0f49eb489f77ae449a80be5e8e52ecb6,true,208.61,SFO,BOS,Delta,1,14:00,1,19:45,SFO,BOS
+c9f78a680562e173e2e0bfa3a7bb7e36,true,323.6,LAX,MIA,American Airlines,5,20:30,6,01:15,LAX,MIA
+846dd4e83857511d1afade40630a96ab,false,298.61,LAX||PHX,PHX||DEN,American Airlines||American Airlines,6||6,13:15||15:30,6||6,14:45||17:30,LAX,DEN
+704ff11acba49f1364889483008f1c5b,false,583.1,CLT||MCI,MCI||DFW,American Airlines||American Airlines,7||7,19:15||23:15,7||1,21:30||01:00,CLT,DFW
+e03447ef400d9ed398168e9f25799fe3,false,511.61,SFO||MCO,MCO||LGA,Alaska Airlines||Delta,2||2,15:00||22:45,2||3,20:15||01:30,SFO,LGA
+41cfde5da86e3ff94514debd98904467,true,228.6,EWR,ORD,JetBlue Airways,4,00:15,4,03:00,EWR,ORD
+d3facfca57691b0a3d38bd1309c3a340,true,48.6,EWR,BOS,JetBlue Airways,4,22:45,5,00:15,EWR,BOS
+f6c0d263999c03ad7bd50b75be3358a0,false,174.58,MIA||BWI,BWI||DFW,Spirit Airlines||Spirit Airlines,7||1,22:00||11:15,1||1,00:45||14:45,MIA,DFW
+21d4a1207298991e7ce9d02707a803ee,true,1043.6,LAX,JFK,Delta,7,14:45,7,20:30,LAX,JFK
+00178c9d00fdad81da468d8e3654a2ed,true,338.59,ATL,ONT,Delta,4,14:00,4,18:15,ATL,ONT
+b0acf03fe27addb8eac69190df1c5c0e,true,253.61,MIA,LAX,American Airlines,6,15:15,6,21:00,MIA,LAX
+d60eaf47ca59df26248d935ddbbabcc7,false,536.6,ORD||BWI,BWI||JFK,United||Delta,3||3,12:15||16:15,3||3,14:15||17:30,ORD,JFK
+82aac818b7e4e8b9a48a497ec8f254b8,true,338.61,LAX,DEN,Alaska Airlines,4,16:45,4,19:15,LAX,DEN
+0acf26f9d24019ceb529c46da9184a86,false,421.0,BOS||MSS||BWI,MSS||BWI||CLT,Boutique Air||Boutique Air||American Airlines,1||1||1,12:30||14:15||22:45,1||1||2,13:45||16:00||00:15,BOS,CLT
+b353061d3da6a211d46ec0917265449b,true,144.35,DTW,BOS,American Airlines,2,16:15,2,18:15,DTW,BOS
+ea9e2523b24bdf28607b0341013580ae,false,169.58,ATL||TPA,TPA||DFW,Spirit Airlines||Spirit Airlines,6||7,18:45||00:00,6||7,20:15||02:45,ATL,DFW
+e2a34637e314a2104565c1181fb2dc12,true,293.6,BOS,DFW,JetBlue Airways,7,12:00,7,16:00,BOS,DFW
+5478e1ee48830af4e7d1d55f15a836a0,true,174.6,LGA,MIA,JetBlue Airways,5,20:30,5,23:45,LGA,MIA
+43798d0cde551b78c5dc778ce97058d8,false,157.6,LAX||LAS,LAS||DFW,American Airlines||American Airlines,4||5,20:15||01:00,4||5,21:30||03:45,LAX,DFW
+3ea4ee3bc1aaa0a3edec8b65d7f58b1b,true,244.6,ATL,DFW,American Airlines,7,16:00,7,18:30,ATL,DFW
+9224d7684f45c7ba8e109a39eb6ea16e,false,487.1,CLT||DTW,DTW||LAX,Delta||Delta,5||5,09:45||12:45,5||5,11:30||17:30,CLT,LAX
+944700cb8393e9ff55cd0808e112d32e,false,481.6,BOS||MIA,MIA||SFO,American Airlines||American Airlines,3||3,15:15||20:45,3||4,18:45||02:45,BOS,SFO
+9b38eaa51f0932a4b9c03e3da3c8cef8,true,358.6,JFK,LAX,JetBlue Airways,1,23:30,2,05:45,JFK,LAX
+4ea6997180841d0f4bb4c726b92af95c,true,428.6,LGA,ORD,Delta,5,17:30,5,20:00,LGA,ORD
+5a5074a0ae33a9fccc4efdad68b6b7c0,false,567.21,MIA||BOS,BOS||SFO,Delta||Alaska Airlines,3||3,00:45||12:00,3||3,04:00||18:45,MIA,SFO
+0212fae5d1fec30c7950f3c238263466,true,118.6,BOS,JFK,American Airlines,4,02:00,4,03:15,BOS,JFK
+c6e7e28d9ee7640acd63d489b83cd6df,false,127.6,ATL||MIA,MIA||DEN,American Airlines||American Airlines,3||3,10:00||13:15,3||3,11:45||17:45,ATL,DEN
+3e5c6c68d12f28cd56781ef375f29cfa,false,122.1,ATL||CLT,CLT||BOS,American Airlines||American Airlines,6||6,15:00||17:30,6||6,16:15||19:45,ATL,BOS
+bea7b0b4e2a8f71a5394993da5394f94,false,607.61,DTW||LAX,LAX||SFO,Delta||Delta,7||7,10:00||18:15,7||7,15:00||19:30,DTW,SFO
+91e5b7c79370575a53179a80741d233e,false,194.1,CLT||SAT,SAT||LAX,American Airlines||American Airlines,6||6,13:15||19:15,6||6,16:30||22:30,CLT,LAX
+eb615b9312b9b01832a47d058f47e525,true,648.6,LAX,SFO,American Airlines,3,17:00,3,18:45,LAX,SFO
+d8a9bb41b7522d53314049cb1d32af95,true,258.6,SFO,BOS,Alaska Airlines,1,15:00,1,20:45,SFO,BOS
+89b7f1fd7997d37c26c6eb15a96ca116,true,372.6,DFW,EWR,JetBlue Airways,1,19:15,1,22:30,DFW,EWR
+756778704105a10fa9cc67e554637d5f,false,247.6,PHL||RIC,RIC||CLT,American Airlines||American Airlines,6||6,15:15||19:15,6||6,16:30||20:30,PHL,CLT
+e887ec540b729601fa6720be5dc285f8,true,263.6,LAX,EWR,United,1,23:30,2,04:30,LAX,EWR
+2ac2192ed419b585123152ab2369105b,true,203.6,PHL,MIA,American Airlines,2,13:30,2,16:15,PHL,MIA
+832551c6daed147a87ea2a005ccd9efb,false,187.6,LAX||DTW,DTW||EWR,Delta||Delta,3||3,06:30||12:00,3||3,10:45||13:45,LAX,EWR
+d76c9401cbf7d04fe8c53b0436ea9996,false,350.1,CLT||STL,STL||LAX,American Airlines||American Airlines,3||3,15:00||20:00,3||4,17:15||00:15,CLT,LAX
+24ddbbdc076ca53bd1aa411ae105be7c,false,387.6,LAX||SLC,SLC||MIA,Delta||Delta,1||2,19:15||00:30,1||2,21:00||05:00,LAX,MIA
+d28d553a57495e1a974b50ebd75d1c58,false,652.2,SFO||JFK,JFK||BOS,JetBlue Airways||JetBlue Airways,7||7,07:00||17:45,7||7,12:30||19:00,SFO,BOS
+678dd145e763b2ca63794d683f134680,true,148.6,LGA,MIA,JetBlue Airways,1,20:30,1,23:30,LGA,MIA
+348741c4d698e53b215bbfac0f8aa5f1,false,87.6,DEN||IAH,IAH||ATL,United||United,6||6,17:30||21:30,6||6,20:00||23:45,DEN,ATL
+f46c3ad847e2bf5ca5326217d0131fed,true,54.6,LGA,BOS,JetBlue Airways,3,10:00,3,11:15,LGA,BOS
+9b9dff66636f8f52dfe2e6180d766fb8,false,317.6,MIA||CHS,CHS||CLT,American Airlines||American Airlines,4||5,20:30||00:15,4||5,22:15||01:15,MIA,CLT
+fccce5c0038450f20bcff06eda17c07e,false,311.58,OAK||LAS,LAS||DFW,Spirit Airlines||Spirit Airlines,5||5,12:15||15:45,5||5,13:45||18:30,OAK,DFW
+8da088f75819848189351bf99b643bf3,false,388.6,DTW||DEN,DEN||LAX,United||United,5||5,19:30||23:30,5||6,22:45||02:15,DTW,LAX
+b75b342b79415574e4ce85ad213cb8cc,false,213.2,ATL||BNA,BNA||BOS,Delta||Delta,3||3,04:00||11:15,3||3,05:00||14:00,ATL,BOS
+2db94f6bb85df50391f924f7c4c222a5,false,327.6,DFW||AUS,AUS||BOS,American Airlines||American Airlines,5||5,19:30||21:00,5||6,20:30||01:00,DFW,BOS
+5daf677f49b0fad5550a4f632469bd28,false,687.54,IAD||BNA||MWA||STL,BNA||MWA||STL||ORD,United||Cape Air||Cape Air||United,5||5||5||5,13:00||18:30||20:15||23:15,5||5||5||6,15:00||19:45||21:00||00:45,IAD,ORD
+48379c75c93916a6817b4d596eb75e68,false,227.6,ATL||ORD,ORD||DEN,American Airlines||American Airlines,6||6,15:15||18:00,6||6,17:30||20:45,ATL,DEN

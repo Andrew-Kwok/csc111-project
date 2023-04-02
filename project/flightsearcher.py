@@ -1,5 +1,4 @@
 """ flight searcher """
-
 from __future__ import annotations
 from typing import Optional
 
@@ -30,6 +29,7 @@ class AbstractFlightSearcher:
         self.flight_network = flight_network
 
     def _merge_ticket(self, tickets: list[Ticket]) -> Ticket:
+    def _merge_ticket(self, tickets: list[Ticket]) -> Ticket:
         """A function that merge a list of tickets on a transit route
         """
         origin = tickets[0].origin
@@ -43,12 +43,18 @@ class AbstractFlightSearcher:
         return Ticket(origin, destination, flights_so_far, price_so_far)
 
     def _get_day_of_week(self, date: datetime) -> DayHourMinute:
+    def _get_day_of_week(self, date: datetime) -> DayHourMinute:
         """A function that return the day and in a week and specific time of a given date
         """
         return DayHourMinute(date.weekday() + 1, date.hour, date.minute)
 
     def _get_datetime_other(self, pivot_date: datetime, other_time: DayHourMinute) -> datetime:
-        """ TODO DOCSTRING
+        """ Get the next possible datetime interpretation for other_time.
+
+        Preconditions:
+            - 1 <= other_time.day <= 7
+            - 0 <= other_time.hour <= 23
+            - 0 <= other_time.minute <= 60
         """
         pass
 
@@ -73,18 +79,19 @@ class AbstractFlightSearcher:
         return DayHourMinute(day=minute_diff // 1440, hour=(minute_diff % 1440) // 60, minute=minute_diff % 60)
 
 
-    def search_shortest_flight(self, source: IATACode, destination: IATACode, departure_time: datetime) -> list[Ticket]:
+    def search_shortest_flight(self, source: str, destination: str, departure_time: datetime) -> list[Ticket]:
         """ TODO DOCSTRING
         """
         raise NotImplementedError
 
+    def search_cheapest_flight(self, source: IATACode, destination: IATACode, departure_time: datetime) -> list[Ticket]:
     def search_cheapest_flight(self, source: IATACode, destination: IATACode, departure_time: datetime) -> list[Ticket]:
         """ TODO DOCSTRING
         """
         raise NotImplementedError
 
 
-@check_contracts
+# @check_contracts
 class NaiveFlightSearcher(AbstractFlightSearcher):
     """ TODO: Docstring
     """
@@ -152,7 +159,7 @@ class NaiveFlightSearcher(AbstractFlightSearcher):
         return tickets[:TOP_K_RESULTS]
 
 
-@check_contracts
+# @check_contracts
 class PrunedLandmarkLabeling(AbstractFlightSearcher):
     """ DOCSTRING
     """
@@ -203,7 +210,7 @@ class PrunedLandmarkLabeling(AbstractFlightSearcher):
         """
         AbstractFlightSearcher.__init__(self, flight_network)
 
-    def search_shortest_flight(source: str, destination: str, departure_time: datetime) -> list[Ticket]: 
+    def search_shortest_flight(source: str, destination: str, departure_time: datetime) -> list[Ticket]:
         """ TODO DOCSTRING
         """
         pass
@@ -214,12 +221,31 @@ class PrunedLandmarkLabeling(AbstractFlightSearcher):
         pass
 
 
+class Dijkstra(AbstractFlightSearcher):
+    """Use Dijkstra algorithm to find the shortest path."""
+
+    def __init__(self, flight_network: Network) -> None:
+        """ TODO DOCSTRING
+        """
+        AbstractFlightSearcher.__init__(self, flight_network)
+
+    def search_shortest_flight(self, source: IATACode, destination: IATACode, departure_time: datetime) -> list[Ticket]:
+        """ TODO DOCSTRING
+        Compare based on the times
+        """
+
+    def search_cheapest_flight(self, source: str, destination: str, departure_time: datetime) -> list[Ticket]:
+        """Compare based on price; should be easier.
+        """
+
+
 if __name__ == '__main__':
 
-    import python_ta
-    python_ta.check_all(config={
-        'max-line-length': 120,
-        'extra-imports': ['network', 'datetime'],
-        'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
-        'allowed-io': []
-    })
+    # import python_ta
+    # python_ta.check_all(config={
+    #     'max-line-length': 120,
+    #     'extra-imports': ['network', 'datetime'],
+    #     'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
+    #     'allowed-io': []
+    # })
+    pass
