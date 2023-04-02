@@ -12,8 +12,9 @@ from network import Network, Airport, Flight, Ticket
 from flightsearcher import AbstractFlightSearcher, NaiveFlightSearcher, PrunedLandmarkLabeling
 
 
-MIN_LAYOVER = 90   #minutes
-MAX_LAYOVER = 720  #minutes
+MIN_LAYOVER_TIME = 90   # minutes
+MAX_LAYOVER_TIME = 720  # minutes
+MAX_LAYOVER = 3         # stops
 TOP_K_RESULTS = 10 
 
 
@@ -114,6 +115,8 @@ def read_csv_file(airport_file: str, flight_file: str) -> Network:
             ticket = Ticket(
                 origin=origin,
                 destination=destination,
+                departure_time=flights[0].departure_time,
+                arrival_time=flights[-1].arrival_time,
                 flights=flights,
                 price=price
             )
