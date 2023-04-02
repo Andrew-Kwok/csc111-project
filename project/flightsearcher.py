@@ -1,6 +1,7 @@
 """ flight searcher """
 
 from __future__ import annotations
+from typing import Optional
 
 import math
 from queue import PriorityQueue
@@ -9,8 +10,8 @@ from datetime import datetime
 from python_ta.contracts import check_contracts
 
 from network import IATACode, DayHourMinute
+from network import MIN_LAYOVER_TIME, MAX_LAYOVER_TIME, MAX_LAYOVER, TOP_K_RESULTS
 from network import Network, Airport, Flight, Ticket
-from main import MIN_LAYOVER_TIME, MAX_LAYOVER_TIME, MAX_LAYOVER, TOP_K_RESULTS
 
 
 @check_contracts
@@ -41,16 +42,17 @@ class AbstractFlightSearcher:
 
         return Ticket(origin, destination, flights_so_far, price_so_far)
 
-    def _get_day_of_week(self, date: datetime) -> tuple[int, int, int]:
+    def _get_day_of_week(self, date: datetime) -> DayHourMinute:
         """A function that return the day and in a week and specific time of a given date
         """
-        return (date.weekday(), date.hour, date.minute)
+        return DayHourMinute(date.weekday() + 1, date.hour, date.minute)
 
-    def _get_datetime_other(self, pivot_date: datetime, other_time: tuple[int, int, int]) -> datetime:
+    def _get_datetime_other(self, pivot_date: datetime, other_time: DayHourMinute) -> datetime:
         """ TODO DOCSTRING
         """
+        pass
 
-    def _minute_diff(self, before: DayHourMinute, after: DayHourMinute) -> DayHourMinute:
+    def _minute_diff(self, before: DayHourMinute, after: DayHourMinute) -> int:
         """Return the difference of time between before and after (in minutes).
         """
         if before.day > after.day:
@@ -62,7 +64,6 @@ class AbstractFlightSearcher:
 
         return (after.day * 1440 + after.hour * 60 + after.minute) - \
             (before.day * 1440 + before.hour * 60 + before.minute)
-
 
 
     def _day_hour_minute_diff(self, before: DayHourMinute, after: DayHourMinute) -> DayHourMinute:
@@ -94,22 +95,61 @@ class NaiveFlightSearcher(AbstractFlightSearcher):
         """
         AbstractFlightSearcher.__init__(self, flight_network)
 
-    def _search_all_flight(self, source: Airport, destination: Airport, departure_time: DayHourMinute) -> list[Ticket]:
+    def _search_all_flight(self, source: Airport, destination: Airport, departure_time: DayHourMinute, visited: set[Airport]) -> list[Optional[Ticket]]:
         """ TODO DOCSTRING
         """
         if source == destination:
-            return [[]]
+            return [None]
+        
+        paths = []
         for ticket in source.tickets:
-            if ticket.
+            minute_diff = self._minute_diff(departure_time, ticket.departure_time)
+            if all(flight.destination not in visited for flight in ticket.flights) and \
+                (MIN_LAYOVER_TIME <= minute_diff <= MAX_LAYOVER_TIME or \
+                 (len(visited) == 1 and minute_diff < 2 * MAX_LAYOVER_TIME)):  # 24 hour gap for first flight.
+                next_visited = visited.union(flight.destination for flight in ticket.flights)
+                if len(next_visited) > MAX_LAYOVER + 1:
+                    continue
+                next_paths = self._search_all_flight(source=ticket.destination, 
+                                                     destination=destination, 
+                                                     departure_time=ticket.arrival_time, 
+                                                     visited=next_visited)
+                for path in next_paths:
+                    if path is None:
+                        paths.append(ticket)
+                    else:
+                        paths.append(self._merge_ticket(ticket, path))
+        return paths
 
     def search_shortest_flight(self, source: IATACode, destination: IATACode, departure_time: datetime) -> list[Ticket]:
         """ TODO DOCSTRING
         """
+        source_airport = self.flight_network.airports[source]
+        destination_airport = self.flight_network.airports[destination]
+        departure_weektime = self._get_day_of_week(departure_time)
+        visited = {source_airport}
+
+        tickets = self._search_all_flight(source=source_airport,
+                                          destination=destination_airport,
+                                          departure_time=departure_weektime,
+                                          visited=visited)
+        tickets.sort(key=lambda x: self._minute_diff(x.departure_time, x.arrival_time))
+        return tickets[:TOP_K_RESULTS]
 
     def search_cheapest_flight(self, source: IATACode, destination: IATACode, departure_time: datetime) -> list[Ticket]:
         """ TODO DOCSTRING
         """
-        pass
+        source_airport = self.flight_network.airports[source]
+        destination_airport = self.flight_network.airports[destination]
+        departure_weektime = self._get_day_of_week(departure_time)
+        visited = {source_airport}
+
+        tickets = self._search_all_flight(source=source_airport,
+                                          destination=destination_airport,
+                                          departure_time=departure_weektime,
+                                          visited=visited)
+        tickets.sort(key=lambda x: x.price)
+        return tickets[:TOP_K_RESULTS]
 
 
 @check_contracts

@@ -12,6 +12,11 @@ from python_ta.contracts import check_contracts
 IATACode: TypeAlias = str
 DayHourMinute: TypeAlias = namedtuple('DayHourMinute', ['day', 'hour', 'minute'])
 
+MIN_LAYOVER_TIME = 90   # minutes
+MAX_LAYOVER_TIME = 720  # minutes
+MAX_LAYOVER = 3         # stops
+TOP_K_RESULTS = 10 
+
 
 @check_contracts
 class Network:
