@@ -57,14 +57,14 @@ def search(request):
         data['date'] = date
 
         tickets = []
-        if origin is not None:
-            print(origin)
-            iata = origin[-5:-2]
-            tickets = NAIVE_FLIGHT_SEARCHER.flight_network.airports[iata].tickets
+        # if origin is not None:
+        #     print(origin)
+        #     iata = origin[-5:-2]
+        #     tickets = NAIVE_FLIGHT_SEARCHER.flight_network.airports[iata].tickets
         
 
-        # for airport in NAIVE_FLIGHT_SEARCHER.flight_network.airports.values():
-        #     tickets.extend(airport.tickets)
+        for airport in NAIVE_FLIGHT_SEARCHER.flight_network.airports.values():
+            tickets.extend(airport.tickets)
 
         # print('tickets', tickets)
 

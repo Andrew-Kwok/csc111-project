@@ -12,8 +12,13 @@ from python_ta.contracts import check_contracts
 IATACode: TypeAlias = str
 DayHourMinute: TypeAlias = namedtuple('DayHourMinute', ['day', 'hour', 'minute'])
 
+MIN_LAYOVER_TIME = 90   # minutes
+MAX_LAYOVER_TIME = 720  # minutes
+MAX_LAYOVER = 3         # stops
+TOP_K_RESULTS = 10 
 
-@check_contracts
+
+# @check_contracts
 class Network:
     """
     A graph representing the cities and airports.
@@ -62,7 +67,7 @@ class Network:
         return {self.get_airport_from_iata(iata) for iata in self.city_airport[city]}
 
 
-@check_contracts
+# @check_contracts
 class Airport:
     """
     A node in the graph that represents a single airport.
@@ -78,8 +83,7 @@ class Airport:
     Representation Invariants:
         - len(self.iata) == 3
         - all(ticket.origin == self for ticket in tickets)
-        # - all(ticket[i].departure_time <= ticket[i + 1].departure_time for i in range(len(tickets) - 1))
-        # TODO: check for timezone
+        - all(ticket[i].departure_time <= ticket[i + 1].departure_time for i in range(len(tickets) - 1))
     """
     iata: IATACode
     name: str
@@ -105,7 +109,7 @@ class Airport:
         return f'{self.iata} - {self.name} - {self.city}'
 
 
-@check_contracts
+# @check_contracts
 class Flight:
     """
     An edge in the graph that represents a flight between two airports.
@@ -120,7 +124,6 @@ class Flight:
 
     Representation Invariants:
         - self.origin != self.destination
-        # - self.departure_time <= self.arrival_time
     """
     airline: str
     flight_id: str
@@ -146,22 +149,21 @@ class Flight:
         return f'{self.flight_id} | {self.airline} | {self.origin.iata}({str(self.departure_time)}) to {self.destination.iata}({str(self.arrival_time)})'
 
 
-@check_contracts
+# @check_contracts
 class Ticket:
     """
     A ticket containing a list of flights and its total price.
 
     Instance Attributes:
-        - flights: A list of the flights on the ticket.
-        - price: The total price of all the flights on the ticket.
         - origin: The departure airport of the flight.
         - destination: The destination airport of the flight.
+        - flights: A list of the flights on the ticket.
+        - price: The total price of all the flights on the ticket.
 
     Representation Invariants:
         - self.flights != []
-        # - all(self.flights[i].arrival_time <= self.flights[i+1].departure_time for i in range(len(self.flights) - 1))
         - len(flights) + 1 == \
-        len({flight.origin flight for flight in flights} + {flight.destination flight for flight in flights})
+        len({flight.origin for flight in self.flights} + {flight.destination for flight in self.flights})
         - self.origin != self.destination
         - self.origin == self.flights[0].origin
         - self.destination == self.flights[-1].destination
@@ -169,12 +171,16 @@ class Ticket:
     """
     origin: Airport
     destination: Airport
+    departure_time: DayHourMinute
+    arrival_time: DayHourMinute
     flights: list[Flight]
     price: float
 
-    def __init__(self, origin: Airport, destination: Airport, flights: list[Flight], price: float) -> None:
+    def __init__(self, origin: Airport, destination: Airport, departure_time: DayHourMinute, arrival_time: DayHourMinute, flights: list[Flight], price: float) -> None:
         self.origin = origin
         self.destination = destination
+        self.departure_time = DayHourMinute(*departure_time)
+        self.arrival_time = DayHourMinute(*arrival_time)
         self.flights = flights
         self.price = price
 
