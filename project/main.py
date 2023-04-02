@@ -195,7 +195,7 @@ def run(airport_file: str, flight_file: str, searcher_type: str) -> None:
     searcher = None
     if searcher_type == 'naive':
         searcher = NaiveFlightSearcher(flight_network)
-    elif searcher_type == 'dijsktra'
+    elif searcher_type == 'dijsktra':
         searcher = DijkstraFlightSearcher(flight_network)
     else:
         raise ValueError('Invalid Flight Searcher')
@@ -257,7 +257,7 @@ if __name__ == '__main__':
     AIRPORTFILE = '../data/airport_class_1000.csv'
     FLIGHTFILE = '../data/clean_no_dupe_itineraries_1000.csv'
 
-    # run(AIRPORTFILE, FLIGHTFILE, 'naive')
+    run(AIRPORTFILE, FLIGHTFILE, 'naive')
 
     import python_ta
     python_ta.check_all(config={
