@@ -30,10 +30,10 @@
                         <span class="label-text"> From </span>
                         </label>
                         <input type="text" name="from_input" placeholder="Departure Airport" class="input input_airport input-bordered max-w-xs" autocomplete="off" />
-                        <div style="display: none; position: absolute;" class="input_tooltip max-h-60 overflow-y-auto">
+                        <div style="display: none; position: absolute;" class="w-56 input_tooltip max-h-60 overflow-y-auto">
                             <ul class="airport_options">
                                 {% for airport in airport_options %}
-                                    <li class="grid w-full h-12 rounded bg-primary text-primary-content place-content-center my-1 hover:bg-primary-focus" style="cursor: pointer"> {{airport.city}} ({{airport.iata}}) </li>
+                                    <li class="grid w-full h-12 rounded bg-primary text-primary-content place-content-center my-1 hover:bg-primary-focus" style="cursor: pointer">{{airport.city}} ({{airport.iata}})</li>
                                 {% endfor %}
                             </ul>
                         </div>
@@ -44,10 +44,10 @@
                             <span class="label-text"> To </span>
                         </label>
                         <input type="text" name="to_input" placeholder="Arrival Airport" class="input input_airport input-bordered max-w-xs" autocomplete="off" />
-                        <div style="display: none; position: absolute;" class="input_tooltip max-h-60 overflow-y-auto">
+                        <div style="display: none; position: absolute;" class="w-56 input_tooltip max-h-60 overflow-y-auto">
                             <ul class="airport_options">
                                 {% for airport in airport_options %}
-                                    <li class="grid w-full h-12 rounded bg-primary text-primary-content place-content-center my-1 hover:bg-primary-focus" style="cursor: pointer"> {{airport.city}} ({{airport.iata}}) </li>
+                                    <li class="grid w-full h-12 rounded bg-primary text-primary-content place-content-center my-1 hover:bg-primary-focus" style="cursor: pointer">{{airport.city}} ({{airport.iata}})</li>
                                 {% endfor %}
                             </ul>
                         </div>
@@ -64,7 +64,7 @@
                         <label class="label">
                             <span class="label-text"> Search </span>
                         </label>
-                        <button class="btn btn-square max-w-xs">
+                        <button id="submit_button" class="btn btn-square max-w-xs">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                         </button>
                     </div>
@@ -82,27 +82,27 @@
         <div tabindex="0" class="collapse border border-base-300 bg-base-300 rounded-box w-3/4 my-4"> 
             <div class="collapse-title text-xl font-medium">
                 <div class="flex flex-col">
-                    <h1 class="text-2xl font-bold mb-4"> Airline </h1>
+                    <h1 class="text-2xl font-bold mb-4"> {{ticket.flights|get_airlines}} </h1>
                     <div class="flex justify-between text-center items-center">
                         <div class="flex flex-col">
-                            <p> 09:20 </p>
+                            <p> {{ticket.departure_time.hour|digit2}}:{{ticket.departure_time.minute|digit2}} </p>
                             <p class="rounded-2xl bg-base-100 w-16"> {{ ticket.origin.iata }} </p>
                         </div>
 
                         <div>
-                            <p> 44h 0m </p>
+                            <p> {% get_hour_minute_diff ticket.departure_time ticket.arrival_time %} </p>
                             <p> {{ ticket.flights|no_of_layovers }} </p>
                         </div>
 
                         <div class="flex flex-col justify-center items-center">
                             <div class="flex flex-row">
-                                <p> 07:20 </p>
-                                <p class="text-sm"> (+2d) </p>
+                                <p> {{ticket.arrival_time.hour|digit2}}:{{ticket.arrival_time.minute|digit2}} </p>
+                                <p class="text-sm"> {% get_day_diff ticket.departure_time ticket.arrival_time %} </p>
                             </div>
                             <p class="rounded-2xl bg-base-100 w-16"> {{ ticket.destination.iata }} </p>
                         </div>
 
-                        <p class="w-2/5 text-right font-bold text-2xl text-secondary-focus"> ${{ ticket.price }} </p>
+                        <p class="w-2/5 text-right font-bold text-2xl text-secondary-focus"> ${{ ticket.price|round2 }} </p>
                     </div>
                 </div>
             </div>
@@ -111,19 +111,19 @@
                 <div class="m-4">
                     <div class="flex justify-start">
                         <div class="flex flex-col text-center mr-10">
-                            <p> 20:05 <p>
-                            <p> 1 May </p>
+                            <p> {{flight.departure_time.hour|digit2}}:{{flight.departure_time.minute|digit2}} <p>
+                            <p> {% get_date date ticket.departure_time flight.departure_time %} </p>
                         </div>
                         <div>
                             <p class="font-bold"> {{ flight.origin.city }} ({{flight.origin.iata}}) </p>
-                            <p> {{ flight.origin.name }} </p>
+                            <p> {{flight.origin.name}} </p>
                         </div>
                     </div>
 
                     <div class="flex items-center my-8 justify-left">
                         <div class="text-center mr-10">
                             <p> &#9992; </p>
-                            <p> 1h 25m </p>  
+                            <p> {% get_hour_minute_diff flight.departure_time flight.arrival_time %} </p>  
                         </div>
                         <div class="border-4 p-4">
                             <p class="text-xl"> {{ flight.airline }} </p>
@@ -133,12 +133,12 @@
 
                     <div class="flex justify-start">
                         <div class="flex flex-col text-center mr-10">
-                            <p> 17:30 <p>
-                            <p> 2 May </p>
+                            <p> {{flight.arrival_time.hour|digit2}}:{{flight.arrival_time.minute|digit2}} <p>
+                            <p> {% get_date date ticket.departure_time flight.arrival_time %} </p>
                         </div>
                         <div>
                             <p class="font-bold"> {{ flight.destination.city }} ({{flight.destination.iata}}) </p>
-                            <p> {{ flight.destination.name }} </p>
+                            <p> {{flight.destination.name}} </p>
                         </div>
                     </div>
 
@@ -146,12 +146,12 @@
                     <div class="alert shadow-lg bg-primary text-white my-8">
                         <div>
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current flex-shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                          <span> Stop to change plane in {{ ticket.destination.city }} (3h 30m) </span>
+                          <span> Stop to change plane in {{ ticket.destination.city }} ({% get_overlay_time ticket.flights forloop.counter0 %}) </span>
                         </div>
                     </div>
                     {% endif %}
 
-                </div>
+                </div>  
                 {% endfor %}
             </div>
         </div>
@@ -267,10 +267,12 @@
     const searchBars = document.querySelectorAll(".input_airport");
     searchBars.forEach(searchBar => {
         const airportTooltip = searchBar.nextElementSibling;
+        const submitButton = document.getElementById("submit_button");
 
         // Add event listener to search bar
         searchBar.addEventListener("click", function() {
             airportTooltip.style.display = "block";
+            console.log(submitButton);
         });
 
         // Add click event listener to each li element in tooltip
@@ -285,6 +287,8 @@
         // add event listener to move clicked option to searchbar
         searchBar.addEventListener("input", function(item) {
             const searchValue = searchBar.value.toLowerCase();
+            let filled = false;
+            
             tooltipItems.forEach(item => {
                 const itemText = item.textContent.toLowerCase();
                 if (itemText.indexOf(searchValue) === -1) {

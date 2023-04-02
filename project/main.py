@@ -5,17 +5,14 @@ from __future__ import annotations
 import csv
 import codecs
 from py7zr import SevenZipFile
+from datetime import datetime
 
 from python_ta.contracts import check_contracts
 
+from network import IATACode, DayHourMinute
+from network import MIN_LAYOVER_TIME, MAX_LAYOVER_TIME, MAX_LAYOVER, TOP_K_RESULTS
 from network import Network, Airport, Flight, Ticket
 from flightsearcher import AbstractFlightSearcher, NaiveFlightSearcher, PrunedLandmarkLabeling
-
-
-MIN_LAYOVER_TIME = 90   # minutes
-MAX_LAYOVER_TIME = 720  # minutes
-MAX_LAYOVER = 3         # stops
-TOP_K_RESULTS = 10
 
 
 def unpack_csv() -> None:
@@ -41,12 +38,12 @@ def read_csv_file(airport_file: str, flight_file: str) -> Network:
 
     with open(airport_file) as csv_file:
         reader = csv.DictReader(csv_file)
-        header = [
+        header = {
             'iata_code',
             'name',
             'municipality'
-        ]
-        assert reader.fieldnames == header
+        }
+        assert set(reader.fieldnames) == header
 
         for row in reader:
             airport = Airport(
@@ -58,21 +55,21 @@ def read_csv_file(airport_file: str, flight_file: str) -> Network:
 
     with open(flight_file) as csv_file:
         reader = csv.DictReader(csv_file)
-        header = [
+        header = {
             'legId',
-            'startingAirport',
-            'destinationAirport',
             'isNonStop',
             'totalFare',
-            'segmentsArrivalAirportCode',
             'segmentsDepartureAirportCode',
+            'segmentsArrivalAirportCode',
             'segmentsAirlineName',
             'segmentsDepartureWeekday',
             'segmentsDepartureTimeOfDay',
             'segmentsArrivalWeekday',
-            'segmentsArrivalTimeOfDay'
-        ]
-        assert reader.fieldnames == header
+            'segmentsArrivalTimeOfDay',
+            'startingAirport',
+            'destinationAirport'
+        }
+        assert set(reader.fieldnames) == header
 
         airport_ticket = {}  # dict[str, list[Ticket]]
         for row in reader:
@@ -107,8 +104,8 @@ def read_csv_file(airport_file: str, flight_file: str) -> Network:
                     flight_id=flight_id,
                     origin=departure[i],
                     destination=arrival[i],
-                    departure_time=(departure_weekday[0], departure_timeday[i][0], departure_timeday[i][1]),
-                    arrival_time=(arrival_weekday[0], arrival_timeday[i][0], arrival_timeday[i][1])
+                    departure_time=(departure_weekday[i], departure_timeday[i][0], departure_timeday[i][1]),
+                    arrival_time=(arrival_weekday[i], arrival_timeday[i][0], arrival_timeday[i][1])
                 )
                 flights.append(flight)
 
@@ -127,10 +124,11 @@ def read_csv_file(airport_file: str, flight_file: str) -> Network:
 
         for origin in airport_ticket:
             tickets = airport_ticket[origin]
-            tickets.sort(key=lambda x: x.flights[0].departure_time)
+            tickets.sort(key=lambda x: x.departure_time)
 
             for ticket in tickets:
                 origin.add_ticket(ticket)
+
 
     return res_network
 
@@ -138,16 +136,15 @@ def read_csv_file(airport_file: str, flight_file: str) -> Network:
 def get_naive_searcher() -> AbstractFlightSearcher:
     """ Return a naive searcher
     """
-    airport_file = '../data/airport_class_small.csv'
-    flight_file = '../data/clean_no_dupe_itineraries_small.csv'
+    airport_file = '../data/airport_class_1000.csv'
+    flight_file = '../data/clean_no_dupe_itineraries_1000.csv'
 
     flight_network = read_csv_file(airport_file, flight_file)
     return NaiveFlightSearcher(flight_network)
 
 
-
 def get_pruned_landmark_labelling() -> AbstractFlightSearcher:
-    """
+    """ TODO DOCSTRING
     """
     pass
 
@@ -212,6 +209,10 @@ def run(airport_file: str, flight_file: str, type: str) -> None:
     # do some operations with naive searcher
     # naive_searcher.search_shortest_flight(city_1, city_2)
 
+    tickets = naive_searcher.search_cheapest_flight('ATL', 'LAX', datetime(2023, 4, 2))
+    for ticket in tickets:
+        print(ticket)
+
     # for x in flight_network.city_airport:
     #     print(x, flight_network.city_airport[x])
 
@@ -219,8 +220,8 @@ def run(airport_file: str, flight_file: str, type: str) -> None:
     #     print(x, flight_network.airports[x])
     #     for ticket in flight_network.airports[x].tickets:
     #         print(ticket)
-    #         for flight in ticket.flights:
-    #             print(flight)
+    #         # for flight in ticket.flights:
+    #         #     print(flight)
     #     print()
 
 
@@ -228,15 +229,15 @@ if __name__ == '__main__':
     # AIRPORTFILE = 'clean_no_dupe_itineraries'
     # FLIGHTFILE = 'clean_no_dupe_itineraries'
 
-    AIRPORTFILE = '../data/airport_class_small.csv'
-    FLIGHTFILE = '../data/clean_no_dupe_itineraries_small.csv'
+    AIRPORTFILE = '../data/airport_class_1000.csv'
+    FLIGHTFILE = '../data/clean_no_dupe_itineraries_1000.csv'
 
     run(AIRPORTFILE, FLIGHTFILE, 'naive') # change 'naive' to 'pruned' for pruned landmark labelling
 
     # import python_ta
     # python_ta.check_all(config={
     #     'max-line-length': 120,
-    #     'extra-imports': ['datetime', 'csv', 'codecs', 'py7zr', 'network', 'flightsearcher'],
+    #     'extra-imports': ['datetime', 'csv', 'codecs', 'py7zr', 'network', 'flightsearcher', 'datetime'],
     #     'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
     #     'allowed-io': ['read_csv_file']
     # })

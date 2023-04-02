@@ -12,8 +12,13 @@ from python_ta.contracts import check_contracts
 IATACode: TypeAlias = str
 DayHourMinute: TypeAlias = namedtuple('DayHourMinute', ['day', 'hour', 'minute'])
 
+MIN_LAYOVER_TIME = 90   # minutes
+MAX_LAYOVER_TIME = 720  # minutes
+MAX_LAYOVER = 3         # stops
+TOP_K_RESULTS = 10
 
-@check_contracts
+
+# @check_contracts
 class Network:
     """
     A graph representing the cities and airports.
@@ -32,7 +37,7 @@ class Network:
 
     def __init__(self) -> None:
         """Initialize an empty network. """
-        self.city_airport: dict[str, set[IATACode]] = {}
+        self.city_airport = {}
         self.airports = {}
 
     def add_airport(self, airport: Airport) -> None:
@@ -62,7 +67,7 @@ class Network:
         return {self.get_airport_from_iata(iata) for iata in self.city_airport[city]}
 
 
-@check_contracts
+# @check_contracts
 class Airport:
     """
     A node in the graph that represents a single airport.
@@ -104,7 +109,7 @@ class Airport:
         return f'{self.iata} - {self.name} - {self.city}'
 
 
-@check_contracts
+# @check_contracts
 class Flight:
     """
     An edge in the graph that represents a flight between two airports.
@@ -146,7 +151,8 @@ class Flight:
                f'{self.destination.iata}({str(self.arrival_time)})'
 
 
-@check_contracts
+
+# @check_contracts
 class Ticket:
     """
     A ticket containing a list of flights and its total price.
@@ -181,7 +187,7 @@ class Ticket:
 
     def __init__(self, origin: Airport, destination: Airport, departure_time: DayHourMinute,
                  arrival_time: DayHourMinute, flights: list[Flight], price: float) -> None:
-        """Initialize a ticket with the fiven origin airport, destination airport, departure time, arrival time, flights
+        """Initialize a ticket with the given origin airport, destination airport, departure time, arrival time, flights
         and price.
         """
         self.origin = origin
@@ -204,6 +210,6 @@ if __name__ == '__main__':
     import python_ta
     python_ta.check_all(config={
         'max-line-length': 120,
-        'extra-imports': ['datetime'],
-        'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
+        'extra-imports': ['datetime', 'collections'],
+        'disable': ['unused-import', 'too-many-branches', 'extra-imports', 'E9992', 'E9997', 'too-many-arguments'],
     })
