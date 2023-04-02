@@ -60,7 +60,6 @@ class AbstractFlightSearcher:
             - 0 <= other_time.hour <= 23
             - 0 <= other_time.minute <= 60
         """
-        pass
 
     def _minute_diff(self, before: DayHourMinute, after: DayHourMinute) -> int:
         """Return the difference in time between before and after (in minutes).
@@ -382,12 +381,10 @@ class PrunedLandmarkLabeling(AbstractFlightSearcher):
     def search_shortest_flight(self, source: str, destination: str, departure_time: datetime) -> list[Ticket]:
         """ TODO DOCSTRING
         """
-        pass
 
     def search_cheapest_flight(self, source: str, destination: str, departure_time: datetime) -> list[Ticket]:
         """ TODO DOCSTRING
         """
-        pass
 
 
 if __name__ == '__main__':
