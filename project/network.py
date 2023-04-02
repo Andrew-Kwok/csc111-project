@@ -146,8 +146,8 @@ class Flight:
     def __str__(self) -> str:
         """print some details about the flight
         """
-        return f'{self.flight_id} | {self.airline} | {self.origin.iata}({str(self.departure_time)})' \
-               f' to {self.destination.iata}({str(self.arrival_time)})'
+        return f'{self.flight_id} | {self.airline} | {self.origin.iata} ({str(self.departure_time)})' \
+               f' to {self.destination.iata} ({str(self.arrival_time)})'
 
 
 # @check_contracts
@@ -189,8 +189,16 @@ class Ticket:
     def __str__(self) -> str:
         """print some details about the ticket
         """
-        flight_info = " - ".join(f'{flight.airline}({flight.flight_id})' for flight in self.flights)
-        return f'{self.origin.iata} to {self.destination.iata} | {self.price} | {flight_info}'
+        flight_info = "\n\t".join(f'{flight}' for flight in self.flights)
+        return f'{self.origin.iata} to {self.destination.iata} | {self.price} \n\t{flight_info}'
+
+    def __lt__(self, other: Ticket) -> bool:
+        """placeholder for less than"""
+        if self.flights[-1].arrival_time < other.flights[-1].arrival_time:
+            return True
+        elif self.flights[0].departure_time < other.flights[0].departure_time:
+            return True
+        return False
 
 
 if __name__ == '__main__':

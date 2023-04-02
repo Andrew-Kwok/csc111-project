@@ -12,7 +12,8 @@ from python_ta.contracts import check_contracts
 from network import IATACode, DayHourMinute
 from network import MIN_LAYOVER_TIME, MAX_LAYOVER_TIME, MAX_LAYOVER, TOP_K_RESULTS
 from network import Network, Airport, Flight, Ticket
-from flightsearcher import AbstractFlightSearcher, NaiveFlightSearcher
+from flightsearcher import AbstractFlightSearcher, NaiveFlightSearcher, PrunedLandmarkLabeling, Dijkstra
+from network import Network, Airport, Flight, Ticket, IATACode, DayHourMinute
 
 
 def unpack_csv() -> None:
@@ -104,8 +105,10 @@ def read_csv_file(airport_file: str, flight_file: str) -> Network:
                     flight_id=flight_id,
                     origin=departure[i],
                     destination=arrival[i],
-                    departure_time=(departure_weekday[i], departure_timeday[i][0], departure_timeday[i][1]),
-                    arrival_time=(arrival_weekday[i], arrival_timeday[i][0], arrival_timeday[i][1])
+                    departure_time=DayHourMinute(
+                        day=departure_weekday[0], hour=departure_timeday[i][0], minute=departure_timeday[i][1]
+                    ),
+                    arrival_time=DayHourMinute(arrival_weekday[0], arrival_timeday[i][0], arrival_timeday[i][1])
                 )
                 flights.append(flight)
 
@@ -169,8 +172,8 @@ def run(airport_file: str, flight_file: str) -> None:
     #     print(x, flight_network.airports[x])
     #     for ticket in flight_network.airports[x].tickets:
     #         print(ticket)
-    #         # for flight in ticket.flights:
-    #         #     print(flight)
+    #         for flight in ticket.flights:
+    #             print(flight)
     #     print()
 
 
