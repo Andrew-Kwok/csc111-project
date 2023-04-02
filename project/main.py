@@ -41,12 +41,12 @@ def read_csv_file(airport_file: str, flight_file: str) -> Network:
 
     with open(airport_file) as csv_file:
         reader = csv.DictReader(csv_file)
-        header = [
+        header = {
             'iata_code',
             'name',
             'municipality'
-        ]
-        assert reader.fieldnames == header
+        }
+        assert set(reader.fieldnames) == header
 
         for row in reader:
             airport = Airport(
@@ -58,21 +58,21 @@ def read_csv_file(airport_file: str, flight_file: str) -> Network:
 
     with open(flight_file) as csv_file:
         reader = csv.DictReader(csv_file)
-        header = [
+        header = {
             'legId',
-            'startingAirport',
-            'destinationAirport',
             'isNonStop',
             'totalFare',
-            'segmentsArrivalAirportCode',
             'segmentsDepartureAirportCode',
+            'segmentsArrivalAirportCode',
             'segmentsAirlineName',
             'segmentsDepartureWeekday',
             'segmentsDepartureTimeOfDay',
             'segmentsArrivalWeekday',
-            'segmentsArrivalTimeOfDay'
-        ]
-        assert reader.fieldnames == header
+            'segmentsArrivalTimeOfDay',
+            'startingAirport',
+            'destinationAirport'
+        }
+        assert set(reader.fieldnames) == header
 
         airport_ticket = {}  # dict[str, list[Ticket]]
         for row in reader:
@@ -138,8 +138,8 @@ def read_csv_file(airport_file: str, flight_file: str) -> Network:
 def get_naive_searcher() -> AbstractFlightSearcher:
     """ Return a naive searcher
     """
-    airport_file = '../data/airport_class_direct.csv'
-    flight_file = '../data/clean_no_dupe_itineraries_direct.csv'
+    airport_file = '../data/airport_class_1000.csv'
+    flight_file = '../data/clean_no_dupe_itineraries_1000.csv'
 
     flight_network = read_csv_file(airport_file, flight_file)
     return NaiveFlightSearcher(flight_network)
@@ -161,7 +161,7 @@ def run(airport_file: str, flight_file: str) -> None:
     # do some operations with naive searcher
     # naive_searcher.search_shortest_flight(city_1, city_2)
 
-    tickets = naive_searcher.search_cheapest_flight('MIA', 'JFK', datetime(2023, 4, 6))
+    tickets = naive_searcher.search_cheapest_flight('ATL', 'EWR', datetime(2023, 4, 6))
     for ticket in tickets:
         print(ticket)
 
@@ -181,8 +181,8 @@ if __name__ == '__main__':
     # AIRPORTFILE = 'clean_no_dupe_itineraries'
     # FLIGHTFILE = 'clean_no_dupe_itineraries'
 
-    AIRPORTFILE = '../data/airport_class_direct.csv'
-    FLIGHTFILE = '../data/clean_no_dupe_itineraries_direct.csv'
+    AIRPORTFILE = '../data/airport_class_1000.csv'
+    FLIGHTFILE = '../data/clean_no_dupe_itineraries_1000.csv'
 
     run(AIRPORTFILE, FLIGHTFILE)
 

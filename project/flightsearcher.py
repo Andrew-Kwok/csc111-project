@@ -33,13 +33,20 @@ class AbstractFlightSearcher:
         """
         origin = tickets[0].origin
         destination = tickets[-1].destination
+        departure_time = tickets[0].departure_time
+        arrival_time = tickets[-1].arrival_time
         price_so_far = 0
         flights_so_far = []
         for ticket in tickets:
             flights_so_far.extend(ticket.flights)
             price_so_far += ticket.price
 
-        return Ticket(origin, destination, flights_so_far, price_so_far)
+        return Ticket(origin=origin, 
+                      destination=destination, 
+                      departure_time=departure_time,
+                      arrival_time=arrival_time,
+                      flights=flights_so_far, 
+                      price=price_so_far)
 
     def _get_day_of_week(self, date: datetime) -> DayHourMinute:
         """A function that return the day and in a week and specific time of a given date
@@ -83,7 +90,6 @@ class AbstractFlightSearcher:
         raise NotImplementedError
 
     def search_cheapest_flight(self, source: IATACode, destination: IATACode, departure_time: datetime) -> list[Ticket]:
-    def search_cheapest_flight(self, source: IATACode, destination: IATACode, departure_time: datetime) -> list[Ticket]:
         """ TODO DOCSTRING
         """
         raise NotImplementedError
@@ -123,7 +129,7 @@ class NaiveFlightSearcher(AbstractFlightSearcher):
                     if path is None:
                         paths.append(ticket)
                     else:
-                        paths.append(self._merge_ticket(ticket, path))
+                        paths.append(self._merge_ticket([ticket, path]))
         return paths
 
     def search_shortest_flight(self, source: IATACode, destination: IATACode, departure_time: datetime) -> list[Ticket]:

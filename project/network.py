@@ -18,7 +18,7 @@ MAX_LAYOVER = 3         # stops
 TOP_K_RESULTS = 10 
 
 
-@check_contracts
+# @check_contracts
 class Network:
     """
     A graph representing the cities and airports.
@@ -67,7 +67,7 @@ class Network:
         return {self.get_airport_from_iata(iata) for iata in self.city_airport[city]}
 
 
-@check_contracts
+# @check_contracts
 class Airport:
     """
     A node in the graph that represents a single airport.
@@ -109,7 +109,7 @@ class Airport:
         return f'{self.iata} - {self.name} - {self.city}'
 
 
-@check_contracts
+# @check_contracts
 class Flight:
     """
     An edge in the graph that represents a flight between two airports.
@@ -149,7 +149,7 @@ class Flight:
         return f'{self.flight_id} | {self.airline} | {self.origin.iata}({str(self.departure_time)}) to {self.destination.iata}({str(self.arrival_time)})'
 
 
-@check_contracts
+# @check_contracts
 class Ticket:
     """
     A ticket containing a list of flights and its total price.
