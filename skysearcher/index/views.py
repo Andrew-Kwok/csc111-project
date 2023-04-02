@@ -42,19 +42,33 @@ def search(request):
     data = {}
     
     if request.method == 'GET':
-        print(request.GET)
+        # print(request.GET)
 
-        flight_searcher_type = request.GET.get('button_input')
+        flight_searcher_type = request.GET.get('searcher_input')
+        sort_type = request.GET.get('filter_input')
         origin = request.GET.get('from_input')
         destination = request.GET.get('to_input')
         date = request.GET.get('date_input')
 
         data['flight_searcher_type'] = flight_searcher_type
+        data['sort_type'] = sort_type
         data['origin'] = origin
         data['destination'] = destination
         data['date'] = date
 
-        print(flight_searcher_type, origin, destination, date)
+        tickets = []
+        if origin is not None:
+            print(origin)
+            iata = origin[-5:-2]
+            tickets = NAIVE_FLIGHT_SEARCHER.flight_network.airports[iata].tickets
+        
+
+        # for airport in NAIVE_FLIGHT_SEARCHER.flight_network.airports.values():
+        #     tickets.extend(airport.tickets)
+
+        # print('tickets', tickets)
+
+        context['tickets'] = tickets
 
     context['airport_options'] = AIRPORT_OPTIONS
     context['json_data'] = json.dumps(data)

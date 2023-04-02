@@ -7,15 +7,21 @@
 <div class="hero min-h-screen bg-base-200">
     <div class="hero-content text-center">
         <div class="w-full">
+            <h1 id="searcher_message" class="text-4xl font-bold mb-4"> No Flight Searcher Selected </h1>
             <div class="btn-group">
-                <button class="btn btn-naive px-20 text-2xl" type="submit" name="naive"> Naive </button>
-                <button class="btn btn-prune px-20 text-2xl" type="submit" name="prune"> Prune </button>
+                <button class="btn btn-searcher btn-naive px-20 w-12 text-2xl" type="submit" name="naive"> naive </button>
+                <button class="btn btn-searcher btn-prune px-20 w-12 text-2xl" type="submit" name="prune"> prune </button>
             </div>
-            <h1 id="searcher_message" class="text-5xl font-bold my-4 mb-10"> No Flight Searcher Selected </h1>
+
+            <h1 class="text-3xl font-bold mt-8 my-4"> Sort By </h1>
+            <div class="btn-group">
+                <button class="btn btn-filter btn-duration btn-active px-20 w-12 text-2xl" type="submit" name="duration"> duration </button>
+                <button class="btn btn-filter btn-price px-20 w-12 text-2xl" type="submit" name="price"> price </button>
+            </div>
         
             <form method="get" class="w-full">
-                {% comment %} <input id="button_input" type="text" name="button_input_lol" placeholder="0" style="display: block" /> {% endcomment %}
-                <input id="button_input" type="text" name="button_input" placeholder="Type here" style="display: none" class="input input-bordered max-w-xs" autocomplete="off" />
+                <input id="searcher_input" type="text" name="searcher_input" placeholder="Type here" style="display: none" class="input input-bordered max-w-xs" autocomplete="off" />
+                <input id="filter_input" type="text" name="filter_input" placeholder="Type here" value="duration" style="display: none" class="input input-bordered max-w-xs" autocomplete="off" />
 
 
                 <div class="form-control w-full flex flex-col lg:flex-row lg:justify-between mx-8">
@@ -68,9 +74,92 @@
     </div>
 </div>
 
+<div class="min-h-screen flex flex-col items-center">
+    
+    <h1 class="text-5xl font-bold my-10"> List of Flights </h1>
+
+    {% for ticket in tickets %}
+        <div tabindex="0" class="collapse border border-base-300 bg-base-300 rounded-box w-3/4 my-4"> 
+            <div class="collapse-title text-xl font-medium">
+                <div class="flex flex-col">
+                    <h1 class="text-2xl font-bold mb-4"> Airline </h1>
+                    <div class="flex justify-between text-center items-center">
+                        <div class="flex flex-col">
+                            <p> 09:20 </p>
+                            <p class="rounded-2xl bg-base-100 w-16"> {{ ticket.origin.iata }} </p>
+                        </div>
+
+                        <div>
+                            <p> 44h 0m </p>
+                            <p> {{ ticket.flights|no_of_layovers }} </p>
+                        </div>
+
+                        <div class="flex flex-col justify-center items-center">
+                            <div class="flex flex-row">
+                                <p> 07:20 </p>
+                                <p class="text-sm"> (+2d) </p>
+                            </div>
+                            <p class="rounded-2xl bg-base-100 w-16"> {{ ticket.destination.iata }} </p>
+                        </div>
+
+                        <p class="w-2/5 text-right font-bold text-2xl text-secondary-focus"> ${{ ticket.price }} </p>
+                    </div>
+                </div>
+            </div>
+            <div class="collapse-content bg-base-200"> 
+                {% for flight in ticket.flights %}
+                <div class="m-4">
+                    <div class="flex justify-start">
+                        <div class="flex flex-col text-center mr-10">
+                            <p> 20:05 <p>
+                            <p> 1 May </p>
+                        </div>
+                        <div>
+                            <p class="font-bold"> {{ flight.origin.city }} ({{flight.origin.iata}}) </p>
+                            <p> {{ flight.origin.name }} </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center my-8 justify-left">
+                        <div class="text-center mr-10">
+                            <p> &#9992; </p>
+                            <p> 1h 25m </p>  
+                        </div>
+                        <div class="border-4 p-4">
+                            <p class="text-xl"> {{ flight.airline }} </p>
+                            <p> {{ flight.flight_id }} </p>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-start">
+                        <div class="flex flex-col text-center mr-10">
+                            <p> 17:30 <p>
+                            <p> 2 May </p>
+                        </div>
+                        <div>
+                            <p class="font-bold"> {{ flight.destination.city }} ({{flight.destination.iata}}) </p>
+                            <p> {{ flight.destination.name }} </p>
+                        </div>
+                    </div>
+
+                    {% if not forloop.last %}
+                    <div class="alert shadow-lg bg-primary text-white my-8">
+                        <div>
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current flex-shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                          <span> Stop to change plane in {{ ticket.destination.city }} (3h 30m) </span>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
 <script>
     var data = JSON.parse('{{ json_data|escapejs }}'); 
-    console.log(data);
 
     if ('flight_searcher_type' in data) {
         fs_type = data['flight_searcher_type'];
@@ -78,8 +167,8 @@
             const button = document.querySelector('.btn-' + fs_type);
             button.classList.add('btn-active');
 
-            const button_input = document.getElementById('button_input');
-            button_input.value = fs_type;
+            const searcher_input = document.getElementById('searcher_input');
+            searcher_input.value = fs_type;
 
             const searcherMessage = document.getElementById('searcher_message');
             if (fs_type === 'naive') {
@@ -89,6 +178,20 @@
                 searcherMessage.innerHTML = 'Pruned Landmark Labelling Selected';
             }
         } 
+    }
+
+    if ('sort_type' in data) {
+        sort_type = data['sort_type']
+        if (sort_type === 'price') {
+            const activeButton = document.querySelector('.btn-duration');
+            activeButton.classList.remove('btn-active');
+
+            const button = document.querySelector('.btn-' + sort_type);
+            button.classList.add('btn-active');
+
+            const filter_input = document.getElementById('filter_input');
+            filter_input.value = sort_type;
+        }
     }
 
     if ('origin' in data) {
@@ -110,14 +213,14 @@
         }
     }
 
-    // Get all the buttons in the btn-group
-    const buttons = document.querySelectorAll('.btn');
+    // Get all the buttons in the btn-searcher
+    const buttons_searcher = document.querySelectorAll('.btn-searcher');
 
     // Add a click event listener to each button
-    buttons.forEach(button => {
+    buttons_searcher.forEach(button => {
         button.addEventListener('click', (event) => {
             // Remove the btn-active class from the currently active button
-            const activeButton = document.querySelector('.btn-active');
+            const activeButton = document.querySelector('.btn-searcher.btn-active');
             if (activeButton) {
                 activeButton.classList.remove('btn-active');
             }
@@ -125,18 +228,40 @@
             // Add the btn-active class to the clicked button
             button.classList.add('btn-active');
 
-            const button_input = document.getElementById('button_input');
+            const searcher_input = document.getElementById('searcher_input');
             const searcherMessage = document.getElementById('searcher_message');
             if (event.target.name === 'naive') {
-                button_input.value = 'naive';
+                searcher_input.value = 'naive';
                 searcherMessage.innerHTML = 'Naive Flight Searcher Selected';
             } 
             else if (event.target.name === 'prune') {
-                button_input.value = 'prune';
+                searcher_input.value = 'prune';
                 searcherMessage.innerHTML = 'Pruned Landmark Labelling Selected';
             }
         });
     });
+
+
+    // Get all the buttons in the btn-filter
+    const buttons_filter = document.querySelectorAll('.btn-filter');
+
+    // Add a click event listener to each button
+    buttons_filter.forEach(button => {
+        button.addEventListener('click', (event) => {
+            // Remove the btn-active class from the currently active button
+            const activeButton = document.querySelector('.btn-filter.btn-active');
+            if (activeButton) {
+                activeButton.classList.remove('btn-active');
+            }
+
+            const filter_input = document.getElementById('filter_input');
+            filter_input.value = event.target.name
+
+            // Add the btn-active class to the clicked button
+            button.classList.add('btn-active');
+        });
+    });
+
 
 
     const searchBars = document.querySelectorAll(".input_airport");
