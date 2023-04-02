@@ -144,6 +144,7 @@ def read_csv_file(airport_file: str, flight_file: str) -> Network:
             for ticket in tickets:
                 origin.add_ticket(ticket)
 
+
     return res_network
 
 
@@ -257,10 +258,10 @@ if __name__ == '__main__':
     #
     # run(AIRPORTFILE + '.csv', FLIGHTFILE + '.csv')
 
-    import python_ta
-    python_ta.check_all(config={
-        'max-line-length': 120,
-        'extra-imports': ['datetime', 'csv', 'codecs', 'py7zr', 'network', 'flightsearcher', 'datetime'],
-        'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
-        'allowed-io': ['read_csv_file']
-    })
+    # import python_ta
+    # python_ta.check_all(config={
+    #     'max-line-length': 120,
+    #     'extra-imports': ['datetime', 'csv', 'codecs', 'py7zr', 'network', 'flightsearcher', 'datetime'],
+    #     'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
+    #     'allowed-io': ['read_csv_file']
+    # })
