@@ -43,7 +43,7 @@ class AbstractFlightSearcher:
         return (date.weekday(), date.hour, date.minute)
 
     def _get_datetime_other(self, pivot_date: datetime, other_time: tuple[int, int, int]) -> datetime:
-        """ Return the correspond datetime object based on the pivot_date and information of other_time in
+        """ Return the corresponding datetime object based on the pivot_date and information of other_time in
         weekday, hour, minute
         """
         # pivot_day = pivot_date.weekday()
@@ -74,16 +74,54 @@ class NaiveFlightSearcher(AbstractFlightSearcher)
 
         AbstractFlightSearcher.__init__(self, flight_network)
 
-    def search_shortest_flight(source: str, destination: str, departure_time: datetime) -> list[Ticket]:
+    def search_all_flight(self, source: str, destination: str, departure_time: datetime) -> list[list[Ticket]]:
         """ Return a list of tickets for a shortest path between a given source and destination
         """
-        pass
-        origin = flight_network.get_airport_from_iata(source)
+        source_airports = self.flight_network.get_airport_from_city(source)
+        destination_airports = self.flight_network.get_airport_from_city(destination)
+        tickets_so_far = []
+        #for source_airport in source_airports:
 
-    def search_cheapest_flight(source: str, destination: str, departure_time: datetime) -> list[Ticket]:
+        source_airport = self.flight_network.get_airport_from_iata(source)
+        destination_airport = self.flight_network.get_airport_from_iata(destination)
+        for ticket in source_airport.tickets:
+            # if ticket.destination in destination_airports:
+            if ticket.destination == destination_airport:
+                tickets_so_far.append([ticket])
+            else:
+                current_ticket = [ticket]
+                other_destination = ticket.destination
+                # rec_value = self.search_shortest_flight(other_destination, destination, departure_time)
+                rec_value = self.search_shortest_flight(other_destination.iata, destination, departure_time)
+                for value in rec_value:
+                    value.append(current_ticket)
+                    tickets_so_far.append(current_ticket)
+
+        return tickets_so_far
+
+
+    def search_shortest_flight(self, source: str, destination: str, departure_time: datetime) -> list[Ticket]:
+        """ Return a list of tickets for a shortest path between a given source and destination
+        """
+        all_path = self.search_all_flight(source, destination, departure_time)
+        shortest_so_far = all_path[0]
+        for i in range(1, len(all_path)):
+            if len(all_path[i]) < len(shortest_so_far):
+                shortest_so_far =  all_path[i]
+        return shortest_so_far
+
+    def search_cheapest_flight(self, source: str, destination: str, departure_time: datetime) -> list[Ticket]:
         """Return a list of tickets for a cheapeast path between a given source and destination
         """
-        pass
+        all_path = self.search_all_flight(source, destination, departure_time)
+        cheapest_so_far = all_path[0]
+        cheapest_price_so_far = sum(ticket.price for ticket in all_path[0])
+        for i in range(1, len(all_path)):
+            if sum(ticket.price for ticket in all_path[i]) < cheapest_price_so_far:
+                cheapest_so_far = all_path[i]
+
+        return cheapest_so_far
+
 
 
 @check_contracts
