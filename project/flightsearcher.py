@@ -29,7 +29,6 @@ class AbstractFlightSearcher:
         self.flight_network = flight_network
 
     def _merge_ticket(self, tickets: list[Ticket]) -> Ticket:
-    def _merge_ticket(self, tickets: list[Ticket]) -> Ticket:
         """A function that merge a list of tickets on a transit route
         """
         origin = tickets[0].origin
@@ -42,7 +41,6 @@ class AbstractFlightSearcher:
 
         return Ticket(origin, destination, flights_so_far, price_so_far)
 
-    def _get_day_of_week(self, date: datetime) -> DayHourMinute:
     def _get_day_of_week(self, date: datetime) -> DayHourMinute:
         """A function that return the day and in a week and specific time of a given date
         """
