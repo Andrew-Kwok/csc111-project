@@ -7,9 +7,9 @@
 <div class="hero min-h-screen bg-base-200">
     <div class="hero-content text-center">
         <div class="w-full">
-            <h1 id="searcher_message" class="text-4xl font-bold mb-4"> No Flight Searcher Selected </h1>
+            <h1 id="searcher_message" class="text-4xl font-bold mb-4"> Naive Flight Searcher Selected </h1>
             <div class="btn-group">
-                <button class="btn btn-searcher btn-naive px-20 w-12 text-2xl" type="submit" name="naive"> naive </button>
+                <button class="btn btn-searcher btn-naive btn-active px-20 w-12 text-2xl" type="submit" name="naive"> naive </button>
                 <button class="btn btn-searcher btn-prune px-20 w-12 text-2xl" type="submit" name="prune"> prune </button>
             </div>
 
@@ -20,9 +20,8 @@
             </div>
         
             <form method="get" class="w-full">
-                <input id="searcher_input" type="text" name="searcher_input" placeholder="Type here" style="display: none" class="input input-bordered max-w-xs" autocomplete="off" />
+                <input id="searcher_input" type="text" name="searcher_input" placeholder="Type here" value="naive" style="display: none" class="input input-bordered max-w-xs" autocomplete="off" />
                 <input id="filter_input" type="text" name="filter_input" placeholder="Type here" value="duration" style="display: none" class="input input-bordered max-w-xs" autocomplete="off" />
-
 
                 <div class="form-control w-full flex flex-col lg:flex-row lg:justify-between mx-8">
                     <div>
@@ -155,6 +154,9 @@
                 {% endfor %}
             </div>
         </div>
+    
+    {% empty %}
+        <h1 class="text-3xl"> No Ticket Found </h1>
     {% endfor %}
 </div>
 
@@ -163,20 +165,18 @@
 
     if ('flight_searcher_type' in data) {
         fs_type = data['flight_searcher_type'];
-        if (fs_type === 'naive' || fs_type === 'prune') {
-            const button = document.querySelector('.btn-' + fs_type);
+        if (fs_type === 'prune') {
+            const button_other = document.querySelector('.btn-naive');
+            button_other.classList.remove('btn-active');
+
+            const button = document.querySelector('.btn-prune');
             button.classList.add('btn-active');
 
             const searcher_input = document.getElementById('searcher_input');
             searcher_input.value = fs_type;
 
             const searcherMessage = document.getElementById('searcher_message');
-            if (fs_type === 'naive') {
-                searcherMessage.innerHTML = 'Naive Flight Searcher Selected';
-            } 
-            else if (fs_type === 'prune') {
-                searcherMessage.innerHTML = 'Pruned Landmark Labelling Selected';
-            }
+            searcherMessage.innerHTML = 'Pruned Landmark Labelling Selected';
         } 
     }
 
@@ -261,7 +261,6 @@
             button.classList.add('btn-active');
         });
     });
-
 
 
     const searchBars = document.querySelectorAll(".input_airport");

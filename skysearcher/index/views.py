@@ -43,8 +43,6 @@ def search(request):
     data = {}
     
     if request.method == 'GET':
-        # print(request.GET)
-
         flight_searcher_type = request.GET.get('searcher_input')
         sort_type = request.GET.get('filter_input')
         origin = request.GET.get('from_input')
@@ -57,14 +55,6 @@ def search(request):
         data['destination'] = destination
         data['date'] = date
         context['date'] = date
-
-        # tickets = []
-        # for airport in NAIVE_FLIGHT_SEARCHER.flight_network.airports.values():
-        #     tickets.extend(airport.tickets)
-        #     if len(tickets) > 10:
-        #         break
-        # context['tickets'] = tickets[:10]
-
 
         if flight_searcher_type is None or len(flight_searcher_type) == 0 \
             or sort_type is None or len(sort_type) == 0 \
