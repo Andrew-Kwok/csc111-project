@@ -85,6 +85,11 @@ class AbstractFlightSearcher:
         """ An abstract function that returns a list of tickets where each ticket departs from `source` and ends at
         `destination`. The flight departs on the same day as `departure_time`. The ticket is sorted in non-decreasing
         flight duration.
+
+        Preconditions:
+            - source in self.flight_network.airports
+            - destination in self.flight_network.airports
+            - d.hour == 0 and d.minute == 0
         """
         raise NotImplementedError
 
@@ -92,6 +97,11 @@ class AbstractFlightSearcher:
         """ An abstract function that returns a list of tickets where each ticket departs from `source` and ends at
         `destination`. The flight departs on the same day as `departure_time`. The ticket is sorted in non-decreasing
         price.
+        
+        Preconditions:
+            - source in self.flight_network.airports
+            - destination in self.flight_network.airports
+            - d.hour == 0 and d.minute == 0
         """
         raise NotImplementedError
 
