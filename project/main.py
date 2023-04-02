@@ -15,7 +15,7 @@ from flightsearcher import AbstractFlightSearcher, NaiveFlightSearcher, PrunedLa
 MIN_LAYOVER_TIME = 90   # minutes
 MAX_LAYOVER_TIME = 720  # minutes
 MAX_LAYOVER = 3         # stops
-TOP_K_RESULTS = 10 
+TOP_K_RESULTS = 10
 
 
 def unpack_csv() -> None:
@@ -152,11 +152,62 @@ def get_pruned_landmark_labelling() -> AbstractFlightSearcher:
     pass
 
 
-def run(airport_file: str, flight_file: str) -> None:
+def run(airport_file: str, flight_file: str, type: str) -> None:
     """ Docstring here
     """
     flight_network = read_csv_file(airport_file, flight_file)
-    naive_searcher = NaiveFlightSearcher(flight_network)
+    if type == 'naive':
+        searcher = NaiveFlightSearcher(flight_network)
+    else:
+        searcher =
+
+    print('Input the city you will be departing from: ')
+    origin = input()
+    while origin not in flight_network.city_airport:
+        print('Please input a valid city: ')
+        origin = input()
+
+    print('Choose your departure airport by inputting its three-character IATA code:')
+    for airport in flight_network.city_airport[origin]:
+        print(flight_network.airports[airport].name, airport)
+    departure_airport = input()
+    while departure_airport not in flight_network.airports:
+        print('Please input a valid IATA code: ')
+        departure_airport = input()
+
+    print('Input the city of your destination: ')
+    destination = input()
+    while destination not in flight_network.city_airport:
+        print('Please input a valid city: ')
+        destination = input()
+
+    print('Choose your arrival airport by inputting its three-character IATA code:')
+    for airport in flight_network.city_airport[origin]:
+        print(flight_network.airports[airport].name, airport)
+    arrival_airport = input()
+    while arrival_airport not in flight_network.airports:
+        print('Please input a valid IATA code: ')
+        arrival_airport = input()
+
+    print('Input your departure date (DD/MM/YYYY): ')
+    departure_date = input()
+    departure_date = datetime.strptime(date_str, '%m/%d/%Y').date()
+
+    print('Sort by flight duration or ticket price? Input duration or price: ')
+    sort_by = input()
+    while sort_by not in {'duration', 'price'}:
+        print('Sort by flight duration or ticket price? Input duration or price: ')
+        sort_by = input()
+
+    if sort_by == 'duration':
+        tickets = searcher.search_shortest_flight(origin, destination, departure_date)
+    else:
+        tickets = searcher.search_cheapest_flight(origin, destination, departure_date)
+
+    print('Here are the tickets from your departure airport to your arrival airport: ')
+    for ticket in tickets:
+        print(ticket.__str__())
+
 
     # do some operations with naive searcher
     # naive_searcher.search_shortest_flight(city_1, city_2)
@@ -180,7 +231,7 @@ if __name__ == '__main__':
     AIRPORTFILE = '../data/airport_class_small.csv'
     FLIGHTFILE = '../data/clean_no_dupe_itineraries_small.csv'
 
-    run(AIRPORTFILE, FLIGHTFILE)
+    run(AIRPORTFILE, FLIGHTFILE, 'naive') # change 'naive' to 'pruned' for pruned landmark labelling
 
     # import python_ta
     # python_ta.check_all(config={
