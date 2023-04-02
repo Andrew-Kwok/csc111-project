@@ -1,4 +1,6 @@
-project/clean_no_dupe_itineraries.csv
-.idea
+/project/clean_no_dupe_itineraries.csv
+/.idea
+*.pyc
 
-__pycache__/
+node_modules
+__pycache__
