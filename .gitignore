@@ -1,4 +1,4 @@
-/project/clean_no_dupe_itineraries.csv
+/data/*.csv
 /.idea
 *.pyc
 
