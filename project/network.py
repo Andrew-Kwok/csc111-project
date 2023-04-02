@@ -13,7 +13,7 @@ IATACode: TypeAlias = str
 DayHourMinute: TypeAlias = namedtuple('DayHourMinute', ['day', 'hour', 'minute'])
 
 
-@check_contracts
+# @check_contracts
 class Network:
     """
     A graph representing the cities and airports.
@@ -62,7 +62,7 @@ class Network:
         return {self.get_airport_from_iata(iata) for iata in self.city_airport[city]}
 
 
-@check_contracts
+# @check_contracts
 class Airport:
     """
     A node in the graph that represents a single airport.
@@ -105,7 +105,7 @@ class Airport:
         return f'{self.iata} - {self.name} - {self.city}'
 
 
-@check_contracts
+# @check_contracts
 class Flight:
     """
     An edge in the graph that represents a flight between two airports.
@@ -143,10 +143,10 @@ class Flight:
     def __str__(self) -> str:
         """print some details about the flight
         """
-        return f'{self.flight_id} | {self.airline} | {self.origin.iata}({str(self.departure_time)}) to {self.destination.iata}({str(self.arrival_time)})'
+        return f'{self.flight_id} | {self.airline} | {self.origin.iata} ({str(self.departure_time)}) to {self.destination.iata} ({str(self.arrival_time)})'
 
 
-@check_contracts
+# @check_contracts
 class Ticket:
     """
     A ticket containing a list of flights and its total price.
@@ -181,14 +181,23 @@ class Ticket:
     def __str__(self) -> str:
         """print some details about the ticket
         """
-        flight_info = " - ".join(f'{flight.airline}({flight.flight_id})' for flight in self.flights)
-        return f'{self.origin.iata} to {self.destination.iata} | {self.price} | {flight_info}'
+        flight_info = "\n\t".join(f'{flight}' for flight in self.flights)
+        return f'{self.origin.iata} to {self.destination.iata} | {self.price} \n\t{flight_info}'
+
+    def __lt__(self, other: Ticket) -> bool:
+        """placeholder for less than"""
+        if self.flights[-1].arrival_time < other.flights[-1].arrival_time:
+            return True
+        elif self.flights[0].departure_time < other.flights[0].departure_time:
+            return True
+        return False
 
 
 if __name__ == '__main__':
-    import python_ta
-    python_ta.check_all(config={
-        'max-line-length': 120,
-        'extra-imports': ['datetime'],
-        'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
-    })
+    # import python_ta
+    # python_ta.check_all(config={
+    #     'max-line-length': 120,
+    #     'extra-imports': ['datetime'],
+    #     'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
+    # })
+    pass

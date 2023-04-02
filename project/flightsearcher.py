@@ -10,7 +10,7 @@ from network import Network, Airport, Flight, Ticket, IATACode, DayHourMinute
 import queue
 
 
-@check_contracts
+# @check_contracts
 class AbstractFlightSearcher:
     """
     An abstract implementation of flight search.
@@ -134,10 +134,121 @@ class Dijkstra(AbstractFlightSearcher):
         """ TODO DOCSTRING
         Compare based on the times
         """
+        k = 5
+        dep_time_simpl = DayHourMinute(departure_time.isoweekday(), departure_time.hour, departure_time.minute)
+        pq = queue.PriorityQueue()
+        pq.put((dep_time_simpl, source, None, 0))
+        distance: dict[IATACode, list[DayHourMinute]] = {iata: [] for iata in self.flight_network.airports}
+        previous: dict[IATACode, list[tuple[Ticket, int]]] = {iata: [] for iata in self.flight_network.airports}
+        first_flight = True
+        first_path = True
+
+        while not pq.empty():
+            curr_time, curr_pos, prev_ticket, prev_k = pq.get()
+
+            if len(distance[curr_pos]) == k:
+                continue
+
+            print(curr_time, curr_pos)
+            print(prev_ticket, prev_k)
+            distance[curr_pos].append(curr_time)
+
+            if not first_flight:
+                previous[curr_pos].append((prev_ticket, prev_k))
+
+            if curr_pos == destination:
+                first_path = False
+                continue
+
+            for ticket in self.flight_network.airports[curr_pos].tickets:
+                depart_time = ticket.flights[0].departure_time
+
+                if not first_flight:
+                    time_to_depart = self._day_hour_minute_diff(curr_time, depart_time)
+                    if not DayHourMinute(0, 1, 30) < time_to_depart < DayHourMinute(0, 12, 0):
+                        continue
+                if first_path and depart_time.day != dep_time_simpl.day:
+                    continue
+
+                pq.put((ticket.flights[-1].arrival_time, ticket.destination.iata, ticket, len(distance[curr_pos]) - 1))
+
+            first_flight = False
+
+        results = []
+        for i in range(len(distance[destination])):
+            path = []
+            now_pos = destination
+            prev_tuple = (None, i)
+            while now_pos != source:
+                prev_tuple = previous[now_pos][prev_tuple[1]]
+                path.append(prev_tuple[0])
+                now_pos = prev_tuple[0].origin.iata
+
+            assert now_pos == source
+            path.reverse()
+            results.append(self._merge_ticket(path))
+
+        return results
 
     def search_cheapest_flight(self, source: str, destination: str, departure_time: datetime) -> list[Ticket]:
         """Compare based on price; should be easier.
         """
+        k = 5
+        dep_time_simpl = DayHourMinute(departure_time.isoweekday(), departure_time.hour, departure_time.minute)
+        pq = queue.PriorityQueue()
+        pq.put((0.0, source, None, 0))
+        cheapest: dict[IATACode, list[float]] = {iata: [] for iata in self.flight_network.airports}
+        previous: dict[IATACode, list[tuple[Ticket, int]]] = {iata: [] for iata in self.flight_network.airports}
+        first_flight = True
+        first_path = True
+
+        while not pq.empty():
+            curr_price, curr_pos, prev_ticket, prev_k = pq.get()
+
+            if len(cheapest[curr_pos]) == k:
+                continue
+
+            print(curr_price, curr_pos)
+            print(prev_ticket, prev_k)
+            cheapest[curr_pos].append(curr_price)
+
+            if not first_flight:
+                previous[curr_pos].append((prev_ticket, prev_k))
+
+            if curr_pos == destination:
+                first_path = False
+                continue
+
+            for ticket in self.flight_network.airports[curr_pos].tickets:
+                depart_time = ticket.flights[0].departure_time
+
+                if not first_flight:
+                    time_to_depart = self._day_hour_minute_diff(prev_ticket.flights[-1].arrival_time, depart_time)
+                    if not DayHourMinute(0, 1, 30) < time_to_depart < DayHourMinute(0, 12, 0):
+                        continue
+                if first_path and depart_time.day != dep_time_simpl.day:
+                    continue
+
+                pq.put((curr_price + ticket.price, ticket.destination.iata, ticket, len(cheapest[curr_pos]) - 1))
+
+            first_flight = False
+
+        results = []
+        for i in range(len(cheapest[destination])):
+            print(cheapest[destination][i])
+            path = []
+            now_pos = destination
+            prev_tuple = (None, i)
+            while now_pos != source:
+                prev_tuple = previous[now_pos][prev_tuple[1]]
+                path.append(prev_tuple[0])
+                now_pos = prev_tuple[0].origin.iata
+
+            assert now_pos == source
+            path.reverse()
+            results.append(self._merge_ticket(path))
+
+        return results
 
 
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-/project/clean_no_dupe_itineraries.csv
-/.idea
+project/clean_no_dupe_itineraries.csv
+.idea
 
-__pycache__
+__pycache__/

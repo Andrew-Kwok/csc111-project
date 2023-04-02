@@ -4,12 +4,14 @@ from __future__ import annotations
 
 import csv
 import codecs
+import datetime
+
 from py7zr import SevenZipFile
 
 from python_ta.contracts import check_contracts
 
-from network import Network, Airport, Flight, Ticket
-from flightsearcher import NaiveFlightSearcher, PrunedLandmarkLabeling
+from network import Network, Airport, Flight, Ticket, IATACode, DayHourMinute
+from flightsearcher import NaiveFlightSearcher, PrunedLandmarkLabeling, Dijkstra
 
 
 def unpack_csv() -> None:
@@ -54,17 +56,17 @@ def read_csv_file(airport_file: str, flight_file: str) -> Network:
         reader = csv.DictReader(csv_file)
         header = [
             'legId',
-            'startingAirport',
-            'destinationAirport',
             'isNonStop',
             'totalFare',
-            'segmentsArrivalAirportCode',
             'segmentsDepartureAirportCode',
+            'segmentsArrivalAirportCode',
             'segmentsAirlineName',
             'segmentsDepartureWeekday',
             'segmentsDepartureTimeOfDay',
             'segmentsArrivalWeekday',
-            'segmentsArrivalTimeOfDay'
+            'segmentsArrivalTimeOfDay',
+            'startingAirport',
+            'destinationAirport',
         ]
         assert reader.fieldnames == header
 
@@ -101,8 +103,10 @@ def read_csv_file(airport_file: str, flight_file: str) -> Network:
                     flight_id=flight_id,
                     origin=departure[i],
                     destination=arrival[i],
-                    departure_time=(departure_weekday[0], departure_timeday[i][0], departure_timeday[i][1]),
-                    arrival_time=(arrival_weekday[0], arrival_timeday[i][0], arrival_timeday[i][1])
+                    departure_time=DayHourMinute(
+                        day=departure_weekday[0], hour=departure_timeday[i][0], minute=departure_timeday[i][1]
+                    ),
+                    arrival_time=DayHourMinute(arrival_weekday[0], arrival_timeday[i][0], arrival_timeday[i][1])
                 )
                 flights.append(flight)
 
@@ -131,13 +135,13 @@ def run(airport_file: str, flight_file: str) -> None:
     """ Docstring here
     """
     flight_network = read_csv_file(airport_file, flight_file)
-    naive_searcher = NaiveFlightSearcher(flight_network)
+    dijkstra_searcher = Dijkstra(flight_network)
 
     # do some operations with naive searcher
-    # naive_searcher.search_shortest_flight(city_1, city_2)
+    tickets = dijkstra_searcher.search_shortest_flight('LGA', 'ORD', datetime.datetime(2023, 4, 1))
 
-    # for x in flight_network.city_airport:
-    #     print(x, flight_network.city_airport[x])
+    for x in flight_network.city_airport:
+        print(x, flight_network.city_airport[x])
 
     # for x in flight_network.airports:
     #     print(x, flight_network.airports[x])
@@ -147,20 +151,24 @@ def run(airport_file: str, flight_file: str) -> None:
     #             print(flight)
     #     print()
 
+    print('tickets:')
+    for ticket in tickets:
+        print(ticket)
+
 
 if __name__ == '__main__':
     # AIRPORTFILE = 'clean_no_dupe_itineraries'
     # FLIGHTFILE = 'clean_no_dupe_itineraries'
 
-    AIRPORTFILE = '../data/airport_class_small.csv'
-    FLIGHTFILE = '../data/clean_no_dupe_itineraries_small.csv'
+    AIRPORTFILE = '../data/airport_class_direct_1000.csv'
+    FLIGHTFILE = '../data/clean_no_dupe_itineraries_direct_1000.csv'
 
     run(AIRPORTFILE, FLIGHTFILE)
 
-    import python_ta
-    python_ta.check_all(config={
-        'max-line-length': 120,
-        'extra-imports': ['datetime', 'csv', 'codecs', 'py7zr', 'network', 'flightsearcher'],
-        'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
-        'allowed-io': ['read_csv_file']
-    })
+    # import python_ta
+    # python_ta.check_all(config={
+    #     'max-line-length': 120,
+    #     'extra-imports': ['datetime', 'csv', 'codecs', 'py7zr', 'network', 'flightsearcher'],
+    #     'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
+    #     'allowed-io': ['read_csv_file']
+    # })
