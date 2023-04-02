@@ -132,6 +132,7 @@ def read_csv_file(airport_file: str, flight_file: str) -> Network:
             for ticket in tickets:
                 origin.add_ticket(ticket)
 
+
     return res_network
 
 
@@ -160,7 +161,7 @@ def run(airport_file: str, flight_file: str) -> None:
     # do some operations with naive searcher
     # naive_searcher.search_shortest_flight(city_1, city_2)
 
-    tickets = naive_searcher.search_cheapest_flight('ATL', 'EWR', datetime(2023, 4, 6))
+    tickets = naive_searcher.search_cheapest_flight('ATL', 'LAX', datetime(2023, 4, 2))
     for ticket in tickets:
         print(ticket)
 
@@ -185,10 +186,10 @@ if __name__ == '__main__':
 
     run(AIRPORTFILE, FLIGHTFILE)
 
-    import python_ta
-    python_ta.check_all(config={
-        'max-line-length': 120,
-        'extra-imports': ['datetime', 'csv', 'codecs', 'py7zr', 'network', 'flightsearcher', 'datetime'],
-        'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
-        'allowed-io': ['read_csv_file']
-    })
+    # import python_ta
+    # python_ta.check_all(config={
+    #     'max-line-length': 120,
+    #     'extra-imports': ['datetime', 'csv', 'codecs', 'py7zr', 'network', 'flightsearcher', 'datetime'],
+    #     'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
+    #     'allowed-io': ['read_csv_file']
+    # })
