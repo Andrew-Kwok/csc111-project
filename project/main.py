@@ -150,6 +150,8 @@ def get_pruned_landmark_labelling() -> AbstractFlightSearcher:
 
 
 def _get_iata_input(prompt_city: str, prompt_airport: str, flight_network: Network) -> str:
+    """Get the iata code of an airport based on user input.
+    """
     city = None
     while True:
         print(prompt_city, end=' ')
@@ -180,15 +182,19 @@ def _get_iata_input(prompt_city: str, prompt_airport: str, flight_network: Netwo
 
 
 def run(airport_file: str, flight_file: str, searcher_type: str) -> None:
-    """ Docstring here
+    """Runs a flight search on a network based on 'airport_file' and 'flight_file'. 'searcher_type' determines the
+    algorithm used, 'naive' refers to naive traversal, while 'dijsktra' refers to dijsktra algorithm.
+
+    Preconditions:
+        - searcher_type == 'naive' or searcher_type == 'dijsktra'
     """
     flight_network = read_csv_file(airport_file, flight_file)
 
     searcher = None
     if searcher_type == 'naive':
         searcher = NaiveFlightSearcher(flight_network)
-    elif searcher_type == 'dijsktra':
-        searcher = DijkstraFlightSearcher
+    elif searcher_type == 'dijsktra'
+        searcher = DijkstraFlightSearcher(flight_network)
     else:
         raise ValueError('Invalid Flight Searcher')
     assert searcher is not None
@@ -241,7 +247,7 @@ def run(airport_file: str, flight_file: str, searcher_type: str) -> None:
     print('Here are the tickets from your departure airport to your arrival airport: ')
     for ticket in tickets:
         print(ticket)
-        
+
 
 if __name__ == '__main__':
     # AIRPORTFILE = 'clean_no_dupe_itineraries'
