@@ -87,6 +87,7 @@ def search(request):
                                                                           destination=destination_iata,
                                                                           departure_time=departure_time)
 
+            print('FOUND', len(tickets), 'tickets')
             # tickets = NAIVE_FLIGHT_SEARCHER.flight_network.airports[iata].tickets
             # for airport in NAIVE_FLIGHT_SEARCHER.flight_network.airports.values():
             #     tickets.extend(airport.tickets)
