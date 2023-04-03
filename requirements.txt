@@ -2,3 +2,5 @@ Django==4.1.7
 django-tailwind==3.5.0
 py7zr==0.20.4
 python-ta~=2.4.2
+
+plotly~=5.8.2
