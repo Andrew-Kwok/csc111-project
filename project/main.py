@@ -366,16 +366,16 @@ if __name__ == '__main__':
     AIRPORTFILE = '../data/airport_class_1000.csv'
     FLIGHTFILE = '../data/clean_no_dupe_itineraries_1000.csv'
 
-#     if not ALWAYS_NO and ask_yes_no(
-#             """Do you want to download and construct the data from scratch,
-# instead of using the precomputed data?
+    if not ALWAYS_NO and ask_yes_no(
+            """Do you want to download and construct the data from scratch,
+instead of using the precomputed data?
 
-# WARNING: This action will use ~16GB of memory, ~16GB of disk space, and ~6GB of internet data,
-# as well as around 5 to 40 minutes depending on the computer's processing power and download speed.
-# Proceed with caution.""", default=False):
-#         generate_data_from_scratch()
-#     else:
-#         unpack_csv()
+WARNING: This action will use ~16GB of memory, ~16GB of disk space, and ~6GB of internet data,
+as well as around 5 to 40 minutes depending on the computer's processing power and download speed.
+Proceed with caution.""", default=False):
+        generate_data_from_scratch()
+    else:
+        unpack_csv()
 
     # testcase_generator.generate_testcase_general(
     #     '../data/clean_no_dupe_itineraries.csv', '../data/airport_class.csv', 1000, seed=65537)

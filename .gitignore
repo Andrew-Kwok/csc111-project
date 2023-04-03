@@ -1,6 +1,7 @@
 /data/*.csv
 /data/*.parquet
 /.idea
+/venv/
 *.pyc
 
 node_modules

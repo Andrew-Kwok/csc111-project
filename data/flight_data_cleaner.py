@@ -101,14 +101,14 @@ def select_unique_flights() -> None:
             ])
             .with_columns([
                 pl.from_epoch('segmentsDepartureTimeEpochSeconds')
-                .dt.weekday().alias('departureWeekday'),
+                .dt.round('15m').dt.weekday().alias('departureWeekday'),
                 pl.from_epoch('segmentsDepartureTimeEpochSeconds')
                 .dt.round('15m').dt.time().alias('departureClock'),
             ])
             .drop('segmentsDepartureTimeEpochSeconds')
             .with_columns([
                 pl.from_epoch('segmentsArrivalTimeEpochSeconds')
-                .dt.weekday().alias('arrivalWeekday'),
+                .dt.round('15m').dt.weekday().alias('arrivalWeekday'),
                 pl.from_epoch('segmentsArrivalTimeEpochSeconds')
                 .dt.round('15m').dt.time().alias('arrivalClock'),
             ])
@@ -195,7 +195,7 @@ def epoch_to_weekday_time_itineraries() -> None:
         .unique(maintain_order=False)
         .with_columns([
             pl.col('segmentsDepartureTimeEpochSeconds').str.split('||')
-            .arr.eval(pl.from_epoch(pl.element()).dt.weekday()).cast(pl.List(pl.Utf8))
+            .arr.eval(pl.from_epoch(pl.element()).dt.round('15m').dt.weekday()).cast(pl.List(pl.Utf8))
             .arr.join('||').alias('segmentsDepartureWeekday'),
             pl.col('segmentsDepartureTimeEpochSeconds').str.split('||')
             .arr.eval(pl.from_epoch(pl.element()).dt.round('15m').dt.strftime('%H:%M'))
@@ -204,7 +204,7 @@ def epoch_to_weekday_time_itineraries() -> None:
         .drop('segmentsDepartureTimeEpochSeconds')
         .with_columns([
             pl.col('segmentsArrivalTimeEpochSeconds').str.split('||')
-            .arr.eval(pl.from_epoch(pl.element()).dt.weekday()).cast(pl.List(pl.Utf8))
+            .arr.eval(pl.from_epoch(pl.element()).dt.round('15m').dt.weekday()).cast(pl.List(pl.Utf8))
             .arr.join('||').alias('segmentsArrivalWeekday'),
             pl.col('segmentsArrivalTimeEpochSeconds').str.split('||')
             .arr.eval(pl.from_epoch(pl.element()).dt.round('15m').dt.strftime('%H:%M')).cast(pl.List(pl.Utf8))
