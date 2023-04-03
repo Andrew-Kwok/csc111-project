@@ -28,8 +28,8 @@
                         <label class="label">
                         <span class="label-text"> From </span>
                         </label>
-                        <input type="text" name="from_input" placeholder="Departure Airport" class="input input_airport input-bordered max-w-xs" autocomplete="off" />
-                        <div style="display: none; position: absolute;" class="w-56 input_tooltip max-h-60 overflow-y-auto">
+                        <input type="text" name="from_input" placeholder="Departure Airport" class="input input_airport input-bordered max-w-7xl w-80" autocomplete="off" />
+                        <div style="display: none;" class="absolute w-80 min-w-fit input_tooltip whitespace-normal max-h-60 overflow-y-auto">
                             <ul class="airport_options">
                                 {% for airport in airport_options %}
                                     <li class="grid w-full h-12 rounded bg-primary text-primary-content place-content-center my-1 hover:bg-primary-focus" style="cursor: pointer">{{airport.city}} ({{airport.iata}})</li>
@@ -42,8 +42,8 @@
                         <label class="label">
                             <span class="label-text"> To </span>
                         </label>
-                        <input type="text" name="to_input" placeholder="Arrival Airport" class="input input_airport input-bordered max-w-xs" autocomplete="off" />
-                        <div style="display: none; position: absolute;" class="w-56 input_tooltip max-h-60 overflow-y-auto">
+                        <input type="text" name="to_input" placeholder="Arrival Airport" class="input input_airport input-bordered w-80" autocomplete="off" />
+                        <div style="display: none; position: absolute;" class="min-w-fit w-80 input_tooltip max-h-60 overflow-y-auto">
                             <ul class="airport_options">
                                 {% for airport in airport_options %}
                                     <li class="grid w-full h-12 rounded bg-primary text-primary-content place-content-center my-1 hover:bg-primary-focus" style="cursor: pointer">{{airport.city}} ({{airport.iata}})</li>
