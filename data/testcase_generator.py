@@ -6,7 +6,7 @@ from typing import Optional
 import polars as pl
 
 
-def generate_testcase_general(itineraries: str, airports: str, size: int, seed: Optional[int]) -> None:
+def generate_testcase_general(itineraries: str, airports: str, size: int, seed: Optional[int]) -> tuple[str, str]:
     """Generate general testcase, using seed for reproducibility."""
     itn = pl.scan_csv(source=itineraries).collect().sample(n=size, seed=seed)
     itn_explode = itn.with_columns([
@@ -29,8 +29,11 @@ def generate_testcase_general(itineraries: str, airports: str, size: int, seed: 
     itn.write_csv(os.path.join(os.getcwd(), '..', 'data', f'clean_no_dupe_itineraries_{size}.csv'))
     air.write_csv(os.path.join(os.getcwd(), '..', 'data', f'airport_class_{size}.csv'))
 
+    return (os.path.join(os.getcwd(), '..', 'data', f'clean_no_dupe_itineraries_{size}.csv'),
+            os.path.join(os.getcwd(), '..', 'data', f'airport_class_{size}.csv'))
 
-def generate_testcase_direct_flight(itineraries: str, airports: str, size: int, seed: Optional[int]) -> None:
+
+def generate_testcase_direct_flight(itineraries: str, airports: str, size: int, seed: Optional[int]) -> tuple[str, str]:
     """Generate direct flight testcase, using seed for reproducibility."""
     itn = pl.scan_csv(source=itineraries).filter(pl.col('isNonStop')).collect().sample(n=size, seed=seed)
     air = pl.scan_csv(source=airports).filter(
@@ -40,3 +43,6 @@ def generate_testcase_direct_flight(itineraries: str, airports: str, size: int, 
 
     itn.write_csv(os.path.join(os.getcwd(), '..', 'data', f'clean_no_dupe_itineraries_direct_{size}.csv'))
     air.write_csv(os.path.join(os.getcwd(), '..', 'data', f'airport_class_direct_{size}.csv'))
+
+    return (os.path.join(os.getcwd(), '..', 'data', f'clean_no_dupe_itineraries_{size}.csv'),
+            os.path.join(os.getcwd(), '..', 'data', f'airport_class_{size}.csv'))

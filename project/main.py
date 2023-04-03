@@ -354,11 +354,10 @@ Proceed with caution.""", default=False):
     else:
         unpack_csv()
 
-    # testcase_generator.generate_testcase_general(
-    #     '../data/clean_no_dupe_itineraries.csv', '../data/airport_class.csv', 1000, seed=65537)
+    # print(testcase_generator.generate_testcase_general(
+    #     '../data/clean_no_dupe_itineraries.csv', '../data/airport_class.csv', 1000, seed=65537))
     # testcase_generator.generate_testcase_direct_flight(
     #     '../data/clean_no_dupe_itineraries.csv', '../data/airport_class.csv', 1000, seed=94231)
-    print(sys.path)
     # run(AIRPORTFILE, FLIGHTFILE, 'naive')
     run_django_project(AIRPORTFILE, FLIGHTFILE)
 
