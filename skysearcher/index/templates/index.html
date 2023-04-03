@@ -4,8 +4,25 @@
 
 {% block content %}
 
+{% if messages %}
+{% for message in messages %}
+    <div class="flex justify-center m-8">
+        <div class="alert alert-success shadow-lg w-4/5">
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current flex-shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span> {{ message }} </span>
+            </div>
+            <span class="float-right cursor-pointer hover:scale-125 transition-transform duration-300" onclick="this.parentElement.style.display='none';">
+                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            </span>    
+        </div>
+    </div>
+{% endfor %}
+{% endif %}
+
+
 <div class="hero min-h-screen bg-base-200">
-    <div class="hero-content text-center">
+    <div class="hero-content text-center align-top">
         <div class="w-full">
             <h1 id="searcher_message" class="text-4xl font-bold mb-4"> Naive Flight Searcher Selected </h1>
             <div class="btn-group">
