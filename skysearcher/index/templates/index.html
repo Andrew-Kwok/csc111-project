@@ -10,7 +10,7 @@
             <h1 id="searcher_message" class="text-4xl font-bold mb-4"> Naive Flight Searcher Selected </h1>
             <div class="btn-group">
                 <button class="btn btn-searcher btn-naive btn-active px-20 w-12 text-2xl" type="submit" name="naive"> naive </button>
-                <button class="btn btn-searcher btn-prune px-20 w-12 text-2xl" type="submit" name="prune"> prune </button>
+                <button class="btn btn-searcher btn-dijkstra px-20 w-12 text-2xl" type="submit" name="dijkstra"> dijkstra </button>
             </div>
 
             <h1 class="text-3xl font-bold mt-8 my-4"> Sort By </h1>
@@ -165,18 +165,18 @@
 
     if ('flight_searcher_type' in data) {
         fs_type = data['flight_searcher_type'];
-        if (fs_type === 'prune') {
+        if (fs_type === 'dijkstra') {
             const button_other = document.querySelector('.btn-naive');
             button_other.classList.remove('btn-active');
 
-            const button = document.querySelector('.btn-prune');
+            const button = document.querySelector('.btn-dijkstra');
             button.classList.add('btn-active');
 
             const searcher_input = document.getElementById('searcher_input');
             searcher_input.value = fs_type;
 
             const searcherMessage = document.getElementById('searcher_message');
-            searcherMessage.innerHTML = 'Pruned Landmark Labelling Selected';
+            searcherMessage.innerHTML = 'Dijkstra Flight Searcher Selected';
         } 
     }
 
@@ -234,9 +234,9 @@
                 searcher_input.value = 'naive';
                 searcherMessage.innerHTML = 'Naive Flight Searcher Selected';
             } 
-            else if (event.target.name === 'prune') {
-                searcher_input.value = 'prune';
-                searcherMessage.innerHTML = 'Pruned Landmark Labelling Selected';
+            else if (event.target.name === 'dijkstra') {
+                searcher_input.value = 'dijkstra';
+                searcherMessage.innerHTML = 'Dijkstra Flight Searcher Selected';
             }
         });
     });
