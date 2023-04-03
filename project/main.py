@@ -23,15 +23,18 @@ import airport_data_cleaner
 import flight_data_cleaner
 import testcase_generator
 
+ALWAYS_NO = False
+
 
 def unpack_csv() -> None:
     """Unpack /data/clean_no_dupe_itineraries.7z to /data/clean_no_dupe_itineraries.csv
     """
+    prev_path = os.getcwd()
+    os.chdir(os.path.join(os.getcwd(), '..', 'data'))
+    with SevenZipFile('clean_no_dupe_itineraries.7z', mode='r') as z:
+        z.extractall()
 
-    with SevenZipFile(os.path.join(os.getcwd(), '..', 'data', 'clean_no_dupe_itineraries.7z'), mode='r') as z:
-        z.extractall(path=os.path.join(os.getcwd(), '..', 'data'))
-
-    # print('Finished extracting.')
+    os.chdir(prev_path)
 
 
 def read_csv_file(airport_file: str, flight_file: str) -> Network:
@@ -144,7 +147,6 @@ def read_csv_file(airport_file: str, flight_file: str) -> Network:
             for ticket in tickets:
                 origin.add_ticket(ticket)
 
-
     return res_network
 
 
@@ -168,8 +170,16 @@ def generate_data_from_scratch() -> None:
     """Generate the data from scratch.
     WARNING: might take up to 8GB of disk space and 8GB of RAM!
     """
+    if not ask_yes_no(
+            """Downloading this file (~6GB) from python is currently very slow (~30 minutes),
+please download the file yourself through this link (also available on the report file):
+https://utoronto-my.sharepoint.com/:u:/g/personal/nagata_aptana_mail_utoronto_ca/EQWH6C9UxMJOlVTzVXfPelkB3-ZA7N7VOBF9Naih_i5jng?download=1
 
-    flight_data_cleaner.download_flight_data()
+Put the file in the data/ directory.
+Press y if you have finished.
+If you still want to use python to download the file, press n.""", default=None):
+        flight_data_cleaner.download_flight_data()
+
     flight_data_cleaner.select_useful_columns(columns=flight_data_cleaner.KAGGLE_COLUMNS)
     flight_data_cleaner.select_unique_flights()
     flight_data_cleaner.unique_itineraries()
@@ -196,10 +206,10 @@ def ask_yes_no(question: str, default: Optional[bool]) -> bool:
 
         if default is not None and choice == '':
             return default
-        elif choice[0] == 'y':
+        elif len(choice) > 0 and choice[0] == 'y':
             print('Yes selected')
             return True
-        elif choice[0] == 'n':
+        elif len(choice) > 0 and choice[0] == 'n':
             print('No selected')
             return False
         else:
@@ -234,16 +244,14 @@ def run(airport_file: str, flight_file: str) -> None:
 if __name__ == '__main__':
     # AIRPORTFILE = 'clean_no_dupe_itineraries'
     # FLIGHTFILE = 'clean_no_dupe_itineraries'
-    ALWAYS_NO = False
 
     if not ALWAYS_NO and ask_yes_no(
-            """Do you want to download and construct the data from scratch,'
-            instead of using the precomputed data?
-            
-            WARNING: This action will use ~8GB of memory, disk space, and internet data,
-            as well as around 10 minutes depending on the computer's processing power
-            and download speed. Proceed with caution.
-            """, default=False):
+            """Do you want to download and construct the data from scratch,
+instead of using the precomputed data?
+
+WARNING: This action will use ~16GB of memory, ~16GB of disk space, and ~6GB of internet data,
+as well as around 5 to 40 minutes depending on the computer's processing power and download speed.
+Proceed with caution.""", default=False):
         generate_data_from_scratch()
     else:
         unpack_csv()

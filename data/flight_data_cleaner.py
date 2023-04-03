@@ -20,11 +20,30 @@ KAGGLE_DATATYPES: Final = {
     'segmentsDepartureAirportCode': pl.Utf8, 'segmentsArrivalAirportCode': pl.Utf8,
     'segmentsAirlineName': pl.Utf8
 }
+DATA_DIR = os.path.join(os.getcwd(), '..', 'data')
+
+
+def download_flight_data() -> None:
+    """Download and write the flight data file.
+    WARNING: Takes a VERY long time (~30 minutes)
+    """
+    if os.path.exists(os.path.join(os.getcwd(), '..', 'data', 'itineraries_gzip.parquet')):
+        print('Step 1 skipped, file itineraries_gzip.parquet exists.')
+        return
+
+    print('Step 1: Downloading flight data (~5.96 GB).')
+
+    r = requests.get('https://utoronto-my.sharepoint.com/:u:/g/personal/nagata_aptana_mail_utoronto_ca/'
+                     'EQWH6C9UxMJOlVTzVXfPelkB3-ZA7N7VOBF9Naih_i5jng', {'download': 1})
+    with open(os.path.join(os.getcwd(), '..', 'data', 'itineraries_gzip.parquet'), 'wb') as f:
+        f.write(r.content)
+
+    print('Step 1 finished.')
 
 
 def select_useful_columns(columns: Optional[list[str]]) -> None:
     """Select only the useful columns from the raw csv file from kaggle and writes the results into a csv file."""
-    if os.path.exists('cleaned_itineraries.csv'):
+    if os.path.exists(os.path.join(os.getcwd(), '..', 'data', 'cleaned_itineraries.csv')):
         print('Step 2 skipped, file cleaned_itineraries.csv exists.')
         return
 
@@ -34,9 +53,11 @@ def select_useful_columns(columns: Optional[list[str]]) -> None:
     print('Step 2: Selecting useful column from raw file, dropping the rest.')
 
     pl.scan_parquet(
-        source='itineraries_gzip.parquet',
+        source=os.path.join(os.getcwd(), '..', 'data', 'itineraries_gzip.parquet'),
         low_memory=True, cache=False
-    ).select(columns).collect(streaming=True).write_csv('cleaned_itineraries.csv')
+    ).select(columns)\
+        .collect(streaming=True)\
+        .write_csv(os.path.join(os.getcwd(), '..', 'data', 'cleaned_itineraries.csv'))
 
     print('Step 2 finished.')
 
@@ -52,7 +73,7 @@ def select_unique_flights() -> None:
     each processing uses approximately 4GB of RAM. The intermediate files the combined and checked again
     for uniqueness, and the final result is written to a parquet file.
     """
-    if os.path.exists('no_dupe_flights.parquet'):
+    if os.path.exists(os.path.join(os.getcwd(), '..', 'data', 'no_dupe_flights.parquet')):
         print('Step 3 skipped, file no_dupe_flights.parquet exists.')
         return
 
@@ -61,7 +82,7 @@ def select_unique_flights() -> None:
     for i in range(REPS):
         df = (
             pl.scan_csv(
-                source='cleaned_itineraries.csv',
+                source=os.path.join(os.getcwd(), '..', 'data', 'cleaned_itineraries.csv'),
                 dtypes=KAGGLE_DATATYPES,
                 low_memory=True, rechunk=False, cache=False,
                 skip_rows_after_header=(i * RSTP), n_rows=RSTP
@@ -98,21 +119,28 @@ def select_unique_flights() -> None:
             ])
         )
 
-        df.collect(streaming=True).write_csv(f'no_dupe_flights_{i}.csv', time_format='%R')
+        df.collect(streaming=True)\
+            .write_csv(os.path.join(os.getcwd(), '..', 'data', f'no_dupe_flights_{i}.csv'), time_format='%R')
         print(f'finished processing file {i}/{REPS}')
 
-    out_filename = 'no_dupe_flights.csv'
+    out_filename = os.path.join(os.getcwd(), '..', 'data', 'no_dupe_flights.csv')
     with open(out_filename, 'wb') as outfile:
+        prev_dir = os.getcwd()
+        print(prev_dir)
+        os.chdir(os.path.join(os.getcwd(), '..', 'data'))
+        print(os.getcwd())
         for i, filename in enumerate(glob.glob('no_dupe_flights_?.{}'.format('csv'))):
+            print(filename)
             if filename == out_filename:
                 continue
             with open(filename, 'rb') as readfile:
                 if i != 0:
                     readfile.readline()
                 shutil.copyfileobj(readfile, outfile)
+        os.chdir(prev_dir)
 
     for i in range(REPS):
-        os.remove(f'no_dupe_flights_{i}.csv')
+        os.remove(os.path.join(os.getcwd(), '..', 'data', f'no_dupe_flights_{i}.csv'))
 
     print('Finished combining files. Filtering uniqueness for the last time...')
 
@@ -126,33 +154,35 @@ def select_unique_flights() -> None:
             'segmentsArrivalAirportCode', 'segmentsDepartureAirportCode', 'segmentsAirlineName',
             'departureWeekday', 'departureClock', 'arrivalWeekday', 'arrivalClock'
         ])
-    ).collect().write_parquet('no_dupe_flights.parquet')
+    ).collect().write_parquet(os.path.join(os.getcwd(), '..', 'data', 'no_dupe_flights.parquet'))
 
     print('Step 3 finished. File no_dupe_flights.csv contains unique flights.')
 
 
 def unique_itineraries() -> None:
     """Return unique itineraries based on the unique flight's ID."""
-    if os.path.exists('no_dupe_itineraries.parquet'):
+    if os.path.exists(os.path.join(os.getcwd(), '..', 'data', 'no_dupe_itineraries.parquet')):
         print('Step 4 skipped, file no_dupe_itineraries.parquet exists.')
         return
 
     print('Step 4: Select unique itineraries based on the unique flight\'s ID.')
 
-    filts = pl.scan_parquet(source='no_dupe_flights.parquet', cache=False, low_memory=True).select('legId').collect()
+    filts = pl.scan_parquet(source=os.path.join(os.getcwd(), '..', 'data', 'no_dupe_flights.parquet'),
+                            cache=False, low_memory=True).select('legId').collect()
     print('filtering itineraries...')
     (
-        pl.scan_csv(source='cleaned_itineraries.csv', rechunk=False, low_memory=True)
+        pl.scan_csv(source=os.path.join(os.getcwd(), '..', 'data', 'cleaned_itineraries.csv'),
+                    rechunk=False, low_memory=True)
         .filter(pl.col('legId').is_in(filts.get_column('legId')))
         .unique(maintain_order=False)
-    ).collect(streaming=True).write_parquet('no_dupe_itineraries.parquet')
+    ).collect(streaming=True).write_parquet(os.path.join(os.getcwd(), '..', 'data', 'no_dupe_itineraries.parquet'))
 
     print('Step 4 finished.')
 
 
 def epoch_to_weekday_time_itineraries() -> None:
     """Convert itineraries with epoch to weekday ISO and time of day rounded to 15 minutes."""
-    if os.path.exists('clean_no_dupe_itineraries.csv'):
+    if os.path.exists(os.path.join(os.getcwd(), '..', 'data', 'clean_no_dupe_itineraries.csv')):
         print('Step 5 skipped, file clean_no_dupe_itineraries.csv exists.')
         return
 
@@ -160,7 +190,7 @@ def epoch_to_weekday_time_itineraries() -> None:
 
     df = (
         pl.scan_parquet(
-            source='no_dupe_itineraries.parquet', cache=False, low_memory=True,
+            source=os.path.join(os.getcwd(), '..', 'data', 'no_dupe_itineraries.parquet'), cache=False, low_memory=True,
         )
         .unique(maintain_order=False)
         .with_columns([
@@ -187,5 +217,5 @@ def epoch_to_weekday_time_itineraries() -> None:
         ])
     )
 
-    df.collect(streaming=True).write_csv('clean_no_dupe_itineraries.csv')
+    df.collect(streaming=True).write_csv(os.path.join(os.getcwd(), '..', 'data', 'clean_no_dupe_itineraries.csv'))
     print('Step 5 finished.')

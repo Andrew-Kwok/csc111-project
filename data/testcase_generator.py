@@ -1,5 +1,6 @@
 """Script for generating testcases"""
 
+import os
 from typing import Optional
 
 import polars as pl
@@ -25,8 +26,8 @@ def generate_testcase_general(itineraries: str, airports: str, size: int, seed: 
         pl.col('iata_code').is_in(itn_explode.get_column('segmentsArrivalAirportCode'))
     ).collect()
 
-    itn.write_csv(f'clean_no_dupe_itineraries_{size}.csv')
-    air.write_csv(f'airport_class_{size}.csv')
+    itn.write_csv(os.getcwd() + f'../data/clean_no_dupe_itineraries_{size}.csv')
+    air.write_csv(os.getcwd() + f'../data/airport_class_{size}.csv')
 
 
 def generate_testcase_direct_flight(itineraries: str, airports: str, size: int, seed: Optional[int]) -> None:
@@ -37,5 +38,5 @@ def generate_testcase_direct_flight(itineraries: str, airports: str, size: int, 
         pl.col('iata_code').is_in(itn.get_column('destinationAirport'))
     ).collect()
 
-    itn.write_csv(f'clean_no_dupe_itineraries_direct_{size}.csv')
-    air.write_csv(f'airport_class_direct_{size}.csv')
+    itn.write_csv(os.getcwd() + f'../data/clean_no_dupe_itineraries_direct_{size}.csv')
+    air.write_csv(os.getcwd() + f'../data/airport_class_direct_{size}.csv')
