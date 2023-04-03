@@ -30,7 +30,7 @@ class Network:
         - airports: A dictionary that maps an airport's IATA code to its airport object.
 
     Representation Invariants:
-        - pass
+        - all(iata in self.airports for iata in iatas for iatas in self.city_airport.values())
     """
     city_airport: dict[str, set[IATACode]]
     airports: dict[IATACode, Airport]
@@ -74,10 +74,10 @@ class Airport:
 
     Instance Attributes:
         - iata: A three-character IATA airport code.
-        - name: The name of the airport
+        - name: The name of the airport.
         - city: The city in which this airport is located in.
         - tickets: A list of tickets which represents the possible flight paths from this airport,
-         sorted in non-decreasing departure time
+         sorted in non-decreasing departure time.
 
 
     Representation Invariants:
@@ -104,7 +104,7 @@ class Airport:
         self.tickets.append(ticket)
 
     def __str__(self) -> str:
-        """return some details about the airport
+        """Return a string representing the iata code, name and location(city) of the airport.
         """
         return f'{self.iata} - {self.name} - {self.city}'
 
@@ -144,7 +144,8 @@ class Flight:
         self.arrival_time = DayHourMinute(*arrival_time)
 
     def __str__(self) -> str:
-        """print some details about the flight
+        """Return a string representing the flight_id, airline, iata code of the origin airport, departure time, iata
+        code of the destination airport, and arrival time of the flight.
         """
         return f'{self.flight_id} | {self.airline} | {self.origin.iata} ({str(self.departure_time)})' \
                f' to {self.destination.iata} ({str(self.arrival_time)})'
@@ -158,6 +159,10 @@ class Ticket:
     Instance Attributes:
         - origin: The departure airport of the flight.
         - destination: The destination airport of the flight.
+        - departure_time: A tuple representing the day of the week, hour and minute of the departure time of the first
+        flight in the ticket.
+        - arrival_time: A tuple representing the day of the week, hour and minute of the arrival time of the last flight
+        in the ticket.
         - flights: A list of the flights on the ticket.
         - price: The total price of all the flights on the ticket.
 
@@ -169,6 +174,8 @@ class Ticket:
         - self.origin == self.flights[0].origin
         - self.destination == self.flights[-1].destination
         - self.price > 0
+        - self.departure_time == self.flights[0].departure_time
+        - self.arrival_time == self.flights[-1].arrival_time
     """
     origin: Airport
     destination: Airport
@@ -179,6 +186,9 @@ class Ticket:
 
     def __init__(self, origin: Airport, destination: Airport, departure_time: DayHourMinute,
                  arrival_time: DayHourMinute, flights: list[Flight], price: float) -> None:
+        """Initialize a ticket with the fiven origin airport, destination airport, departure time, arrival time, flights
+        and price.
+        """
         self.origin = origin
         self.destination = destination
         self.departure_time = DayHourMinute(*departure_time)
@@ -187,7 +197,9 @@ class Ticket:
         self.price = price
 
     def __str__(self) -> str:
-        """print some details about the ticket
+        """Return a string representing the iata code of the origin airport, the iata of the destination airport, the
+        price of the ticket and the flight information for each flight on the ticket. Each flight information consists
+        of the airline and flight_id of the flight.
         """
         flight_info = "\n\t".join(f'{flight}' for flight in self.flights)
         return f'{self.origin.iata} to {self.destination.iata} | {self.price} \n\t{flight_info}'
