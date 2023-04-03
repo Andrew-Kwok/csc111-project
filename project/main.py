@@ -2,8 +2,9 @@
 """
 from __future__ import annotations
 
+import os
+import sys
 import csv
-import codecs
 from datetime import datetime
 from py7zr import SevenZipFile
 
@@ -14,6 +15,8 @@ from network import MIN_LAYOVER_TIME, MAX_LAYOVER_TIME, MAX_LAYOVER, TOP_K_RESUL
 from network import Network, Airport, Flight, Ticket
 from flightsearcher import AbstractFlightSearcher, NaiveFlightSearcher, DijkstraFlightSearcher
 
+sys.path.append(os.path.join(os.getcwd(), '..', 'data'))
+sys.path.append(os.path.join(os.getcwd(), '..', 'skysearcher'))
 
 def unpack_csv(flight_file: str) -> None:
     """Unpack /data/clean_no_dupe_itineraries.7z to /data/clean_no_dupe_itineraries.csv
@@ -134,21 +137,6 @@ def read_csv_file(airport_file: str, flight_file: str) -> Network:
     return res_network
 
 
-def get_naive_searcher() -> AbstractFlightSearcher:
-    """ Return a naive searcher
-    """
-    airport_file = '../data/airport_class_1000.csv'
-    flight_file = '../data/clean_no_dupe_itineraries_1000.csv'
-
-    flight_network = read_csv_file(airport_file, flight_file)
-    return NaiveFlightSearcher(flight_network)
-
-
-def get_pruned_landmark_labelling() -> AbstractFlightSearcher:
-    """ TODO DOCSTRING
-    """
-
-
 def _get_iata_input(prompt_city: str, prompt_airport: str, flight_network: Network) -> str:
     city = None
     while True:
@@ -241,20 +229,64 @@ def run(airport_file: str, flight_file: str, searcher_type: str) -> None:
     print('Here are the tickets from your departure airport to your arrival airport: ')
     for ticket in tickets:
         print(ticket)
-        
+    
+
+def django_helper(airport_file: str, flight_file: str) -> tuple[AbstractFlightSearcher, AbstractFlightSearcher, list[Airport]]:
+    """
+    """
+    os.chdir('../data')
+    flight_network = read_csv_file(airport_file, flight_file)
+
+    return (
+        NaiveFlightSearcher(flight_network=flight_network),
+        DijkstraFlightSearcher(flight_network=flight_network),
+        list(sorted(flight_network.airports.values(), key=lambda x: x.city))
+    )
+
+
+def run_django_project(airport_file: str, flight_file: str) -> None:
+    import subprocess, webbrowser, requests
+
+    # Move the directory and Start the Django server using subprocess
+    os.chdir('../skysearcher')
+    subprocess.Popen(['python', 'manage.py', 'runserver'])
+
+    # Wait for the server to start up
+    url = 'http://localhost:8000'
+    while True:
+        try:
+            response = requests.get(url)
+            if response.status_code == 200:
+                break
+        except requests.exceptions.ConnectionError:
+            pass
+
+    # Overwrite the variable in views.py using a POST request
+    data = {
+        'airport_file': airport_file,
+        'flight_file': flight_file
+    }
+    response = requests.post(url, data=data)
+    
+    print(response)
+
+    # Open the project in a web browser
+    webbrowser.open(url)
+
 
 if __name__ == '__main__':
     # AIRPORTFILE = 'clean_no_dupe_itineraries'
     # FLIGHTFILE = 'clean_no_dupe_itineraries'
-    AIRPORTFILE = '../data/airport_class_1000.csv'
-    FLIGHTFILE = '../data/clean_no_dupe_itineraries_1000.csv'
+    AIRPORTFILE = 'airport_class_1000.csv'
+    FLIGHTFILE = 'clean_no_dupe_itineraries_1000.csv'
 
     # run(AIRPORTFILE, FLIGHTFILE, 'naive')
+    run_django_project(AIRPORTFILE, FLIGHTFILE)
 
-    import python_ta
-    python_ta.check_all(config={
-        'max-line-length': 120,
-        'extra-imports': ['datetime', 'csv', 'codecs', 'py7zr', 'network', 'flightsearcher', 'datetime'],
-        'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
-        'allowed-io': ['read_csv_file', 'run', '_get_iata_input']
-    })
+    # import python_ta
+    # python_ta.check_all(config={
+    #     'max-line-length': 120,
+    #     'extra-imports': ['datetime', 'csv', 'codecs', 'py7zr', 'network', 'flightsearcher', 'datetime'],
+    #     'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
+    #     'allowed-io': ['read_csv_file', 'run', '_get_iata_input']
+    # })
