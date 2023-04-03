@@ -21,83 +21,6 @@ from flightsearcher import NaiveFlightSearcher
 import csv
 import datetime
 
-
-def _search_all_flight(self, source: Airport, destination: Airport, departure_time: DayHourMinute,
-                       visited: set[Airport]) -> list[Optional[Ticket]]:
-    """Returns all possible flight paths that departs from the `source`, on the same day as departure_time to the
-    given `destination`. Each ticket can only visit each airport at most once. This function also takes into
-    consideration the minimum and maximum layover time, and the maximum number of layovers.
-    """
-    if source == destination:
-        return [None]
-
-    paths = []
-    for ticket in source.tickets:
-        minute_diff = self._minute_diff(departure_time, ticket.departure_time)
-        if any(flight.destination in visited for flight in ticket.flights):
-            continue
-        if not ((MIN_LAYOVER_TIME <= minute_diff <= MAX_LAYOVER_TIME)
-                or (len(visited) == 1 and minute_diff < 2 * MAX_LAYOVER_TIME)):  # 24 hour gap for first flight.
-            continue
-
-        next_visited = visited.union(flight.destination for flight in ticket.flights)
-        if len(next_visited) > MAX_LAYOVER + 1:
-            continue
-        next_paths = self._search_all_flight(source=ticket.destination,
-                                             destination=destination,
-                                             departure_time=ticket.arrival_time,
-                                             visited=next_visited)
-        for path in next_paths:
-            if path is None:
-                paths.append(ticket)
-            else:
-                paths.append(self._merge_ticket([ticket, path]))
-    return paths
-
-
-def search_shortest_flight(self, source: IATACode, destination: IATACode, departure_time: datetime) -> list[Ticket]:
-    """Calls the `_search_all_flight` function to generate all possible paths. Then, returns the `TOP_K_RESULTS`
-    flights with the shortest flight duration.
-
-    Preconditions:
-        - source in self.flight_network.airports
-        - destination in self.flight_network.airports
-        - departure_time.hour == 0 and departure_time.minute == 0
-    """
-    source_airport = self.flight_network.airports[source]
-    destination_airport = self.flight_network.airports[destination]
-    departure_weektime = self._get_day_of_week(departure_time)
-    visited = {source_airport}
-
-    tickets = self._search_all_flight(source=source_airport,
-                                      destination=destination_airport,
-                                      departure_time=departure_weektime,
-                                      visited=visited)
-    tickets.sort(key=lambda x: self._minute_diff(x.departure_time, x.arrival_time))
-    return tickets[:TOP_K_RESULTS]
-
-
-def search_cheapest_flight(self, source: IATACode, destination: IATACode, departure_time: datetime) -> list[Ticket]:
-    """Calls the `_search_all_flight` function to generate all possible paths. Then, returns the `TOP_K_RESULTS`
-    flights with the lowest ticket price.
-
-    Preconditions:
-        - source in self.flight_network.airports
-        - destination in self.flight_network.airports
-        - departure_time.hour == 0 and departure_time.minute == 0
-    """
-    source_airport = self.flight_network.airports[source]
-    destination_airport = self.flight_network.airports[destination]
-    departure_weektime = self._get_day_of_week(departure_time)
-    visited = {source_airport}
-
-    tickets = self._search_all_flight(source=source_airport,
-                                      destination=destination_airport,
-                                      departure_time=departure_weektime,
-                                      visited=visited)
-    tickets.sort(key=lambda x: x.price)
-    return tickets[:TOP_K_RESULTS]
-
 ###############################################################################
 # Timing experiments and visualization for break_diffie_hellman
 ###############################################################################
@@ -112,7 +35,7 @@ def time_naive_shortest_flight(airport_file: str, flight_file: str) -> list[tupl
     Preconditions:
         - filename refers to a CSV file in the given data
     """
-    network = main.read_csv_file(airport_file, flight_file)
+    network = main.read_csv_file(airport_file, flight_file)  # doesn't create edge (tickets)
     naive_network = NaiveFlightSearcher(network)
     list_iata = list(network.airports.keys())
     num_run = 0
