@@ -340,6 +340,7 @@ def run_django_project(airport_file: str, flight_file: str) -> None:
 if __name__ == '__main__':
     # AIRPORTFILE = 'clean_no_dupe_itineraries'
     # FLIGHTFILE = 'clean_no_dupe_itineraries'
+
     AIRPORTFILE = '../data/airport_class_1000.csv'
     FLIGHTFILE = '../data/clean_no_dupe_itineraries_1000.csv'
 
@@ -354,8 +355,8 @@ if __name__ == '__main__':
 #     else:
 #         unpack_csv()
 
-    testcase_generator.generate_testcase_general(
-        '../data/clean_no_dupe_itineraries.csv', '../data/airport_class.csv', 1000, seed=65537)
+    # testcase_generator.generate_testcase_general(
+    #     '../data/clean_no_dupe_itineraries.csv', '../data/airport_class.csv', 1000, seed=65537)
     # testcase_generator.generate_testcase_direct_flight(
     #     '../data/clean_no_dupe_itineraries.csv', '../data/airport_class.csv', 1000, seed=94231)
     #
