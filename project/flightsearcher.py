@@ -52,15 +52,6 @@ class AbstractFlightSearcher:
         """
         return DayHourMinute(date.weekday() + 1, date.hour, date.minute)
 
-    def _get_datetime_other(self, pivot_date: datetime, other_time: DayHourMinute) -> datetime:
-        """Get the next possible datetime interpretation for other_time.
-
-        Preconditions:
-            - 1 <= other_time.day <= 7
-            - 0 <= other_time.hour <= 23
-            - 0 <= other_time.minute <= 60
-        """
-
     def _minute_diff(self, before: DayHourMinute, after: DayHourMinute) -> int:
         """Return the difference in time between before and after (in minutes).
         """

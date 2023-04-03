@@ -6,7 +6,7 @@ from typing import Optional
 import os
 import sys
 import csv
-from datetime import datetime
+from datetime import datetime, timedelta
 from py7zr import SevenZipFile
 
 from python_ta.contracts import check_contracts
@@ -150,36 +150,6 @@ def read_csv_file(airport_file: str, flight_file: str) -> Network:
     return res_network
 
 
-def _get_iata_input(prompt_city: str, prompt_airport: str, flight_network: Network) -> str:
-    city = None
-    while True:
-        print(prompt_city, end=' ')
-        city = input()
-
-        if city not in flight_network.city_airport:
-            print('Please input a valid city.')
-        else:
-            break
-    assert city is not None
-
-    print('\nList of Airports')
-    for iata in flight_network.city_airport[city]:
-        print(f'{flight_network.airports[iata].name}({iata})')
-
-    iata = None
-    while True:
-        print(prompt_airport, end=' ')
-        iata = input()
-
-        if iata not in flight_network.airports:
-            print('Please input a valid IATA code.')
-        else:
-            break
-    assert iata is not None
-
-    return iata
-
-
 def generate_data_from_scratch() -> None:
     """Generate the data from scratch.
     WARNING: might take up to 8GB of disk space and 8GB of RAM!
@@ -230,6 +200,49 @@ def ask_yes_no(question: str, default: Optional[bool]) -> bool:
             sys.stdout.write('Invalid response, please respond with \'y\' (yes) or \'n\' (no) .\n')
 
 
+def _get_iata_input(prompt_city: str, prompt_airport: str, flight_network: Network) -> str:
+    city = None
+    while True:
+        print(prompt_city, end=' ')
+        city = input()
+
+        if city not in flight_network.city_airport:
+            print('Please input a valid city.')
+        else:
+            break
+    assert city is not None
+
+    print('\nList of Airports')
+    for iata in flight_network.city_airport[city]:
+        print(f'{flight_network.airports[iata].name}({iata})')
+
+    iata = None
+    while True:
+        print(prompt_airport, end=' ')
+        iata = input()
+
+        if iata not in flight_network.airports:
+            print('Please input a valid IATA code.')
+        else:
+            break
+    assert iata is not None
+    print()
+
+    return iata
+
+
+def _get_date(pivot_datetime: datetime, query_weektime: DayHourMinute) -> str:
+    day_diff = query_weektime.day - pivot_datetime.isoweekday()
+    if day_diff < 0:
+        day_diff += 7
+
+    departure_time = pivot_datetime
+    departure_time += timedelta(days=int(day_diff), hours=query_weektime.hour, minutes=query_weektime.minute)
+    print(pivot_datetime, query_weektime, departure_time)
+
+    return departure_time.strftime("%d %b, %H:%M")
+
+
 def run(airport_file: str, flight_file: str, searcher_type: str) -> None:
     """ Docstring here
     """
@@ -239,7 +252,7 @@ def run(airport_file: str, flight_file: str, searcher_type: str) -> None:
     if searcher_type == 'naive':
         searcher = NaiveFlightSearcher(flight_network)
     elif searcher_type == 'dijsktra':
-        searcher = DijkstraFlightSearcher
+        searcher = DijkstraFlightSearcher(flight_network)
     else:
         raise ValueError('Invalid Flight Searcher')
     assert searcher is not None
@@ -291,8 +304,11 @@ def run(airport_file: str, flight_file: str, searcher_type: str) -> None:
 
     print('Here are the tickets from your departure airport to your arrival airport: ')
     for ticket in tickets:
-        print(ticket)
-
+        print(f'{ticket.origin}[{_get_date(departure_date, ticket.departure_time)}] to {ticket.destination}[{_get_date(departure_date, ticket.arrival_time)}] | {ticket.price}')
+        for flight in ticket.flights:
+            print(f'\t{flight.origin}[{_get_date(departure_date, flight.departure_time)}] to {flight.destination}[{_get_date(departure_date, flight.arrival_time)}]')
+        print()
+        
 
 def django_helper(airport_file: str, flight_file: str) -> tuple[AbstractFlightSearcher, AbstractFlightSearcher, list[Airport]]:
     """
@@ -360,8 +376,8 @@ if __name__ == '__main__':
     # testcase_generator.generate_testcase_direct_flight(
     #     '../data/clean_no_dupe_itineraries.csv', '../data/airport_class.csv', 1000, seed=94231)
     #
-    # run(AIRPORTFILE, FLIGHTFILE, 'naive')
-    run_django_project(AIRPORTFILE, FLIGHTFILE)
+    run(AIRPORTFILE, FLIGHTFILE, 'dijsktra')
+    # run_django_project(AIRPORTFILE, FLIGHTFILE)
 
     # import python_ta
     # python_ta.check_all(config={
