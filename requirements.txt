@@ -5,7 +5,7 @@ django-tailwind==3.5.0
 # Dependency for data cleaning
 py7zr==0.20.4
 requests~=2.28.2
-polars~=0.16.17
+polars~=0.16.18
 
 # Dependencies for code checking
 python-ta~=2.4.2
