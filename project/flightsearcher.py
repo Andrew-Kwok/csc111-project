@@ -327,66 +327,6 @@ class DijkstraFlightSearcher(AbstractFlightSearcher):
         return results
 
 
-# @check_contracts
-class PrunedLandmarkLabeling(AbstractFlightSearcher):
-    """ TODO DOCSTRING
-    """
-    flight_network: Network
-    label_in: list[tuple[str, float]]
-    label_out: list[tuple[str, float]]
-
-    # def _query(self, source: str, destination: str, label: dict[str, list[tuple[str, float]]]) -> float:
-    #     """
-    #     """
-    #     s_label = label_out[source]
-    #     t_label = label_in[destination]
-
-    #     i, j = 0, 0
-    #     res = math.inf
-    #     while i < s_label and j < t_label:
-    #         if s_label[i][0] == t_label[j][0]:
-    #             res = min(res, s_label[i] + t_label[j])
-    #         elif s_labe[i] < t_label[j]:
-    #             j += 1
-    #         else:
-    #             i += 1
-    #     return res
-
-    # def _pruned_dijkstra(self):
-    #     """
-    #     """
-    #     airports_iata = sorted(self.flight_network.airports.keys())
-    #     label = [{iata: [] for iata in airports_iata} for _ in range(2)]
-
-    #     for i in range(len(airports_iata)):
-    #         pq = PriorityQueue()
-    #         pq.put(airports_iata[i])
-
-    #         P = [math.inf] * len(airports_iata)
-    #         P[i] = 0
-    #         for j in range(len(airports_iata)):
-    #             label[i][j]
-
-    # def _construct_label(self, label: dict[str, list[tuple[str, float]]]):
-    #     for airport in flight_network.airports:
-    #         label_in[airport] = []
-
-    #     self._pruned_dijkstra()
-
-    def __init__(self, flight_network: Network) -> None:
-        """ TODO DOCSTRING
-        """
-        AbstractFlightSearcher.__init__(self, flight_network)
-
-    def search_shortest_flight(self, source: str, destination: str, departure_time: datetime) -> list[Ticket]:
-        """ TODO DOCSTRING
-        """
-
-    def search_cheapest_flight(self, source: str, destination: str, departure_time: datetime) -> list[Ticket]:
-        """ TODO DOCSTRING
-        """
-
-
 if __name__ == '__main__':
     import python_ta
     python_ta.check_all(config={
