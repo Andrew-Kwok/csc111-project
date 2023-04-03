@@ -1,6 +1,8 @@
-__pycache__
-node_modules
-
-/project/clean_no_dupe_itineraries.csv
+/data/*.csv
+/data/*.parquet
 /.idea
 *.pyc
+
+node_modules
+__pycache__
+!/data/airport_class.csv
