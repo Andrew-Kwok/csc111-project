@@ -17,6 +17,7 @@ from network import Network, Airport, Flight, Ticket
 from flightsearcher import AbstractFlightSearcher, NaiveFlightSearcher, DijkstraFlightSearcher
 
 sys.path.append(os.path.join(os.getcwd(), '..', 'data'))
+sys.path.append(os.path.join(os.getcwd(), '..', 'skysearcher'))
 
 import airport_data_cleaner
 import flight_data_cleaner
@@ -24,10 +25,8 @@ import testcase_generator
 
 ALWAYS_NO = False
 
-sys.path.append(os.path.join(os.getcwd(), '..', 'data'))
-sys.path.append(os.path.join(os.getcwd(), '..', 'skysearcher'))
 
-def unpack_csv(flight_file: str) -> None:
+def unpack_csv() -> None:
     """Unpack /data/clean_no_dupe_itineraries.7z to /data/clean_no_dupe_itineraries.csv
     """
     prev_path = os.getcwd()
@@ -293,7 +292,7 @@ def run(airport_file: str, flight_file: str, searcher_type: str) -> None:
     print('Here are the tickets from your departure airport to your arrival airport: ')
     for ticket in tickets:
         print(ticket)
-    
+
 
 def django_helper(airport_file: str, flight_file: str) -> tuple[AbstractFlightSearcher, AbstractFlightSearcher, list[Airport]]:
     """
@@ -331,7 +330,7 @@ def run_django_project(airport_file: str, flight_file: str) -> None:
         'flight_file': flight_file
     }
     response = requests.post(url, data=data)
-    
+
     print(response)
 
     # Open the project in a web browser
@@ -341,8 +340,8 @@ def run_django_project(airport_file: str, flight_file: str) -> None:
 if __name__ == '__main__':
     # AIRPORTFILE = 'clean_no_dupe_itineraries'
     # FLIGHTFILE = 'clean_no_dupe_itineraries'
-    AIRPORTFILE = 'airport_class_1000.csv'
-    FLIGHTFILE = 'clean_no_dupe_itineraries_1000.csv'
+    AIRPORTFILE = '../data/airport_class.csv'
+    FLIGHTFILE = '../data/clean_no_dupe_itineraries.csv'
 
     if not ALWAYS_NO and ask_yes_no(
             """Do you want to download and construct the data from scratch,
@@ -356,10 +355,10 @@ Proceed with caution.""", default=False):
         unpack_csv()
 
     # testcase_generator.generate_testcase_general(
-    #     'clean_no_dupe_itineraries.csv', '../data/airport_class.csv', 1000, seed=65537)
+    #     '../data/clean_no_dupe_itineraries.csv', '../data/airport_class.csv', 1000, seed=65537)
     # testcase_generator.generate_testcase_direct_flight(
-    #     'clean_no_dupe_itineraries.csv', '../data/airport_class.csv', 1000, seed=94231)
-    #
+    #     '../data/clean_no_dupe_itineraries.csv', '../data/airport_class.csv', 1000, seed=94231)
+    print(sys.path)
     # run(AIRPORTFILE, FLIGHTFILE, 'naive')
     run_django_project(AIRPORTFILE, FLIGHTFILE)
 
