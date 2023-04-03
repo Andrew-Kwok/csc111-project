@@ -199,15 +199,15 @@ class DijkstraFlightSearcher(AbstractFlightSearcher):
             - departure_time.hour == 0 and departure_time.minute == 0
         """
         dep_time_simpl = DayHourMinute(departure_time.isoweekday(), departure_time.hour, departure_time.minute)
-        pq = PriorityQueue()
+        pq: PriorityQueue[tuple[int, IATACode, Optional[Ticket], int, int]] = PriorityQueue()
 
-        # The tuple in pq is (curr_price, curr_pos, prev_ticket, prev_k, num_flights)
-        # curr_time denote the time to arrive at curr_pos
+        # The tuple in pq is (time_dist, curr_pos, prev_ticket, prev_k, num_flights)
+        # time_dist denote the time difference from 00:00 departure day to the current flight's arrival time in minutes
         # curr_pos denote the current position after doing some flights
         # prev_ticket denote the ticket bought immediately before this ticket, is useful for backtracking
         # prev_k denote the number of optimal flights found, note that we only need up to `TOP_K_RESULTS` flights
         # num_flights denote the number of flights that have been done, which reflects the number of layover.
-        pq.put((dep_time_simpl, source, None, 0, 0))
+        pq.put((0, source, None, 0, 0))
         distance: dict[IATACode, list[DayHourMinute]] = {iata: [] for iata in self.flight_network.airports}
         previous: dict[IATACode, list[tuple[Ticket, int]]] = {iata: [] for iata in self.flight_network.airports}
 
