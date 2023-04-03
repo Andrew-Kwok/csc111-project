@@ -4,22 +4,25 @@ import sys
 import json
 from datetime import datetime
 
+from django.contrib import messages
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
 sys.path.insert(1, '../project/')
 from main import django_helper
 
-
+AIRPORT_FILE = None
+FLIGHT_FILE = None
 NAIVE_FLIGHT_SEARCHER = None
 DIJKSTRA_FLIGHT_SEARCHER = None
 AIRPORT_OPTIONS = None
-
 
 @csrf_exempt
 def search(request):
     """ Function Based View for index.html
     """
+    global AIRPORT_FILE
+    global FLIGHT_FILE
     global NAIVE_FLIGHT_SEARCHER
     global DIJKSTRA_FLIGHT_SEARCHER
     global AIRPORT_OPTIONS
@@ -37,14 +40,17 @@ def search(request):
 
     # print(request)
     if request.method == 'POST':
-        airport_file = request.POST.get('airport_file')
-        flight_file = request.POST.get('flight_file')
-        NAIVE_FLIGHT_SEARCHER, DIJKSTRA_FLIGHT_SEARCHER, AIRPORT_OPTIONS = django_helper(airport_file, flight_file)
+        AIRPORT_FILE = request.POST.get('airport_file')
+        FLIGHT_FILE = request.POST.get('flight_file')
+        NAIVE_FLIGHT_SEARCHER, DIJKSTRA_FLIGHT_SEARCHER, AIRPORT_OPTIONS = django_helper(AIRPORT_FILE, FLIGHT_FILE)
 
     context = {}
     data = {}
 
     if request.method == 'GET':
+        if NAIVE_FLIGHT_SEARCHER is None and AIRPORT_FILE is not None:
+            NAIVE_FLIGHT_SEARCHER, DIJKSTRA_FLIGHT_SEARCHER, AIRPORT_OPTIONS = django_helper(AIRPORT_FILE, FLIGHT_FILE)
+
         flight_searcher_type = request.GET.get('searcher_input')
         sort_type = request.GET.get('filter_input')
         origin = request.GET.get('from_input')
@@ -58,17 +64,22 @@ def search(request):
         data['date'] = date
         context['date'] = date
 
-        if flight_searcher_type is None or len(flight_searcher_type) == 0:
-            pass
-        if sort_type is None or len(sort_type) == 0:
-            pass
+        empty_count = 0
         if origin is None or len(origin) == 0:
-            pass
+            empty_count += 1
         if destination is None or len(destination) == 0:
-            pass
+            empty_count += 1
         if date is None or len(date) == 0:
-            pass
+            empty_count += 1
 
+        if empty_count == 3:
+            pass
+        elif empty_count > 0:
+            messages.error(request, 'empty input')
+        elif len(origin) < 4 or origin[-4:-1] not in NAIVE_FLIGHT_SEARCHER.flight_network.airports:
+            messages.error(request, 'invalid origin')
+        elif len(destination) < 4 or destination[-4:-1] not in NAIVE_FLIGHT_SEARCHER.flight_network.airports:
+            messages.error(request, 'invalid destination')
         else:
             tickets = []
             origin_iata = origin[-4:-1]

@@ -1,16 +1,12 @@
 """ Template Tags Helpers for HTML
 """
-import os
-import sys
+from typing import TypeAlias
+from collections import namedtuple
 
 from datetime import datetime, timedelta
 from django import template
 
-sys.path.append(os.path.join(os.getcwd(), '..', '..', '..', 'project'))
-
-from network import DayHourMinute
-
-
+DayHourMinute: TypeAlias = namedtuple('DayHourMinute', ['day', 'hour', 'minute'])
 register = template.Library()
 
 
