@@ -1,12 +1,15 @@
 """The main file that will be run by the grader.
 """
 from __future__ import annotations
-
 from typing import Optional
+
 import os
 import sys
 import csv
+import subprocess
+import webbrowser
 from datetime import datetime, timedelta
+import requests
 from py7zr import SevenZipFile
 
 from python_ta.contracts import check_contracts
@@ -17,7 +20,6 @@ from network import Network, Airport, Flight, Ticket
 from flightsearcher import AbstractFlightSearcher, NaiveFlightSearcher, DijkstraFlightSearcher
 
 sys.path.append(os.path.join(os.getcwd(), '..', 'data'))
-sys.path.append(os.path.join(os.getcwd(), '..', 'skysearcher'))
 
 import airport_data_cleaner
 import flight_data_cleaner
@@ -109,8 +111,7 @@ def read_csv_file(airport_file: str, flight_file: str) -> Network:
             try:
                 assert origin == departure[0] and destination == arrival[-1]
             except AssertionError:
-                print(row)
-                exit()
+                raise ValueError('Invalid CSV File')
             assert len(departure) == len(arrival)
 
             flights = []
@@ -175,6 +176,7 @@ If you still want to use python to download the file, press n.""", default=None)
 
 def ask_yes_no(question: str, default: Optional[bool]) -> bool:
     """Ask a yes/no question in the prompt."""
+    prompt = None
     if default is None:
         prompt = ' [y/n] '
     elif default is True:
@@ -238,13 +240,15 @@ def _get_date(pivot_datetime: datetime, query_weektime: DayHourMinute) -> str:
 
     departure_time = pivot_datetime
     departure_time += timedelta(days=int(day_diff), hours=query_weektime.hour, minutes=query_weektime.minute)
-    print(pivot_datetime, query_weektime, departure_time)
-
     return departure_time.strftime("%d %b, %H:%M")
 
 
 def run(airport_file: str, flight_file: str, searcher_type: str) -> None:
-    """ Docstring here
+    """Runs a flight search on a network based on 'airport_file' and 'flight_file'. 'searcher_type' determines the
+    algorithm used, 'naive' refers to naive traversal, while 'dijsktra' refers to dijsktra algorithm.
+
+    Preconditions:
+        - searcher_type == 'naive' or searcher_type == 'dijsktra'
     """
     flight_network = read_csv_file(airport_file, flight_file)
 
@@ -304,14 +308,19 @@ def run(airport_file: str, flight_file: str, searcher_type: str) -> None:
 
     print('Here are the tickets from your departure airport to your arrival airport: ')
     for ticket in tickets:
-        print(f'{ticket.origin}[{_get_date(departure_date, ticket.departure_time)}] to {ticket.destination}[{_get_date(departure_date, ticket.arrival_time)}] | {ticket.price}')
+        print(f'{ticket.origin}[{_get_date(departure_date, ticket.departure_time)}] to '
+              f'{ticket.destination}[{_get_date(departure_date, ticket.arrival_time)}] | {ticket.price}')
         for flight in ticket.flights:
-            print(f'\t{flight.origin}[{_get_date(departure_date, flight.departure_time)}] to {flight.destination}[{_get_date(departure_date, flight.arrival_time)}]')
+            print(f'\t{flight.origin}[{_get_date(departure_date, flight.departure_time)}] to '
+                  f'{flight.destination}[{_get_date(departure_date, flight.arrival_time)}]')
         print()
-        
 
-def django_helper(airport_file: str, flight_file: str) -> tuple[AbstractFlightSearcher, AbstractFlightSearcher, list[Airport]]:
-    """
+
+def django_helper(airport_file: str, flight_file: str) -> \
+        tuple[AbstractFlightSearcher, AbstractFlightSearcher, list[Airport]]:
+    """ A django helper method.
+    When this function is called, it will return a tuple of [NaiveFlightSearcher, DijsktraFlightSearcher, Airports]
+    to the django server.
     """
     # os.chdir('../data')
     flight_network = read_csv_file(airport_file, flight_file)
@@ -324,33 +333,30 @@ def django_helper(airport_file: str, flight_file: str) -> tuple[AbstractFlightSe
 
 
 def run_django_project(airport_file: str, flight_file: str) -> None:
-    import subprocess, webbrowser, requests
-
+    """ Python script to deploy the django web server
+    """
     # Move the directory and Start the Django server using subprocess
     os.chdir('../skysearcher')
-    subprocess.Popen(['python', 'manage.py', 'runserver'])
+    with subprocess.Popen(['python', 'manage.py', 'runserver']) as _:
+        # Wait for the server to start up
+        url = 'http://localhost:8000'
+        while True:
+            try:
+                response = requests.get(url)
+                if response.status_code == 200:
+                    break
+            except requests.exceptions.ConnectionError:
+                pass
 
-    # Wait for the server to start up
-    url = 'http://localhost:8000'
-    while True:
-        try:
-            response = requests.get(url)
-            if response.status_code == 200:
-                break
-        except requests.exceptions.ConnectionError:
-            pass
+        # Send a POST request to trigger Django to call django_helper
+        data = {
+            'airport_file': airport_file,
+            'flight_file': flight_file
+        }
+        requests.post(url, data=data)
 
-    # Overwrite the variable in views.py using a POST request
-    data = {
-        'airport_file': airport_file,
-        'flight_file': flight_file
-    }
-    response = requests.post(url, data=data)
-
-    print(response)
-
-    # Open the project in a web browser
-    webbrowser.open(url)
+        # Open the project in a web browser
+        webbrowser.open(url)
 
 
 if __name__ == '__main__':
@@ -376,13 +382,15 @@ if __name__ == '__main__':
     # testcase_generator.generate_testcase_direct_flight(
     #     '../data/clean_no_dupe_itineraries.csv', '../data/airport_class.csv', 1000, seed=94231)
     #
-    run(AIRPORTFILE, FLIGHTFILE, 'dijsktra')
-    # run_django_project(AIRPORTFILE, FLIGHTFILE)
+    # run(AIRPORTFILE, FLIGHTFILE, 'dijsktra')
+    run_django_project(AIRPORTFILE, FLIGHTFILE)
 
     # import python_ta
     # python_ta.check_all(config={
     #     'max-line-length': 120,
-    #     'extra-imports': ['datetime', 'csv', 'codecs', 'py7zr', 'network', 'flightsearcher', 'datetime'],
-    #     'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
-    #     'allowed-io': ['read_csv_file', 'run', '_get_iata_input']
+    #     'extra-imports': ['datetime', 'os', 'sys', 'csv', 'py7zr', 'datetime', 'network', 'flightsearcher',
+    #                       'airport_data_cleaner', 'flight_data_cleaner', 'testcase_generator', 'subprocess',
+    #                       'webbrowser', 'requests'],
+    #     'disable': ['unused-import', 'too-many-branches', 'extra-imports', 'E9992', 'E9997', 'too-many-locals'],
+    #     'allowed-io': ['read_csv_file', 'run', '_get_iata_input', 'ask_yes_no']
     # })

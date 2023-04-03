@@ -1,10 +1,16 @@
-from django import template
-from typing import TypeAlias
-from collections import namedtuple
+""" Template Tags Helpers for HTML
+"""
+import os
+import sys
+
 from datetime import datetime, timedelta
+from django import template
+
+sys.path.append(os.path.join(os.getcwd(), '..', '..', '..', 'project'))
+
+from network import DayHourMinute
 
 
-DayHourMinute: TypeAlias = namedtuple('DayHourMinute', ['day', 'hour', 'minute'])
 register = template.Library()
 
 
@@ -40,6 +46,18 @@ def digit2(num: int) -> str:
     """
     return '0' * (2 - len(str(num))) + str(num)
 
+
+@register.filter
+def get_airlines(flights: list) -> str:
+    """Return the names of the airlines operating each flight in flights.
+    """
+    airlines = []
+    for flight in flights:
+        if flight.airline not in airlines:
+            airlines.append(flight.airline)
+    return ", ".join(airlines)
+
+
 @register.simple_tag
 def get_minute_diff(before: DayHourMinute, after: DayHourMinute) -> int:
     """Calculate and return the difference in time(in minutes) of 'before' and 'return'.
@@ -60,7 +78,6 @@ def get_hour_minute_diff(before: DayHourMinute, after: DayHourMinute) -> str:
     """Returns a string representation of the difference in time of 'before' and 'after'.
     """
     min_diff = get_minute_diff(before, after)
-    print(before, after, min_diff)
     return f'{min_diff // 60}h {min_diff % 60}m'
 
 
@@ -71,6 +88,7 @@ def _get_day_diff_int(before: DayHourMinute, after: DayHourMinute) -> int:
     if day_diff < 0:
         day_diff += 7
     return day_diff
+
 
 @register.simple_tag
 def get_day_diff(before: DayHourMinute, after: DayHourMinute) -> str:
@@ -89,17 +107,6 @@ def get_layover_time(flights: list, i: int) -> str:
     return get_hour_minute_diff(flights[i].arrival_time, flights[i + 1].departure_time)
 
 
-@register.filter
-def get_airlines(flights: list) -> str:
-    """Return the names of the airlines operating each flight in flights.
-    """
-    airlines = []
-    for flight in flights:
-        if flight.airline not in airlines:
-            airlines.append(flight.airline)
-    return ", ".join(airlines)
-
-
 @register.simple_tag
 def get_date(pivot_datetime: str, pivot_weektime: DayHourMinute, query_weektime: DayHourMinute) -> str:
     """Return a string representation of the datetime that is based on query_weektime.
@@ -108,3 +115,12 @@ def get_date(pivot_datetime: str, pivot_weektime: DayHourMinute, query_weektime:
     departure_time = datetime.strptime(pivot_datetime, '%Y-%m-%d')
     departure_time += timedelta(days=int(day_diff))
     return f'{departure_time.day} {departure_time.strftime("%b")}'
+
+
+if __name__ == '__main__':
+    import python_ta
+    python_ta.check_all(config={
+        'max-line-length': 120,
+        'extra-imports': ['django', 'datetime', 'os', 'sys', 'network'],
+        'disable': ['unused-import', 'too-many-branches', 'extra-imports', 'E9992', 'E9997', 'too-many-arguments'],
+    })

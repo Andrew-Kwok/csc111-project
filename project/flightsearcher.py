@@ -142,7 +142,7 @@ class NaiveFlightSearcher(AbstractFlightSearcher):
     def search_shortest_flight(self, source: IATACode, destination: IATACode, departure_time: datetime) -> list[Ticket]:
         """Calls the `_search_all_flight` function to generate all possible paths. Then, returns the `TOP_K_RESULTS`
         flights with the shortest flight duration.
-        
+
         Preconditions:
             - source in self.flight_network.airports
             - destination in self.flight_network.airports
@@ -192,7 +192,7 @@ class DijkstraFlightSearcher(AbstractFlightSearcher):
 
     def search_shortest_flight(self, source: IATACode, destination: IATACode, departure_time: datetime) -> list[Ticket]:
         """Uses dijkstra algorithm to find and return the `TOP_K_RESULTS` flights with the shortest flight duration.
-        
+
         Preconditions:
             - source in self.flight_network.airports
             - destination in self.flight_network.airports
@@ -200,7 +200,7 @@ class DijkstraFlightSearcher(AbstractFlightSearcher):
         """
         dep_time_simpl = DayHourMinute(departure_time.isoweekday(), departure_time.hour, departure_time.minute)
         pq = PriorityQueue()
-        
+
         # The tuple in pq is (curr_price, curr_pos, prev_ticket, prev_k, num_flights)
         # curr_time denote the time to arrive at curr_pos
         # curr_pos denote the current position after doing some flights
@@ -223,7 +223,7 @@ class DijkstraFlightSearcher(AbstractFlightSearcher):
                 previous[curr_pos].append((prev_ticket, prev_k))
 
             for ticket in self.flight_network.airports[curr_pos].tickets:
-                # If this is not the first flight, we allow layover time between [MIN_LAYOVER_TIME, MAX_LAYOVER_TIME] 
+                # If this is not the first flight, we allow layover time between [MIN_LAYOVER_TIME, MAX_LAYOVER_TIME]
                 if prev_ticket is not None:
                     time_to_depart = self._minute_diff(prev_ticket.arrival_time, ticket.departure_time)
                     if not MIN_LAYOVER_TIME <= time_to_depart <= MAX_LAYOVER_TIME:
@@ -255,7 +255,7 @@ class DijkstraFlightSearcher(AbstractFlightSearcher):
 
     def search_cheapest_flight(self, source: str, destination: str, departure_time: datetime) -> list[Ticket]:
         """Uses dijkstra algorithm to find and return the `TOP_K_RESULTS` flights with the cheapest ticket price.
-        
+
         Preconditions:
             - source in self.flight_network.airports
             - destination in self.flight_network.airports
@@ -263,7 +263,7 @@ class DijkstraFlightSearcher(AbstractFlightSearcher):
         """
         dep_time_simpl = DayHourMinute(departure_time.isoweekday(), departure_time.hour, departure_time.minute)
         pq = PriorityQueue()
-        
+
         # The tuple in pq is (curr_price, curr_pos, prev_ticket, prev_k, num_flights)
         # curr_price denote the price until of ticket to go from source to curr_pos
         # curr_pos denote the current position after doing some flights
@@ -284,9 +284,9 @@ class DijkstraFlightSearcher(AbstractFlightSearcher):
             # this is later used for backtracking
             if prev_ticket is not None:
                 previous[curr_pos].append((prev_ticket, prev_k))
-            
+
             for ticket in self.flight_network.airports[curr_pos].tickets:
-                # If this is not the first flight, we allow layover time between [MIN_LAYOVER_TIME, MAX_LAYOVER_TIME] 
+                # If this is not the first flight, we allow layover time between [MIN_LAYOVER_TIME, MAX_LAYOVER_TIME]
                 if prev_ticket is not None:
                     time_to_depart = self._minute_diff(prev_ticket.arrival_time, ticket.departure_time)
                     if not MIN_LAYOVER_TIME <= time_to_depart <= MAX_LAYOVER_TIME:
@@ -323,6 +323,6 @@ if __name__ == '__main__':
     python_ta.check_all(config={
         'max-line-length': 120,
         'extra-imports': ['network', 'datetime', 'queue'],
-        'disable': ['unused-import', 'too-many-branches', 'extra-imports'],
+        'disable': ['unused-import', 'too-many-branches', 'extra-imports', 'too-many-locals', 'too-many-nested-blocks'],
         'allowed-io': []
     })
