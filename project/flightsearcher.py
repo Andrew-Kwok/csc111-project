@@ -10,8 +10,7 @@ from python_ta.contracts import check_contracts
 from network import IATACode, DayHourMinute
 from network import MIN_LAYOVER_TIME, MAX_LAYOVER_TIME, MAX_LAYOVER, TOP_K_RESULTS
 from network import Network, Airport, Flight, Ticket
-
-
+from timeit import timeit
 # @check_contracts
 class AbstractFlightSearcher:
     """
@@ -169,6 +168,7 @@ class NaiveFlightSearcher(AbstractFlightSearcher):
                                           visited=visited)
         tickets.sort(key=lambda x: self._minute_diff(x.departure_time, x.arrival_time))
         return tickets[:TOP_K_RESULTS]
+
 
     def search_cheapest_flight(self, source: IATACode, destination: IATACode, departure_time: datetime) -> list[Ticket]:
         """Calls the `_search_all_flight` function to generate all possible paths. Then, returns the `TOP_K_RESULTS`

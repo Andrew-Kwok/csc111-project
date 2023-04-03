@@ -101,27 +101,6 @@ def search_cheapest_flight(self, source: IATACode, destination: IATACode, depart
 ###############################################################################
 # Timing experiments and visualization for break_diffie_hellman
 ###############################################################################
-def time_naive_search_shortest(source: IATACode, destination: IATACode, departure_time: datetime) -> float:
-    """"Return the time taken to run search_shortest_flight on the given arguments source, destination, departure time
-
-    number is the number of times to execute the statement, and should be passed into timeit.timeit.
-
-    IMPORTANT NOTE:
-        you must pass in an additional argument "globals=globals()" to the timing function:
-
-        timeit.timeit(..., number=..., globals=globals()),
-
-        otherwise you'll get a NameError when calling timeit.timeit.
-
-    Remember, the first argument of `timeit.timeit` is a *string* that represents the code
-    to execute; it is up to you to construct the correct string expressing a call to
-    break_diffie_hellman.
-    """
-    time = timeit.timeit(f'{NaiveFlightSearcher.search_shortest_flight(source, destination, departure_time)}', \
-                         number=1, globals=globals())
-    return time
-
-
 def time_naive_shortest_flight(airport_file: str, flight_file: str) -> list[tuple[int, float]]:
     """Return the time taken to run Naive search shortest flight contained in the given file.
 
@@ -134,19 +113,28 @@ def time_naive_shortest_flight(airport_file: str, flight_file: str) -> list[tupl
         - filename refers to a CSV file in the given data
     """
     network = main.read_csv_file(airport_file, flight_file)
+    naive_network = NaiveFlightSearcher(network)
     list_iata = list(network.airports.keys())
-    num_run = 1
+    num_run = 0
     list_so_far = []
-    while num_run != 1000:
+    while num_run != 15:
         source = random.choice(list_iata)
         destination = random.choice(list_iata)
         while destination == source:
             destination = random.choice(list_iata)
-
-        today = datetime.date.today()
-        add_day = random.randint(1, 8)
-        depart_time = today + datetime.timedelta(days=add_day)
-        call_time = time_naive_search_shortest(source, destination, depart_time)
+        year = random.randint(2000, 2023)
+        month = random.randint(1, 12)
+        day = random.randint(1, 28)
+        hour = random.randint(0, 23)
+        minute = random.randint(0, 59)
+        second = random.randint(0, 59)
+        depart_time = datetime.datetime(year, month, day, hour, minute, second)
+        # add_day = random.randint(1, 8)
+        # depart_time = today + datetime.timedelta(days=add_day)
+        # depart_time = datetime.datetime.now()
+        print(naive_network.search_shortest_flight(source, destination, depart_time))
+        call_time = timeit.timeit(f'{naive_network.search_shortest_flight(source, destination, depart_time)}', \
+                         number=1, globals=globals())
         list_so_far.append((num_run, call_time))
         num_run += 1
 
@@ -170,7 +158,7 @@ def graph_naive_search_shortest(timing_data: list[tuple[int, float]]) -> None:
         title='Naive search shortest flight time ',  # The graph title
         labels={
             'x': 'Number of call',
-            'y': 'Time'
+            'y': 'Time run (s)'
         }
     )
 
