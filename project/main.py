@@ -337,7 +337,7 @@ def run_django_project(airport_file: str, flight_file: str) -> None:
     """
     # Move the directory and Start the Django server using subprocess
     os.chdir('../skysearcher')
-    with subprocess.Popen(['python', 'manage.py', 'runserver']) as _:
+    with subprocess.Popen(['python', 'manage.py', 'runserver', '--noreload']) as _:
         # Wait for the server to start up
         url = 'http://localhost:8000'
         while True:
@@ -360,11 +360,10 @@ def run_django_project(airport_file: str, flight_file: str) -> None:
 
 
 if __name__ == '__main__':
-    # AIRPORTFILE = 'clean_no_dupe_itineraries'
-    # FLIGHTFILE = 'clean_no_dupe_itineraries'
+    N = 6969  # No of airports / No of Flights
 
-    AIRPORTFILE = '../data/airport_class_1000.csv'
-    FLIGHTFILE = '../data/clean_no_dupe_itineraries_1000.csv'
+    AIRPORTFILE = f'../data/airport_class_{N}.csv'
+    FLIGHTFILE = f'../data/clean_no_dupe_itineraries_{N}.csv'
 
     if not ALWAYS_NO and ask_yes_no(
             """Do you want to download and construct the data from scratch,
@@ -377,12 +376,16 @@ Proceed with caution.""", default=False):
     else:
         unpack_csv()
 
-    # testcase_generator.generate_testcase_general(
-    #     '../data/clean_no_dupe_itineraries.csv', '../data/airport_class.csv', 1000, seed=65537)
+    # Select which generator you would like
+    testcase_generator.generate_testcase_general(
+        '../data/clean_no_dupe_itineraries.csv', '../data/airport_class.csv', N, seed=65537)
     # testcase_generator.generate_testcase_direct_flight(
     #     '../data/clean_no_dupe_itineraries.csv', '../data/airport_class.csv', 1000, seed=94231)
-    #
+
+    # Uncomment the following code to run the program in python console
     # run(AIRPORTFILE, FLIGHTFILE, 'dijsktra')
+
+    # Uncomment the following code to launch the interactive website
     run_django_project(AIRPORTFILE, FLIGHTFILE)
 
     # import python_ta
