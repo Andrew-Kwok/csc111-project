@@ -15,7 +15,8 @@ from network import Network, Airport, Flight, Ticket
 from plotly.express import scatter
 
 import main
-import flightsearcher
+
+from flightsearcher import NaiveFlightSearcher
 
 import csv
 import datetime
@@ -116,8 +117,8 @@ def time_naive_search_shortest(source: IATACode, destination: IATACode, departur
     to execute; it is up to you to construct the correct string expressing a call to
     break_diffie_hellman.
     """
-    time = timeit.timeit('flightsearcher.NaiveFlightSearcher.search_shortest_flight(source, destination, \
-                          departure_time)', number=1)
+    time = timeit.timeit(f'{NaiveFlightSearcher.search_shortest_flight(source, destination, departure_time)}', \
+                         number=1, globals=globals())
     return time
 
 
@@ -133,7 +134,7 @@ def time_naive_shortest_flight(airport_file: str, flight_file: str) -> list[tupl
         - filename refers to a CSV file in the given data
     """
     network = main.read_csv_file(airport_file, flight_file)
-    list_iata = [network.airports.keys()]
+    list_iata = list(network.airports.keys())
     num_run = 1
     list_so_far = []
     while num_run != 1000:
@@ -142,7 +143,7 @@ def time_naive_shortest_flight(airport_file: str, flight_file: str) -> list[tupl
         while destination == source:
             destination = random.choice(list_iata)
 
-        today = datetime.today()
+        today = datetime.date.today()
         add_day = random.randint(1, 8)
         depart_time = today + datetime.timedelta(days=add_day)
         call_time = time_naive_search_shortest(source, destination, depart_time)
@@ -152,7 +153,7 @@ def time_naive_shortest_flight(airport_file: str, flight_file: str) -> list[tupl
     return list_so_far
 
 
-def visualize_break_diffie_hellman_times(timing_data: list[tuple[int, float]]) -> None:
+def graph_naive_search_shortest(timing_data: list[tuple[int, float]]) -> None:
     """Visualize the results of the timing experiments completed by naive_search_shortest
 
     Use a plotly scatterplot to visualize the data.
@@ -175,6 +176,5 @@ def visualize_break_diffie_hellman_times(timing_data: list[tuple[int, float]]) -
 
     # Show the figure in the browser
     figure.show()
-    # Is the above not working for you? Comment out that line of code, and uncomment the following line:
     # figure.write_html('my_figure.html')
     # This will create a new file called 'my_figure.html', which you can manually open in your web browser.
