@@ -104,6 +104,7 @@ def search(request):
                                                                           destination=destination_iata,
                                                                           departure_time=departure_time)
             context['tickets'] = tickets
+            messages.success(request, 'scroll to view the generated tickets')
 
     context['airport_options'] = AIRPORT_OPTIONS
     context['json_data'] = json.dumps(data)

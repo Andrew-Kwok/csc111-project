@@ -157,7 +157,7 @@ class NaiveFlightSearcher(AbstractFlightSearcher):
                                           destination=destination_airport,
                                           departure_time=departure_weektime,
                                           visited=visited)
-        tickets.sort(key=lambda x: self._minute_diff(x.departure_time, x.arrival_time))
+        tickets.sort(key=lambda x: x.arrival_time)
         return tickets[:TOP_K_RESULTS]
 
     def search_cheapest_flight(self, source: IATACode, destination: IATACode, departure_time: datetime) -> list[Ticket]:
